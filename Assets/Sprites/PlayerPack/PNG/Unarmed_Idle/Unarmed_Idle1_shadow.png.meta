@@ -154,7 +154,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -168,7 +168,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -192,7 +192,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -1122,7 +1122,47 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Unarmed_Idle1_shadow_0: 9040953430010579757
+      Unarmed_Idle1_shadow_1: 1306390972214514001
+      Unarmed_Idle1_shadow_10: -6489336933927041870
+      Unarmed_Idle1_shadow_11: 7367432314202779418
+      Unarmed_Idle1_shadow_12: 222206628391389331
+      Unarmed_Idle1_shadow_13: -1941908885851106222
+      Unarmed_Idle1_shadow_14: -99398927356453691
+      Unarmed_Idle1_shadow_15: 74289951383135388
+      Unarmed_Idle1_shadow_16: -77957290807224688
+      Unarmed_Idle1_shadow_17: -5205510107859628861
+      Unarmed_Idle1_shadow_18: -1153962432736783274
+      Unarmed_Idle1_shadow_19: 8951071385495257314
+      Unarmed_Idle1_shadow_2: 1541964708982488096
+      Unarmed_Idle1_shadow_20: 5272551612850909669
+      Unarmed_Idle1_shadow_21: 4619477792923281916
+      Unarmed_Idle1_shadow_22: -5176892157329411210
+      Unarmed_Idle1_shadow_23: 6333133635162156184
+      Unarmed_Idle1_shadow_24: -883368548751883533
+      Unarmed_Idle1_shadow_25: 3937203523472770136
+      Unarmed_Idle1_shadow_26: 1391367149491080165
+      Unarmed_Idle1_shadow_27: 527998739634751486
+      Unarmed_Idle1_shadow_28: -1720013617857700039
+      Unarmed_Idle1_shadow_29: -2578286206663838250
+      Unarmed_Idle1_shadow_3: 8225369328913291064
+      Unarmed_Idle1_shadow_30: -6164784840708766919
+      Unarmed_Idle1_shadow_31: 5688832854055657249
+      Unarmed_Idle1_shadow_32: 3917789707546951272
+      Unarmed_Idle1_shadow_33: 5499642965946853458
+      Unarmed_Idle1_shadow_34: 686579035664618521
+      Unarmed_Idle1_shadow_35: 4550900558715475241
+      Unarmed_Idle1_shadow_36: -6594053913040234679
+      Unarmed_Idle1_shadow_37: 2093360148928935250
+      Unarmed_Idle1_shadow_38: -2989088765739806183
+      Unarmed_Idle1_shadow_39: 7401296368871796467
+      Unarmed_Idle1_shadow_4: 435511260158224645
+      Unarmed_Idle1_shadow_5: 4443209740735412796
+      Unarmed_Idle1_shadow_6: 553870663118011734
+      Unarmed_Idle1_shadow_7: -2150790601371028371
+      Unarmed_Idle1_shadow_8: 5425592486637384806
+      Unarmed_Idle1_shadow_9: -6390866369142515249
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

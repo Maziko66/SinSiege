@@ -4,16 +4,23 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     private Rigidbody2D rb;
+    
 
     public InputAction playerControls;
 
+    [Header("Character Stats")]
     [SerializeField] private float _moveSpeed = 3f;
 
-    private Vector2 _moveDirection = Vector2.zero;
+    #region ANIMATOR
+    private Animator animator;
+    #endregion
+
+    [SerializeField] private Vector2 _moveDirection = Vector2.zero;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -29,6 +36,10 @@ public class Player : MonoBehaviour
     private void Update()
     {
         _moveDirection = playerControls.ReadValue<Vector2>();
+
+        animator.SetFloat("moveY", _moveDirection.y);
+        animator.SetFloat("moveX", _moveDirection.x);
+
     }
 
     private void FixedUpdate()

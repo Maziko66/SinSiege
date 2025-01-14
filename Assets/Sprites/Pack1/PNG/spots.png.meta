@@ -614,10 +614,10 @@ TextureImporter:
       name: spots_0
       rect:
         serializedVersion: 2
-        x: 237
-        y: 150
-        width: 6
-        height: 6
+        x: 0
+        y: 144
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -636,10 +636,10 @@ TextureImporter:
       name: spots_1
       rect:
         serializedVersion: 2
-        x: 268
-        y: 149
-        width: 8
-        height: 7
+        x: 16
+        y: 144
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -658,10 +658,10 @@ TextureImporter:
       name: spots_2
       rect:
         serializedVersion: 2
-        x: 300
-        y: 154
-        width: 8
-        height: 6
+        x: 32
+        y: 144
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -680,10 +680,10 @@ TextureImporter:
       name: spots_3
       rect:
         serializedVersion: 2
-        x: 10
-        y: 138
-        width: 10
-        height: 11
+        x: 48
+        y: 144
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -702,10 +702,10 @@ TextureImporter:
       name: spots_4
       rect:
         serializedVersion: 2
-        x: 43
-        y: 140
-        width: 9
-        height: 9
+        x: 64
+        y: 144
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -724,10 +724,10 @@ TextureImporter:
       name: spots_5
       rect:
         serializedVersion: 2
-        x: 73
-        y: 142
-        width: 8
-        height: 8
+        x: 80
+        y: 144
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -746,10 +746,10 @@ TextureImporter:
       name: spots_6
       rect:
         serializedVersion: 2
-        x: 81
-        y: 141
-        width: 6
-        height: 7
+        x: 96
+        y: 144
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -768,10 +768,10 @@ TextureImporter:
       name: spots_7
       rect:
         serializedVersion: 2
-        x: 107
-        y: 142
-        width: 9
-        height: 9
+        x: 112
+        y: 144
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -790,10 +790,10 @@ TextureImporter:
       name: spots_8
       rect:
         serializedVersion: 2
-        x: 138
-        y: 140
-        width: 10
-        height: 8
+        x: 128
+        y: 144
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -812,10 +812,10 @@ TextureImporter:
       name: spots_9
       rect:
         serializedVersion: 2
-        x: 168
-        y: 134
+        x: 144
+        y: 144
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -834,10 +834,10 @@ TextureImporter:
       name: spots_10
       rect:
         serializedVersion: 2
-        x: 180
-        y: 145
-        width: 6
-        height: 6
+        x: 160
+        y: 144
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -856,10 +856,10 @@ TextureImporter:
       name: spots_11
       rect:
         serializedVersion: 2
-        x: 204
-        y: 140
-        width: 8
-        height: 7
+        x: 176
+        y: 144
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -878,10 +878,10 @@ TextureImporter:
       name: spots_12
       rect:
         serializedVersion: 2
-        x: 295
-        y: 143
-        width: 10
-        height: 9
+        x: 192
+        y: 144
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -900,10 +900,10 @@ TextureImporter:
       name: spots_13
       rect:
         serializedVersion: 2
-        x: 307
-        y: 147
-        width: 6
-        height: 6
+        x: 208
+        y: 144
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -922,10 +922,10 @@ TextureImporter:
       name: spots_14
       rect:
         serializedVersion: 2
-        x: 327
-        y: 147
-        width: 6
-        height: 6
+        x: 224
+        y: 144
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -944,10 +944,10 @@ TextureImporter:
       name: spots_15
       rect:
         serializedVersion: 2
-        x: 76
-        y: 137
-        width: 6
-        height: 6
+        x: 240
+        y: 144
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -966,10 +966,10 @@ TextureImporter:
       name: spots_16
       rect:
         serializedVersion: 2
-        x: 105
-        y: 137
-        width: 8
-        height: 7
+        x: 256
+        y: 144
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -988,10 +988,10 @@ TextureImporter:
       name: spots_17
       rect:
         serializedVersion: 2
-        x: 112
-        y: 138
-        width: 6
-        height: 6
+        x: 272
+        y: 144
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1010,10 +1010,10 @@ TextureImporter:
       name: spots_18
       rect:
         serializedVersion: 2
-        x: 235
-        y: 134
-        width: 9
-        height: 9
+        x: 288
+        y: 144
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1032,10 +1032,10 @@ TextureImporter:
       name: spots_19
       rect:
         serializedVersion: 2
-        x: 263
-        y: 127
+        x: 304
+        y: 144
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1054,10 +1054,10 @@ TextureImporter:
       name: spots_20
       rect:
         serializedVersion: 2
-        x: 275
-        y: 138
-        width: 6
-        height: 6
+        x: 320
+        y: 144
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1076,10 +1076,10 @@ TextureImporter:
       name: spots_21
       rect:
         serializedVersion: 2
-        x: 300
-        y: 132
-        width: 10
-        height: 11
+        x: 0
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1098,10 +1098,10 @@ TextureImporter:
       name: spots_22
       rect:
         serializedVersion: 2
-        x: 320
-        y: 138
-        width: 7
-        height: 6
+        x: 16
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1120,10 +1120,10 @@ TextureImporter:
       name: spots_23
       rect:
         serializedVersion: 2
-        x: 331
-        y: 136
-        width: 5
-        height: 6
+        x: 32
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1142,10 +1142,10 @@ TextureImporter:
       name: spots_24
       rect:
         serializedVersion: 2
-        x: 233
-        y: 129
-        width: 8
-        height: 7
+        x: 48
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1164,10 +1164,10 @@ TextureImporter:
       name: spots_25
       rect:
         serializedVersion: 2
-        x: 240
-        y: 130
-        width: 6
-        height: 6
+        x: 64
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1186,10 +1186,10 @@ TextureImporter:
       name: spots_26
       rect:
         serializedVersion: 2
-        x: 297
-        y: 130
-        width: 6
-        height: 6
+        x: 80
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1208,10 +1208,10 @@ TextureImporter:
       name: spots_27
       rect:
         serializedVersion: 2
-        x: 9
-        y: 107
-        width: 11
-        height: 13
+        x: 96
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1230,10 +1230,10 @@ TextureImporter:
       name: spots_28
       rect:
         serializedVersion: 2
-        x: 43
-        y: 107
-        width: 12
-        height: 12
+        x: 112
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1252,10 +1252,10 @@ TextureImporter:
       name: spots_29
       rect:
         serializedVersion: 2
-        x: 76
-        y: 113
-        width: 7
-        height: 7
+        x: 128
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1274,10 +1274,10 @@ TextureImporter:
       name: spots_30
       rect:
         serializedVersion: 2
-        x: 107
-        y: 107
-        width: 14
-        height: 11
+        x: 144
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1296,10 +1296,10 @@ TextureImporter:
       name: spots_31
       rect:
         serializedVersion: 2
-        x: 137
-        y: 114
-        width: 6
-        height: 6
+        x: 160
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1318,10 +1318,10 @@ TextureImporter:
       name: spots_32
       rect:
         serializedVersion: 2
-        x: 201
-        y: 109
-        width: 9
-        height: 9
+        x: 176
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1340,10 +1340,10 @@ TextureImporter:
       name: spots_33
       rect:
         serializedVersion: 2
-        x: 232
-        y: 118
-        width: 8
-        height: 8
+        x: 192
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1362,10 +1362,10 @@ TextureImporter:
       name: spots_34
       rect:
         serializedVersion: 2
-        x: 235
-        y: 113
-        width: 6
-        height: 6
+        x: 208
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1384,10 +1384,10 @@ TextureImporter:
       name: spots_35
       rect:
         serializedVersion: 2
-        x: 240
-        y: 117
-        width: 6
-        height: 7
+        x: 224
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1406,10 +1406,10 @@ TextureImporter:
       name: spots_36
       rect:
         serializedVersion: 2
-        x: 267
-        y: 116
-        width: 10
-        height: 8
+        x: 240
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1428,10 +1428,10 @@ TextureImporter:
       name: spots_37
       rect:
         serializedVersion: 2
-        x: 299
-        y: 116
-        width: 8
-        height: 7
+        x: 256
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1450,10 +1450,10 @@ TextureImporter:
       name: spots_38
       rect:
         serializedVersion: 2
-        x: 17
-        y: 104
-        width: 6
-        height: 6
+        x: 272
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1472,10 +1472,10 @@ TextureImporter:
       name: spots_39
       rect:
         serializedVersion: 2
-        x: 73
-        y: 104
-        width: 8
-        height: 7
+        x: 288
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1494,10 +1494,10 @@ TextureImporter:
       name: spots_40
       rect:
         serializedVersion: 2
-        x: 82
-        y: 108
-        width: 7
-        height: 7
+        x: 304
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1516,10 +1516,10 @@ TextureImporter:
       name: spots_41
       rect:
         serializedVersion: 2
-        x: 138
-        y: 106
-        width: 6
-        height: 6
+        x: 320
+        y: 128
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1538,10 +1538,10 @@ TextureImporter:
       name: spots_42
       rect:
         serializedVersion: 2
-        x: 145
-        y: 109
-        width: 7
-        height: 7
+        x: 0
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1560,10 +1560,10 @@ TextureImporter:
       name: spots_43
       rect:
         serializedVersion: 2
-        x: 169
-        y: 108
-        width: 8
-        height: 8
+        x: 16
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1582,10 +1582,10 @@ TextureImporter:
       name: spots_44
       rect:
         serializedVersion: 2
-        x: 177
-        y: 107
-        width: 6
-        height: 7
+        x: 32
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1604,10 +1604,10 @@ TextureImporter:
       name: spots_45
       rect:
         serializedVersion: 2
-        x: 208
-        y: 106
-        width: 6
-        height: 6
+        x: 48
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1626,10 +1626,10 @@ TextureImporter:
       name: spots_46
       rect:
         serializedVersion: 2
-        x: 235
-        y: 101
-        width: 9
-        height: 9
+        x: 64
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1648,10 +1648,10 @@ TextureImporter:
       name: spots_47
       rect:
         serializedVersion: 2
-        x: 265
-        y: 103
-        width: 7
-        height: 6
+        x: 80
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1670,10 +1670,10 @@ TextureImporter:
       name: spots_48
       rect:
         serializedVersion: 2
-        x: 325
-        y: 105
-        width: 10
-        height: 11
+        x: 96
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1692,10 +1692,10 @@ TextureImporter:
       name: spots_49
       rect:
         serializedVersion: 2
-        x: 242
-        y: 98
-        width: 6
-        height: 6
+        x: 112
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1714,10 +1714,10 @@ TextureImporter:
       name: spots_50
       rect:
         serializedVersion: 2
-        x: 272
-        y: 99
-        width: 6
-        height: 6
+        x: 128
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1736,10 +1736,10 @@ TextureImporter:
       name: spots_51
       rect:
         serializedVersion: 2
-        x: 298
-        y: 99
-        width: 9
-        height: 9
+        x: 144
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1758,10 +1758,10 @@ TextureImporter:
       name: spots_52
       rect:
         serializedVersion: 2
-        x: 1
-        y: 83
-        width: 11
-        height: 13
+        x: 160
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1780,10 +1780,10 @@ TextureImporter:
       name: spots_53
       rect:
         serializedVersion: 2
-        x: 18
-        y: 82
-        width: 12
-        height: 12
+        x: 176
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1802,10 +1802,10 @@ TextureImporter:
       name: spots_54
       rect:
         serializedVersion: 2
-        x: 36
-        y: 89
-        width: 7
-        height: 7
+        x: 192
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1824,10 +1824,10 @@ TextureImporter:
       name: spots_55
       rect:
         serializedVersion: 2
-        x: 42
-        y: 84
-        width: 7
-        height: 7
+        x: 208
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1846,10 +1846,10 @@ TextureImporter:
       name: spots_56
       rect:
         serializedVersion: 2
-        x: 49
-        y: 82
-        width: 14
-        height: 11
+        x: 224
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1868,10 +1868,10 @@ TextureImporter:
       name: spots_57
       rect:
         serializedVersion: 2
-        x: 65
-        y: 90
-        width: 6
-        height: 6
+        x: 240
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1890,10 +1890,10 @@ TextureImporter:
       name: spots_58
       rect:
         serializedVersion: 2
-        x: 73
-        y: 85
-        width: 7
-        height: 7
+        x: 256
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1912,10 +1912,10 @@ TextureImporter:
       name: spots_59
       rect:
         serializedVersion: 2
-        x: 81
-        y: 84
-        width: 8
-        height: 8
+        x: 272
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1934,10 +1934,10 @@ TextureImporter:
       name: spots_60
       rect:
         serializedVersion: 2
-        x: 89
-        y: 83
-        width: 6
-        height: 7
+        x: 288
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1956,10 +1956,10 @@ TextureImporter:
       name: spots_61
       rect:
         serializedVersion: 2
-        x: 97
-        y: 85
-        width: 9
-        height: 9
+        x: 304
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1978,10 +1978,10 @@ TextureImporter:
       name: spots_62
       rect:
         serializedVersion: 2
-        x: 114
-        y: 87
-        width: 7
-        height: 6
+        x: 320
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2000,10 +2000,10 @@ TextureImporter:
       name: spots_63
       rect:
         serializedVersion: 2
-        x: 131
-        y: 83
-        width: 10
-        height: 11
+        x: 0
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2022,10 +2022,10 @@ TextureImporter:
       name: spots_64
       rect:
         serializedVersion: 2
-        x: 145
-        y: 86
-        width: 8
-        height: 8
+        x: 16
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2044,10 +2044,10 @@ TextureImporter:
       name: spots_65
       rect:
         serializedVersion: 2
-        x: 153
-        y: 85
-        width: 6
-        height: 7
+        x: 32
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2066,10 +2066,10 @@ TextureImporter:
       name: spots_66
       rect:
         serializedVersion: 2
-        x: 162
-        y: 84
-        width: 10
-        height: 8
+        x: 48
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2088,10 +2088,10 @@ TextureImporter:
       name: spots_67
       rect:
         serializedVersion: 2
-        x: 180
-        y: 84
-        width: 8
-        height: 7
+        x: 64
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2110,10 +2110,10 @@ TextureImporter:
       name: spots_68
       rect:
         serializedVersion: 2
-        x: 197
-        y: 85
-        width: 6
-        height: 6
+        x: 80
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2132,10 +2132,10 @@ TextureImporter:
       name: spots_69
       rect:
         serializedVersion: 2
-        x: 212
-        y: 90
-        width: 8
-        height: 7
+        x: 96
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2154,10 +2154,10 @@ TextureImporter:
       name: spots_70
       rect:
         serializedVersion: 2
-        x: 268
-        y: 83
-        width: 8
-        height: 7
+        x: 112
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2176,10 +2176,10 @@ TextureImporter:
       name: spots_71
       rect:
         serializedVersion: 2
-        x: 297
-        y: 85
-        width: 8
-        height: 8
+        x: 128
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2198,10 +2198,10 @@ TextureImporter:
       name: spots_72
       rect:
         serializedVersion: 2
-        x: 305
-        y: 84
-        width: 6
-        height: 7
+        x: 144
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2220,10 +2220,10 @@ TextureImporter:
       name: spots_73
       rect:
         serializedVersion: 2
-        x: 9
-        y: 80
-        width: 6
-        height: 6
+        x: 160
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2242,10 +2242,10 @@ TextureImporter:
       name: spots_74
       rect:
         serializedVersion: 2
-        x: 33
-        y: 80
-        width: 8
-        height: 7
+        x: 176
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2264,10 +2264,10 @@ TextureImporter:
       name: spots_75
       rect:
         serializedVersion: 2
-        x: 66
-        y: 82
-        width: 6
-        height: 6
+        x: 192
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2286,10 +2286,10 @@ TextureImporter:
       name: spots_76
       rect:
         serializedVersion: 2
-        x: 104
-        y: 82
-        width: 6
-        height: 6
+        x: 208
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2308,10 +2308,10 @@ TextureImporter:
       name: spots_77
       rect:
         serializedVersion: 2
-        x: 121
-        y: 83
-        width: 6
-        height: 6
+        x: 224
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2330,10 +2330,10 @@ TextureImporter:
       name: spots_78
       rect:
         serializedVersion: 2
-        x: 148
-        y: 81
-        width: 6
-        height: 6
+        x: 240
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2352,10 +2352,10 @@ TextureImporter:
       name: spots_79
       rect:
         serializedVersion: 2
-        x: 207
-        y: 79
-        width: 10
-        height: 9
+        x: 256
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2374,10 +2374,10 @@ TextureImporter:
       name: spots_80
       rect:
         serializedVersion: 2
-        x: 219
-        y: 83
-        width: 6
-        height: 6
+        x: 272
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2396,10 +2396,10 @@ TextureImporter:
       name: spots_81
       rect:
         serializedVersion: 2
-        x: 237
-        y: 77
-        width: 6
-        height: 6
+        x: 288
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2418,10 +2418,10 @@ TextureImporter:
       name: spots_82
       rect:
         serializedVersion: 2
-        x: 321
-        y: 75
-        width: 14
-        height: 11
+        x: 304
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2440,10 +2440,10 @@ TextureImporter:
       name: spots_83
       rect:
         serializedVersion: 2
-        x: 131
-        y: 67
-        width: 9
-        height: 9
+        x: 320
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2462,10 +2462,10 @@ TextureImporter:
       name: spots_84
       rect:
         serializedVersion: 2
-        x: 148
-        y: 70
-        width: 9
-        height: 9
+        x: 0
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2484,10 +2484,10 @@ TextureImporter:
       name: spots_85
       rect:
         serializedVersion: 2
-        x: 159
-        y: 63
+        x: 16
+        y: 80
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2506,10 +2506,10 @@ TextureImporter:
       name: spots_86
       rect:
         serializedVersion: 2
-        x: 171
-        y: 74
-        width: 6
-        height: 6
+        x: 32
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2528,10 +2528,10 @@ TextureImporter:
       name: spots_87
       rect:
         serializedVersion: 2
-        x: 180
-        y: 68
-        width: 10
-        height: 11
+        x: 48
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2550,10 +2550,10 @@ TextureImporter:
       name: spots_88
       rect:
         serializedVersion: 2
-        x: 197
-        y: 69
-        width: 8
-        height: 7
+        x: 64
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2572,10 +2572,10 @@ TextureImporter:
       name: spots_89
       rect:
         serializedVersion: 2
-        x: 214
-        y: 75
-        width: 6
-        height: 6
+        x: 80
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2594,10 +2594,10 @@ TextureImporter:
       name: spots_90
       rect:
         serializedVersion: 2
-        x: 263
-        y: 72
-        width: 10
-        height: 9
+        x: 96
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2616,10 +2616,10 @@ TextureImporter:
       name: spots_91
       rect:
         serializedVersion: 2
-        x: 275
-        y: 76
-        width: 6
-        height: 6
+        x: 112
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2638,10 +2638,10 @@ TextureImporter:
       name: spots_92
       rect:
         serializedVersion: 2
-        x: 297
-        y: 74
-        width: 6
-        height: 6
+        x: 128
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2660,10 +2660,10 @@ TextureImporter:
       name: spots_93
       rect:
         serializedVersion: 2
-        x: 305
-        y: 69
-        width: 7
-        height: 7
+        x: 144
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2682,10 +2682,10 @@ TextureImporter:
       name: spots_94
       rect:
         serializedVersion: 2
-        x: 2
-        y: 66
-        width: 8
-        height: 6
+        x: 160
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2704,10 +2704,10 @@ TextureImporter:
       name: spots_95
       rect:
         serializedVersion: 2
-        x: 9
-        y: 60
-        width: 14
-        height: 13
+        x: 176
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2726,10 +2726,10 @@ TextureImporter:
       name: spots_96
       rect:
         serializedVersion: 2
-        x: 22
-        y: 62
-        width: 10
-        height: 10
+        x: 192
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2748,10 +2748,10 @@ TextureImporter:
       name: spots_97
       rect:
         serializedVersion: 2
-        x: 34
-        y: 59
-        width: 18
-        height: 12
+        x: 208
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2770,10 +2770,10 @@ TextureImporter:
       name: spots_98
       rect:
         serializedVersion: 2
-        x: 52
-        y: 63
-        width: 9
-        height: 8
+        x: 224
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2792,10 +2792,10 @@ TextureImporter:
       name: spots_99
       rect:
         serializedVersion: 2
-        x: 67
-        y: 60
-        width: 14
-        height: 11
+        x: 240
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2814,10 +2814,10 @@ TextureImporter:
       name: spots_100
       rect:
         serializedVersion: 2
-        x: 81
-        y: 62
-        width: 9
-        height: 8
+        x: 256
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2836,10 +2836,10 @@ TextureImporter:
       name: spots_101
       rect:
         serializedVersion: 2
-        x: 102
-        y: 60
-        width: 12
-        height: 10
+        x: 272
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2858,10 +2858,10 @@ TextureImporter:
       name: spots_102
       rect:
         serializedVersion: 2
-        x: 111
-        y: 64
-        width: 7
-        height: 7
+        x: 288
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2880,10 +2880,10 @@ TextureImporter:
       name: spots_103
       rect:
         serializedVersion: 2
-        x: 146
-        y: 65
-        width: 8
-        height: 7
+        x: 304
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2902,10 +2902,10 @@ TextureImporter:
       name: spots_104
       rect:
         serializedVersion: 2
-        x: 153
-        y: 66
-        width: 6
-        height: 6
+        x: 320
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2924,10 +2924,10 @@ TextureImporter:
       name: spots_105
       rect:
         serializedVersion: 2
-        x: 177
-        y: 66
-        width: 6
-        height: 6
+        x: 0
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2946,10 +2946,10 @@ TextureImporter:
       name: spots_106
       rect:
         serializedVersion: 2
-        x: 207
-        y: 66
-        width: 7
-        height: 6
+        x: 16
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2968,10 +2968,10 @@ TextureImporter:
       name: spots_107
       rect:
         serializedVersion: 2
-        x: 218
+        x: 32
         y: 64
-        width: 6
-        height: 6
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2990,10 +2990,10 @@ TextureImporter:
       name: spots_108
       rect:
         serializedVersion: 2
-        x: 298
-        y: 66
-        width: 6
-        height: 6
+        x: 48
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3012,10 +3012,10 @@ TextureImporter:
       name: spots_109
       rect:
         serializedVersion: 2
-        x: 4
-        y: 55
-        width: 10
-        height: 8
+        x: 64
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3034,10 +3034,10 @@ TextureImporter:
       name: spots_110
       rect:
         serializedVersion: 2
-        x: 21
-        y: 56
-        width: 7
-        height: 6
+        x: 80
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3056,10 +3056,10 @@ TextureImporter:
       name: spots_111
       rect:
         serializedVersion: 2
-        x: 48
-        y: 55
-        width: 15
-        height: 9
+        x: 96
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3078,10 +3078,10 @@ TextureImporter:
       name: spots_112
       rect:
         serializedVersion: 2
-        x: 78
-        y: 56
-        width: 8
-        height: 7
+        x: 112
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3100,10 +3100,10 @@ TextureImporter:
       name: spots_113
       rect:
         serializedVersion: 2
-        x: 113
-        y: 58
-        width: 8
-        height: 7
+        x: 128
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3122,10 +3122,10 @@ TextureImporter:
       name: spots_114
       rect:
         serializedVersion: 2
-        x: 132
-        y: 52
-        width: 10
-        height: 9
+        x: 144
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3144,10 +3144,10 @@ TextureImporter:
       name: spots_115
       rect:
         serializedVersion: 2
-        x: 148
-        y: 54
-        width: 8
-        height: 7
+        x: 160
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3166,10 +3166,10 @@ TextureImporter:
       name: spots_116
       rect:
         serializedVersion: 2
-        x: 161
-        y: 52
-        width: 9
-        height: 9
+        x: 176
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3188,10 +3188,10 @@ TextureImporter:
       name: spots_117
       rect:
         serializedVersion: 2
-        x: 180
-        y: 51
-        width: 11
-        height: 10
+        x: 192
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3210,10 +3210,10 @@ TextureImporter:
       name: spots_118
       rect:
         serializedVersion: 2
-        x: 199
-        y: 52
-        width: 14
-        height: 11
+        x: 208
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3232,10 +3232,10 @@ TextureImporter:
       name: spots_119
       rect:
         serializedVersion: 2
-        x: 215
-        y: 55
-        width: 7
-        height: 7
+        x: 224
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3254,10 +3254,10 @@ TextureImporter:
       name: spots_120
       rect:
         serializedVersion: 2
-        x: 298
-        y: 50
-        width: 12
-        height: 12
+        x: 240
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3276,10 +3276,10 @@ TextureImporter:
       name: spots_121
       rect:
         serializedVersion: 2
-        x: 9
-        y: 36
-        width: 14
-        height: 13
+        x: 256
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3298,10 +3298,10 @@ TextureImporter:
       name: spots_122
       rect:
         serializedVersion: 2
-        x: 129
-        y: 41
-        width: 7
-        height: 8
+        x: 272
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3320,10 +3320,10 @@ TextureImporter:
       name: spots_123
       rect:
         serializedVersion: 2
-        x: 135
-        y: 40
+        x: 288
+        y: 64
         width: 16
-        height: 15
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3342,10 +3342,10 @@ TextureImporter:
       name: spots_124
       rect:
         serializedVersion: 2
-        x: 150
-        y: 43
-        width: 10
-        height: 10
+        x: 304
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3364,10 +3364,10 @@ TextureImporter:
       name: spots_125
       rect:
         serializedVersion: 2
-        x: 165
-        y: 36
-        width: 21
-        height: 18
+        x: 320
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3386,10 +3386,10 @@ TextureImporter:
       name: spots_126
       rect:
         serializedVersion: 2
-        x: 192
-        y: 34
-        width: 21
-        height: 17
+        x: 0
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3408,10 +3408,10 @@ TextureImporter:
       name: spots_127
       rect:
         serializedVersion: 2
-        x: 214
-        y: 41
-        width: 9
-        height: 9
+        x: 16
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3430,10 +3430,10 @@ TextureImporter:
       name: spots_128
       rect:
         serializedVersion: 2
-        x: 236
-        y: 43
-        width: 10
-        height: 11
+        x: 32
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3452,10 +3452,10 @@ TextureImporter:
       name: spots_129
       rect:
         serializedVersion: 2
-        x: 269
-        y: 44
-        width: 8
-        height: 7
+        x: 48
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3474,10 +3474,10 @@ TextureImporter:
       name: spots_130
       rect:
         serializedVersion: 2
-        x: 324
-        y: 49
-        width: 7
-        height: 7
+        x: 64
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3496,10 +3496,10 @@ TextureImporter:
       name: spots_131
       rect:
         serializedVersion: 2
-        x: 330
-        y: 44
-        width: 6
-        height: 7
+        x: 80
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3518,10 +3518,10 @@ TextureImporter:
       name: spots_132
       rect:
         serializedVersion: 2
-        x: 2
-        y: 42
-        width: 8
-        height: 6
+        x: 96
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3540,10 +3540,10 @@ TextureImporter:
       name: spots_133
       rect:
         serializedVersion: 2
-        x: 22
-        y: 38
-        width: 10
-        height: 10
+        x: 112
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3562,10 +3562,10 @@ TextureImporter:
       name: spots_134
       rect:
         serializedVersion: 2
-        x: 34
-        y: 36
-        width: 18
-        height: 12
+        x: 128
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3584,10 +3584,10 @@ TextureImporter:
       name: spots_135
       rect:
         serializedVersion: 2
-        x: 52
-        y: 40
-        width: 9
-        height: 8
+        x: 144
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3606,10 +3606,10 @@ TextureImporter:
       name: spots_136
       rect:
         serializedVersion: 2
-        x: 67
-        y: 36
-        width: 14
-        height: 11
+        x: 160
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3628,10 +3628,10 @@ TextureImporter:
       name: spots_137
       rect:
         serializedVersion: 2
-        x: 81
-        y: 38
-        width: 9
-        height: 8
+        x: 176
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3650,10 +3650,10 @@ TextureImporter:
       name: spots_138
       rect:
         serializedVersion: 2
-        x: 102
-        y: 35
-        width: 12
-        height: 10
+        x: 192
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3672,10 +3672,10 @@ TextureImporter:
       name: spots_139
       rect:
         serializedVersion: 2
-        x: 111
-        y: 39
-        width: 7
-        height: 7
+        x: 208
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3694,10 +3694,10 @@ TextureImporter:
       name: spots_140
       rect:
         serializedVersion: 2
-        x: 133
-        y: 33
-        width: 11
-        height: 9
+        x: 224
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3716,10 +3716,10 @@ TextureImporter:
       name: spots_141
       rect:
         serializedVersion: 2
-        x: 149
-        y: 38
-        width: 7
-        height: 6
+        x: 240
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3738,10 +3738,10 @@ TextureImporter:
       name: spots_142
       rect:
         serializedVersion: 2
-        x: 228
-        y: 28
-        width: 11
-        height: 19
+        x: 256
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3760,10 +3760,10 @@ TextureImporter:
       name: spots_143
       rect:
         serializedVersion: 2
-        x: 297
-        y: 35
-        width: 11
-        height: 13
+        x: 272
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3782,10 +3782,10 @@ TextureImporter:
       name: spots_144
       rect:
         serializedVersion: 2
-        x: 321
-        y: 40
-        width: 8
-        height: 7
+        x: 288
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3804,10 +3804,10 @@ TextureImporter:
       name: spots_145
       rect:
         serializedVersion: 2
-        x: 4
-        y: 31
-        width: 10
-        height: 8
+        x: 304
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3826,10 +3826,10 @@ TextureImporter:
       name: spots_146
       rect:
         serializedVersion: 2
-        x: 21
-        y: 32
-        width: 7
-        height: 6
+        x: 320
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3848,10 +3848,10 @@ TextureImporter:
       name: spots_147
       rect:
         serializedVersion: 2
-        x: 48
+        x: 0
         y: 32
-        width: 15
-        height: 9
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3870,10 +3870,10 @@ TextureImporter:
       name: spots_148
       rect:
         serializedVersion: 2
-        x: 78
+        x: 16
         y: 32
-        width: 8
-        height: 7
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3892,10 +3892,10 @@ TextureImporter:
       name: spots_149
       rect:
         serializedVersion: 2
-        x: 113
-        y: 33
-        width: 8
-        height: 7
+        x: 32
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3914,10 +3914,10 @@ TextureImporter:
       name: spots_150
       rect:
         serializedVersion: 2
-        x: 145
-        y: 34
-        width: 6
-        height: 6
+        x: 48
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3936,10 +3936,10 @@ TextureImporter:
       name: spots_151
       rect:
         serializedVersion: 2
-        x: 305
+        x: 64
         y: 32
-        width: 6
-        height: 6
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3958,9 +3958,9 @@ TextureImporter:
       name: spots_152
       rect:
         serializedVersion: 2
-        x: 0
-        y: 15
-        width: 11
+        x: 80
+        y: 32
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -3980,10 +3980,10 @@ TextureImporter:
       name: spots_153
       rect:
         serializedVersion: 2
-        x: 11
-        y: 20
-        width: 6
-        height: 7
+        x: 96
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4002,10 +4002,10 @@ TextureImporter:
       name: spots_154
       rect:
         serializedVersion: 2
-        x: 18
-        y: 18
-        width: 14
-        height: 11
+        x: 112
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4024,10 +4024,10 @@ TextureImporter:
       name: spots_155
       rect:
         serializedVersion: 2
-        x: 32
-        y: 22
-        width: 11
-        height: 9
+        x: 128
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4046,10 +4046,10 @@ TextureImporter:
       name: spots_156
       rect:
         serializedVersion: 2
-        x: 42
-        y: 19
-        width: 7
-        height: 7
+        x: 144
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4068,10 +4068,10 @@ TextureImporter:
       name: spots_157
       rect:
         serializedVersion: 2
-        x: 49
-        y: 24
-        width: 6
-        height: 6
+        x: 160
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4090,10 +4090,10 @@ TextureImporter:
       name: spots_158
       rect:
         serializedVersion: 2
-        x: 57
-        y: 19
-        width: 7
-        height: 7
+        x: 176
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4112,10 +4112,10 @@ TextureImporter:
       name: spots_159
       rect:
         serializedVersion: 2
-        x: 66
-        y: 1
-        width: 28
-        height: 31
+        x: 192
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4134,10 +4134,10 @@ TextureImporter:
       name: spots_160
       rect:
         serializedVersion: 2
-        x: 33
-        y: 1
-        width: 29
-        height: 21
+        x: 208
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4156,10 +4156,10 @@ TextureImporter:
       name: spots_161
       rect:
         serializedVersion: 2
-        x: 50
-        y: 16
-        width: 6
-        height: 6
+        x: 224
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4178,10 +4178,10 @@ TextureImporter:
       name: spots_162
       rect:
         serializedVersion: 2
-        x: 74
-        y: 14
-        width: 6
-        height: 6
+        x: 240
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4200,10 +4200,10 @@ TextureImporter:
       name: spots_163
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 11
-        height: 12
+        x: 256
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4222,10 +4222,10 @@ TextureImporter:
       name: spots_164
       rect:
         serializedVersion: 2
-        x: 18
-        y: 8
-        width: 7
-        height: 6
+        x: 272
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4244,10 +4244,10 @@ TextureImporter:
       name: spots_165
       rect:
         serializedVersion: 2
-        x: 19
-        y: 2
-        width: 12
-        height: 8
+        x: 288
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4266,10 +4266,10 @@ TextureImporter:
       name: spots_166
       rect:
         serializedVersion: 2
-        x: 10
-        y: 1
-        width: 6
-        height: 6
+        x: 304
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4284,11 +4284,297 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: spots_167
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed13bc47c8bc436429e0996cc5de8246
+      internalID: -2061446452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spots_168
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8b0e02e4d543f345a2e5fe9cc8259b5
+      internalID: -1043695938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spots_169
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a62f1e5b2f88f8640974b53a0e9240da
+      internalID: -1136606688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spots_170
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44b0c999cb609d042b435aad64699edb
+      internalID: -428351340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spots_171
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51e540a2fec83b54c8d0f43e7e949222
+      internalID: -1760412923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spots_172
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab6cc6b3654d1a94a8da445613a3747f
+      internalID: 905527287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spots_173
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a4236ddaa0a9cb41b600366722f87f9
+      internalID: -2033745727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spots_174
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2ae65ae5a3008145b6259a57239d3fc
+      internalID: -928955048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spots_175
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 707f9535e9b8b0a4d8abb0bd9a1ec819
+      internalID: 509495733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spots_176
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f067a36b579dcb94ab8d21dea982e901
+      internalID: -2129282642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spots_177
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b50324b2a1467ce41852eb03e38cf50a
+      internalID: 247132286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spots_178
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cce62c9a7f043c4ea6b3ff12ad9a67f
+      internalID: 881119557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spots_179
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a82c1ac69b0310344abe16dc9e2d3ab3
+      internalID: -1997693450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c041a0b86a307134f83d8bd8756b80cb
     internalID: 0
     vertices: []
     indices: 
@@ -4374,7 +4660,20 @@ TextureImporter:
       spots_164: -5701810765071199078
       spots_165: -6388654489735238871
       spots_166: -3840482811268112250
+      spots_167: -2061446452
+      spots_168: -1043695938
+      spots_169: -1136606688
       spots_17: 4323302499053042532
+      spots_170: -428351340
+      spots_171: -1760412923
+      spots_172: 905527287
+      spots_173: -2033745727
+      spots_174: -928955048
+      spots_175: 509495733
+      spots_176: -2129282642
+      spots_177: 247132286
+      spots_178: 881119557
+      spots_179: -1997693450
       spots_18: 2402657929574715546
       spots_19: 8309352259391889344
       spots_2: -2676436217351516958
