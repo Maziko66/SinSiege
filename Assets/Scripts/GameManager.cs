@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private UITowerBuilderCombat _UITowerBuilderCombat;
     [SerializeField] private GameObject _instantiatedUITowerBuilderCombat;
+    [SerializeField] private UITowerManagerCombat _UITowerManagerCombat;
+    [SerializeField] private GameObject _instantiatedUITowerManagerCombat;
     #endregion
 
     private void Awake()
@@ -52,6 +54,22 @@ public class GameManager : MonoBehaviour
         Destroy(_instantiatedUITowerBuilderCombat.gameObject);
     }
 
+    public void DrawUITowerManagerCombat(Vector3 pos)
+    {
+        if(_instantiatedUITowerManagerCombat == null)
+        {
+            DestroyUITowerManagerCombat();
+        }
+        _instantiatedUITowerManagerCombat = Instantiate(_UITowerManagerCombat.gameObject, canvas.gameObject.transform);
+        _instantiatedUITowerManagerCombat.transform.position = pos;
+
+    }
+
+    public void DestroyUITowerManagerCombat()
+    {
+        Destroy(_instantiatedUITowerManagerCombat.gameObject);
+    }
+
     public void TowerCreateTest()
     {
         if(player.lastTouchedTowerZone == null)
@@ -73,5 +91,28 @@ public class GameManager : MonoBehaviour
 
         zone.occupyingTower = newTower.GetComponent<Tower>();
         zone.isEmpty = false;
+
+        DestroyUITowerBuilderCombat();
+    }
+
+    public void TowerDestroy()
+    {
+        if(player.lastTouchedTowerZone == null)
+        {
+            Debug.Log("lastTouchedTowerZone == null");
+            return;
+        }
+
+        TowerZone zone = player.lastTouchedTowerZone.GetComponent<TowerZone>();
+
+        if(zone.isEmpty)
+        {
+            Debug.Log("zone is empty");
+            return;
+        }
+        Destroy(zone.occupyingTower.gameObject);
+        zone.isEmpty = true;
+
+        DestroyUITowerManagerCombat();
     }
 }
