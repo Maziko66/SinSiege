@@ -89,7 +89,6 @@ public class Player : MonoBehaviour
                 lastTouchedTowerZone = null;
                 Debug.Log("Left Full Tower Zone");
             }
-            
         }
     }
 }

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Tower Zone
+  - Bullet
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -12,10 +14,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Tower
+  - Player
+  - Bullet
   - 
   - 
   - 
@@ -42,8 +44,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Towers
+    uniqueID: 4228731337
+    locked: 0
+  - name: Enemies
+    uniqueID: 1423949265
+    locked: 0
   - name: Player
     uniqueID: 3168194385
+    locked: 0
+  - name: Bullets
+    uniqueID: 1148803449
     locked: 0
   m_RenderingLayers:
   - Default
