@@ -2,47 +2,66 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    Rigidbody2D rb;
+    private Rigidbody2D _rb;
 
     private float _speed = 5f;
     private float _damage = 1f;
     private int _health = 1;
+    private float _mass = 1f;
 
     private Vector3 _startPosition;
     private Vector3 _targetVector;
 
     private Transform _target;
 
+    private int _firedFrom; //0: Turret, 1: Shoutgun
+    
+
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
     {
-        
-    }
-    private void Update()
-    {
-        if(_target == null)
+        _rb.mass = _mass;
+        if (_firedFrom == 1)
         {
-            Destroy(gameObject); return;
-        }    
+            //Vector2 direction = ((Vector2)_targetVector - (Vector2)transform.position).normalized;
+            _rb.AddForce(_targetVector * _speed /** _mass*/, ForceMode2D.Impulse);
+        }
     }
 
     private void FixedUpdate()
     {
-        Vector2 newPosition = Vector2.MoveTowards(rb.position, _target.position, _speed * Time.fixedDeltaTime);
-        rb.MovePosition(newPosition);
+        if (_firedFrom == 0)
+        {
+            if(!_target)
+            {
+                Destroy(gameObject); return;
+            }
+            Vector2 newPosition = Vector2.MoveTowards(_rb.position, _target.position, _speed * Time.fixedDeltaTime);
+            _rb.MovePosition(newPosition);
+            
+        }
+        else if (_firedFrom == 1)
+        {
+            //Vector2 newPosition = Vector2.MoveTowards(rb.position, _targetVector, _speed * Time.fixedDeltaTime);
+            //rb.MovePosition(newPosition);
+            
+        }
+        
     }
 
-    public void SetBulletStats(float speed, float damage, int health, Vector3 startPosition, Vector3 targetVector)
+    public void SetBulletStats(float speed, float damage, int health, Vector3 startPosition, Vector3 targetVector, int firedFrom, float mass = 1f)
     {
         SetBulletSpeed(speed);
         SetBulletDamage(damage);
         SetBulletHealth(health);
         SetStartPosition(startPosition);
         SetTargetVector(targetVector);
+        SetFiredFrom(firedFrom);
+        SetBulletMass(mass);
     }
 
     public void SetBulletSpeed(float speed)
@@ -75,12 +94,22 @@ public class Bullet : MonoBehaviour
         _target = target;
     }
 
-    public void CheckHealth()
+    public void SetFiredFrom(int firedFrom)
+    {
+        _firedFrom = firedFrom;
+    }
+
+    private void CheckHealth()
     {
         if (_health <= 0)
         {
             Destroy(gameObject); return;
         }
+    }
+
+    public void SetBulletMass(float mass = 1f)
+    {
+        _mass = mass;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

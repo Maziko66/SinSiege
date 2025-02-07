@@ -1,24 +1,27 @@
 using System;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Tower : MonoBehaviour
 {
     //[SerializeField] private GameObject _nozzle;
 
+    [FormerlySerializedAs("_attackRange")]
     [Header("Attributes")]
-    [SerializeField] private float _attackRange = 6f;
-    [SerializeField] private float _attackInterval = 1f;
-    [SerializeField] private float _attackDamage = 1f;
-    [SerializeField] private float _bulletSpeed = 6f;
+    [SerializeField] private float attackRange = 6f;
+    [FormerlySerializedAs("_attackInterval")] [SerializeField] private float attackInterval = 1f;
+    [FormerlySerializedAs("_attackDamage")] [SerializeField] private float attackDamage = 1f;
+    [FormerlySerializedAs("_bulletSpeed")] [SerializeField] private float bulletSpeed = 6f;
 
+    [FormerlySerializedAs("_bullet")]
     [Header("Other")]
-    [SerializeField] private Bullet _bullet;
+    [SerializeField] private Bullet bullet;
     [SerializeField] private LayerMask enemyMask;
 
     [SerializeField] private Transform target;
 
-    private float cooldown = 0;
+    private float _cooldown = 0;
 
     private void Start()
     {
@@ -49,12 +52,12 @@ public class Tower : MonoBehaviour
 
     private void FindTarget()
     {
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, _attackRange, (Vector2)transform.position, 0f, enemyMask);
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, attackRange, (Vector2)transform.position, 0f, enemyMask);
 
         if (hits.Length > 0 )
         {
             target = hits[0].transform;
-            Debug.Log("target set");
+            //Debug.Log("target set");
         }
     }
 
@@ -68,19 +71,19 @@ public class Tower : MonoBehaviour
 
     private bool CheckTargetIsInRange()
     {
-        return Vector2.Distance(target.position, transform.position) <= _attackRange;
+        return Vector2.Distance(target.position, transform.position) <= attackRange;
     }
 
     private void Fire()
     {
-        cooldown -= Time.deltaTime;
+        _cooldown -= Time.deltaTime;
 
-        if (cooldown <= 0)
+        if (_cooldown <= 0)
         {
-            Bullet bullet = Instantiate(_bullet, transform.position, Quaternion.identity);
-            bullet.SetBulletStats(_bulletSpeed, _attackDamage, 1, transform.position, target.position);
+            Bullet bullet = Instantiate(this.bullet, transform.position, Quaternion.identity);
+            bullet.SetBulletStats(bulletSpeed, attackDamage, 1, transform.position, target.position, 0);
             bullet.SetTarget(target);
-            cooldown = _attackInterval;
+            _cooldown = attackInterval;
         }
     }
 }

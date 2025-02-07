@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     private Camera cam;
 
     public InputAction playerControls;
+    
+    [SerializeField] private Shotgun shotgun;
 
     [Header("Character Stats")]
     [SerializeField] private float _moveSpeed = 3f;
@@ -70,6 +72,13 @@ public class Player : MonoBehaviour
                 Debug.Log("On Tower Zone Full");
             }
         }
+    }
+
+    private void OnAttack()
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        shotgun.Fire(mousePosition);
+        Debug.Log("fire");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
