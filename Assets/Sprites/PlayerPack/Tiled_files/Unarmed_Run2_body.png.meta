@@ -922,7 +922,39 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Unarmed_Run2_body_0: 6804799907109158717
+      Unarmed_Run2_body_1: -6811940816085463313
+      Unarmed_Run2_body_10: 5347728724328221418
+      Unarmed_Run2_body_11: 1214930865692756909
+      Unarmed_Run2_body_12: 729105260883933726
+      Unarmed_Run2_body_13: -1027975776860760401
+      Unarmed_Run2_body_14: 2944694394850023995
+      Unarmed_Run2_body_15: -5153363445914836831
+      Unarmed_Run2_body_16: 9009292350093725494
+      Unarmed_Run2_body_17: -8450041759126206848
+      Unarmed_Run2_body_18: -7098010176676057630
+      Unarmed_Run2_body_19: 1493780377376319012
+      Unarmed_Run2_body_2: 6494023001617759208
+      Unarmed_Run2_body_20: -2366507625154808666
+      Unarmed_Run2_body_21: 6100229496871536611
+      Unarmed_Run2_body_22: 2689963111772947626
+      Unarmed_Run2_body_23: 7270249049695418159
+      Unarmed_Run2_body_24: -1977767529501912822
+      Unarmed_Run2_body_25: -8793592003442557260
+      Unarmed_Run2_body_26: -1845762292661361232
+      Unarmed_Run2_body_27: 8504816442689463041
+      Unarmed_Run2_body_28: -8152526641867169823
+      Unarmed_Run2_body_29: -8012066564321698008
+      Unarmed_Run2_body_3: -3745687096022985438
+      Unarmed_Run2_body_30: -371000957388182518
+      Unarmed_Run2_body_31: 6224661381788474146
+      Unarmed_Run2_body_4: -7283104029383861932
+      Unarmed_Run2_body_5: 7899749094504768807
+      Unarmed_Run2_body_6: 6996170154979338486
+      Unarmed_Run2_body_7: 3027010304251137284
+      Unarmed_Run2_body_8: -1254749164573957205
+      Unarmed_Run2_body_9: -8505891549027772482
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

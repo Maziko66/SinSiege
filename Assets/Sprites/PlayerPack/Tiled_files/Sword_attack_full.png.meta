@@ -972,7 +972,41 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sword_attack_full_0: 280878947613491154
+      Sword_attack_full_1: -294012690775449231
+      Sword_attack_full_10: 2581329308800412271
+      Sword_attack_full_11: -2293114652526439574
+      Sword_attack_full_12: 4557094327301588752
+      Sword_attack_full_13: -275952873412321630
+      Sword_attack_full_14: 5782402136062141904
+      Sword_attack_full_15: -4950516118946248206
+      Sword_attack_full_16: 5036250454738908496
+      Sword_attack_full_17: 4265701542383078403
+      Sword_attack_full_18: 8453928168667981287
+      Sword_attack_full_19: -370066881533944393
+      Sword_attack_full_2: -6829139961974813807
+      Sword_attack_full_20: -3498049925161025058
+      Sword_attack_full_21: 3222136256904642606
+      Sword_attack_full_22: -5420983464289158480
+      Sword_attack_full_23: 7904775412753305867
+      Sword_attack_full_24: -1963595142426002200
+      Sword_attack_full_25: -5376038589158314963
+      Sword_attack_full_26: -7383971697175226269
+      Sword_attack_full_27: -5656464006745671998
+      Sword_attack_full_28: 6162581859982174116
+      Sword_attack_full_29: -3636703385500586655
+      Sword_attack_full_3: -8488678755987945676
+      Sword_attack_full_30: 840753228533729737
+      Sword_attack_full_31: 645371161396039652
+      Sword_attack_full_32: 2126763218794005031
+      Sword_attack_full_33: -360260606617260971
+      Sword_attack_full_4: -2642502294117381443
+      Sword_attack_full_5: 4599764961185389610
+      Sword_attack_full_6: 4079707447074737058
+      Sword_attack_full_7: -3337023836398767919
+      Sword_attack_full_8: -108613751006249266
+      Sword_attack_full_9: 4896113866096046279
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

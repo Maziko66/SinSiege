@@ -422,7 +422,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sword_Hurt7_red_0: 656723857014546088
+      Sword_Hurt7_red_1: 5858146262229827264
+      Sword_Hurt7_red_10: 6008615384032989737
+      Sword_Hurt7_red_11: -4942897409251059484
+      Sword_Hurt7_red_2: 695438563376071547
+      Sword_Hurt7_red_3: -6993389272388812991
+      Sword_Hurt7_red_4: -4309779375208871966
+      Sword_Hurt7_red_5: 6852441116353069329
+      Sword_Hurt7_red_6: 2851289857029608134
+      Sword_Hurt7_red_7: -8406150490771887980
+      Sword_Hurt7_red_8: 6983575473407984660
+      Sword_Hurt7_red_9: -3436212248599083487
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

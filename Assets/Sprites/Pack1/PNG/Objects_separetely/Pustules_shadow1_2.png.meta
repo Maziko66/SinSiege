@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pustules_shadow1_2_0: 5817973889852496636
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

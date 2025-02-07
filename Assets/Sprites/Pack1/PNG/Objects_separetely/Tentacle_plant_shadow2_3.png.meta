@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Tentacle_plant_shadow2_3_0: -8025304212866614269
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

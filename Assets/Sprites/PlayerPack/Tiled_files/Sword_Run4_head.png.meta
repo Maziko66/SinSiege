@@ -922,7 +922,39 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sword_Run4_head_0: 4021186298618969974
+      Sword_Run4_head_1: 7566690287947647393
+      Sword_Run4_head_10: -745918436109061017
+      Sword_Run4_head_11: -4041548129875857702
+      Sword_Run4_head_12: 5079041891875784954
+      Sword_Run4_head_13: -4296940775346874172
+      Sword_Run4_head_14: -5338030798422727571
+      Sword_Run4_head_15: -1402478692107976223
+      Sword_Run4_head_16: 673752607419295732
+      Sword_Run4_head_17: -6686666137298120186
+      Sword_Run4_head_18: -6356489041658538300
+      Sword_Run4_head_19: -5408754772765447490
+      Sword_Run4_head_2: -6230849851084608187
+      Sword_Run4_head_20: 4783233515747107730
+      Sword_Run4_head_21: 6051825827786872884
+      Sword_Run4_head_22: -4530956070485278601
+      Sword_Run4_head_23: 8000839460192443685
+      Sword_Run4_head_24: -6233750471701732417
+      Sword_Run4_head_25: 7418011351024008376
+      Sword_Run4_head_26: 2342359496905123989
+      Sword_Run4_head_27: 6674862078852536234
+      Sword_Run4_head_28: -3892753664266092850
+      Sword_Run4_head_29: -5381116188402997921
+      Sword_Run4_head_3: 3941281435720167594
+      Sword_Run4_head_30: 8797240575467327402
+      Sword_Run4_head_31: 5818077574482355246
+      Sword_Run4_head_4: -4232600119713129160
+      Sword_Run4_head_5: 270606759936582260
+      Sword_Run4_head_6: -8834674016169939938
+      Sword_Run4_head_7: -2540824105830488468
+      Sword_Run4_head_8: -1710186370461263224
+      Sword_Run4_head_9: 5465158479784906954
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

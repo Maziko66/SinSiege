@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Many_eyes_plant_shadow2_3_0: 1633887011565102611
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

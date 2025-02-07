@@ -722,7 +722,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sword_Walk_Attack3_body_0: -1144613078342293357
+      Sword_Walk_Attack3_body_1: -1045674183127517643
+      Sword_Walk_Attack3_body_10: -4663206086275605605
+      Sword_Walk_Attack3_body_11: -1485653703294715934
+      Sword_Walk_Attack3_body_12: -6928906372688423842
+      Sword_Walk_Attack3_body_13: 6944051516430986611
+      Sword_Walk_Attack3_body_14: 4971303103744853619
+      Sword_Walk_Attack3_body_15: -2239487106093658788
+      Sword_Walk_Attack3_body_16: 1899130810540711332
+      Sword_Walk_Attack3_body_17: -4186440156129622010
+      Sword_Walk_Attack3_body_18: 2206119746238441212
+      Sword_Walk_Attack3_body_19: 4102227615293286498
+      Sword_Walk_Attack3_body_2: 4273226496798740237
+      Sword_Walk_Attack3_body_20: -9044070082742750223
+      Sword_Walk_Attack3_body_21: -6028807129091300950
+      Sword_Walk_Attack3_body_22: 7947227610818522856
+      Sword_Walk_Attack3_body_23: 1958380628252777928
+      Sword_Walk_Attack3_body_3: 8384656119751647905
+      Sword_Walk_Attack3_body_4: 5543393753459413530
+      Sword_Walk_Attack3_body_5: -4862312384088221004
+      Sword_Walk_Attack3_body_6: -3508869988419875766
+      Sword_Walk_Attack3_body_7: 6117172549909779919
+      Sword_Walk_Attack3_body_8: -1455737256685419238
+      Sword_Walk_Attack3_body_9: 3382688031118653332
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

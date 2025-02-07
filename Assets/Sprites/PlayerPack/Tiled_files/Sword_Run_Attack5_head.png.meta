@@ -922,7 +922,39 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sword_Run_Attack5_head_0: 6823225999702046075
+      Sword_Run_Attack5_head_1: -36726526668412619
+      Sword_Run_Attack5_head_10: 6160069443099234323
+      Sword_Run_Attack5_head_11: -544755724950726957
+      Sword_Run_Attack5_head_12: 7440355300466469791
+      Sword_Run_Attack5_head_13: 6113708919032735499
+      Sword_Run_Attack5_head_14: 7893088295983682903
+      Sword_Run_Attack5_head_15: 5964940288385796361
+      Sword_Run_Attack5_head_16: 2682156922558695188
+      Sword_Run_Attack5_head_17: 6705396929036164247
+      Sword_Run_Attack5_head_18: -4349184495650819238
+      Sword_Run_Attack5_head_19: 8660467844059287312
+      Sword_Run_Attack5_head_2: 6814957540563597054
+      Sword_Run_Attack5_head_20: -1651660545901984959
+      Sword_Run_Attack5_head_21: -7865203441065111290
+      Sword_Run_Attack5_head_22: 3191749187665926641
+      Sword_Run_Attack5_head_23: 305603791065390311
+      Sword_Run_Attack5_head_24: 3666129955930330604
+      Sword_Run_Attack5_head_25: -4735798717063858667
+      Sword_Run_Attack5_head_26: 7033327822582152965
+      Sword_Run_Attack5_head_27: 4600760973783721093
+      Sword_Run_Attack5_head_28: 3773913630082418935
+      Sword_Run_Attack5_head_29: 1113997989185101217
+      Sword_Run_Attack5_head_3: -8219599362078915281
+      Sword_Run_Attack5_head_30: -8365933226112007279
+      Sword_Run_Attack5_head_31: 8303284601771923142
+      Sword_Run_Attack5_head_4: 2277873599991085942
+      Sword_Run_Attack5_head_5: -6378173178466642302
+      Sword_Run_Attack5_head_6: 4030332382630636525
+      Sword_Run_Attack5_head_7: 6314308529725701723
+      Sword_Run_Attack5_head_8: 3050382402430338722
+      Sword_Run_Attack5_head_9: -5335496712829164600
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

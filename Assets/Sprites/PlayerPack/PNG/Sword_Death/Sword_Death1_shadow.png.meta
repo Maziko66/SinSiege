@@ -822,7 +822,35 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sword_Death1_shadow_0: 1254478314853591613
+      Sword_Death1_shadow_1: 7214941230816811729
+      Sword_Death1_shadow_10: -4503156083397120453
+      Sword_Death1_shadow_11: -4962612336712480446
+      Sword_Death1_shadow_12: -9220921865622511676
+      Sword_Death1_shadow_13: 2318038384485920863
+      Sword_Death1_shadow_14: -3106934106147883912
+      Sword_Death1_shadow_15: 488519064971640871
+      Sword_Death1_shadow_16: -6330994481710443667
+      Sword_Death1_shadow_17: -9205999930688732597
+      Sword_Death1_shadow_18: -5609666155796608504
+      Sword_Death1_shadow_19: -3077811697685424926
+      Sword_Death1_shadow_2: 1724117310354592251
+      Sword_Death1_shadow_20: 490014400964011377
+      Sword_Death1_shadow_21: -7962447839284734912
+      Sword_Death1_shadow_22: 6047756718880546218
+      Sword_Death1_shadow_23: -8004519337809919124
+      Sword_Death1_shadow_24: 5262262895061209224
+      Sword_Death1_shadow_25: 5387318097243588599
+      Sword_Death1_shadow_26: 1910134317102483876
+      Sword_Death1_shadow_27: 1351914615497704931
+      Sword_Death1_shadow_3: -4927776551950095603
+      Sword_Death1_shadow_4: -1006212785047123418
+      Sword_Death1_shadow_5: 3127572496849420346
+      Sword_Death1_shadow_6: 2184312255386220604
+      Sword_Death1_shadow_7: 3465971469902470489
+      Sword_Death1_shadow_8: -4026161030515401666
+      Sword_Death1_shadow_9: 4585237262791745604
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

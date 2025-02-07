@@ -922,7 +922,39 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sword_Run1_shadow_0: -8023989281609297924
+      Sword_Run1_shadow_1: 5254360493085839624
+      Sword_Run1_shadow_10: -8344431517587627548
+      Sword_Run1_shadow_11: 8966090851302437041
+      Sword_Run1_shadow_12: -4648697389997382673
+      Sword_Run1_shadow_13: 7501965539337277528
+      Sword_Run1_shadow_14: -4212702838255824540
+      Sword_Run1_shadow_15: -1114254954528790875
+      Sword_Run1_shadow_16: 148741770825594711
+      Sword_Run1_shadow_17: -2658848690968372835
+      Sword_Run1_shadow_18: 2321978868525238660
+      Sword_Run1_shadow_19: 428122904970430307
+      Sword_Run1_shadow_2: 6274318803235760249
+      Sword_Run1_shadow_20: 337949846703150170
+      Sword_Run1_shadow_21: -3895916293406171894
+      Sword_Run1_shadow_22: 6679394387033639737
+      Sword_Run1_shadow_23: -6740650654057006634
+      Sword_Run1_shadow_24: 7385647376185369777
+      Sword_Run1_shadow_25: 8709418556720205528
+      Sword_Run1_shadow_26: 7270727876704120646
+      Sword_Run1_shadow_27: -144822013562219910
+      Sword_Run1_shadow_28: -1825758770136943724
+      Sword_Run1_shadow_29: -1285878724781179014
+      Sword_Run1_shadow_3: 2988888007468606309
+      Sword_Run1_shadow_30: -1352683302840982769
+      Sword_Run1_shadow_31: -4742021615458867581
+      Sword_Run1_shadow_4: -53276059462656726
+      Sword_Run1_shadow_5: -1667119990656760350
+      Sword_Run1_shadow_6: -8774790371051032733
+      Sword_Run1_shadow_7: 7317148726623206568
+      Sword_Run1_shadow_8: -8847002140786995265
+      Sword_Run1_shadow_9: -273287449949207289
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

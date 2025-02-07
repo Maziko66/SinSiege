@@ -1122,7 +1122,47 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Unarmed_Idle_full_0: -2399736026031276565
+      Unarmed_Idle_full_1: -8860334812310105596
+      Unarmed_Idle_full_10: 2079872454341970130
+      Unarmed_Idle_full_11: 4963766469849249473
+      Unarmed_Idle_full_12: -8128619019781507646
+      Unarmed_Idle_full_13: -863044780355554479
+      Unarmed_Idle_full_14: -1060347020019670236
+      Unarmed_Idle_full_15: -8741858725426543847
+      Unarmed_Idle_full_16: -4209958318830951973
+      Unarmed_Idle_full_17: -3795342433690144901
+      Unarmed_Idle_full_18: 4992041249091756775
+      Unarmed_Idle_full_19: -1774668642453814025
+      Unarmed_Idle_full_2: 1665333034637517538
+      Unarmed_Idle_full_20: -3875410931294316720
+      Unarmed_Idle_full_21: -8173540227650633254
+      Unarmed_Idle_full_22: 3488780766795296084
+      Unarmed_Idle_full_23: 691597236790479036
+      Unarmed_Idle_full_24: 3523083334789756594
+      Unarmed_Idle_full_25: 3648764990673257050
+      Unarmed_Idle_full_26: 7356125587997830285
+      Unarmed_Idle_full_27: -1939321743975697907
+      Unarmed_Idle_full_28: -1550856982160319570
+      Unarmed_Idle_full_29: 7258565288125562000
+      Unarmed_Idle_full_3: -6229101979824682629
+      Unarmed_Idle_full_30: 8675351722916609947
+      Unarmed_Idle_full_31: 5482024118897372592
+      Unarmed_Idle_full_32: 8388842335991908754
+      Unarmed_Idle_full_33: 7847737205134543233
+      Unarmed_Idle_full_34: 8506348746953338827
+      Unarmed_Idle_full_35: 3293503438501810793
+      Unarmed_Idle_full_36: 8674208863492202109
+      Unarmed_Idle_full_37: 6573409908181561040
+      Unarmed_Idle_full_38: 3396892231815402786
+      Unarmed_Idle_full_39: 5438188785708584658
+      Unarmed_Idle_full_4: -3417156987043906571
+      Unarmed_Idle_full_5: -1063032564727809380
+      Unarmed_Idle_full_6: -6966544220501309417
+      Unarmed_Idle_full_7: 3203002655169421999
+      Unarmed_Idle_full_8: -8319388992396657656
+      Unarmed_Idle_full_9: -9108600374505107538
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

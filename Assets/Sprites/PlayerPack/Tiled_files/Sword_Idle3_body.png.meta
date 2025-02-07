@@ -1122,7 +1122,47 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sword_Idle3_body_0: 2922135692062840953
+      Sword_Idle3_body_1: -8714092500414789456
+      Sword_Idle3_body_10: 2672556642106984656
+      Sword_Idle3_body_11: 4292690668537205110
+      Sword_Idle3_body_12: -6058051741049293674
+      Sword_Idle3_body_13: 5726106714299990393
+      Sword_Idle3_body_14: -2983984582630247583
+      Sword_Idle3_body_15: 2270267169992415695
+      Sword_Idle3_body_16: -1910442797676994655
+      Sword_Idle3_body_17: -3462734794845352172
+      Sword_Idle3_body_18: 7931240688920437536
+      Sword_Idle3_body_19: 3402091500383559393
+      Sword_Idle3_body_2: 7187925577158708333
+      Sword_Idle3_body_20: 5391555124564482315
+      Sword_Idle3_body_21: 2659478241358961780
+      Sword_Idle3_body_22: -3221501470665591419
+      Sword_Idle3_body_23: -6226465649208653801
+      Sword_Idle3_body_24: 5463138742587763146
+      Sword_Idle3_body_25: 953690587788493421
+      Sword_Idle3_body_26: 7551498943659015397
+      Sword_Idle3_body_27: 8510801757079662886
+      Sword_Idle3_body_28: -2457285414479395965
+      Sword_Idle3_body_29: -8242791672900261475
+      Sword_Idle3_body_3: -8230731124550986659
+      Sword_Idle3_body_30: -4661101445500393928
+      Sword_Idle3_body_31: -1022944465921423959
+      Sword_Idle3_body_32: -4643658598245250634
+      Sword_Idle3_body_33: 6580989930702723854
+      Sword_Idle3_body_34: 8208744873001817404
+      Sword_Idle3_body_35: 5448512686918395638
+      Sword_Idle3_body_36: 4752338198099460932
+      Sword_Idle3_body_37: -6026079215746170500
+      Sword_Idle3_body_38: -577224697695739457
+      Sword_Idle3_body_39: 6853249521606677645
+      Sword_Idle3_body_4: 2683947976068987230
+      Sword_Idle3_body_5: 3291619944990030464
+      Sword_Idle3_body_6: 7280176414877700292
+      Sword_Idle3_body_7: 6817518539760229900
+      Sword_Idle3_body_8: -5091294412738437261
+      Sword_Idle3_body_9: -4843655594472080110
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

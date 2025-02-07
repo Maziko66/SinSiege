@@ -622,7 +622,27 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sword_Hurt_full_0: 470365942150090534
+      Sword_Hurt_full_1: -3094576674511000836
+      Sword_Hurt_full_10: 8268028467980092671
+      Sword_Hurt_full_11: -773196758368777146
+      Sword_Hurt_full_12: 6214293073177655421
+      Sword_Hurt_full_13: 1112244836631553457
+      Sword_Hurt_full_14: 30331387191886255
+      Sword_Hurt_full_15: 3598860325236241156
+      Sword_Hurt_full_16: -1142205951503313769
+      Sword_Hurt_full_17: 2691445487753714439
+      Sword_Hurt_full_18: -6329222678915743752
+      Sword_Hurt_full_19: -4174534903858876161
+      Sword_Hurt_full_2: -4274951934513713259
+      Sword_Hurt_full_3: -710332749666580456
+      Sword_Hurt_full_4: 2488653514683054054
+      Sword_Hurt_full_5: 4611366883483076888
+      Sword_Hurt_full_6: -8207342654778356884
+      Sword_Hurt_full_7: -7868935287046874286
+      Sword_Hurt_full_8: 1224554182638267924
+      Sword_Hurt_full_9: 2808015432715728644
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

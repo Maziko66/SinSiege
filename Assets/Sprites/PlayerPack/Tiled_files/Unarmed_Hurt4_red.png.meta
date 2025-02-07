@@ -422,7 +422,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Unarmed_Hurt4_red_0: -6269731227209419135
+      Unarmed_Hurt4_red_1: -4602908412607910624
+      Unarmed_Hurt4_red_10: -6472998585350108784
+      Unarmed_Hurt4_red_11: 70625004932446474
+      Unarmed_Hurt4_red_2: -8764115950289997518
+      Unarmed_Hurt4_red_3: 8313678068606946675
+      Unarmed_Hurt4_red_4: -4406188699161765216
+      Unarmed_Hurt4_red_5: -4886864542286206210
+      Unarmed_Hurt4_red_6: -2202412599486364309
+      Unarmed_Hurt4_red_7: 6895413553382116416
+      Unarmed_Hurt4_red_8: -9141164283285198740
+      Unarmed_Hurt4_red_9: -7986392777143368269
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

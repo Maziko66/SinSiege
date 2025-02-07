@@ -1122,7 +1122,47 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sword_Idle5_head_0: -3181049181583533887
+      Sword_Idle5_head_1: -4633567918484996850
+      Sword_Idle5_head_10: 7345385979008839174
+      Sword_Idle5_head_11: -7439658536223528281
+      Sword_Idle5_head_12: -1869525148222440546
+      Sword_Idle5_head_13: 6560338431732217635
+      Sword_Idle5_head_14: 4996012083997169188
+      Sword_Idle5_head_15: -1122905162578979480
+      Sword_Idle5_head_16: 8736942196972031003
+      Sword_Idle5_head_17: 6780426259476892338
+      Sword_Idle5_head_18: -9062880999610973898
+      Sword_Idle5_head_19: -9183739353466227171
+      Sword_Idle5_head_2: 7061199051496076435
+      Sword_Idle5_head_20: -9079139253427755205
+      Sword_Idle5_head_21: -2844688458971578332
+      Sword_Idle5_head_22: -7034101848926327846
+      Sword_Idle5_head_23: -1902338485869472441
+      Sword_Idle5_head_24: -8208401159795497229
+      Sword_Idle5_head_25: -3793595759097020555
+      Sword_Idle5_head_26: -1485171385236566027
+      Sword_Idle5_head_27: 2569342347228770276
+      Sword_Idle5_head_28: -8942214232212988459
+      Sword_Idle5_head_29: -8036493897707221482
+      Sword_Idle5_head_3: 1422022317410773457
+      Sword_Idle5_head_30: -823116609681872950
+      Sword_Idle5_head_31: 6288505678610419828
+      Sword_Idle5_head_32: -5924494086823272308
+      Sword_Idle5_head_33: -3589261593404560252
+      Sword_Idle5_head_34: -5137929613476698483
+      Sword_Idle5_head_35: -4840472700068394571
+      Sword_Idle5_head_36: -6047207316097147276
+      Sword_Idle5_head_37: -1210827750589306469
+      Sword_Idle5_head_38: -8446944164445072485
+      Sword_Idle5_head_39: 2650709037697687730
+      Sword_Idle5_head_4: -5856170823063290216
+      Sword_Idle5_head_5: -869094219995823549
+      Sword_Idle5_head_6: 2591871152430962442
+      Sword_Idle5_head_7: 479409997984661197
+      Sword_Idle5_head_8: 7393644575716008729
+      Sword_Idle5_head_9: 7976914856157849742
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

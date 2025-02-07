@@ -397,7 +397,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sword_Run_Attack6_swing_0: 6525152167084009082
+      Sword_Run_Attack6_swing_1: -5934980812752077068
+      Sword_Run_Attack6_swing_10: -5722060898948108841
+      Sword_Run_Attack6_swing_2: 3202127621838268724
+      Sword_Run_Attack6_swing_3: 5016532808657718460
+      Sword_Run_Attack6_swing_4: 6245023682219924844
+      Sword_Run_Attack6_swing_5: 2690045683715729481
+      Sword_Run_Attack6_swing_6: 6256653104234938016
+      Sword_Run_Attack6_swing_7: 4418682869540496435
+      Sword_Run_Attack6_swing_8: -5420981269766219571
+      Sword_Run_Attack6_swing_9: 7205606886508956742
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

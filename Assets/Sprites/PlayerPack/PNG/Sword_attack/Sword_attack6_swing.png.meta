@@ -397,7 +397,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sword_attack6_swing_0: 4438251600439097255
+      Sword_attack6_swing_1: 1007700195475158922
+      Sword_attack6_swing_10: 3308404914111932179
+      Sword_attack6_swing_2: -2919201918679757646
+      Sword_attack6_swing_3: 6064022792242858665
+      Sword_attack6_swing_4: -6693312217077520332
+      Sword_attack6_swing_5: 4383647012691976764
+      Sword_attack6_swing_6: -4903774928169740475
+      Sword_attack6_swing_7: 1012232082777549029
+      Sword_attack6_swing_8: 4283414841461733327
+      Sword_attack6_swing_9: 5028857297716714849
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

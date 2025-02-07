@@ -822,7 +822,35 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Unarmed_Death1_shadow_0: -7530991672954263323
+      Unarmed_Death1_shadow_1: -2959370208397861407
+      Unarmed_Death1_shadow_10: -1670616718102780272
+      Unarmed_Death1_shadow_11: -7245281681876160703
+      Unarmed_Death1_shadow_12: 5022542083800002711
+      Unarmed_Death1_shadow_13: 3633636603916145232
+      Unarmed_Death1_shadow_14: 3285961899951059347
+      Unarmed_Death1_shadow_15: -6164081279793462069
+      Unarmed_Death1_shadow_16: 4405751738061718866
+      Unarmed_Death1_shadow_17: 3281813575450656017
+      Unarmed_Death1_shadow_18: 8724473189015520614
+      Unarmed_Death1_shadow_19: 4944651172630391036
+      Unarmed_Death1_shadow_2: -3198147244654156786
+      Unarmed_Death1_shadow_20: -710098223085934751
+      Unarmed_Death1_shadow_21: 8552873091434232536
+      Unarmed_Death1_shadow_22: -9132579087831991308
+      Unarmed_Death1_shadow_23: 8987529377549566105
+      Unarmed_Death1_shadow_24: -251276557084753663
+      Unarmed_Death1_shadow_25: -1206168388174898253
+      Unarmed_Death1_shadow_26: -1519549596963890128
+      Unarmed_Death1_shadow_27: -4832066156879500861
+      Unarmed_Death1_shadow_3: 4708730795678720156
+      Unarmed_Death1_shadow_4: -1247302447398180750
+      Unarmed_Death1_shadow_5: 7969162272757749305
+      Unarmed_Death1_shadow_6: 3581024004856746832
+      Unarmed_Death1_shadow_7: 8215674600600775555
+      Unarmed_Death1_shadow_8: 3174966950518257581
+      Unarmed_Death1_shadow_9: 5767952807726826441
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

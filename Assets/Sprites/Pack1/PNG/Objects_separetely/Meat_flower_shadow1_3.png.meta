@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Meat_flower_shadow1_3_0: -6903524743379658984
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
