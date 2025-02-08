@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Shotgun : MonoBehaviour
@@ -13,9 +14,14 @@ public class Shotgun : MonoBehaviour
     [SerializeField] private float bulletSpeed = 6f;
     [SerializeField] private float spreadAngle = 10f;
     [SerializeField] private float bulletMass = 1f;
+    [SerializeField] private int bulletCount = 3;
+    
+    private List<Vector2> directions = new List<Vector2>();
     
     private float _cooldown;
     private bool _reloaded;
+    
+    
 
     private void Update()
     {
@@ -73,5 +79,18 @@ public class Shotgun : MonoBehaviour
             cosine * vector.x - sine * vector.y,
             sine * vector.x + cosine * vector.y
         );
+    }
+
+    private void CreateDirections()
+    {
+        
+        if (bulletCount % 2 == 1)
+        {
+            float startAngle;
+            for (int i = 0; i < bulletCount; i++)
+            {
+            }
+        }
+        
     }
 }
