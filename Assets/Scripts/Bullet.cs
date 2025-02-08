@@ -121,7 +121,7 @@ public class Bullet : MonoBehaviour
             enemy.CheckHealth();
             _health--;
             CheckHealth();
-            Debug.Log("hit enemy");
+            //Debug.Log("hit enemy");
         }
     }
 }

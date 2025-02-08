@@ -9,8 +9,10 @@ public class Player : MonoBehaviour
 
     public InputAction playerControls;
     
+    [Header("Equipment")]
     [SerializeField] private Shotgun shotgun;
-
+    [SerializeField] private Fists fists;
+    
     [Header("Character Stats")]
     [SerializeField] private float _moveSpeed = 3f;
 
@@ -78,7 +80,13 @@ public class Player : MonoBehaviour
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         shotgun.Fire(mousePosition);
-        Debug.Log("fire");
+        //Debug.Log("fire");
+    }
+
+    private void OnSecondaryAttack()
+    {
+        fists.Attack();
+        Debug.Log("secondary");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
