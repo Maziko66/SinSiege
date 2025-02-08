@@ -20,42 +20,47 @@ public class Shotgun : MonoBehaviour
     
     private float _cooldown;
     private bool _reloaded;
-    
-    
 
     private void Update()
     {
         if (_cooldown >= 0f)
         {
             _cooldown -= Time.deltaTime;
-            
         }
         if (!_reloaded && _cooldown <= sfxReloadDelay)
         {
             sfxReload.Play();
             _reloaded = true;
         }
-        
-        
     }
 
     public void Fire(Vector3 targetVector3)
     {
         if (_cooldown <= 0)
         {
-            Bullet bullet = Instantiate(this.bullet, transform.position, Quaternion.identity);
-            Vector2 direction = ((Vector2)targetVector3 - (Vector2)transform.position).normalized;
-            bullet.SetBulletStats(bulletSpeed, attackDamage, 1, transform.position, direction, 1, bulletMass);
+            // Bullet bullet = Instantiate(this.bullet, transform.position, Quaternion.identity);
+            // Vector2 direction = ((Vector2)targetVector3 - (Vector2)transform.position).normalized;
+            // bullet.SetBulletStats(bulletSpeed, attackDamage, 1, transform.position, direction, 1, bulletMass);
+            //
+            // bullet = Instantiate(this.bullet, transform.position, Quaternion.identity);
+            // direction = ((Vector2)targetVector3 - (Vector2)transform.position).normalized;
+            // direction = RotateVector2(direction, spreadAngle);
+            // bullet.SetBulletStats(bulletSpeed, attackDamage, 1, transform.position, direction, 1, bulletMass);
+            //
+            // bullet = Instantiate(this.bullet, transform.position, Quaternion.identity);
+            // direction = ((Vector2)targetVector3 - (Vector2)transform.position).normalized;
+            // direction = RotateVector2(direction, -spreadAngle);
+            // bullet.SetBulletStats(bulletSpeed, attackDamage, 1, transform.position, direction, 1, bulletMass);
             
-            bullet = Instantiate(this.bullet, transform.position, Quaternion.identity);
-            direction = ((Vector2)targetVector3 - (Vector2)transform.position).normalized;
-            direction = RotateVector2(direction, spreadAngle);
-            bullet.SetBulletStats(bulletSpeed, attackDamage, 1, transform.position, direction, 1, bulletMass);
-            
-            bullet = Instantiate(this.bullet, transform.position, Quaternion.identity);
-            direction = ((Vector2)targetVector3 - (Vector2)transform.position).normalized;
-            direction = RotateVector2(direction, -spreadAngle);
-            bullet.SetBulletStats(bulletSpeed, attackDamage, 1, transform.position, direction, 1, bulletMass);
+            float startAngle = (bulletCount * spreadAngle) / 2 - 5;
+            for (int i = 0; i < bulletCount; i++)
+            {
+                Bullet bullet = Instantiate(this.bullet, transform.position, Quaternion.identity);
+                Vector2 direction = ((Vector2)targetVector3 - (Vector2)transform.position).normalized;
+                direction = RotateVector2(direction, startAngle);
+                bullet.SetBulletStats(bulletSpeed, attackDamage, 1, transform.position, direction, 1, bulletMass);
+                startAngle -= spreadAngle;
+            }
             
             sfxFire.Play();
             
@@ -83,14 +88,16 @@ public class Shotgun : MonoBehaviour
 
     private void CreateDirections()
     {
+        //5, 10 -> -20, -10, 0, 10, 20
+        //9, 10 -> -40, -30, -20, -10, 0, 10, 20, 30, 40
+        //4, 10 -> -15, -5, 5, 15
+        //8, 10 -> -35, -25, -15, -5, 5, 15, 25, 35
+        //if odd -> (angle * bullet count)/2 - 5
+        //if even -> (angle * bullet count)/2 -5
         
         if (bulletCount % 2 == 1)
         {
-            float startAngle;
-            for (int i = 0; i < bulletCount; i++)
-            {
-            }
+            
         }
-        
     }
 }

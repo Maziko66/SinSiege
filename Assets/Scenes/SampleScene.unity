@@ -401,6 +401,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c35aa3f5b480784992376d906757a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _parentTowers: {fileID: 0}
+  _towerTest: {fileID: 0}
+  _UITowerBuilderCombat: {fileID: 0}
+  _instantiatedUITowerBuilderCombat: {fileID: 0}
+  _UITowerManagerCombat: {fileID: 0}
+  _instantiatedUITowerManagerCombat: {fileID: 0}
 --- !u!1 &372027730
 GameObject:
   m_ObjectHideFlags: 0
@@ -21550,6 +21556,7 @@ MonoBehaviour:
   bulletSpeed: 20
   spreadAngle: 5
   bulletMass: 1
+  bulletCount: 9
 --- !u!82 &1122032989
 AudioSource:
   m_ObjectHideFlags: 0
