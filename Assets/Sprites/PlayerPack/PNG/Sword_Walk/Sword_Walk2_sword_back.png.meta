@@ -572,7 +572,25 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sword_Walk2_sword_back_0: -2820536806001203656
+      Sword_Walk2_sword_back_1: -335706356613700074
+      Sword_Walk2_sword_back_10: 5256455735927423830
+      Sword_Walk2_sword_back_11: 1990828816538991632
+      Sword_Walk2_sword_back_12: 9083201274083853894
+      Sword_Walk2_sword_back_13: -6381091122205215669
+      Sword_Walk2_sword_back_14: 2324482452512772397
+      Sword_Walk2_sword_back_15: 380047739679129769
+      Sword_Walk2_sword_back_16: 5361545620390058060
+      Sword_Walk2_sword_back_17: 4417989981250742886
+      Sword_Walk2_sword_back_2: 1042930613130492336
+      Sword_Walk2_sword_back_3: 8990940247561150200
+      Sword_Walk2_sword_back_4: 8531802361357503409
+      Sword_Walk2_sword_back_5: -3506272794851079485
+      Sword_Walk2_sword_back_6: 2473165976545268637
+      Sword_Walk2_sword_back_7: -5450972187313114582
+      Sword_Walk2_sword_back_8: -2234750391738284544
+      Sword_Walk2_sword_back_9: 2184389350008334010
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Tubular_plant_shadow1_3_0: -6050145192472625776
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

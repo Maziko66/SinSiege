@@ -722,7 +722,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Unarmed_Walk_full_0: 9098244690180250167
+      Unarmed_Walk_full_1: -4713664684283194869
+      Unarmed_Walk_full_10: 9135143175071114037
+      Unarmed_Walk_full_11: 4178514706730882964
+      Unarmed_Walk_full_12: -5389029930409153326
+      Unarmed_Walk_full_13: 5814835141857538223
+      Unarmed_Walk_full_14: -95491908016097303
+      Unarmed_Walk_full_15: 2451752125017662368
+      Unarmed_Walk_full_16: -4098643163089361359
+      Unarmed_Walk_full_17: 4137152092707487343
+      Unarmed_Walk_full_18: -5226644144343481086
+      Unarmed_Walk_full_19: -5799912122365114616
+      Unarmed_Walk_full_2: -9119645190018554957
+      Unarmed_Walk_full_20: -6539110307209384148
+      Unarmed_Walk_full_21: 8597937754623305917
+      Unarmed_Walk_full_22: 7235608329687203660
+      Unarmed_Walk_full_23: 3135174196469311465
+      Unarmed_Walk_full_3: 7705024591214105558
+      Unarmed_Walk_full_4: 2857248394834206215
+      Unarmed_Walk_full_5: 6489420151934573304
+      Unarmed_Walk_full_6: -5812985806764859655
+      Unarmed_Walk_full_7: -4622264340511715857
+      Unarmed_Walk_full_8: -428305818687384706
+      Unarmed_Walk_full_9: 1978920920796076866
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

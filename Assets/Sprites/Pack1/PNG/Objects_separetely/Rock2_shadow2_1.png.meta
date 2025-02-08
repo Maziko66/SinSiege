@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Rock2_shadow2_1_0: 1620138313049539765
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

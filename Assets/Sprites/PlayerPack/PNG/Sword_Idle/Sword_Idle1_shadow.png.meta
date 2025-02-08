@@ -1122,7 +1122,47 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sword_Idle1_shadow_0: -4033499234113488415
+      Sword_Idle1_shadow_1: -137219203706011421
+      Sword_Idle1_shadow_10: -5623171532928666476
+      Sword_Idle1_shadow_11: 2155528567895796365
+      Sword_Idle1_shadow_12: 3209121856970821757
+      Sword_Idle1_shadow_13: -237699511089237336
+      Sword_Idle1_shadow_14: 59982553543608127
+      Sword_Idle1_shadow_15: 9158760450677920167
+      Sword_Idle1_shadow_16: -7108673680396817784
+      Sword_Idle1_shadow_17: 317410825810865513
+      Sword_Idle1_shadow_18: -2115554623996143426
+      Sword_Idle1_shadow_19: -4605479245867448637
+      Sword_Idle1_shadow_2: 1040249953859898804
+      Sword_Idle1_shadow_20: 831900124969139659
+      Sword_Idle1_shadow_21: 155764021365310272
+      Sword_Idle1_shadow_22: 2125572209599654238
+      Sword_Idle1_shadow_23: -9142261267169342813
+      Sword_Idle1_shadow_24: -6388928103126820214
+      Sword_Idle1_shadow_25: 5622148522858960142
+      Sword_Idle1_shadow_26: -7640820693552367176
+      Sword_Idle1_shadow_27: -2631310307615725108
+      Sword_Idle1_shadow_28: -2435426884211410974
+      Sword_Idle1_shadow_29: 8755090984545595893
+      Sword_Idle1_shadow_3: -7048257692671341440
+      Sword_Idle1_shadow_30: 3501062755311852007
+      Sword_Idle1_shadow_31: 5049385782211872626
+      Sword_Idle1_shadow_32: 7087642719109993630
+      Sword_Idle1_shadow_33: -254506861930902905
+      Sword_Idle1_shadow_34: -2884380464199291910
+      Sword_Idle1_shadow_35: 4247730093095584945
+      Sword_Idle1_shadow_36: -7938429706187439469
+      Sword_Idle1_shadow_37: -6255959728774277243
+      Sword_Idle1_shadow_38: 7751104516518709907
+      Sword_Idle1_shadow_39: 5791053431493082502
+      Sword_Idle1_shadow_4: 9137343736550531184
+      Sword_Idle1_shadow_5: -1473169707202989388
+      Sword_Idle1_shadow_6: -2861411808206972494
+      Sword_Idle1_shadow_7: 1748187641174555344
+      Sword_Idle1_shadow_8: 8721169686768268413
+      Sword_Idle1_shadow_9: 1551641700769780733
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

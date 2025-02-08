@@ -922,7 +922,39 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sword_attack5_head_0: 8389505315959166669
+      Sword_attack5_head_1: 5351160040439593126
+      Sword_attack5_head_10: 8828458713809308365
+      Sword_attack5_head_11: -3946454938855265540
+      Sword_attack5_head_12: -624425201409350412
+      Sword_attack5_head_13: -7102728498992822598
+      Sword_attack5_head_14: -4127044336369572701
+      Sword_attack5_head_15: -7194735989495802148
+      Sword_attack5_head_16: -8827221151419607806
+      Sword_attack5_head_17: -1325300500703455840
+      Sword_attack5_head_18: -6554075076384585044
+      Sword_attack5_head_19: -9055036657539221654
+      Sword_attack5_head_2: -1813919559843225361
+      Sword_attack5_head_20: -9098256163581896156
+      Sword_attack5_head_21: -3955160872897636000
+      Sword_attack5_head_22: -8860149949020084729
+      Sword_attack5_head_23: -7800573313326035233
+      Sword_attack5_head_24: 8086099313131716273
+      Sword_attack5_head_25: -3230118125031796262
+      Sword_attack5_head_26: -470513898786626803
+      Sword_attack5_head_27: 2783076884352949615
+      Sword_attack5_head_28: -2087141016668540058
+      Sword_attack5_head_29: -3542627654581389094
+      Sword_attack5_head_3: -8349661123754264395
+      Sword_attack5_head_30: 9091017231524399921
+      Sword_attack5_head_31: -7679792899817218102
+      Sword_attack5_head_4: -5919753307311254581
+      Sword_attack5_head_5: 6161362283929966142
+      Sword_attack5_head_6: -5851809824523583420
+      Sword_attack5_head_7: 2604127061038289845
+      Sword_attack5_head_8: 3286386582533520647
+      Sword_attack5_head_9: -4878299911511842752
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

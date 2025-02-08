@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Rock_eyes_shadow1_3_0: -4952185683479871595
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -401,12 +401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c35aa3f5b480784992376d906757a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _parentTowers: {fileID: 1829589825}
-  _towerTest: {fileID: 1942448605766754239, guid: 698f40780ef49b04ebb8c8bc4cea04cb, type: 3}
-  _UITowerBuilderCombat: {fileID: 1147923278437078950, guid: b9ab3c43d092f77469050ffb52eeeec0, type: 3}
-  _instantiatedUITowerBuilderCombat: {fileID: 0}
-  _UITowerManagerCombat: {fileID: 6349804309438220228, guid: 86d7a7609f59a3847b24f9f0a1b46fa5, type: 3}
-  _instantiatedUITowerManagerCombat: {fileID: 0}
 --- !u!1 &372027730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,7 +1336,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 1d1856d6d01e99340a8ee2bea800b5ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22374,7 +22368,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 1d1856d6d01e99340a8ee2bea800b5ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

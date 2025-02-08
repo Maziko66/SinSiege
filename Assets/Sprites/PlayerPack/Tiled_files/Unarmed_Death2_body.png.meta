@@ -822,7 +822,35 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Unarmed_Death2_body_0: 7201473183786653940
+      Unarmed_Death2_body_1: -4109945983263620135
+      Unarmed_Death2_body_10: -5370138921758151854
+      Unarmed_Death2_body_11: -3672415897523311902
+      Unarmed_Death2_body_12: -2561137055807166549
+      Unarmed_Death2_body_13: -1779752505721964661
+      Unarmed_Death2_body_14: 4313400145222630498
+      Unarmed_Death2_body_15: -2198247809511033501
+      Unarmed_Death2_body_16: -3111727924909864345
+      Unarmed_Death2_body_17: -2168925692776836587
+      Unarmed_Death2_body_18: 6083084198332876824
+      Unarmed_Death2_body_19: 1720337217514440812
+      Unarmed_Death2_body_2: 4663817343708735363
+      Unarmed_Death2_body_20: -1333574375393187466
+      Unarmed_Death2_body_21: 2887502910772602908
+      Unarmed_Death2_body_22: -7287266796055788522
+      Unarmed_Death2_body_23: 835192565035616308
+      Unarmed_Death2_body_24: -5716452224176038528
+      Unarmed_Death2_body_25: -1721357478727913066
+      Unarmed_Death2_body_26: -217454185272359418
+      Unarmed_Death2_body_27: -6164916739562529684
+      Unarmed_Death2_body_3: 6553867283858683780
+      Unarmed_Death2_body_4: 3702188326481959015
+      Unarmed_Death2_body_5: -1539579373944298051
+      Unarmed_Death2_body_6: -3182257599300170333
+      Unarmed_Death2_body_7: -6862636976138206488
+      Unarmed_Death2_body_8: -3480142454188755193
+      Unarmed_Death2_body_9: 6303611509804328347
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

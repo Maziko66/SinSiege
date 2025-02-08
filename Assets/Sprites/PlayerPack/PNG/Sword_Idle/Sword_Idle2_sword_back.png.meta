@@ -522,7 +522,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sword_Idle2_sword_back_0: -7652679756331975665
+      Sword_Idle2_sword_back_1: 4070297381655513905
+      Sword_Idle2_sword_back_10: -1711015003404209080
+      Sword_Idle2_sword_back_11: -3103501083862523446
+      Sword_Idle2_sword_back_12: 4129021555737283851
+      Sword_Idle2_sword_back_13: 7751120757275897328
+      Sword_Idle2_sword_back_14: -9062460170174695001
+      Sword_Idle2_sword_back_15: -1897179976209955969
+      Sword_Idle2_sword_back_2: 4401790868540785081
+      Sword_Idle2_sword_back_3: 6311507134602931659
+      Sword_Idle2_sword_back_4: 6887381668643794184
+      Sword_Idle2_sword_back_5: 5810772939238630999
+      Sword_Idle2_sword_back_6: -5850779508819828413
+      Sword_Idle2_sword_back_7: -5328185432248186638
+      Sword_Idle2_sword_back_8: -851225990999762074
+      Sword_Idle2_sword_back_9: 3871994665947630828
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

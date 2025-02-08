@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fetus_shadow1_2_0: -77299571178398097
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

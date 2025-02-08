@@ -1122,7 +1122,47 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Unarmed_Idle2_body_0: 8710966123550877348
+      Unarmed_Idle2_body_1: 4545202112988201687
+      Unarmed_Idle2_body_10: -4020523638266307712
+      Unarmed_Idle2_body_11: 8399029676424877052
+      Unarmed_Idle2_body_12: 264080474771543029
+      Unarmed_Idle2_body_13: 1856955388095653009
+      Unarmed_Idle2_body_14: -7549206213520652582
+      Unarmed_Idle2_body_15: -413892727826830790
+      Unarmed_Idle2_body_16: 7295545130044082624
+      Unarmed_Idle2_body_17: -709850595928597442
+      Unarmed_Idle2_body_18: -1478410315487737903
+      Unarmed_Idle2_body_19: 5176290409700582424
+      Unarmed_Idle2_body_2: 6249621372702586092
+      Unarmed_Idle2_body_20: -1967369000927992374
+      Unarmed_Idle2_body_21: 5602390207527201784
+      Unarmed_Idle2_body_22: 7541419687535274557
+      Unarmed_Idle2_body_23: -8914692731325696778
+      Unarmed_Idle2_body_24: -466411843936803224
+      Unarmed_Idle2_body_25: -8799888720783946221
+      Unarmed_Idle2_body_26: 5170174049091365560
+      Unarmed_Idle2_body_27: 3279595302972980594
+      Unarmed_Idle2_body_28: 8463619756884085259
+      Unarmed_Idle2_body_29: -4215532117269731308
+      Unarmed_Idle2_body_3: 3661703177388611263
+      Unarmed_Idle2_body_30: -7162054277343742553
+      Unarmed_Idle2_body_31: -795380478286773387
+      Unarmed_Idle2_body_32: -8329672993352917296
+      Unarmed_Idle2_body_33: -7531726009770904987
+      Unarmed_Idle2_body_34: -8778936077046312319
+      Unarmed_Idle2_body_35: -5998867598479841995
+      Unarmed_Idle2_body_36: -7401878613006412691
+      Unarmed_Idle2_body_37: -4728931191075016844
+      Unarmed_Idle2_body_38: 3552116937204239389
+      Unarmed_Idle2_body_39: -3398839206253437644
+      Unarmed_Idle2_body_4: -8854395143357925173
+      Unarmed_Idle2_body_5: 9167359447655109336
+      Unarmed_Idle2_body_6: 7274668917959984038
+      Unarmed_Idle2_body_7: -5544088426602782868
+      Unarmed_Idle2_body_8: 2071819937155990409
+      Unarmed_Idle2_body_9: 269418405174834763
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

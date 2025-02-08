@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Jaws_plant_shadow1_3_0: 6136143056078117204
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

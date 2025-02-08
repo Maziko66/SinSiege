@@ -922,7 +922,39 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Unarmed_Run3_head_0: -2189546098727599341
+      Unarmed_Run3_head_1: 608281130204878982
+      Unarmed_Run3_head_10: 4389511436397719894
+      Unarmed_Run3_head_11: -4433120688899653703
+      Unarmed_Run3_head_12: 3692965509183416570
+      Unarmed_Run3_head_13: -2654698933476162404
+      Unarmed_Run3_head_14: 4746238511920882904
+      Unarmed_Run3_head_15: 3048899518671426024
+      Unarmed_Run3_head_16: -1481031730552899270
+      Unarmed_Run3_head_17: 5008614490711306723
+      Unarmed_Run3_head_18: -2692727756655027137
+      Unarmed_Run3_head_19: -7518044287603408269
+      Unarmed_Run3_head_2: -3590761218693069305
+      Unarmed_Run3_head_20: 6306283446886666005
+      Unarmed_Run3_head_21: -1659095894736875820
+      Unarmed_Run3_head_22: 3449455506495495367
+      Unarmed_Run3_head_23: 6049384857955246756
+      Unarmed_Run3_head_24: 2724119789323236067
+      Unarmed_Run3_head_25: -565055879093614738
+      Unarmed_Run3_head_26: 1232606511184018063
+      Unarmed_Run3_head_27: 1170667543074506102
+      Unarmed_Run3_head_28: 4474859398118078875
+      Unarmed_Run3_head_29: 1079241066764110266
+      Unarmed_Run3_head_3: -6720569430306674854
+      Unarmed_Run3_head_30: 985383526508167433
+      Unarmed_Run3_head_31: 3509678887309504826
+      Unarmed_Run3_head_4: 3285115025853396649
+      Unarmed_Run3_head_5: -9092417009174823688
+      Unarmed_Run3_head_6: -7334186290620656384
+      Unarmed_Run3_head_7: 4590635437661440109
+      Unarmed_Run3_head_8: 4552780317616682180
+      Unarmed_Run3_head_9: -6857151945888699989
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

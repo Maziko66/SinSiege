@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Veins_shadow2_3_0: 8935887124542737451
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

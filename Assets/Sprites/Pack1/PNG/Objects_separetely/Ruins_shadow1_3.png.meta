@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ruins_shadow1_3_0: -808264828246580248
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

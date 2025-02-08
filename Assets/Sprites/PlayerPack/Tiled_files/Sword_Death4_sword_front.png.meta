@@ -472,7 +472,21 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sword_Death4_sword_front_0: -2847234380098056942
+      Sword_Death4_sword_front_1: 1082377595276034566
+      Sword_Death4_sword_front_10: 1137275528824935929
+      Sword_Death4_sword_front_11: 8694774573000947861
+      Sword_Death4_sword_front_12: 5854814453657004014
+      Sword_Death4_sword_front_13: -1939033150827137882
+      Sword_Death4_sword_front_2: 4447916290837005538
+      Sword_Death4_sword_front_3: -7435837672447436180
+      Sword_Death4_sword_front_4: 5675193964951235752
+      Sword_Death4_sword_front_5: 6357222195899147781
+      Sword_Death4_sword_front_6: 2245122172563110881
+      Sword_Death4_sword_front_7: -2847507526123386565
+      Sword_Death4_sword_front_8: 1427625436787167817
+      Sword_Death4_sword_front_9: -7195886591514750567
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

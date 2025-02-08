@@ -722,7 +722,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sword_Idle4_sword_front_0: 3870365620359669801
+      Sword_Idle4_sword_front_1: 3967426186865985932
+      Sword_Idle4_sword_front_10: 2119025315750653510
+      Sword_Idle4_sword_front_11: -1797283069589476586
+      Sword_Idle4_sword_front_12: -2743714861294247766
+      Sword_Idle4_sword_front_13: 8207742998033699235
+      Sword_Idle4_sword_front_14: 4492141169976528413
+      Sword_Idle4_sword_front_15: 6446353372272747462
+      Sword_Idle4_sword_front_16: -6115486200070718017
+      Sword_Idle4_sword_front_17: -3353248388784536009
+      Sword_Idle4_sword_front_18: 5776463259840331680
+      Sword_Idle4_sword_front_19: -6715451381301573763
+      Sword_Idle4_sword_front_2: -549499492902044934
+      Sword_Idle4_sword_front_20: 4783500265018739756
+      Sword_Idle4_sword_front_21: -1703348947155121192
+      Sword_Idle4_sword_front_22: 5526472378934115256
+      Sword_Idle4_sword_front_23: -23633035063897651
+      Sword_Idle4_sword_front_3: -8090271685660033052
+      Sword_Idle4_sword_front_4: -8875875674640556008
+      Sword_Idle4_sword_front_5: 3546989969922537661
+      Sword_Idle4_sword_front_6: -7248280707396109039
+      Sword_Idle4_sword_front_7: 8754259068159263376
+      Sword_Idle4_sword_front_8: 2730600814205090850
+      Sword_Idle4_sword_front_9: -2169913073056875442
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
