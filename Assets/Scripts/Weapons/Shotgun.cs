@@ -1,8 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Shotgun : MonoBehaviour
 {
+    private Cooldown _cooldown;
+    
     [Header("Audio")]
     [SerializeField] private AudioSource sfxFire;
     [SerializeField] private AudioSource sfxReload;
@@ -16,27 +19,31 @@ public class Shotgun : MonoBehaviour
     [SerializeField] private float bulletMass = 1f;
     [SerializeField] private int bulletCount = 3;
     
-    private List<Vector2> directions = new List<Vector2>();
-    
-    private float _cooldown;
-    private bool _reloaded;
+    // private bool _reloaded;
+
+    private void Awake()
+    {
+        _cooldown = GetComponent<Cooldown>();
+    }
+
+    private void Start()
+    {
+        _cooldown.SetRefreshDelay(sfxReloadDelay);
+    }
 
     private void Update()
     {
-        if (_cooldown >= 0f)
-        {
-            _cooldown -= Time.deltaTime;
-        }
-        if (!_reloaded && _cooldown <= sfxReloadDelay)
-        {
-            sfxReload.Play();
-            _reloaded = true;
-        }
+        // if (!_reloaded && _cooldown.GetCooldown() <= sfxReloadDelay)
+        // {
+        //     sfxReload.Play();
+        //     _reloaded = true;
+        // }
     }
 
     public void Fire(Vector3 targetVector3)
     {
-        if (_cooldown <= 0)
+        //if (_cooldown <= 0)
+        if (_cooldown.GetCooldown() < 0)
         {
             // Bullet bullet = Instantiate(this.bullet, transform.position, Quaternion.identity);
             // Vector2 direction = ((Vector2)targetVector3 - (Vector2)transform.position).normalized;
@@ -64,40 +71,25 @@ public class Shotgun : MonoBehaviour
             
             sfxFire.Play();
             
-            _cooldown = attackInterval;
-            _reloaded = false;
+            _cooldown.SetCooldown(attackInterval);
+            _cooldown.SetRefreshed(false);
+            //_reloaded = false;
         }
         else
         {
-            Debug.Log("Shotgun is on cooldown: " + _cooldown);
+            Debug.Log("Shotgun is on cooldown: " + _cooldown.GetCooldown());
         }
     }
     
     private Vector2 RotateVector2(Vector2 vector, float angle)
     {
-        float radianAngle = Mathf.Deg2Rad * angle; // Convert angle to radians
+        float radianAngle = Mathf.Deg2Rad * angle;
         float cosine = Mathf.Cos(radianAngle);
         float sine = Mathf.Sin(radianAngle);
-    
-        // Apply the rotation matrix to the vector
+        
         return new Vector2(
             cosine * vector.x - sine * vector.y,
             sine * vector.x + cosine * vector.y
         );
-    }
-
-    private void CreateDirections()
-    {
-        //5, 10 -> -20, -10, 0, 10, 20
-        //9, 10 -> -40, -30, -20, -10, 0, 10, 20, 30, 40
-        //4, 10 -> -15, -5, 5, 15
-        //8, 10 -> -35, -25, -15, -5, 5, 15, 25, 35
-        //if odd -> (angle * bullet count)/2 - 5
-        //if even -> (angle * bullet count)/2 -5
-        
-        if (bulletCount % 2 == 1)
-        {
-            
-        }
     }
 }

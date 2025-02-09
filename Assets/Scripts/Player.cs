@@ -85,7 +85,9 @@ public class Player : MonoBehaviour
 
     private void OnSecondaryAttack()
     {
-        fists.Attack();
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0f; // Ensure it's in 2D space
+        fists.Attack(mousePosition);
         Debug.Log("secondary");
     }
 

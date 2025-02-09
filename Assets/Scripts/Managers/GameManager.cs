@@ -1,5 +1,8 @@
 using System.Linq.Expressions;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -7,18 +10,33 @@ public class GameManager : MonoBehaviour
     private Player player;
 
     #region GAMEOBJECTS
+    [SerializeField] private Base baseTower;
     [Header("Towers")]
     [SerializeField] private GameObject _parentTowers;
     [SerializeField] private Tower _towerTest; 
+    
     #endregion
     #region UI
+    
     [Header("UI")]
-    [SerializeField] private UITowerBuilderCombat _UITowerBuilderCombat;
-    [SerializeField] private GameObject _instantiatedUITowerBuilderCombat;
-    [SerializeField] private UITowerManagerCombat _UITowerManagerCombat;
-    [SerializeField] private GameObject _instantiatedUITowerManagerCombat;
+    [FormerlySerializedAs("_UITowerBuilderCombat")]
+    [SerializeField] private UITowerBuilderCombat uiTowerBuilderCombat;
+    [SerializeField] private GameObject instantiatedUITowerBuilderCombat;
+    [FormerlySerializedAs("_UITowerManagerCombat")] [SerializeField] private UITowerManagerCombat uiTowerManagerCombat;
+    [SerializeField] private GameObject instantiatedUITowerManagerCombat;
+    
+    [SerializeField] private Slider sliderBaseHealth;
+    [SerializeField] private TextMeshProUGUI textSliderBaseHealth;
     #endregion
 
+    #region VARIABLES
+
+    [Header("Variables")]
+    private int _baseStartingHealth;
+    private int _baseHealth;
+    
+
+    #endregion
     private void Awake()
     {
         canvas = FindFirstObjectByType<Canvas>();
@@ -27,47 +45,41 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        SliderBaseHealthMinMaxValueSet();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
 
     public void DrawUITowerBuilderCombat(Vector3 pos)
     {
-        if (_instantiatedUITowerBuilderCombat == null)
+        if (instantiatedUITowerBuilderCombat == null)
         {
             DestroyUITowerBuilderCombat();
         }
-        _instantiatedUITowerBuilderCombat = Instantiate(_UITowerBuilderCombat.gameObject, canvas.gameObject.transform);
-        _instantiatedUITowerBuilderCombat.transform.position = pos;
+        instantiatedUITowerBuilderCombat = Instantiate(uiTowerBuilderCombat.gameObject, canvas.gameObject.transform);
+        instantiatedUITowerBuilderCombat.transform.position = pos;
         
     }
 
     public void DestroyUITowerBuilderCombat()
     {
-        Destroy(_instantiatedUITowerBuilderCombat.gameObject);
+        Destroy(instantiatedUITowerBuilderCombat.gameObject);
     }
 
     public void DrawUITowerManagerCombat(Vector3 pos)
     {
-        if(_instantiatedUITowerManagerCombat == null)
+        if(instantiatedUITowerManagerCombat == null)
         {
             DestroyUITowerManagerCombat();
         }
-        _instantiatedUITowerManagerCombat = Instantiate(_UITowerManagerCombat.gameObject, canvas.gameObject.transform);
-        _instantiatedUITowerManagerCombat.transform.position = pos;
+        instantiatedUITowerManagerCombat = Instantiate(uiTowerManagerCombat.gameObject, canvas.gameObject.transform);
+        instantiatedUITowerManagerCombat.transform.position = pos;
 
     }
 
     public void DestroyUITowerManagerCombat()
     {
-        Destroy(_instantiatedUITowerManagerCombat.gameObject);
+        Destroy(instantiatedUITowerManagerCombat.gameObject);
     }
 
     public void TowerCreateTest()
@@ -114,5 +126,24 @@ public class GameManager : MonoBehaviour
         zone.isEmpty = true;
 
         DestroyUITowerManagerCombat();
+    }
+
+    private void SliderBaseHealthMinMaxValueSet()
+    {
+        _baseStartingHealth = baseTower.GetBaseStartingHealth();
+        sliderBaseHealth.maxValue = _baseStartingHealth;
+        sliderBaseHealth.minValue = 0;
+        UpdateBaseHealth();
+    }
+    public void UpdateBaseHealth()
+    {
+        _baseHealth = baseTower.GetBaseHealth();
+        sliderBaseHealth.value = _baseHealth;
+        SetTextSliderBaseHealth();
+    }
+
+    private void SetTextSliderBaseHealth()
+    {
+        textSliderBaseHealth.SetText("Base Health: " + _baseHealth + "/" + _baseStartingHealth);
     }
 }

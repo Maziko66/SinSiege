@@ -104,7 +104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 3
-  _health: 0
+  _health: 5
+  damage: 1
   _mainTargetLocation: {x: 0, y: 0, z: 0}
 --- !u!60 &666586091851538143
 PolygonCollider2D:

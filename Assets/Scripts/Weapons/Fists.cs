@@ -8,6 +8,8 @@ public class Fists : MonoBehaviour
     private Collider2D _collider;
     private SpriteRenderer _spriteRenderer;
 
+    [SerializeField] private AudioSource punchSound;
+
     [SerializeField] private float attackInterval = 1f;
     [SerializeField] private float activeTime = 0.2f;
     [SerializeField] private float damage = 5f;
@@ -30,12 +32,26 @@ public class Fists : MonoBehaviour
         _spriteRenderer.enabled = false;
     }
 
-    public void Attack()
+    public void Attack(Vector3 targetPosition)
     {
-        _collider.enabled = true;
-        _spriteRenderer.enabled = true;
-        Debug.Log("Fist attack, enabled fist collider");
-        Invoke(nameof(DisableComponents), activeTime);
+        if (Camera.main != null)
+        {
+            Vector3 attackDirection = (targetPosition - transform.parent.position).normalized;
+            
+            float angle = Mathf.Atan2(attackDirection.y, attackDirection.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+            
+            _collider.enabled = true;
+            _spriteRenderer.enabled = true;
+            punchSound.Play();
+            //Debug.Log("Fist attack, enabled fist collider");
+            
+            Invoke(nameof(DisableComponents), activeTime);
+        }
+        else
+        {
+            Debug.Log("camera not found");
+        }
     }
 
     private void DisableComponents()

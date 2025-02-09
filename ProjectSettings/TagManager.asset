@@ -44,11 +44,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Towers
-    uniqueID: 4228731337
-    locked: 0
   - name: Enemies
     uniqueID: 1423949265
+    locked: 0
+  - name: Towers
+    uniqueID: 4228731337
     locked: 0
   - name: Player
     uniqueID: 3168194385
