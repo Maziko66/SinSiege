@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class WaveManager : MonoBehaviour
 {
@@ -7,26 +8,26 @@ public class WaveManager : MonoBehaviour
     //listSpawnPoints, listWaveGroups
 
     public List<WaveSO> waves = new List<WaveSO>();
-    [SerializeField] private List<Enemy> _enemyList = new List<Enemy>();
-    [SerializeField] private Vector3 _spawnPosition;
+    [FormerlySerializedAs("_enemyList")] [SerializeField] private List<Enemy> enemyList = new List<Enemy>();
+    [FormerlySerializedAs("_spawnPosition")] [SerializeField] private Vector3 spawnPosition;
 
     [Header("Spawner Variables")]
-    [SerializeField] private float _spawnInterval = 1.0f;
-    [SerializeField] private float _spawnCooldown = 1.0f;
-    [SerializeField] private int _wavesListIndex = 0;
+    [SerializeField] private float spawnInterval = 1.0f;
+    [SerializeField] private float spawnCooldown = 1.0f;
+    [SerializeField] private int wavesListIndex = 0;
 
 
     private void Start()
     {
-        _spawnCooldown *= _spawnInterval;
+        spawnCooldown *= spawnInterval;
         GetEnemyList();
     }
 
     private void Update()
     {
-        if (_enemyList.Count > 0)
+        if (enemyList.Count > 0)
         {
-            _spawnCooldown -= Time.deltaTime;
+            spawnCooldown -= Time.deltaTime;
             SpawnFromList();
         }
         
@@ -41,18 +42,18 @@ public class WaveManager : MonoBehaviour
 
     private void GetEnemyList()
     {
-        _enemyList.Clear();
-        _enemyList = waves[_wavesListIndex].enemyList;
-        _spawnPosition = waves[_wavesListIndex].spawnPoint;
+        enemyList.Clear();
+        enemyList = waves[wavesListIndex].enemyList;
+        spawnPosition = waves[wavesListIndex].spawnPoint;
     }
 
     private void SpawnFromList()
     {
-        if(_spawnCooldown <= 0.0f)
+        if(spawnCooldown <= 0.0f)
         {
-            Instantiate(_enemyList[0].gameObject, _spawnPosition, Quaternion.identity);
-            _enemyList.RemoveAt(0);
-            _spawnCooldown = _spawnInterval;
+            Instantiate(enemyList[0].gameObject, spawnPosition, Quaternion.identity);
+            enemyList.RemoveAt(0);
+            spawnCooldown = spawnInterval;
         }
         
     }

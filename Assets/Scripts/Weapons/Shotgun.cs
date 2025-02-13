@@ -6,12 +6,15 @@ public class Shotgun : MonoBehaviour
 {
     private Cooldown _cooldown;
     
+    [SerializeField] private string weaponName = "Shotgun";
+    
     [Header("Audio")]
     [SerializeField] private AudioSource sfxFire;
     [SerializeField] private AudioSource sfxReload;
     [SerializeField] private float sfxReloadDelay = 0.3f;
     [SerializeField] private Bullet bullet;
     
+    [Header("Stats")]
     [SerializeField] private float attackInterval = 1f;
     [SerializeField] private float attackDamage = 1f;
     [SerializeField] private float bulletSpeed = 6f;
@@ -28,7 +31,8 @@ public class Shotgun : MonoBehaviour
 
     private void Start()
     {
-        _cooldown.SetRefreshDelay(sfxReloadDelay);
+        _cooldown.SetSliderUIName(weaponName);
+        //_cooldown.SetRefreshDelay(sfxReloadDelay);
     }
 
     private void Update()

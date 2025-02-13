@@ -1,6 +1,7 @@
 using System.Linq.Expressions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -25,7 +26,8 @@ public class GameManager : MonoBehaviour
     [FormerlySerializedAs("_UITowerManagerCombat")] [SerializeField] private UITowerManagerCombat uiTowerManagerCombat;
     [SerializeField] private GameObject instantiatedUITowerManagerCombat;
     
-    [SerializeField] private Slider sliderBaseHealth;
+    //[SerializeField] private Slider sliderBaseHealth;
+    [SerializeField] private UISliderHp sliderBaseHealth;
     [SerializeField] private TextMeshProUGUI textSliderBaseHealth;
     #endregion
 
@@ -45,7 +47,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        SliderBaseHealthMinMaxValueSet();
+        //SliderBaseHealthMinMaxValueSet();
+        _baseStartingHealth = baseTower.GetBaseStartingHealth();
+        sliderBaseHealth.SliderMinMaxValueSet(_baseStartingHealth);
+        UpdateBaseHealth();
     }
 
     // Update is called once per frame
@@ -127,23 +132,11 @@ public class GameManager : MonoBehaviour
 
         DestroyUITowerManagerCombat();
     }
-
-    private void SliderBaseHealthMinMaxValueSet()
-    {
-        _baseStartingHealth = baseTower.GetBaseStartingHealth();
-        sliderBaseHealth.maxValue = _baseStartingHealth;
-        sliderBaseHealth.minValue = 0;
-        UpdateBaseHealth();
-    }
+    
     public void UpdateBaseHealth()
     {
         _baseHealth = baseTower.GetBaseHealth();
-        sliderBaseHealth.value = _baseHealth;
-        SetTextSliderBaseHealth();
-    }
-
-    private void SetTextSliderBaseHealth()
-    {
-        textSliderBaseHealth.SetText("Base Health: " + _baseHealth + "/" + _baseStartingHealth);
+        sliderBaseHealth.SliderValueSet(_baseHealth);
+        sliderBaseHealth.SliderTextSet("Base Health: " + _baseHealth + "/" + _baseStartingHealth);
     }
 }

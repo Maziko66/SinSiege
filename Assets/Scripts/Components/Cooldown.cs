@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class Cooldown : MonoBehaviour
 {
+    [SerializeField] private UISliderHp slider;
     [SerializeField] private AudioSource sfxRefresh; 
-    [SerializeField] private Slider slider;
     [SerializeField] private Text cooldownText;
 
     [SerializeField] private float refreshDelay;
@@ -17,6 +17,7 @@ public class Cooldown : MonoBehaviour
         if (_cooldown >= 0f)
         {
             _cooldown -= Time.deltaTime;
+            slider.SliderValueSet(slider.GetMaxValue() - _cooldown);
         }
         if (!_refreshed && _cooldown <= refreshDelay)
         {
@@ -33,6 +34,7 @@ public class Cooldown : MonoBehaviour
     public void SetCooldown(float cooldown)
     {
         _cooldown = cooldown;
+        slider.SliderMinMaxValueSet(cooldown);
     }
 
     public float GetCooldown()
@@ -43,5 +45,10 @@ public class Cooldown : MonoBehaviour
     public void SetRefreshed(bool state)
     {
         _refreshed = state;
+    }
+
+    public void SetSliderUIName(string str)
+    {
+        slider.SliderTextSet(str);
     }
 }
