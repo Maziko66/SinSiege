@@ -1025,11 +1025,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f999840c02402764b867937f4c1107fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pixelPrefab: {fileID: 5607293768035654380, guid: 5024c91d148154c4a82e99134ccae19a, type: 3}
-  minimapCollider: {fileID: 0}
+  minimapCollider: {fileID: 2095022715}
   scaleFactor: 2
   offset: {x: 64, y: 64}
-  objectsToTrack: []
+  tagPrefabPairs:
+  - tag: Enemy
+    prefab: {fileID: 5607293768035654380, guid: 5024c91d148154c4a82e99134ccae19a, type: 3}
+  - tag: Base
+    prefab: {fileID: 5607293768035654380, guid: 98608de5715712f4e8ba40ae2536b993, type: 3}
 --- !u!114 &515740433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84111,7 +84114,7 @@ GameObject:
   - component: {fileID: 1425803305}
   m_Layer: 7
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84194,8 +84197,8 @@ Transform:
   m_GameObject: {fileID: 1425803301}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5819, y: 0.5819, z: 0}
-  m_LocalScale: {x: 4.41591, y: 4.41591, z: 4.41591}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -87015,6 +87018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74bda95ac036016459379c790ad34bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minimap: {fileID: 515740432}
 --- !u!1001 &2120701445
 PrefabInstance:
   m_ObjectHideFlags: 0

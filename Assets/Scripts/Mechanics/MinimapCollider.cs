@@ -1,29 +1,40 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MinimapCollider : MonoBehaviour
 {
-    private Minimap _minimap;
+    [FormerlySerializedAs("_minimap")] [SerializeField] private Minimap minimap;
 
     private void Awake()
     {
-        _minimap = FindFirstObjectByType<Minimap>();
+        if (minimap == null)
+        {
+            minimap = FindFirstObjectByType<Minimap>();
+        }
+
+        if (minimap == null)
+        {
+            Debug.LogError("MinimapCollider: No Minimap found in the scene.");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (minimap == null) return; // FIX: Prevent crash
+
+        if (other.CompareTag("Enemy") || other.CompareTag("Base"))
         {
-            _minimap.AddObjectToTrack(other.gameObject);
+            minimap.AddObjectToTrack(other.gameObject);
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (minimap == null) return; // FIX: Prevent crash
+
+        if (other.CompareTag("Enemy") || other.CompareTag("Base"))
         {
-            _minimap.RemoveObjectFromList(other.gameObject);
+            minimap.RemoveObjectFromList(other.gameObject);
         }
     }
 }

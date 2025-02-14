@@ -7,6 +7,7 @@ TagManager:
   - Tower Zone
   - Bullet
   - Enemy
+  - Base
   layers:
   - Default
   - TransparentFX

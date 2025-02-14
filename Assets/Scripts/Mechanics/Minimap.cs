@@ -1,21 +1,29 @@
 using System;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class Minimap : MonoBehaviour
 {
-    [SerializeField] private GameObject pixelPrefab;
+    [System.Serializable]
+    public class TagPrefabPair
+    {
+        public string tag;
+        public GameObject prefab;
+    }
+    
+    [Header("Minimap Settings")]
     [SerializeField] private MinimapCollider minimapCollider;
     [SerializeField] private float scaleFactor = 4f;
     [SerializeField] private Vector2 offset = new Vector2(128, 128);
     
-    [SerializeField] private List<GameObject> objectsToTrack;
+    [Header("Pixel Prefabs")]
+    [SerializeField] private List<TagPrefabPair> tagPrefabPairs;
     
-    private Dictionary<GameObject, GameObject> objectToPixelMap = new Dictionary<GameObject, GameObject>();
-    private Dictionary<GameObject, Vector3> lastKnownPositions = new Dictionary<GameObject, Vector3>();
+    private List<GameObject> _objectsToTrack = new List<GameObject>();
 
-    private List<GameObject> _serializedPixels = new List<GameObject>();
+    private Dictionary<GameObject, GameObject> _objectToPixelMap = new Dictionary<GameObject, GameObject>();
+    private Dictionary<GameObject, Vector3> _lastKnownPositions = new Dictionary<GameObject, Vector3>();
+
     private void Awake()
     {
         if (minimapCollider == null)
@@ -25,89 +33,91 @@ public class Minimap : MonoBehaviour
 
         if (minimapCollider == null)
         {
-            Debug.LogWarning("Minimap: No MinimapCollider found in the scene.");
+            Debug.LogError("Minimap: No MinimapCollider found in the scene.");
         }
     }
-
-    // private void Update()
-    // {
-    //     foreach (GameObject obj in _serializedPixels)
-    //     {
-    //         Destroy(obj.gameObject);
-    //     }
-    //     
-    //     Vector2 mmcPosition = new Vector2(minimapCollider.transform.position.x, minimapCollider.transform.position.y);
-    //     foreach (GameObject obj in objectsToTrack)
-    //     {
-    //         Vector2 drawPos =new Vector2(obj.transform.position.x, obj.transform.position.y) - mmcPosition;
-    //         drawPos = (drawPos * scaleFactor) - offset;
-    //         GameObject newPixel = Instantiate(pixel, transform);
-    //         _serializedPixels.Add(newPixel);
-    //         newPixel.transform.localPosition = drawPos;
-    //     }
-    // }
     
     private void Update()
     {
+        if (minimapCollider == null) return;
+
         Vector2 mmcPosition = new Vector2(minimapCollider.transform.position.x, minimapCollider.transform.position.y);
 
-        foreach (var obj in objectsToTrack)
+        foreach (var obj in _objectsToTrack)
         {
-            if (!objectToPixelMap.ContainsKey(obj)) continue;
+            if (!_objectToPixelMap.TryGetValue(obj, out GameObject pixel) || pixel == null) continue;
 
             // Check if the object has moved
-            if (lastKnownPositions.TryGetValue(obj, out var lastPos) && lastPos == obj.transform.position)
+            Vector3 objPosition = obj.transform.position;
+            if (_lastKnownPositions.TryGetValue(obj, out var lastPos) && lastPos == objPosition)
             {
-                continue; // Skip if the object hasn't moved
+                if (obj.CompareTag("Base")) 
+                {
+                    UpdatePixelPosition(obj, mmcPosition, pixel);
+                }
+                continue;
             }
 
-            // Update the pixel position
-            Vector2 drawPos = (new Vector2(obj.transform.position.x, obj.transform.position.y) - mmcPosition) * scaleFactor - offset;
-            objectToPixelMap[obj].transform.localPosition = drawPos;
+            UpdatePixelPosition(obj, mmcPosition, pixel);
 
-            // Update the last known position
-            lastKnownPositions[obj] = obj.transform.position;
+            _lastKnownPositions[obj] = objPosition;
         }
     }
-    
-    // public void AddObjectToTrack(GameObject obj)
-    // {
-    //     objectsToTrack.Add(obj);
-    //     Debug.Log("Added " + obj.name + " to objectsToTrack");
-    // }
-    //
-    // public void RemoveObjectFromList(GameObject obj)
-    // {
-    //     objectsToTrack.Remove(obj);
-    // }
-    
+
+    private void UpdatePixelPosition(GameObject obj, Vector2 mmcPosition, GameObject pixel)
+    {
+        Vector2 drawPos = (new Vector2(obj.transform.position.x, obj.transform.position.y) - mmcPosition) * scaleFactor - offset;
+        pixel.transform.localPosition = drawPos;
+    }
+
     public void AddObjectToTrack(GameObject obj)
     {
-        if (objectToPixelMap.ContainsKey(obj)) return;
-
-        objectsToTrack.Add(obj);
+        if (_objectToPixelMap.ContainsKey(obj)) return;
         
-        GameObject newPixel = Instantiate(pixelPrefab, transform);
+        GameObject prefab = GetPrefabForTag(obj.tag);
+        if (prefab == null)
+        {
+            Debug.LogWarning($"No prefab found for tag: {obj.tag}");
+            return;
+        }
+
+        _objectsToTrack.Add(obj);
+        
+        GameObject newPixel = Instantiate(prefab, transform);
         
         Vector2 mmcPosition = new Vector2(minimapCollider.transform.position.x, minimapCollider.transform.position.y);
         Vector2 drawPos = (new Vector2(obj.transform.position.x, obj.transform.position.y) - mmcPosition) * scaleFactor - offset;
         newPixel.transform.localPosition = drawPos;
         
-        objectToPixelMap[obj] = newPixel;
-        lastKnownPositions[obj] = obj.transform.position;
+        _objectToPixelMap[obj] = newPixel;
+        _lastKnownPositions[obj] = obj.transform.position;
 
-        Debug.Log("Added " + obj.name + " to objectsToTrack");
+        Debug.Log($"Added {obj.name} (tag: {obj.tag}) to objectsToTrack");
     }
 
     public void RemoveObjectFromList(GameObject obj)
     {
-        if (objectToPixelMap.TryGetValue(obj, out var pixel))
+        if (obj == null) return; // FIX: Prevent null reference
+
+        if (_objectToPixelMap.TryGetValue(obj, out var pixel))
         {
             Destroy(pixel);
-            objectToPixelMap.Remove(obj);
-            lastKnownPositions.Remove(obj);
+            _objectToPixelMap.Remove(obj);
+            _lastKnownPositions.Remove(obj);
         }
 
-        objectsToTrack.Remove(obj);
+        _objectsToTrack.Remove(obj);
+    }
+
+    private GameObject GetPrefabForTag(string objTag)
+    {
+        foreach (var pair in tagPrefabPairs)
+        {
+            if (pair.tag == objTag)
+            {
+                return pair.prefab;
+            }
+        }
+        return null;
     }
 }
