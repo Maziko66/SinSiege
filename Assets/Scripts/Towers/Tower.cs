@@ -6,22 +6,31 @@ using UnityEngine.Serialization;
 public class Tower : MonoBehaviour
 {
     //[SerializeField] private GameObject _nozzle;
-
-    [FormerlySerializedAs("_attackRange")]
+    private Cooldown _cooldown;
+    
     [Header("Attributes")]
     [SerializeField] private float attackRange = 6f;
-    [FormerlySerializedAs("_attackInterval")] [SerializeField] private float attackInterval = 1f;
-    [FormerlySerializedAs("_attackDamage")] [SerializeField] private float attackDamage = 1f;
-    [FormerlySerializedAs("_bulletSpeed")] [SerializeField] private float bulletSpeed = 6f;
-
-    [FormerlySerializedAs("_bullet")]
+    [SerializeField] private float attackInterval = 1f;
+    [SerializeField] private float attackDamage = 1f;
+    
+    [Header("Bullet Properties")]
+    [SerializeField] private float bulletSpeed = 6f;
+    [SerializeField] private int bulletCount = 1;
+    [SerializeField] private float spreadAngle = 0f;
+    [SerializeField] private int firingMode = 0;
+    
     [Header("Other")]
     [SerializeField] private Bullet bullet;
     [SerializeField] private LayerMask enemyMask;
 
     [SerializeField] private Transform target;
 
-    private float _cooldown = 0;
+    //private float _cooldown = 0;
+
+    private void Awake()
+    {
+        _cooldown = GetComponent<Cooldown>();
+    }
 
     private void Start()
     {
@@ -30,11 +39,8 @@ public class Tower : MonoBehaviour
 
     private void Update()
     {
-        
-
         if(target == null)
         {
-            
             FindTarget();
             return;
         }        
@@ -43,7 +49,7 @@ public class Tower : MonoBehaviour
         {
             target = null;
         }
-        else
+        else if(_cooldown.GetCooldown() <= 0)
         {
             //RotateTowardsTarget();
             Fire();
@@ -76,14 +82,30 @@ public class Tower : MonoBehaviour
 
     private void Fire()
     {
-        _cooldown -= Time.deltaTime;
-
-        if (_cooldown <= 0)
-        {
-            Bullet bullet = Instantiate(this.bullet, transform.position, Quaternion.identity);
-            bullet.SetBulletStats(bulletSpeed, attackDamage, 1, transform.position, target.position, 0);
-            bullet.SetTarget(target);
-            _cooldown = attackInterval;
-        }
+        //_cooldown -= Time.deltaTime;
+        
+        // if (firedFrom == 0)
+        // {
+        //     Bullet bullet = Instantiate(this.bullet, transform.position, Quaternion.identity);
+        //     bullet.SetBulletStats(bulletSpeed, attackDamage, 1, transform.position, target.position, 0);
+        //     bullet.SetTarget(target);
+        // }
+        // else if (firedFrom == 1)
+        // {
+        //     float startAngle = (bulletCount * spreadAngle) / 2 - 5;
+        //
+        //     for (int i = 0; i < bulletCount; i++)
+        //     {
+        //         Bullet bullet = Instantiate(this.bullet, transform.position, Quaternion.identity);
+        //         Vector2 direction = ((Vector2)targetVector3 - (Vector2)transform.position).normalized;
+        //         direction = FireMethods.RotateVector2(direction, startAngle);
+        //         bullet.SetBulletStats(bulletSpeed, attackDamage, 1, transform.position, direction, 1);
+        //         startAngle -= spreadAngle;
+        //     }
+        // }
+        
+        FireMethods.BulletFire(firingMode, bullet, transform, bulletSpeed, attackDamage, target.position, target);
+        _cooldown.SetCooldown(attackInterval);
+        _cooldown.SetRefreshed(false);
     }
 }

@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
 
     private Vector2 _moveDirection = Vector2.zero;
 
+    public bool isPaused;
+    
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -44,6 +46,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if(isPaused) {return;}
         _moveDirection = playerControls.ReadValue<Vector2>();
 
         _animator.SetFloat("moveY", _moveDirection.y);
@@ -53,6 +56,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(isPaused) {return;}
         _rb.linearVelocity = new Vector2(_moveDirection.x, _moveDirection.y).normalized * moveSpeed;
     }
 
@@ -78,6 +82,7 @@ public class Player : MonoBehaviour
 
     private void OnAttack()
     {
+        if(isPaused) {return;}
         System.Diagnostics.Debug.Assert(Camera.main != null, "Camera.main != null");
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         shotgun.Fire(mousePosition);
@@ -86,11 +91,20 @@ public class Player : MonoBehaviour
 
     private void OnSecondaryAttack()
     {
+        if(isPaused) {return;}
         System.Diagnostics.Debug.Assert(Camera.main != null, "Camera.main != null");
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0f; // Ensure it's in 2D space
         fists.Attack(mousePosition);
         //Debug.Log("secondary");
+    }
+
+    private void OnPause()
+    {
+        Debug.Log("On Pause");
+        isPaused = !isPaused;
+        Time.timeScale = isPaused ? 0 : 1;
+        Debug.Log(Time.timeScale);
     }
 
     private void OnTriggerExit2D(Collider2D collision)

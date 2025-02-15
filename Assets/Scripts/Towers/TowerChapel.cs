@@ -47,7 +47,7 @@ public class TowerChapel : MonoBehaviour
         }
         else
         {
-            if (_cooldown.GetCooldown() < 0)
+            if (_cooldown.GetCooldown() <= 0)
             {
                 Expand();
             }

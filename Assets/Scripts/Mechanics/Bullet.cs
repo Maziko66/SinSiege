@@ -14,8 +14,9 @@ public class Bullet : MonoBehaviour
 
     private Transform _target;
 
-    private int _firedFrom; //0: Turret, 1: Shoutgun
-    
+    private int _firedFrom; //0: Turret Homing, 1: Shoutgun, Direct
+
+    private float _lifeSpan = 4;
 
     private void Awake()
     {
@@ -27,7 +28,6 @@ public class Bullet : MonoBehaviour
         _rb.mass = _mass;
         if (_firedFrom == 1)
         {
-            //Vector2 direction = ((Vector2)_targetVector - (Vector2)transform.position).normalized;
             _rb.AddForce(_targetVector * _speed /** _mass*/, ForceMode2D.Impulse);
         }
     }
@@ -44,12 +44,20 @@ public class Bullet : MonoBehaviour
             _rb.MovePosition(newPosition);
             
         }
-        else if (_firedFrom == 1)
+        
+        _lifeSpan -= Time.fixedDeltaTime;
+
+        if (_lifeSpan <= 0)
         {
-            //Vector2 newPosition = Vector2.MoveTowards(rb.position, _targetVector, _speed * Time.fixedDeltaTime);
-            //rb.MovePosition(newPosition);
-            
+            Destroy(gameObject);
         }
+        
+        // else if (_firedFrom == 1)
+        // {
+        //     //Vector2 newPosition = Vector2.MoveTowards(rb.position, _targetVector, _speed * Time.fixedDeltaTime);
+        //     //rb.MovePosition(newPosition);
+        //     
+        // }
         
     }
 

@@ -21,6 +21,7 @@ public class Shotgun : MonoBehaviour
     [SerializeField] private float spreadAngle = 10f;
     [SerializeField] private float bulletMass = 1f;
     [SerializeField] private int bulletCount = 3;
+    [SerializeField] private int fireMode = 1;
     
     // private bool _reloaded;
 
@@ -68,10 +69,12 @@ public class Shotgun : MonoBehaviour
             {
                 Bullet bullet = Instantiate(this.bullet, transform.position, Quaternion.identity);
                 Vector2 direction = ((Vector2)targetVector3 - (Vector2)transform.position).normalized;
-                direction = RotateVector2(direction, startAngle);
+                direction = FireMethods.RotateVector2(direction, startAngle);
                 bullet.SetBulletStats(bulletSpeed, attackDamage, 1, transform.position, direction, 1, bulletMass);
                 startAngle -= spreadAngle;
             }
+            
+            FireMethods.BulletFire(fireMode, bullet, transform, bulletSpeed, attackDamage, targetVector3);
             
             sfxFire.Play();
             
@@ -83,17 +86,5 @@ public class Shotgun : MonoBehaviour
         {
             Debug.Log("Shotgun is on cooldown: " + _cooldown.GetCooldown());
         }
-    }
-    
-    private Vector2 RotateVector2(Vector2 vector, float angle)
-    {
-        float radianAngle = Mathf.Deg2Rad * angle;
-        float cosine = Mathf.Cos(radianAngle);
-        float sine = Mathf.Sin(radianAngle);
-        
-        return new Vector2(
-            cosine * vector.x - sine * vector.y,
-            sine * vector.x + cosine * vector.y
-        );
     }
 }
