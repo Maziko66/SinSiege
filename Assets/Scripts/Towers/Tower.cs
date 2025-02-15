@@ -82,28 +82,6 @@ public class Tower : MonoBehaviour
 
     private void Fire()
     {
-        //_cooldown -= Time.deltaTime;
-        
-        // if (firedFrom == 0)
-        // {
-        //     Bullet bullet = Instantiate(this.bullet, transform.position, Quaternion.identity);
-        //     bullet.SetBulletStats(bulletSpeed, attackDamage, 1, transform.position, target.position, 0);
-        //     bullet.SetTarget(target);
-        // }
-        // else if (firedFrom == 1)
-        // {
-        //     float startAngle = (bulletCount * spreadAngle) / 2 - 5;
-        //
-        //     for (int i = 0; i < bulletCount; i++)
-        //     {
-        //         Bullet bullet = Instantiate(this.bullet, transform.position, Quaternion.identity);
-        //         Vector2 direction = ((Vector2)targetVector3 - (Vector2)transform.position).normalized;
-        //         direction = FireMethods.RotateVector2(direction, startAngle);
-        //         bullet.SetBulletStats(bulletSpeed, attackDamage, 1, transform.position, direction, 1);
-        //         startAngle -= spreadAngle;
-        //     }
-        // }
-        
         FireMethods.BulletFire(firingMode, bullet, transform, bulletSpeed, attackDamage, target.position, target);
         _cooldown.SetCooldown(attackInterval);
         _cooldown.SetRefreshed(false);

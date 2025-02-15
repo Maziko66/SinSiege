@@ -35,52 +35,17 @@ public class Shotgun : MonoBehaviour
         _cooldown.SetSliderUIName(weaponName);
         //_cooldown.SetRefreshDelay(sfxReloadDelay);
     }
-
-    private void Update()
-    {
-        // if (!_reloaded && _cooldown.GetCooldown() <= sfxReloadDelay)
-        // {
-        //     sfxReload.Play();
-        //     _reloaded = true;
-        // }
-    }
-
+    
     public void Fire(Vector3 targetVector3)
     {
-        //if (_cooldown <= 0)
         if (_cooldown.GetCooldown() < 0)
         {
-            // Bullet bullet = Instantiate(this.bullet, transform.position, Quaternion.identity);
-            // Vector2 direction = ((Vector2)targetVector3 - (Vector2)transform.position).normalized;
-            // bullet.SetBulletStats(bulletSpeed, attackDamage, 1, transform.position, direction, 1, bulletMass);
-            //
-            // bullet = Instantiate(this.bullet, transform.position, Quaternion.identity);
-            // direction = ((Vector2)targetVector3 - (Vector2)transform.position).normalized;
-            // direction = RotateVector2(direction, spreadAngle);
-            // bullet.SetBulletStats(bulletSpeed, attackDamage, 1, transform.position, direction, 1, bulletMass);
-            //
-            // bullet = Instantiate(this.bullet, transform.position, Quaternion.identity);
-            // direction = ((Vector2)targetVector3 - (Vector2)transform.position).normalized;
-            // direction = RotateVector2(direction, -spreadAngle);
-            // bullet.SetBulletStats(bulletSpeed, attackDamage, 1, transform.position, direction, 1, bulletMass);
-            
-            float startAngle = (bulletCount * spreadAngle) / 2 - 5;
-            for (int i = 0; i < bulletCount; i++)
-            {
-                Bullet bullet = Instantiate(this.bullet, transform.position, Quaternion.identity);
-                Vector2 direction = ((Vector2)targetVector3 - (Vector2)transform.position).normalized;
-                direction = FireMethods.RotateVector2(direction, startAngle);
-                bullet.SetBulletStats(bulletSpeed, attackDamage, 1, transform.position, direction, 1, bulletMass);
-                startAngle -= spreadAngle;
-            }
-            
-            FireMethods.BulletFire(fireMode, bullet, transform, bulletSpeed, attackDamage, targetVector3);
+            FireMethods.BulletFire(fireMode, bullet, transform, bulletSpeed, attackDamage, targetVector3, null, bulletCount, spreadAngle);
             
             sfxFire.Play();
             
             _cooldown.SetCooldown(attackInterval);
             _cooldown.SetRefreshed(false);
-            //_reloaded = false;
         }
         else
         {

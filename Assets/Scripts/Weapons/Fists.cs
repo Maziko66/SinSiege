@@ -81,11 +81,11 @@ public class Fists : MonoBehaviour
         //Debug.Log("Disabled fist collider");
     }
     
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
+        if(other.gameObject.CompareTag("Enemy"))
         {
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            Enemy enemy = other.gameObject.GetComponent<Enemy>();
             enemy.ReduceHealth(damage);
             enemy.CheckHealth();
             //Debug.Log("fists hit enemy");

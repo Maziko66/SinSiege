@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 118601799}
   - component: {fileID: 118601798}
   - component: {fileID: 118601797}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TowerZone (2)
   m_TagString: Tower Zone
   m_Icon: {fileID: 0}
@@ -83692,7 +83692,7 @@ GameObject:
   - component: {fileID: 1160043094}
   - component: {fileID: 1160043093}
   - component: {fileID: 1160043097}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: TowerZone
   m_TagString: Tower Zone
   m_Icon: {fileID: 0}
@@ -84410,7 +84410,7 @@ GameObject:
   - component: {fileID: 1609988831}
   - component: {fileID: 1609988832}
   - component: {fileID: 1609988834}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Fists
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84535,7 +84535,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -84916,7 +84916,7 @@ GameObject:
   - component: {fileID: 1718768880}
   - component: {fileID: 1718768879}
   - component: {fileID: 1718768878}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TowerZone (1)
   m_TagString: Tower Zone
   m_Icon: {fileID: 0}

@@ -19,8 +19,8 @@ TagManager:
   - Tower
   - Player
   - Bullet
-  - 
-  - 
+  - ColliderWeapon
+  - TowerZone
   - 
   - 
   - 
