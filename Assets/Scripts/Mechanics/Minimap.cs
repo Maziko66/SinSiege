@@ -92,7 +92,7 @@ public class Minimap : MonoBehaviour
         _objectToPixelMap[obj] = newPixel;
         _lastKnownPositions[obj] = obj.transform.position;
 
-        Debug.Log($"Added {obj.name} (tag: {obj.tag}) to objectsToTrack");
+        //Debug.Log($"Added {obj.name} (tag: {obj.tag}) to objectsToTrack");
     }
 
     public void RemoveObjectFromList(GameObject obj)

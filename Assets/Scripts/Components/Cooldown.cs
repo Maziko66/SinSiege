@@ -11,17 +11,23 @@ public class Cooldown : MonoBehaviour
     [SerializeField] private float refreshDelay;
     private float _cooldown;
     private bool _refreshed;
-
+    
     private void Update()
     {
         if (_cooldown >= 0f)
         {
             _cooldown -= Time.deltaTime;
-            slider.SliderValueSet(slider.GetMaxValue() - _cooldown);
+
+            slider?.SliderValueSet(slider.GetMaxValue() - _cooldown);
+
         }
         if (!_refreshed && _cooldown <= refreshDelay)
         {
-            sfxRefresh.Play();
+            if (sfxRefresh)
+            {
+                sfxRefresh.Play();
+            }
+            
             _refreshed = true;
         }
     }
@@ -34,7 +40,8 @@ public class Cooldown : MonoBehaviour
     public void SetCooldown(float cooldown)
     {
         _cooldown = cooldown;
-        slider.SliderMinMaxValueSet(cooldown);
+        slider?.SliderMinMaxValueSet(cooldown);
+
     }
 
     public float GetCooldown()

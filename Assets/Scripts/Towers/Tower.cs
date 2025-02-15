@@ -45,7 +45,7 @@ public class Tower : MonoBehaviour
         }
         else
         {
-            RotateTowardsTarget();
+            //RotateTowardsTarget();
             Fire();
         }
     }
