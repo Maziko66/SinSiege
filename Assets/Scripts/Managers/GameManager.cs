@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
         Destroy(instantiatedUITowerManagerCombat.gameObject);
     }
 
-    public void TowerCreateTest()
+    public void CreateTower(GameObject towerToCreate)
     {
         if(player.lastTouchedTowerZone == null)
         {
@@ -103,10 +103,10 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        GameObject newTower = Instantiate(_towerTest.gameObject, _parentTowers.transform);
+        GameObject newTower = Instantiate(towerToCreate, _parentTowers.transform);
         newTower.transform.position = player.lastTouchedTowerZone.transform.position;
 
-        zone.occupyingTower = newTower.GetComponent<Tower>();
+        zone.occupyingTower = newTower.gameObject;
         zone.isEmpty = false;
 
         DestroyUITowerBuilderCombat();

@@ -21,10 +21,11 @@ public class Fists : MonoBehaviour
     [SerializeField] private float attackInterval = 1f;
     [SerializeField] private float activeTime = 0.2f;
     [SerializeField] private float damage = 5f;
+    [SerializeField] private FireMethods.TargetTag targetTag = FireMethods.TargetTag.Enemy;
 
     //private float _cooldown;
     private float _activeTimeCooldown;
-    
+    private string _currentTargetTag;
     
     private void Awake()
     {
@@ -38,6 +39,8 @@ public class Fists : MonoBehaviour
     private void Start()
     {
         //_cooldown.SetRefreshDelay(sfxReloadDelay);
+        UpdateTargetTag();
+        Debug.Log(_currentTargetTag);
         _collider.enabled = false;
         _spriteRenderer.enabled = false;
         _cooldown.SetSliderUIName(weaponName);
@@ -81,9 +84,15 @@ public class Fists : MonoBehaviour
         //Debug.Log("Disabled fist collider");
     }
     
+    [ContextMenu("Update Target Tag")]
+    private void UpdateTargetTag()
+    {
+        _currentTargetTag = FireMethods.GetTargetTagString(targetTag);
+    }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Enemy"))
+        if (_currentTargetTag == "Enemy" || other.gameObject.CompareTag(_currentTargetTag) || other.gameObject.CompareTag("Enemy"))
         {
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
             enemy.ReduceHealth(damage);

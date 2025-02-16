@@ -14,9 +14,11 @@ public class Bullet : MonoBehaviour
 
     private Transform _target;
 
-    private int _firedFrom; //0: Turret Homing, 1: Shoutgun, Direct
+    private int _bulletMode; //0: Turret Homing, 1: Shoutgun, Direct
 
     private float _lifeSpan = 4;
+    
+    private string _targetTag;
 
     private void Awake()
     {
@@ -26,7 +28,7 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         _rb.mass = _mass;
-        if (_firedFrom == 1)
+        if (_bulletMode == 1)
         {
             _rb.AddForce(_targetVector * _speed /** _mass*/, ForceMode2D.Impulse);
         }
@@ -34,7 +36,7 @@ public class Bullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_firedFrom == 0)
+        if (_bulletMode == 0)
         {
             if(!_target)
             {
@@ -60,15 +62,27 @@ public class Bullet : MonoBehaviour
         // }
         
     }
-
-    public void SetBulletStats(float speed, float damage, int health, Vector3 startPosition, Vector3 targetVector, int firedFrom, float mass = 1f)
+    
+    /// <summary>
+    /// Sets instantiated bullet attributes.
+    /// </summary>
+    /// <param name="speed">Bullet speed.</param>
+    /// <param name="damage">Bullet damage.</param>
+    /// <param name="health">Bullet health.</param>
+    /// <param name="startPosition">Bullet start positıon.</param>
+    /// <param name="targetVector">Target vector.</param>
+    /// <param name="mode">Bullet mode. (0 = homing, 1 = direct)</param>
+    /// <param name="tagToHit">Tag of gameobject to destroy.</param>
+    /// <param name="mass">Bullet mass.</param>
+    public void SetBulletStats(float speed, float damage, int health, Vector3 startPosition, Vector3 targetVector, int mode, string tagToHit, float mass = 1f)
     {
         SetBulletSpeed(speed);
         SetBulletDamage(damage);
         SetBulletHealth(health);
         SetStartPosition(startPosition);
         SetTargetVector(targetVector);
-        SetFiredFrom(firedFrom);
+        SetFiredFrom(mode);
+        SetTargetTag(tagToHit);
         SetBulletMass(mass);
     }
 
@@ -104,14 +118,14 @@ public class Bullet : MonoBehaviour
 
     public void SetFiredFrom(int firedFrom)
     {
-        _firedFrom = firedFrom;
+        _bulletMode = firedFrom;
     }
 
     private void CheckHealth()
     {
         if (_health <= 0)
         {
-            Destroy(gameObject); return;
+            Destroy(gameObject);
         }
     }
 
@@ -120,11 +134,29 @@ public class Bullet : MonoBehaviour
         _mass = mass;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void SetTargetTag(string tag)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
+        _targetTag = tag;
+    }
+
+    // private void OnCollisionEnter2D(Collision2D collision)
+    // {
+    //     if (collision.gameObject.CompareTag(_targetTag) || (_targetTag == "Enemy" && (collision.gameObject.CompareTag("EnemyGround") || collision.gameObject.CompareTag("EnemyAir"))))
+    //     {
+    //         Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+    //         enemy.ReduceHealth(_damage);
+    //         enemy.CheckHealth();
+    //         _health--;
+    //         CheckHealth();
+    //         //Debug.Log("hit enemy");
+    //     }
+    // }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (_targetTag == "Enemy" || other.gameObject.CompareTag(_targetTag) || other.gameObject.CompareTag("Enemy"))
         {
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            Enemy enemy = other.gameObject.GetComponent<Enemy>();
             enemy.ReduceHealth(_damage);
             enemy.CheckHealth();
             _health--;

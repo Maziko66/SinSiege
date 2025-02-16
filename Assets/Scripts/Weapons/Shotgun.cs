@@ -21,10 +21,15 @@ public class Shotgun : MonoBehaviour
     [SerializeField] private float spreadAngle = 10f;
     [SerializeField] private float bulletMass = 1f;
     [SerializeField] private int bulletCount = 3;
-    [SerializeField] private int fireMode = 1;
+    [SerializeField] private int bulletHealth = 1;
+    [SerializeField] private FireMethods.TargetTag targetTag = FireMethods.TargetTag.Enemy;
+    [SerializeField] private FireMethods.FireMode fireMode = FireMethods.FireMode.Homing;
     
     // private bool _reloaded;
-
+    
+    private string _currentTargetTag;
+    private int _currentFireMode;
+    
     private void Awake()
     {
         _cooldown = GetComponent<Cooldown>();
@@ -34,13 +39,22 @@ public class Shotgun : MonoBehaviour
     {
         _cooldown.SetSliderUIName(weaponName);
         //_cooldown.SetRefreshDelay(sfxReloadDelay);
+        UpdateTargetTag();
+        _currentFireMode = FireMethods.GetFireMode(fireMode);
+    }
+
+    [ContextMenu("Update Target Tag")]
+    private void UpdateTargetTag()
+    {
+        _currentTargetTag = FireMethods.GetTargetTagString(targetTag);
     }
     
     public void Fire(Vector3 targetVector3)
     {
         if (_cooldown.GetCooldown() < 0)
         {
-            FireMethods.BulletFire(fireMode, bullet, transform, bulletSpeed, attackDamage, targetVector3, null, bulletCount, spreadAngle);
+            //FireMethods.BulletFire(fireMode, bullet, transform, bulletSpeed, attackDamage, targetVector3, null, bulletCount, spreadAngle);
+            FireMethods.BulletFire(_currentFireMode, bullet, transform,bulletSpeed,attackDamage, targetVector3, bulletHealth, _currentTargetTag, null, bulletCount, spreadAngle);
             
             sfxFire.Play();
             

@@ -3,11 +3,11 @@ using UnityEngine.UI;
 
 public class UITowerManagerCombat : MonoBehaviour
 {
-    GameManager gameManager;
+    private GameManager _gameManager;
 
     private void Awake()
     {
-        gameManager = FindFirstObjectByType<GameManager>();
+        _gameManager = FindFirstObjectByType<GameManager>();
     }
 
     [Header("Buttons")]
@@ -15,6 +15,6 @@ public class UITowerManagerCombat : MonoBehaviour
 
     void Start()
     {
-        buttonTowerDestroy.onClick.AddListener(gameManager.TowerDestroy);
+        buttonTowerDestroy.onClick.AddListener(_gameManager.TowerDestroy);
     }
 }

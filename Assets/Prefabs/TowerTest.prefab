@@ -108,7 +108,9 @@ MonoBehaviour:
   bulletSpeed: 6
   bulletCount: 1
   spreadAngle: 0
-  firedFrom: 1
+  firingModeEnum: 1
+  bulletHealth: 1
+  targetTag: 2
   bullet: {fileID: 6250924970665204767, guid: 0e971f85226472b4fb7e5d90135e6b05, type: 3}
   enemyMask:
     serializedVersion: 2

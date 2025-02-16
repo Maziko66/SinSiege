@@ -66,7 +66,8 @@ public class Player : MonoBehaviour
         {
             TowerZone towerZone = collision.GetComponent<TowerZone>();
             lastTouchedTowerZone = towerZone.gameObject;
-            Vector3 instantiatePosition = _cam.WorldToScreenPoint(collision.transform.position);
+            //Vector3 instantiatePosition = _cam.WorldToScreenPoint(collision.transform.position);
+            Vector3 instantiatePosition = _cam.WorldToScreenPoint(transform.position);
             if(towerZone.isEmpty)
             {
                 _gameManager.DrawUITowerBuilderCombat(instantiatePosition);
