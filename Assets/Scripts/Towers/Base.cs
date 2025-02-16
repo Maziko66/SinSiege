@@ -25,14 +25,14 @@ public class Base : MonoBehaviour
         return baseStartingHealth;
     }
     
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") || other.CompareTag("EnemyGround") || other.CompareTag("EnemyAir"))
         {
-            Enemy enemy = collision.GetComponent<Enemy>();
+            Enemy enemy = other.GetComponent<Enemy>();
             baseHealth -= enemy.GetDamage();
             gameManager.UpdateBaseHealth();
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
         }
     }
 }

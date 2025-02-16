@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TowerChapel : MonoBehaviour
@@ -10,15 +11,15 @@ public class TowerChapel : MonoBehaviour
     [SerializeField] private float attackInterval = 1f;
     [SerializeField] private float attackDamage = 1f;
     [SerializeField] private float expandSpeed = 6f;
+    [SerializeField] private FireMethods.TargetTag targetTag = FireMethods.TargetTag.Enemy;
     
     [Header("Other")]
     [SerializeField] private LayerMask enemyMask;
 
     [SerializeField] private Transform target;
-    
-    private RaycastHit2D[] _hitsCache;
 
     private bool _isExpanding;
+    private string _currentTargetTag;
 
     private void Awake()
     {
@@ -27,8 +28,8 @@ public class TowerChapel : MonoBehaviour
 
     private void Start()
     {
-        _hitsCache = new RaycastHit2D[1];
         target = null;
+        _currentTargetTag = FireMethods.GetTargetTagString(targetTag);
     }
     
     private void Update()
@@ -76,10 +77,26 @@ public class TowerChapel : MonoBehaviour
     private void FindTarget()
     {
         //RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, attackRange, (Vector2)transform.position, 0f, enemyMask);
-        int hitCount = Physics2D.CircleCastNonAlloc(transform.position, attackRadius, Vector2.zero, _hitsCache, 0f, enemyMask);
-        if (hitCount > 0)
+        //int hitCount = Physics2D.CircleCastNonAlloc(transform.position, attackRadius, Vector2.zero, _hitsCache, 0f, enemyMask);
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, attackRadius, (Vector2)Vector2.zero, 0f, enemyMask);
+        
+        if (_currentTargetTag != "Enemy")
         {
-            target = _hitsCache[0].transform;
+            List<RaycastHit2D> applicableHits = new List<RaycastHit2D>();
+            
+            foreach (var hit in hits)
+            {
+                if (hit.collider.CompareTag(_currentTargetTag) || hit.collider.CompareTag("Enemy"))
+                {
+                    applicableHits.Add(hit);
+                }
+            }
+            
+            hits = applicableHits.ToArray();
+        }
+        if (hits.Length > 0 )
+        {
+            target = hits[0].transform;
             //Debug.Log("target set");
         }
         else

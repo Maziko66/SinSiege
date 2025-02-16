@@ -29,7 +29,7 @@ public class Tower : MonoBehaviour
     [Header("Other")]
     [SerializeField] private Bullet bullet;
     [SerializeField] private LayerMask enemyMask;
-
+    [SerializeField] private Transform fireTransform;
     [SerializeField] private Transform target;
 
     //private float _cooldown = 0;
@@ -78,7 +78,7 @@ public class Tower : MonoBehaviour
             
             foreach (var hit in hits)
             {
-                if (hit.collider.CompareTag(_currentTargetTag))
+                if (hit.collider.CompareTag(_currentTargetTag) || hit.collider.CompareTag("Enemy"))
                 {
                     applicableHits.Add(hit);
                 }
@@ -112,8 +112,14 @@ public class Tower : MonoBehaviour
     {
         string tagString = FireMethods.GetTargetTagString(targetTag);
         //FireMethods.BulletFire(firingMode, bullet, transform, bulletSpeed, attackDamage, target.position, target);
-        FireMethods.BulletFire(_currentFireMode, bullet, transform, bulletSpeed, attackDamage, target.position, bulletHealth, tagString, target);
+        FireMethods.BulletFire(_currentFireMode, bullet, fireTransform, bulletSpeed, attackDamage, target.position, bulletHealth, tagString, target);
         _cooldown.SetCooldown(attackInterval);
         _cooldown.SetRefreshed(false);
+    }
+    
+    [ContextMenu("Update Target Tag")]
+    private void UpdateTargetTag()
+    {
+        _currentTargetTag = FireMethods.GetTargetTagString(targetTag);
     }
 }

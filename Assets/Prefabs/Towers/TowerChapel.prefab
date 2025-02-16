@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 2792807623671680668}
   m_Layer: 7
   m_Name: TowerChapel
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,6 +246,7 @@ MonoBehaviour:
   attackInterval: 1
   attackDamage: 5
   expandSpeed: 10
+  targetTag: 1
   enemyMask:
     serializedVersion: 2
     m_Bits: 64

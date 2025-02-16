@@ -25,6 +25,9 @@ public class Shotgun : MonoBehaviour
     [SerializeField] private FireMethods.TargetTag targetTag = FireMethods.TargetTag.Enemy;
     [SerializeField] private FireMethods.FireMode fireMode = FireMethods.FireMode.Homing;
     
+    [Header("Other")]
+    [SerializeField] private bool continuousFire;
+    
     // private bool _reloaded;
     
     private string _currentTargetTag;
@@ -33,6 +36,14 @@ public class Shotgun : MonoBehaviour
     private void Awake()
     {
         _cooldown = GetComponent<Cooldown>();
+    }
+
+    private void Update()
+    {
+        if (continuousFire)
+        {
+            Fire(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        }
     }
 
     private void Start()

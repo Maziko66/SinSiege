@@ -1,13 +1,17 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     private GameManager _gameManager;
     private Rigidbody2D _rb;
     private Camera _cam;
-
+    
+    [Header("Util")]
     public InputAction playerControls;
+    public GraphicRaycaster raycaster;
     
     [Header("Equipment")]
     [SerializeField] private Shotgun shotgun;
@@ -83,7 +87,7 @@ public class Player : MonoBehaviour
 
     private void OnAttack()
     {
-        if(isPaused) {return;}
+        if(isPaused || IsMouseOverIgnoredUI()) {return;}
         System.Diagnostics.Debug.Assert(Camera.main != null, "Camera.main != null");
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         shotgun.Fire(mousePosition);
@@ -92,7 +96,7 @@ public class Player : MonoBehaviour
 
     private void OnSecondaryAttack()
     {
-        if(isPaused) {return;}
+        if(isPaused || IsMouseOverIgnoredUI()) {return;}
         System.Diagnostics.Debug.Assert(Camera.main != null, "Camera.main != null");
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0f; // Ensure it's in 2D space
@@ -126,5 +130,32 @@ public class Player : MonoBehaviour
                 Debug.Log("Left Full Tower Zone");
             }
         }
+    }
+    
+    private bool IsMouseOverIgnoredUI()
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = Input.mousePosition;
+        
+        System.Collections.Generic.List<RaycastResult> results = new System.Collections.Generic.List<RaycastResult>();
+        raycaster.Raycast(eventData, results);
+        
+        //Debug.Log("Raycast results count: " + results.Count);
+        foreach (RaycastResult result in results)
+        {
+            //Debug.Log("Hit: " + result.gameObject.name + " | Tag: " + result.gameObject.tag);
+        }
+        
+        foreach (RaycastResult result in results)
+        {
+            if (result.gameObject.CompareTag("IgnoredUI"))
+            {
+                //Debug.Log("Ignored UI: " + result.gameObject.name);
+                return true;
+            }
+        }
+
+        //Debug.Log("No ignored UI detected.");
+        return false;
     }
 }

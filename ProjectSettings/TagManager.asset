@@ -10,6 +10,8 @@ TagManager:
   - Base
   - EnemyGround
   - EnemyAir
+  - Tower
+  - IgnoredUI
   layers:
   - Default
   - TransparentFX
