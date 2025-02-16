@@ -24,10 +24,10 @@ public class UITowerBuilderCombat : MonoBehaviour
     
     void Start()
     {
-        buttonTowerPriest.onClick.AddListener(() =>_gameManager.CreateTower(towerPriest));
-        buttonTowerCross.onClick.AddListener(() =>_gameManager.CreateTower(towerCross));
-        buttonTowerAngel.onClick.AddListener(() =>_gameManager.CreateTower(towerAngel));
-        buttonTowerChapel.onClick.AddListener(() =>_gameManager.CreateTower(towerChapel));
+        buttonTowerPriest.onClick.AddListener(() => _gameManager.CreateTower(towerPriest));
+        buttonTowerCross.onClick.AddListener(() => _gameManager.CreateTower(towerCross));
+        buttonTowerAngel.onClick.AddListener(() => _gameManager.CreateTower(towerAngel));
+        buttonTowerChapel.onClick.AddListener(() => _gameManager.CreateTower(towerChapel));
     }
 
 }

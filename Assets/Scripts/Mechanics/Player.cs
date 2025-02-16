@@ -74,12 +74,12 @@ public class Player : MonoBehaviour
             Vector3 instantiatePosition = _cam.WorldToScreenPoint(transform.position);
             if(towerZone.isEmpty)
             {
-                _gameManager.DrawUITowerBuilderCombat(instantiatePosition);
+                _gameManager.DrawUITowerBuilderCombat();
                 Debug.Log("On Tower Zone Empty");
             }
             else
             {
-                _gameManager.DrawUITowerManagerCombat(instantiatePosition);
+                _gameManager.DrawUITowerManagerCombat();
                 Debug.Log("On Tower Zone Full");
             }
         }

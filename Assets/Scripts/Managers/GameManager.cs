@@ -1,19 +1,19 @@
-using System.Linq.Expressions;
+using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private Canvas canvas;
-    private Player player;
+    private Canvas _canvas;
+    private Player _player;
+    private Camera _cam;
 
     #region GAMEOBJECTS
     [SerializeField] private Base baseTower;
+
     [Header("Towers")]
-    [SerializeField] private GameObject _parentTowers;
+    [SerializeField] private GameObject parentTowers;
     [SerializeField] private Tower _towerTest; 
     
     #endregion
@@ -37,12 +37,16 @@ public class GameManager : MonoBehaviour
     private int _baseStartingHealth;
     private int _baseHealth;
     
-
+    [SerializeField] private GameObject[] _mergeArray = new GameObject[2];
+    [SerializeField] private int _mergeArrayIndex = 0;
+    
     #endregion
+    
     private void Awake()
     {
-        canvas = FindFirstObjectByType<Canvas>();
-        player = FindFirstObjectByType<Player>();
+        _canvas = FindFirstObjectByType<Canvas>();
+        _player = FindFirstObjectByType<Player>();
+        _cam = FindFirstObjectByType<Camera>();
     }
 
     void Start()
@@ -55,47 +59,86 @@ public class GameManager : MonoBehaviour
 
     // Update is called once per frame
 
-    public void DrawUITowerBuilderCombat(Vector3 pos)
+    #region  UI METHODS
+    public void DrawUITowerBuilderCombat()
     {
         if (instantiatedUITowerBuilderCombat == null)
         {
             DestroyUITowerBuilderCombat();
         }
-        instantiatedUITowerBuilderCombat = Instantiate(uiTowerBuilderCombat.gameObject, canvas.gameObject.transform);
-        instantiatedUITowerBuilderCombat.transform.position = pos;
-        
-    }
+        instantiatedUITowerBuilderCombat = Instantiate(uiTowerBuilderCombat.gameObject, _canvas.gameObject.transform);
 
+        RectTransform rectTransform = instantiatedUITowerBuilderCombat.GetComponent<RectTransform>();
+        rectTransform.localPosition = Vector3.zero;
+        //Vector3 pos = _cam.WorldToScreenPoint(_player.transform.position);
+        //instantiatedUITowerBuilderCombat.transform.position = pos;
+        //Debug.Log("instantiatedUITowerBuilderCombat instantiated at: " + pos);
+    }
+    
     public void DestroyUITowerBuilderCombat()
     {
         Destroy(instantiatedUITowerBuilderCombat.gameObject);
     }
-
-    public void DrawUITowerManagerCombat(Vector3 pos)
+    
+    public void DrawUITowerManagerCombat()
     {
         if(instantiatedUITowerManagerCombat == null)
         {
             DestroyUITowerManagerCombat();
         }
-        instantiatedUITowerManagerCombat = Instantiate(uiTowerManagerCombat.gameObject, canvas.gameObject.transform);
-        instantiatedUITowerManagerCombat.transform.position = pos;
-
+        instantiatedUITowerManagerCombat = Instantiate(uiTowerManagerCombat.gameObject, _canvas.gameObject.transform);
+        
+        UITowerManagerCombat instUI = instantiatedUITowerManagerCombat.GetComponent<UITowerManagerCombat>();
+        TowerZone zone = _player.lastTouchedTowerZone.GetComponent<TowerZone>();
+        instUI.SetAttachedTower(zone.occupyingTower);
+        
+        RectTransform rectTransform = instantiatedUITowerManagerCombat.GetComponent<RectTransform>();
+        rectTransform.localPosition = Vector3.zero;
+        
+        //Vector3 pos = _cam.WorldToScreenPoint(_player.transform.position);
+        //instantiatedUITowerManagerCombat.transform.position = pos;
+        //Debug.Log("instantiatedUITowerManagerCombat instantiated at: " + pos);
     }
-
+    
     public void DestroyUITowerManagerCombat()
     {
         Destroy(instantiatedUITowerManagerCombat.gameObject);
     }
 
+    public void AddToMerge(GameObject tower)
+    {
+        if (_mergeArrayIndex > 1)
+        {
+            Debug.Log("Merge array is full.");
+            return;
+        }
+        _mergeArray[_mergeArrayIndex] = tower;
+        _mergeArrayIndex++;
+    }
+    
+    public void RemoveFromMerge()
+    {
+        _mergeArray[_mergeArrayIndex - 1] = null;
+        _mergeArrayIndex--;
+    }
+    
+    public void ClearMerge()
+    {
+        Array.Clear(_mergeArray, 0, _mergeArray.Length);
+        _mergeArrayIndex = 0;
+    }
+    
+    #endregion
+    
     public void CreateTower(GameObject towerToCreate)
     {
-        if(player.lastTouchedTowerZone == null)
+        if(_player.lastTouchedTowerZone == null)
         {
             Debug.Log("lastTouchedTowerZone == null");
             return;
         }
 
-        TowerZone zone = player.lastTouchedTowerZone.GetComponent<TowerZone>();
+        TowerZone zone = _player.lastTouchedTowerZone.GetComponent<TowerZone>();
 
         if (!zone.isEmpty)
         {
@@ -103,24 +146,25 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        GameObject newTower = Instantiate(towerToCreate, _parentTowers.transform);
-        newTower.transform.position = player.lastTouchedTowerZone.transform.position;
+        GameObject newTower = Instantiate(towerToCreate, parentTowers.transform);
+        newTower.transform.position = _player.lastTouchedTowerZone.transform.position;
 
         zone.occupyingTower = newTower.gameObject;
         zone.isEmpty = false;
 
         DestroyUITowerBuilderCombat();
+        DrawUITowerManagerCombat();
     }
 
     public void TowerDestroy()
     {
-        if(player.lastTouchedTowerZone == null)
+        if(_player.lastTouchedTowerZone == null)
         {
             Debug.Log("lastTouchedTowerZone == null");
             return;
         }
 
-        TowerZone zone = player.lastTouchedTowerZone.GetComponent<TowerZone>();
+        TowerZone zone = _player.lastTouchedTowerZone.GetComponent<TowerZone>();
 
         if(zone.isEmpty)
         {
@@ -131,6 +175,7 @@ public class GameManager : MonoBehaviour
         zone.isEmpty = true;
 
         DestroyUITowerManagerCombat();
+        DrawUITowerBuilderCombat();
     }
     
     public void UpdateBaseHealth()
