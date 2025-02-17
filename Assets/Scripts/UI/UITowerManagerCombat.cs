@@ -5,7 +5,7 @@ public class UITowerManagerCombat : MonoBehaviour
 {
     private GameManager _gameManager;
 
-    private GameObject _attachedTower;
+    private TowerGeneric _attachedTower;
 
     [Header("Buttons")]
     [SerializeField] private Button buttonDestroy;
@@ -21,11 +21,10 @@ public class UITowerManagerCombat : MonoBehaviour
     private void Start()
     {
         buttonDestroy.onClick.AddListener(_gameManager.TowerDestroy);
-        
         buttonMerge.onClick.AddListener(() => _gameManager.AddToMerge(_attachedTower));
     }
 
-    public void SetAttachedTower(GameObject tower)
+    public void SetAttachedTower(TowerGeneric tower)
     {
         _attachedTower = tower;
     }

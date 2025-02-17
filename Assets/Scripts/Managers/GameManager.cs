@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TowerGeneric towerSeraphim;
     
     
-    private Dictionary<TowerGeneric, (TowerGeneric, TowerGeneric)> possibleTowerMerges = new();
+    
     
     #endregion
     #region UI
@@ -54,6 +54,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject instantiatedUITowerBuilderCombat;
     [FormerlySerializedAs("_UITowerManagerCombat")] [SerializeField] private UITowerManagerCombat uiTowerManagerCombat;
     [SerializeField] private GameObject instantiatedUITowerManagerCombat;
+    
+    [SerializeField] private UIMergeMenuCombat uiMergeMenuCombat;
+    [SerializeField] private GameObject instantiatedUIMergeMenuCombat;
     
     //[SerializeField] private Slider sliderBaseHealth;
     [SerializeField] private UISliderHp sliderBaseHealth;
@@ -66,8 +69,13 @@ public class GameManager : MonoBehaviour
     private int _baseStartingHealth;
     private int _baseHealth;
     
-    [SerializeField] private GameObject[] _mergeArray = new GameObject[2];
+    private Dictionary<TowerGeneric, (TowerGeneric, TowerGeneric)> possibleTowerMerges = new();
+    private Dictionary<string, (string, string)> possibleTowerMergesByName = new();
+    
+    [SerializeField] private TowerGeneric[] _mergeArray = new TowerGeneric[2];
     [SerializeField] private int _mergeArrayIndex = 0;
+
+    [SerializeField] private string[] _mergeArrayNames = new string[2];
     
     #endregion
     
@@ -85,12 +93,18 @@ public class GameManager : MonoBehaviour
         sliderBaseHealth.SliderMinMaxValueSet(_baseStartingHealth);
         UpdateBaseHealth();
         
+        //Tier II Merges
         possibleTowerMerges.Add(towerBishop, (towerPriest, towerCross));
+        possibleTowerMergesByName.Add("Bishop", ("Priest", "Cross"));
+        //possibleTowerMerges.Add(towerArchangel, (towerCross, towerAngel));
+        //possibleTowerMerges.Add(towerProphet, (towerPriest, towerAngel));
+        //possibleTowerMerges.Add(towerVirtue, (towerAngel, towerAngel));
+        //possibleTowerMerges.Add(towerChurch, (towerChapel, towerPriest));
+        //Tier III Merges
+        
         Debug.Log(possibleTowerMerges);
         Debug.Log(possibleTowerMerges[towerBishop]);
     }
-
-    // Update is called once per frame
 
     #region  UI METHODS
     public void DrawUITowerBuilderCombat()
@@ -123,7 +137,7 @@ public class GameManager : MonoBehaviour
         
         UITowerManagerCombat instUI = instantiatedUITowerManagerCombat.GetComponent<UITowerManagerCombat>();
         TowerZone zone = _player.lastTouchedTowerZone.GetComponent<TowerZone>();
-        instUI.SetAttachedTower(zone.occupyingTower);
+        instUI.SetAttachedTower(zone.occupyingTower.GetComponent<TowerGeneric>());
         
         RectTransform rectTransform = instantiatedUITowerManagerCombat.GetComponent<RectTransform>();
         rectTransform.localPosition = Vector3.zero;
@@ -137,10 +151,30 @@ public class GameManager : MonoBehaviour
     {
         Destroy(instantiatedUITowerManagerCombat.gameObject);
     }
+    
+    // public void DrawUIMergeMenuCombat()
+    // {
+    //     if (instantiatedUIMergeMenuCombat == null)
+    //     {
+    //         DestroyUITowerBuilderCombat();
+    //     }
+    //     instantiatedUIMergeMenuCombat = Instantiate(uiMergeMenuCombat.gameObject, _canvas.gameObject.transform);
+    //
+    //     RectTransform rectTransform = instantiatedUITowerBuilderCombat.GetComponent<RectTransform>();
+    //     rectTransform.localPosition = Vector3.zero;
+    //     //Vector3 pos = _cam.WorldToScreenPoint(_player.transform.position);
+    //     //instantiatedUITowerBuilderCombat.transform.position = pos;
+    //     //Debug.Log("instantiatedUITowerBuilderCombat instantiated at: " + pos);
+    // }
+
+    public void SetStateUIMergeMenuCombat(bool state)
+    {
+        uiMergeMenuCombat.gameObject.SetActive(state);
+    }
     #endregion
 
     #region MERGE
-    public void AddToMerge(GameObject tower)
+    public void AddToMerge(TowerGeneric tower)
     {
         if (_mergeArrayIndex > 1)
         {
@@ -148,11 +182,22 @@ public class GameManager : MonoBehaviour
             return;
         }
         _mergeArray[_mergeArrayIndex] = tower;
+        _mergeArrayNames[_mergeArrayIndex] = tower.towerName;
+        uiMergeMenuCombat.towers[_mergeArrayIndex] = tower;
         _mergeArrayIndex++;
 
         if (_mergeArrayIndex >= 2)
         {
             //make merge button available
+            Debug.Log("Merge array is full, initiating search, _mergeArrayIndex: " + _mergeArrayIndex);
+            
+            //(TowerGeneric, TowerGeneric) towerTuple = (_mergeArray[0], _mergeArray[1]);
+            //TowerGeneric towerMerged = FindTowerByTuple(towerTuple);
+            
+            (string, string) towerNameTuple = (_mergeArrayNames[0], _mergeArrayNames[1]);
+            string towerNameMerged = FindTowerByNameTuple(towerNameTuple);
+            
+            Debug.Log(towerNameMerged);
             ClearMerge();
         }
     }
@@ -165,15 +210,51 @@ public class GameManager : MonoBehaviour
     public void RemoveFromMerge()
     {
         _mergeArray[_mergeArrayIndex - 1] = null;
+        _mergeArrayNames[_mergeArrayIndex - 1] = null;
+        uiMergeMenuCombat.towers[_mergeArrayIndex - 1] = null;
         _mergeArrayIndex--;
     }
     
     public void ClearMerge()
     {
         Array.Clear(_mergeArray, 0, _mergeArray.Length);
+        Array.Clear(_mergeArrayNames, 0, _mergeArrayNames.Length);
+        Array.Clear(uiMergeMenuCombat.towers, 0, uiMergeMenuCombat.towers.Length);
         _mergeArrayIndex = 0;
     }
-
+    
+    private TowerGeneric FindTowerByTuple((TowerGeneric, TowerGeneric) targetTuple)
+    {
+        foreach (var kvp in possibleTowerMerges)
+        {
+            Debug.Log("Searching tuple: " + targetTuple + "inside kvp: " + kvp);
+            if ((kvp.Value.Item1.Equals(targetTuple.Item1) && kvp.Value.Item2.Equals(targetTuple.Item2)) ||
+                (kvp.Value.Item1.Equals(targetTuple.Item2) && kvp.Value.Item2.Equals(targetTuple.Item1)))
+            {
+                Debug.Log("search successful, " + kvp);
+                return kvp.Key;
+            }
+        }
+        Debug.Log("search failed");
+        return null;
+    }
+    
+    private string FindTowerByNameTuple((string, string) targetTuple)
+    {
+        foreach (var kvp in possibleTowerMergesByName)
+        {
+            Debug.Log("Searching tuple: " + targetTuple + "inside kvp: " + kvp);
+            if ((kvp.Value.Item1.Equals(targetTuple.Item1) && kvp.Value.Item2.Equals(targetTuple.Item2)) ||
+                (kvp.Value.Item1.Equals(targetTuple.Item2) && kvp.Value.Item2.Equals(targetTuple.Item1)))
+            {
+                Debug.Log("search successful, " + kvp);
+                return kvp.Key;
+            }
+        }
+        Debug.Log("search failed");
+        return null;
+    }
+    
     #endregion
     
     public void CreateTower(GameObject towerToCreate)

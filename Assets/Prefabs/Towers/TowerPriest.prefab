@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerName: Priest
+  towerSprite: {fileID: 21300000, guid: 44f185970781c564a923fe542ccdf543, type: 3}
 --- !u!114 &1942448605766754239
 MonoBehaviour:
   m_ObjectHideFlags: 0

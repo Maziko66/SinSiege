@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerName: Cross
+  towerSprite: {fileID: 21300000, guid: c39506920afb90b4f999cc6d1fb1fb5f, type: 3}
 --- !u!114 &1942448605766754239
 MonoBehaviour:
   m_ObjectHideFlags: 0
