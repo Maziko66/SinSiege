@@ -148,6 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8790815334541076722}
   - component: {fileID: 983935170254129066}
+  - component: {fileID: -2401931140380236666}
   - component: {fileID: 108711519540557687}
   - component: {fileID: 2394991110105861027}
   - component: {fileID: 2792807623671680668}
@@ -229,6 +230,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-2401931140380236666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8371521331112301713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd96009df2169f4392a501c0cc7602d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerName: Chapel
 --- !u!114 &108711519540557687
 MonoBehaviour:
   m_ObjectHideFlags: 0

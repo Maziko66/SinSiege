@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -14,7 +15,35 @@ public class GameManager : MonoBehaviour
 
     [Header("Towers")]
     [SerializeField] private GameObject parentTowers;
-    [SerializeField] private Tower _towerTest; 
+    
+    [Header("Tier I")]
+    [SerializeField] private TowerGeneric towerPriest;
+    [SerializeField] private TowerGeneric towerCross;
+    [SerializeField] private TowerGeneric towerAngel;
+    [SerializeField] private TowerGeneric towerChapel;
+
+    [Header("Tier II")]
+    [SerializeField] private TowerGeneric towerBishop;
+    [SerializeField] private TowerGeneric towerArchangel;
+    [SerializeField] private TowerGeneric towerProphet;
+    [SerializeField] private TowerGeneric towerVirtue;
+    [SerializeField] private TowerGeneric towerChurch;
+
+    [Header("Tier III")]
+    [SerializeField] private TowerGeneric towerArchbishop;
+    [SerializeField] private TowerGeneric towerDemigod;
+    [SerializeField] private TowerGeneric towerBasilica;
+    [SerializeField] private TowerGeneric towerCherubim;
+    [SerializeField] private TowerGeneric towerGardenOfEden;
+    
+    [Header("Tier IV")]
+    [SerializeField] private TowerGeneric towerCardinal;
+    [SerializeField] private TowerGeneric towerCathedral;
+    [SerializeField] private TowerGeneric towerFallenAngel;
+    [SerializeField] private TowerGeneric towerSeraphim;
+    
+    
+    private Dictionary<TowerGeneric, (TowerGeneric, TowerGeneric)> possibleTowerMerges = new();
     
     #endregion
     #region UI
@@ -55,6 +84,10 @@ public class GameManager : MonoBehaviour
         _baseStartingHealth = baseTower.GetBaseStartingHealth();
         sliderBaseHealth.SliderMinMaxValueSet(_baseStartingHealth);
         UpdateBaseHealth();
+        
+        possibleTowerMerges.Add(towerBishop, (towerPriest, towerCross));
+        Debug.Log(possibleTowerMerges);
+        Debug.Log(possibleTowerMerges[towerBishop]);
     }
 
     // Update is called once per frame
@@ -104,7 +137,9 @@ public class GameManager : MonoBehaviour
     {
         Destroy(instantiatedUITowerManagerCombat.gameObject);
     }
+    #endregion
 
+    #region MERGE
     public void AddToMerge(GameObject tower)
     {
         if (_mergeArrayIndex > 1)
@@ -114,6 +149,17 @@ public class GameManager : MonoBehaviour
         }
         _mergeArray[_mergeArrayIndex] = tower;
         _mergeArrayIndex++;
+
+        if (_mergeArrayIndex >= 2)
+        {
+            //make merge button available
+            ClearMerge();
+        }
+    }
+
+    public void MergeTowers()
+    {
+        
     }
     
     public void RemoveFromMerge()
@@ -127,7 +173,7 @@ public class GameManager : MonoBehaviour
         Array.Clear(_mergeArray, 0, _mergeArray.Length);
         _mergeArrayIndex = 0;
     }
-    
+
     #endregion
     
     public void CreateTower(GameObject towerToCreate)
