@@ -47,21 +47,37 @@ public class Minimap : MonoBehaviour
         {
             if (!_objectToPixelMap.TryGetValue(obj, out GameObject pixel) || pixel == null) continue;
 
-            // Check if the object has moved
             Vector3 objPosition = obj.transform.position;
+
+            // If object hasn't moved
             if (_lastKnownPositions.TryGetValue(obj, out var lastPos) && lastPos == objPosition)
             {
-                if (obj.CompareTag("Base")) 
-                {
-                    UpdatePixelPosition(obj, mmcPosition, pixel);
-                }
-                continue;
+                if (!(obj.CompareTag("Base") || obj.CompareTag("Tower"))) continue;
             }
 
             UpdatePixelPosition(obj, mmcPosition, pixel);
-
             _lastKnownPositions[obj] = objPosition;
         }
+        
+        // foreach (var obj in _objectsToTrack)
+        // {
+        //     if (!_objectToPixelMap.TryGetValue(obj, out GameObject pixel) || pixel == null) continue;
+        //     
+        //     Vector3 objPosition = obj.transform.position;
+        //     if (_lastKnownPositions.TryGetValue(obj, out var lastPos) && lastPos == objPosition)
+        //     {
+        //         if (obj.CompareTag("Base") || obj.CompareTag("Tower")) 
+        //         {
+        //             UpdatePixelPosition(obj, mmcPosition, pixel);
+        //             goto StaticSkip;
+        //         }
+        //         continue;
+        //     }
+        //
+        //     UpdatePixelPosition(obj, mmcPosition, pixel);
+        //     StaticSkip:
+        //     _lastKnownPositions[obj] = objPosition;
+        // }
     }
 
     private void UpdatePixelPosition(GameObject obj, Vector2 mmcPosition, GameObject pixel)
@@ -72,7 +88,11 @@ public class Minimap : MonoBehaviour
 
     public void AddObjectToTrack(GameObject obj)
     {
-        if (_objectToPixelMap.ContainsKey(obj)) return;
+        if (_objectToPixelMap.ContainsKey(obj))
+        {
+            //Debug.Log(_objectToPixelMap.ContainsKey(obj));
+            return;
+        }
         
         GameObject prefab = GetPrefabForTag(obj.tag);
         if (prefab == null)

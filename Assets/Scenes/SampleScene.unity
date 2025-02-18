@@ -327,13 +327,6 @@ MonoBehaviour:
   instantiatedUIMergeMenuCombat: {fileID: 0}
   sliderBaseHealth: {fileID: 1392023524}
   textSliderBaseHealth: {fileID: 1466801899}
-  _mergeArray:
-  - {fileID: 0}
-  - {fileID: 0}
-  _mergeArrayIndex: 0
-  _mergeArrayNames:
-  - 
-  - 
 --- !u!4 &190331139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6433968515268909798, guid: ed99478b5574cd04982a2950228cba69, type: 3}
@@ -1099,6 +1092,12 @@ MonoBehaviour:
     prefab: {fileID: 5607293768035654380, guid: 5024c91d148154c4a82e99134ccae19a, type: 3}
   - tag: Base
     prefab: {fileID: 5607293768035654380, guid: 98608de5715712f4e8ba40ae2536b993, type: 3}
+  - tag: EnemyAir
+    prefab: {fileID: 5607293768035654380, guid: 5024c91d148154c4a82e99134ccae19a, type: 3}
+  - tag: EnemyGround
+    prefab: {fileID: 5607293768035654380, guid: 5024c91d148154c4a82e99134ccae19a, type: 3}
+  - tag: Tower
+    prefab: {fileID: 5607293768035654380, guid: 16b4d182e917c4d4d8b9a884a0bbb122, type: 3}
 --- !u!114 &515740433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84249,6 +84248,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonClear: {fileID: 1507904044}
   buttonMerge: {fileID: 1011655938}
+  slots:
+  - {fileID: 460704763}
+  - {fileID: 791218120}
+  defaultSprite: {fileID: 0}
   slot1: {fileID: 460704763}
   slot2: {fileID: 791218120}
   towers:
@@ -84458,7 +84461,7 @@ GameObject:
   - component: {fileID: 1425803303}
   - component: {fileID: 1425803302}
   - component: {fileID: 1425803305}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Base
   m_TagString: Base
   m_Icon: {fileID: 0}
@@ -87344,7 +87347,7 @@ GameObject:
   - component: {fileID: 2095022713}
   - component: {fileID: 2095022714}
   - component: {fileID: 2095022715}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: MMC
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,6 +13,10 @@ public class UIMergeMenuCombat : MonoBehaviour
     [SerializeField] private Button buttonClear;
     [SerializeField] private Button buttonMerge;
 
+    [SerializeField] private Image[] slots = new Image[2];
+    [SerializeField] private Sprite defaultSprite;
+    
+    
     [SerializeField] private Image slot1;
     [SerializeField] private Image slot2;
     
@@ -23,5 +27,23 @@ public class UIMergeMenuCombat : MonoBehaviour
         buttonClear.onClick.AddListener(() => _gameManager.ClearMerge());
         buttonMerge.onClick.AddListener(() => _gameManager.MergeTowers());
     }
-    
+
+    public void SetSlotImage(int slot, Sprite sprite)
+    {
+        slots[slot].sprite = sprite;
+    }
+
+    public void ResetSlotImage(int slot = -1)
+    {
+        if (slot == -1)
+        {
+            foreach (var img in slots)
+            {
+                img.sprite = defaultSprite;
+            }
+            return;
+        }
+        
+        slots[slot].sprite = defaultSprite;
+    }
 }

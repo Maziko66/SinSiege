@@ -6,10 +6,10 @@ public class UITowerBuilderCombat : MonoBehaviour
     private GameManager _gameManager;
 
     [Header("Tower Objects")]
-    [SerializeField] private GameObject towerPriest;
-    [SerializeField] private GameObject towerCross;
-    [SerializeField] private GameObject towerAngel;
-    [SerializeField] private GameObject towerChapel;
+    [SerializeField] private TowerGeneric towerPriest;
+    [SerializeField] private TowerGeneric towerCross;
+    [SerializeField] private TowerGeneric towerAngel;
+    [SerializeField] private TowerGeneric towerChapel;
     
     [Header("Buttons")]
     [SerializeField] private Button buttonTowerPriest;

@@ -734,10 +734,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb77007bfe974324dadedc9e19b6a6c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPriest: {fileID: 6816113020035637059, guid: 698f40780ef49b04ebb8c8bc4cea04cb, type: 3}
-  towerCross: {fileID: 6816113020035637059, guid: 5ff6633369e37b343b1db272270a8b43, type: 3}
-  towerAngel: {fileID: 6816113020035637059, guid: 6dfd007ce11bc0b41b93a954da44f6ab, type: 3}
-  towerChapel: {fileID: 8371521331112301713, guid: cc6db8a6fd9ceb24ea6abed6be1a5cd1, type: 3}
+  towerPriest: {fileID: -4387294914427419631, guid: 698f40780ef49b04ebb8c8bc4cea04cb, type: 3}
+  towerCross: {fileID: 4225489325692195043, guid: 5ff6633369e37b343b1db272270a8b43, type: 3}
+  towerAngel: {fileID: 2876509623101335559, guid: 6dfd007ce11bc0b41b93a954da44f6ab, type: 3}
+  towerChapel: {fileID: -2401931140380236666, guid: cc6db8a6fd9ceb24ea6abed6be1a5cd1, type: 3}
   buttonTowerPriest: {fileID: 1427178377153390275}
   buttonTowerCross: {fileID: 6850517538520261154}
   buttonTowerAngel: {fileID: 162051051055472258}

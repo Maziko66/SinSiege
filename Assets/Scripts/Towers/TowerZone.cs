@@ -3,5 +3,5 @@ using UnityEngine;
 public class TowerZone : MonoBehaviour
 {
     public bool isEmpty = true;
-    public GameObject occupyingTower;
+    public TowerGeneric occupyingTower;
 }

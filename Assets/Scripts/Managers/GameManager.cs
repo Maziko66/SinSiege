@@ -69,13 +69,14 @@ public class GameManager : MonoBehaviour
     private int _baseStartingHealth;
     private int _baseHealth;
     
-    private Dictionary<TowerGeneric, (TowerGeneric, TowerGeneric)> possibleTowerMerges = new();
-    private Dictionary<string, (string, string)> possibleTowerMergesByName = new();
+    private readonly Dictionary<string, (string, string)> _possibleTowerMergesByName = new();
+    private readonly Dictionary<string, TowerGeneric> _towerKvp = new();
     
-    [SerializeField] private TowerGeneric[] _mergeArray = new TowerGeneric[2];
-    [SerializeField] private int _mergeArrayIndex = 0;
-
-    [SerializeField] private string[] _mergeArrayNames = new string[2];
+    private TowerGeneric[] _mergeArray = new TowerGeneric[2];
+    private int _mergeArrayIndex = 0;
+    private string[] _mergeArrayNames = new string[2];
+    private TowerZone _mergeTowerZone;
+    
     
     #endregion
     
@@ -93,17 +94,23 @@ public class GameManager : MonoBehaviour
         sliderBaseHealth.SliderMinMaxValueSet(_baseStartingHealth);
         UpdateBaseHealth();
         
-        //Tier II Merges
-        possibleTowerMerges.Add(towerBishop, (towerPriest, towerCross));
-        possibleTowerMergesByName.Add("Bishop", ("Priest", "Cross"));
-        //possibleTowerMerges.Add(towerArchangel, (towerCross, towerAngel));
-        //possibleTowerMerges.Add(towerProphet, (towerPriest, towerAngel));
-        //possibleTowerMerges.Add(towerVirtue, (towerAngel, towerAngel));
-        //possibleTowerMerges.Add(towerChurch, (towerChapel, towerPriest));
-        //Tier III Merges
+        SetStateUIMergeMenuCombat(false);
         
-        Debug.Log(possibleTowerMerges);
-        Debug.Log(possibleTowerMerges[towerBishop]);
+        _towerKvp.Add(towerPriest.towerName, towerPriest);
+        _towerKvp.Add(towerCross.towerName, towerCross);
+        _towerKvp.Add(towerAngel.towerName, towerAngel);
+        _towerKvp.Add(towerChapel.towerName, towerChapel);
+        
+        _towerKvp.Add(towerBishop.towerName, towerBishop);
+        
+        
+        //Tier II Merges
+        _possibleTowerMergesByName.Add(towerBishop.towerName, (towerPriest.towerName, towerCross.towerName));
+        //possibleTowerMergesByName.Add(towerArchangel, (towerCross, towerAngel));
+        //possibleTowerMergesByName.Add(towerProphet, (towerPriest, towerAngel));
+        //possibleTowerMergesByName.Add(towerVirtue, (towerAngel, towerAngel));
+        //possibleTowerMergesByName.Add(towerChurch, (towerChapel, towerPriest));
+        //Tier III Merges
     }
 
     #region  UI METHODS
@@ -181,30 +188,55 @@ public class GameManager : MonoBehaviour
             Debug.Log("Merge array is full.");
             return;
         }
+
+        if (_mergeArrayIndex == 1)
+        {
+            if (tower == _mergeArray[0])
+            {
+                Debug.Log("Cannot attach same tower again.");
+                return;
+            }
+        }
+        
         _mergeArray[_mergeArrayIndex] = tower;
         _mergeArrayNames[_mergeArrayIndex] = tower.towerName;
+        
         uiMergeMenuCombat.towers[_mergeArrayIndex] = tower;
+        uiMergeMenuCombat.SetSlotImage(_mergeArrayIndex, tower.towerSprite);
+        
         _mergeArrayIndex++;
 
-        if (_mergeArrayIndex >= 2)
+        if (_mergeArrayIndex > 0)
         {
-            //make merge button available
-            Debug.Log("Merge array is full, initiating search, _mergeArrayIndex: " + _mergeArrayIndex);
-            
-            //(TowerGeneric, TowerGeneric) towerTuple = (_mergeArray[0], _mergeArray[1]);
-            //TowerGeneric towerMerged = FindTowerByTuple(towerTuple);
-            
-            (string, string) towerNameTuple = (_mergeArrayNames[0], _mergeArrayNames[1]);
-            string towerNameMerged = FindTowerByNameTuple(towerNameTuple);
-            
-            Debug.Log(towerNameMerged);
-            ClearMerge();
+            SetStateUIMergeMenuCombat(true);
         }
+        
+        _mergeTowerZone = _player.lastTouchedTowerZone.GetComponent<TowerZone>();
+
+        // if (_mergeArrayIndex >= 2)
+        // {
+        //     //make merge button available
+        //     MergeTowers();
+        // }
     }
 
     public void MergeTowers()
     {
-        
+        Debug.Log("Merging, initiating search, _mergeArrayIndex: " + _mergeArrayIndex);
+
+        (string, string) towerNameTuple = (_mergeArrayNames[0], _mergeArrayNames[1]);
+        string towerNameMerged = FindTowerByNameTuple(towerNameTuple);
+        if (_towerKvp.TryGetValue(towerNameMerged, out TowerGeneric towerMerged))
+        {
+            CreateTower(towerMerged, true);
+            //DrawUITowerManagerCombat();
+            Debug.Log(towerNameMerged);
+            ClearMerge();
+        }
+        else
+        {
+            Debug.Log("Tower Not Found");
+        }
     }
     
     public void RemoveFromMerge()
@@ -220,28 +252,14 @@ public class GameManager : MonoBehaviour
         Array.Clear(_mergeArray, 0, _mergeArray.Length);
         Array.Clear(_mergeArrayNames, 0, _mergeArrayNames.Length);
         Array.Clear(uiMergeMenuCombat.towers, 0, uiMergeMenuCombat.towers.Length);
+        uiMergeMenuCombat.ResetSlotImage();
         _mergeArrayIndex = 0;
-    }
-    
-    private TowerGeneric FindTowerByTuple((TowerGeneric, TowerGeneric) targetTuple)
-    {
-        foreach (var kvp in possibleTowerMerges)
-        {
-            Debug.Log("Searching tuple: " + targetTuple + "inside kvp: " + kvp);
-            if ((kvp.Value.Item1.Equals(targetTuple.Item1) && kvp.Value.Item2.Equals(targetTuple.Item2)) ||
-                (kvp.Value.Item1.Equals(targetTuple.Item2) && kvp.Value.Item2.Equals(targetTuple.Item1)))
-            {
-                Debug.Log("search successful, " + kvp);
-                return kvp.Key;
-            }
-        }
-        Debug.Log("search failed");
-        return null;
+        SetStateUIMergeMenuCombat(false);
     }
     
     private string FindTowerByNameTuple((string, string) targetTuple)
     {
-        foreach (var kvp in possibleTowerMergesByName)
+        foreach (var kvp in _possibleTowerMergesByName)
         {
             Debug.Log("Searching tuple: " + targetTuple + "inside kvp: " + kvp);
             if ((kvp.Value.Item1.Equals(targetTuple.Item1) && kvp.Value.Item2.Equals(targetTuple.Item2)) ||
@@ -256,35 +274,73 @@ public class GameManager : MonoBehaviour
     }
     
     #endregion
-    
-    public void CreateTower(GameObject towerToCreate)
+
+    public void CreateTower(TowerGeneric towerToCreate, bool calledFromMerge = false)
     {
-        if(_player.lastTouchedTowerZone == null)
+        if (!calledFromMerge)
         {
-            Debug.Log("lastTouchedTowerZone == null");
-            return;
+            if(_player.lastTouchedTowerZone == null)
+            {
+                Debug.Log("lastTouchedTowerZone == null");
+                return;
+            }
+
+            TowerZone zone = _player.lastTouchedTowerZone.GetComponent<TowerZone>();
+
+            if (!zone.isEmpty)
+            {
+                Debug.Log("zone is not empty");
+                return;
+            }
+
+            GameObject newTower = Instantiate(towerToCreate.gameObject, parentTowers.transform);
+            TowerGeneric towerGeneric = newTower.GetComponent<TowerGeneric>();
+            newTower.transform.position = _player.lastTouchedTowerZone.transform.position;
+
+            towerGeneric.attachedZone = zone;
+            zone.occupyingTower = newTower.GetComponent<TowerGeneric>();
+            zone.isEmpty = false;
+
+            DestroyUITowerBuilderCombat();
+            DrawUITowerManagerCombat();
+
         }
-
-        TowerZone zone = _player.lastTouchedTowerZone.GetComponent<TowerZone>();
-
-        if (!zone.isEmpty)
+        else
         {
-            Debug.Log("zone is not empty");
-            return;
+            if (_mergeTowerZone == null)
+            {
+                Debug.Log("_mergeTowerZone == null");
+                return;
+            }
+            
+            //TowerZone zone = _player.lastTouchedTowerZone.GetComponent<TowerZone>();
+            
+            GameObject newTower = Instantiate(towerToCreate.gameObject, parentTowers.transform);
+            TowerGeneric towerGeneric = newTower.GetComponent<TowerGeneric>();
+            
+            _mergeArray[0].attachedZone.occupyingTower = null;
+            _mergeArray[0].attachedZone.isEmpty = true;
+            Destroy(_mergeArray[0].gameObject);
+            
+            _mergeArray[1].attachedZone.occupyingTower = null;
+            Destroy(_mergeArray[1].gameObject);
+            
+            newTower.transform.position = _mergeTowerZone.transform.position;
+            _mergeTowerZone.occupyingTower = towerGeneric;
+            towerGeneric.attachedZone = _mergeTowerZone;
         }
-
-        GameObject newTower = Instantiate(towerToCreate, parentTowers.transform);
-        newTower.transform.position = _player.lastTouchedTowerZone.transform.position;
-
-        zone.occupyingTower = newTower.gameObject;
-        zone.isEmpty = false;
-
-        DestroyUITowerBuilderCombat();
-        DrawUITowerManagerCombat();
+        
     }
 
-    public void TowerDestroy()
+    public void TowerDestroy(bool calledFromMerge = false)
     {
+        if (calledFromMerge)
+        {
+            Destroy(_mergeTowerZone.occupyingTower.gameObject);
+            DestroyUITowerManagerCombat();
+            return;
+        }
+        
         if(_player.lastTouchedTowerZone == null)
         {
             Debug.Log("lastTouchedTowerZone == null");
@@ -292,13 +348,21 @@ public class GameManager : MonoBehaviour
         }
 
         TowerZone zone = _player.lastTouchedTowerZone.GetComponent<TowerZone>();
-
+        TowerGeneric towerToDestroy = zone.occupyingTower;
+        
+        
         if(zone.isEmpty)
         {
             Debug.Log("zone is empty");
             return;
         }
-        Destroy(zone.occupyingTower.gameObject);
+
+        if (_mergeArray[0] == towerToDestroy || _mergeArray[1] == towerToDestroy)
+        {
+            ClearMerge();
+        }
+        
+        Destroy(towerToDestroy.gameObject);
         zone.isEmpty = true;
 
         DestroyUITowerManagerCombat();
