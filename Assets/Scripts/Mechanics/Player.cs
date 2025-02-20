@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if(isPaused) {return;}
+        if(isPaused || _gameManager.onBuildMenu) {return;}
         _moveDirection = playerControls.ReadValue<Vector2>();
 
         _animator.SetFloat("moveY", _moveDirection.y);
@@ -60,10 +60,45 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(isPaused) {return;}
+        if(isPaused || _gameManager.onBuildMenu) {return;}
         _rb.linearVelocity = new Vector2(_moveDirection.x, _moveDirection.y).normalized * moveSpeed;
     }
 
+    #region CONTROLS
+    private void OnAttack()
+    {
+        if(isPaused || IsMouseOverIgnoredUI() || _gameManager.onBuildMenu) {return;}
+        System.Diagnostics.Debug.Assert(Camera.main != null, "Camera.main != null");
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        shotgun.Fire(mousePosition);
+        //Debug.Log("fire");
+    }
+
+    private void OnSecondaryAttack()
+    {
+        if(isPaused || IsMouseOverIgnoredUI() || _gameManager.onBuildMenu) {return;}
+        System.Diagnostics.Debug.Assert(Camera.main != null, "Camera.main != null");
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0f; // Ensure it's in 2D space
+        fists.Attack(mousePosition);
+        //Debug.Log("secondary");
+    }
+
+    private void OnPause()
+    {
+        Debug.Log("On Pause");
+        isPaused = !isPaused;
+        Time.timeScale = isPaused ? 0 : 1;
+        Debug.Log(Time.timeScale);
+    }
+
+    private void OnBuild()
+    {
+        if(isPaused) {return;}
+        _gameManager.SwapBuildAndCombatMenu();
+    }
+    #endregion
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Tower Zone"))
@@ -85,33 +120,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnAttack()
-    {
-        if(isPaused || IsMouseOverIgnoredUI()) {return;}
-        System.Diagnostics.Debug.Assert(Camera.main != null, "Camera.main != null");
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        shotgun.Fire(mousePosition);
-        //Debug.Log("fire");
-    }
-
-    private void OnSecondaryAttack()
-    {
-        if(isPaused || IsMouseOverIgnoredUI()) {return;}
-        System.Diagnostics.Debug.Assert(Camera.main != null, "Camera.main != null");
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0f; // Ensure it's in 2D space
-        fists.Attack(mousePosition);
-        //Debug.Log("secondary");
-    }
-
-    private void OnPause()
-    {
-        Debug.Log("On Pause");
-        isPaused = !isPaused;
-        Time.timeScale = isPaused ? 0 : 1;
-        Debug.Log(Time.timeScale);
-    }
-
+    
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Tower Zone"))

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -9,8 +10,12 @@ public class GameManager : MonoBehaviour
     private Canvas _canvas;
     private Player _player;
     private Camera _cam;
+    
 
     #region GAMEOBJECTS
+
+    [SerializeField] private CinemachineCamera cineCamPlayer;
+    [SerializeField] private CinemachineCamera cineCamBuild;
     [SerializeField] private Base baseTower;
 
     [Header("Towers")]
@@ -41,10 +46,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TowerGeneric towerCathedral;
     [SerializeField] private TowerGeneric towerFallenAngel;
     [SerializeField] private TowerGeneric towerSeraphim;
-    
-    
-    
-    
+
     #endregion
     #region UI
     
@@ -77,6 +79,7 @@ public class GameManager : MonoBehaviour
     private string[] _mergeArrayNames = new string[2];
     private TowerZone _mergeTowerZone;
     
+    public bool onBuildMenu = false;
     
     #endregion
     
@@ -177,6 +180,17 @@ public class GameManager : MonoBehaviour
     public void SetStateUIMergeMenuCombat(bool state)
     {
         uiMergeMenuCombat.gameObject.SetActive(state);
+    }
+
+    public void SwapBuildAndCombatMenu()
+    {
+        TransitionBetweenBuildAndPlayerCameras();
+        onBuildMenu = !onBuildMenu;
+    }
+    
+    public void TransitionBetweenBuildAndPlayerCameras()
+    {
+        cineCamPlayer.gameObject.SetActive(!cineCamPlayer.isActiveAndEnabled);
     }
     #endregion
 
