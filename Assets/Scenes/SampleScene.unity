@@ -303,6 +303,7 @@ MonoBehaviour:
   cineCamBuild: {fileID: 1981576116}
   baseTower: {fileID: 1425803302}
   parentTowers: {fileID: 1829589825}
+  towerZoneParent: {fileID: 1263966809}
   towerPriest: {fileID: -4387294914427419631, guid: 698f40780ef49b04ebb8c8bc4cea04cb, type: 3}
   towerCross: {fileID: 4225489325692195043, guid: 5ff6633369e37b343b1db272270a8b43, type: 3}
   towerAngel: {fileID: 2876509623101335559, guid: 6dfd007ce11bc0b41b93a954da44f6ab, type: 3}
@@ -329,6 +330,7 @@ MonoBehaviour:
   instantiatedUIMergeMenuCombat: {fileID: 0}
   sliderBaseHealth: {fileID: 1392023524}
   textSliderBaseHealth: {fileID: 1466801899}
+  _towerZones: []
   onBuildMenu: 0
 --- !u!4 &190331139 stripped
 Transform:

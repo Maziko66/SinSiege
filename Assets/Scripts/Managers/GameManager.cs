@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Towers")]
     [SerializeField] private GameObject parentTowers;
+    [SerializeField] private GameObject towerZoneParent;
     
     [Header("Tier I")]
     [SerializeField] private TowerGeneric towerPriest;
@@ -74,6 +75,8 @@ public class GameManager : MonoBehaviour
     private readonly Dictionary<string, (string, string)> _possibleTowerMergesByName = new();
     private readonly Dictionary<string, TowerGeneric> _towerKvp = new();
     
+    [SerializeField] private List<TowerZone> _towerZones = new();
+    
     private TowerGeneric[] _mergeArray = new TowerGeneric[2];
     private int _mergeArrayIndex = 0;
     private string[] _mergeArrayNames = new string[2];
@@ -92,6 +95,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        AddTowerZonesToTowerZones();
+        
         //SliderBaseHealthMinMaxValueSet();
         _baseStartingHealth = baseTower.GetBaseStartingHealth();
         sliderBaseHealth.SliderMinMaxValueSet(_baseStartingHealth);
@@ -289,6 +294,8 @@ public class GameManager : MonoBehaviour
     
     #endregion
 
+    #region TOWER CONSTRUCTION
+
     public void CreateTower(TowerGeneric towerToCreate, bool calledFromMerge = false)
     {
         if (!calledFromMerge)
@@ -382,6 +389,22 @@ public class GameManager : MonoBehaviour
         DestroyUITowerManagerCombat();
         DrawUITowerBuilderCombat();
     }
+
+    #endregion
+
+    #region FUNCTIONAL
+
+    private void AddTowerZonesToTowerZones()
+    {
+        int childAmount = towerZoneParent.transform.childCount;
+
+        for (int i = 0; i < childAmount; i++)
+        {
+            _towerZones.Add(towerZoneParent.transform.GetChild(i).GetComponent<TowerZone>());
+        }
+    }
+
+    #endregion
     
     public void UpdateBaseHealth()
     {
