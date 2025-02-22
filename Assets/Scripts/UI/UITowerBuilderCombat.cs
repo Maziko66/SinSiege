@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class UITowerBuilderCombat : MonoBehaviour
 {
-    private GameManager _gameManager;
+    private BuildManager _buildManager;
 
     [Header("Tower Objects")]
     [SerializeField] private TowerGeneric towerPriest;
@@ -19,15 +19,15 @@ public class UITowerBuilderCombat : MonoBehaviour
     
     private void Awake()
     {
-        _gameManager = FindFirstObjectByType<GameManager>();
+        _buildManager = FindFirstObjectByType<BuildManager>();
     }
     
     void Start()
     {
-        buttonTowerPriest.onClick.AddListener(() => _gameManager.CreateTower(towerPriest));
-        buttonTowerCross.onClick.AddListener(() => _gameManager.CreateTower(towerCross));
-        buttonTowerAngel.onClick.AddListener(() => _gameManager.CreateTower(towerAngel));
-        buttonTowerChapel.onClick.AddListener(() => _gameManager.CreateTower(towerChapel));
+        buttonTowerPriest.onClick.AddListener(() => _buildManager.CreateTower(_buildManager.TowerPriest));
+        buttonTowerCross.onClick.AddListener(() => _buildManager.CreateTower(_buildManager.TowerCross));
+        buttonTowerAngel.onClick.AddListener(() => _buildManager.CreateTower(_buildManager.TowerAngel));
+        buttonTowerChapel.onClick.AddListener(() => _buildManager.CreateTower(_buildManager.TowerChapel));
     }
 
 }

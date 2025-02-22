@@ -4,10 +4,10 @@ using UnityEngine.UI;
 
 public class UIMergeMenuCombat : MonoBehaviour
 {
-    private GameManager _gameManager;
+    private BuildManager _buildManager;
     private void Awake()
     {
-        _gameManager = FindFirstObjectByType<GameManager>();
+        _buildManager = FindFirstObjectByType<BuildManager>();
     }
 
     [SerializeField] private Button buttonClear;
@@ -24,8 +24,8 @@ public class UIMergeMenuCombat : MonoBehaviour
     
     void Start()
     {
-        buttonClear.onClick.AddListener(() => _gameManager.ClearMerge());
-        buttonMerge.onClick.AddListener(() => _gameManager.MergeTowers());
+        buttonClear.onClick.AddListener(() => _buildManager.ClearMerge());
+        buttonMerge.onClick.AddListener(() => _buildManager.MergeTowers());
     }
 
     public void SetSlotImage(int slot, Sprite sprite)

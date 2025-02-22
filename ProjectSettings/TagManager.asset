@@ -12,6 +12,7 @@ TagManager:
   - EnemyAir
   - Tower
   - IgnoredUI
+  - Tower Zone Extended
   layers:
   - Default
   - TransparentFX

@@ -43,6 +43,7 @@ public class MinimapCollider : MonoBehaviour
         if (trackableTags.Contains(other.tag))
         {
             minimap.RemoveObjectFromList(other.gameObject);
+            //Debug.Log("remove object from list triggered");
         }
     }
 }

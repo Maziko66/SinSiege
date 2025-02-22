@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     private GameManager _gameManager;
+    private BuildManager _buildManager;
     private Rigidbody2D _rb;
     private Camera _cam;
     
     [Header("Util")]
     public InputAction playerControls;
     public GraphicRaycaster raycaster;
+    private int _layerMaskTowerZone;
     
     [Header("Equipment")]
     [SerializeField] private Shotgun shotgun;
@@ -22,8 +24,11 @@ public class Player : MonoBehaviour
 
     [Header("Triggers")]
     public GameObject lastTouchedTowerZone;
+
     #region ANIMATOR
+    
     private Animator _animator;
+    
     #endregion
 
     private Vector2 _moveDirection = Vector2.zero;
@@ -35,7 +40,10 @@ public class Player : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _gameManager = FindFirstObjectByType<GameManager>();
+        _buildManager = FindFirstObjectByType<BuildManager>();
         _cam = FindFirstObjectByType<Camera>();
+        
+        _layerMaskTowerZone = 1 << LayerMask.NameToLayer("TowerZone");
     }
 
     private void OnEnable()
@@ -67,7 +75,40 @@ public class Player : MonoBehaviour
     #region CONTROLS
     private void OnAttack()
     {
-        if(isPaused || IsMouseOverIgnoredUI() || _gameManager.onBuildMenu) {return;}
+        if(isPaused || IsMouseOverIgnoredUI()) {return;}
+
+        if (_gameManager.onBuildMenu)
+        {
+            //Debug.Log("on attack build menu");
+            Vector2 buildModeMousePos = Mouse.current.position.ReadValue();
+            Vector2 worldPosition = Camera.main.ScreenToWorldPoint(buildModeMousePos);
+
+            RaycastHit2D hit = Physics2D.Raycast(worldPosition, Vector2.zero, Mathf.Infinity, _layerMaskTowerZone);
+
+            if (hit.collider == null)
+            {
+                DeactivateBuildUIs();
+                return;
+            }
+            
+            if (hit.collider.CompareTag("Tower Zone"))
+            {
+                lastTouchedTowerZone = hit.collider.gameObject;
+                BuildManagerState(hit.collider, true, true);
+                
+                //Debug.Log("Clicked on: " + hit.collider.gameObject.name);
+
+                // Add your custom logic here
+                // Example: Call a method on the clicked object
+                //hit.collider.GetComponent<TowerZone>()?.OnClick();
+            }
+            else
+            {
+                DeactivateBuildUIs();
+            }
+            return;
+        }
+        
         System.Diagnostics.Debug.Assert(Camera.main != null, "Camera.main != null");
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         shotgun.Fire(mousePosition);
@@ -95,49 +136,99 @@ public class Player : MonoBehaviour
     private void OnBuild()
     {
         if(isPaused) {return;}
+        lastTouchedTowerZone = null;
         _gameManager.SwapBuildAndCombatMenu();
     }
     #endregion
-    
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void BuildManagerState(Collider2D col, bool activate, bool calledFromBuildMenu = false)
     {
-        if(collision.gameObject.CompareTag("Tower Zone"))
+        if (calledFromBuildMenu)
         {
-            TowerZone towerZone = collision.GetComponent<TowerZone>();
+            DeactivateBuildUIs();
+        }
+        if (activate)
+        {
+            TowerZone towerZone = col.GetComponent<TowerZone>();
             lastTouchedTowerZone = towerZone.gameObject;
             //Vector3 instantiatePosition = _cam.WorldToScreenPoint(collision.transform.position);
-            Vector3 instantiatePosition = _cam.WorldToScreenPoint(transform.position);
+            //Vector3 instantiatePosition = _cam.WorldToScreenPoint(transform.position);
             if(towerZone.isEmpty)
             {
-                _gameManager.DrawUITowerBuilderCombat();
+                _buildManager.DrawUITowerBuilderCombat(calledFromBuildMenu);
                 Debug.Log("On Tower Zone Empty");
             }
             else
             {
-                _gameManager.DrawUITowerManagerCombat();
+                _buildManager.DrawUITowerManagerCombat(calledFromBuildMenu);
                 Debug.Log("On Tower Zone Full");
             }
         }
-    }
-
-    
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.gameObject.CompareTag("Tower Zone"))
+        else
         {
-            TowerZone towerZone = collision.GetComponent<TowerZone>();
+            TowerZone towerZone = col.GetComponent<TowerZone>();
             if(towerZone.isEmpty)
             {
-                _gameManager.DestroyUITowerBuilderCombat();
+                _buildManager.DestroyUITowerBuilderCombat();
                 lastTouchedTowerZone = null;
                 Debug.Log("Left Empty Tower Zone");
             }
             else
             {
-                _gameManager.DestroyUITowerManagerCombat();
+                _buildManager.DestroyUITowerManagerCombat();
                 lastTouchedTowerZone = null;
                 Debug.Log("Left Full Tower Zone");
             }
+        }
+    }
+
+    private void DeactivateBuildUIs()
+    {
+        _buildManager.DestroyUITowerBuilderCombat();
+        _buildManager.DestroyUITowerManagerCombat();
+        lastTouchedTowerZone = null;
+    }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Tower Zone"))
+        {
+            // TowerZone towerZone = collision.GetComponent<TowerZone>();
+            // lastTouchedTowerZone = towerZone.gameObject;
+            // //Vector3 instantiatePosition = _cam.WorldToScreenPoint(collision.transform.position);
+            // //Vector3 instantiatePosition = _cam.WorldToScreenPoint(transform.position);
+            // if(towerZone.isEmpty)
+            // {
+            //     _buildManager.DrawUITowerBuilderCombat();
+            //     Debug.Log("On Tower Zone Empty");
+            // }
+            // else
+            // {
+            //     _buildManager.DrawUITowerManagerCombat();
+            //     Debug.Log("On Tower Zone Full");
+            // }
+            BuildManagerState(collision, true);
+        }
+    }
+    
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Tower Zone"))
+        {
+            // TowerZone towerZone = collision.GetComponent<TowerZone>();
+            // if(towerZone.isEmpty)
+            // {
+            //     _buildManager.DestroyUITowerBuilderCombat();
+            //     lastTouchedTowerZone = null;
+            //     Debug.Log("Left Empty Tower Zone");
+            // }
+            // else
+            // {
+            //     _buildManager.DestroyUITowerManagerCombat();
+            //     lastTouchedTowerZone = null;
+            //     Debug.Log("Left Full Tower Zone");
+            // }
+            BuildManagerState(collision, false);
         }
     }
     

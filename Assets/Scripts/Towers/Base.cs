@@ -7,6 +7,7 @@ public class Base : MonoBehaviour
     
     [SerializeField] private int baseStartingHealth;
     [SerializeField] private int baseHealth;
+    [SerializeField] private int baseDamage = 999;
 
     private void Awake()
     {
@@ -29,10 +30,13 @@ public class Base : MonoBehaviour
     {
         if (other.CompareTag("Enemy") || other.CompareTag("EnemyGround") || other.CompareTag("EnemyAir"))
         {
+            //Debug.Log("enemy on base");
             Enemy enemy = other.GetComponent<Enemy>();
             baseHealth -= enemy.GetDamage();
             gameManager.UpdateBaseHealth();
-            Destroy(other.gameObject);
+            enemy.ReduceHealth(baseDamage);
+            enemy.CheckHealth();
+            //Destroy(other.gameObject);
         }
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -46,9 +47,18 @@ public class Enemy : MonoBehaviour
     {
         if (_health <= 0)
         {
+            //StartCoroutine(DestroyWithDelay(gameObject));
             Destroy(gameObject); return;
         }
     }
+    
+    IEnumerator DestroyWithDelay(GameObject obj)
+    {
+        obj.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
+        Destroy(obj);
+    }
+    
 
     public int GetDamage()
     {

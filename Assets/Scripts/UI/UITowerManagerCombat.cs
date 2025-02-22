@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class UITowerManagerCombat : MonoBehaviour
 {
-    private GameManager _gameManager;
+    private BuildManager _buildManager;
 
     private TowerGeneric _attachedTower;
    
@@ -17,13 +17,13 @@ public class UITowerManagerCombat : MonoBehaviour
     
     private void Awake()
     {
-        _gameManager = FindFirstObjectByType<GameManager>();
+        _buildManager = FindFirstObjectByType<BuildManager>();
     }
 
     private void Start()
     {
-        buttonDestroy.onClick.AddListener(() => _gameManager.TowerDestroy());
-        buttonMerge.onClick.AddListener(() => _gameManager.AddToMerge(_attachedTower));
+        buttonDestroy.onClick.AddListener(() => _buildManager.TowerDestroy());
+        buttonMerge.onClick.AddListener(() => _buildManager.AddToMerge(_attachedTower));
     }
 
     public void SetAttachedTower(TowerGeneric tower)

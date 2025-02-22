@@ -19,7 +19,7 @@ public class Minimap : MonoBehaviour
     [Header("Pixel Prefabs")]
     [SerializeField] private List<TagPrefabPair> tagPrefabPairs;
     
-    private List<GameObject> _objectsToTrack = new List<GameObject>();
+    [SerializeField] private List<GameObject> _objectsToTrack = new List<GameObject>();
 
     private Dictionary<GameObject, GameObject> _objectToPixelMap = new Dictionary<GameObject, GameObject>();
     private Dictionary<GameObject, Vector3> _lastKnownPositions = new Dictionary<GameObject, Vector3>();
@@ -117,13 +117,18 @@ public class Minimap : MonoBehaviour
 
     public void RemoveObjectFromList(GameObject obj)
     {
-        if (obj == null) return; // FIX: Prevent null reference
+        if (obj == null)
+        {
+            //Debug.Log("remove pixel null");
+            return;
+        }
 
         if (_objectToPixelMap.TryGetValue(obj, out var pixel))
         {
             Destroy(pixel);
             _objectToPixelMap.Remove(obj);
             _lastKnownPositions.Remove(obj);
+            //Debug.Log("removed object from list");
         }
 
         _objectsToTrack.Remove(obj);
