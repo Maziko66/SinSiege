@@ -163,5 +163,10 @@ public class Bullet : MonoBehaviour
             CheckHealth();
             //Debug.Log("hit enemy");
         }
+        else if (other.gameObject.CompareTag("Bound"))
+        {
+            _health = 0;
+            CheckHealth();
+        }
     }
 }

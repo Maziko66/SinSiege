@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(isPaused || _gameManager.onBuildMenu) {return;}
+        if(isPaused) {return;}
         _rb.linearVelocity = new Vector2(_moveDirection.x, _moveDirection.y).normalized * moveSpeed;
     }
 
@@ -257,5 +257,16 @@ public class Player : MonoBehaviour
 
         //Debug.Log("No ignored UI detected.");
         return false;
+    }
+
+    public void SetMoveDirection(Vector2 direction)
+    {
+        _moveDirection = direction;
+    }
+
+    public void AnimatorToIdle()
+    {
+        _animator.SetFloat("moveX", 0);
+        _animator.SetFloat("moveY", 0);
     }
 }

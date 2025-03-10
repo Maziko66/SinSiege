@@ -102,7 +102,10 @@ public class GameManager : MonoBehaviour
     
     public void TransitionBetweenBuildAndPlayerCameras()
     {
+        cineCamBuild.transform.position = cineCamPlayer.transform.position;
         cineCamPlayer.gameObject.SetActive(!cineCamPlayer.isActiveAndEnabled);
+        _player.SetMoveDirection(Vector2.zero);
+        _player.AnimatorToIdle();
     }
     #endregion
 

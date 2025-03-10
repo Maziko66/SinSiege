@@ -13,6 +13,7 @@ TagManager:
   - Tower
   - IgnoredUI
   - Tower Zone Extended
+  - Bound
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - ColliderWeapon
   - TowerZone
   - Minimap
-  - 
+  - Confiner
   - 
   - 
   - 
