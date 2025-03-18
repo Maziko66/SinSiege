@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 657a8bef4d751d446b178b7a2cc77067, type: 3}
-  m_Name: Wave
+  m_Name: Wave 1
   m_EditorClassIdentifier: 
   spawnPoint: {x: 6, y: 38, z: 0}
+  routeIndex: 0
+  spawnInterval: 0
+  waveCooldown: 5
   enemyList:
   - {fileID: 4664836877217421058, guid: 66c08733f76df5d419af34230ce21c14, type: 3}
   - {fileID: 4664836877217421058, guid: 66c08733f76df5d419af34230ce21c14, type: 3}

@@ -103,10 +103,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3975505fa6986524cb6293ec86edf6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 3
+  _moveSpeed: 10
   _health: 5
   damage: 1
   _mainTargetLocation: {x: 0, y: 0, z: 0}
+  waypoints: []
 --- !u!60 &666586091851538143
 PolygonCollider2D:
   m_ObjectHideFlags: 0

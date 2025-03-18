@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -10,20 +12,53 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int damage;
 
     [SerializeField] private Vector3 _mainTargetLocation = Vector3.zero;
-
+    
+    
+    public List<Vector2> waypoints = new List<Vector2>();
+    private Vector2 _waypointStop;
+    private int _waypointsIndex = 0;
+    
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
+
+    private void Start()
+    {
+        if (waypoints.Count == 0)
+        {
+            _waypointStop = _mainTargetLocation;
+        }
+        else
+        {
+            _waypointStop = waypoints[_waypointsIndex];
+        }
+        
+    }
+
     private void Update()
     {
-        if(rb.position.x - _mainTargetLocation.x > 0)
+        if(rb.position.x - _waypointStop.x > 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
         else
         {
             transform .localScale = new Vector3(1, 1, 1);
+        }
+
+        if (rb.position == _waypointStop)
+        {
+            _waypointsIndex++;
+            if (_waypointsIndex >= waypoints.Count)
+            {
+                _waypointStop = Vector2.zero;
+            }
+            else
+            {
+                _waypointStop = waypoints[_waypointsIndex];
+            }
         }
     }
 
@@ -34,7 +69,7 @@ public class Enemy : MonoBehaviour
 
     private void Movement()
     {
-        Vector2 newPosition = Vector2.MoveTowards(rb.position, _mainTargetLocation, _moveSpeed * Time.fixedDeltaTime);
+        Vector2 newPosition = Vector2.MoveTowards(rb.position, _waypointStop, _moveSpeed * Time.fixedDeltaTime);
         rb.MovePosition(newPosition);
     }
 
