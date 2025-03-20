@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class Cooldown : MonoBehaviour
 {
+    private Player _player;
+    
     [SerializeField] private UISliderHp slider;
     [SerializeField] private AudioSource sfxRefresh; 
     [SerializeField] private Text cooldownText;
@@ -11,9 +13,15 @@ public class Cooldown : MonoBehaviour
     [SerializeField] private float refreshDelay;
     private float _cooldown;
     private bool _refreshed;
-    
+
+    private void Awake()
+    {
+        _player = FindFirstObjectByType<Player>();
+    }
+
     private void Update()
     {
+        if(_player.isPaused) {return;}
         if (_cooldown >= 0f)
         {
             _cooldown -= Time.deltaTime;

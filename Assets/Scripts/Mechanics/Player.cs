@@ -14,9 +14,13 @@ public class Player : MonoBehaviour
     
     [Header("Util")]
     public InputAction playerControls;
+    public InputAction playerSprint;
+    
+    
     public GraphicRaycaster raycaster;
     [SerializeField] private float buildCameraSpeed = 15f;
     private int _layerMaskTowerZone;
+    [SerializeField] private bool _isSprinting;
     
     [Header("Equipment")]
     [SerializeField] private Shotgun shotgun;
@@ -24,6 +28,7 @@ public class Player : MonoBehaviour
     
     [Header("Character Stats")]
     [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private float sprintSpeed = 5f;
 
     [Header("Triggers")]
     public GameObject lastTouchedTowerZone;
@@ -54,17 +59,22 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         playerControls.Enable();
+        playerSprint.Enable();
     }
 
     private void OnDisable()
     {
         playerControls.Disable();
+        playerSprint.Disable();
     }
 
     private void Update()
     {
         if(isPaused) {return;}
+        
         _moveDirection = playerControls.ReadValue<Vector2>();
+        _isSprinting = playerSprint.IsPressed();
+        
         if(_gameManager.onBuildMenu) {return;}
         _animator.SetFloat("moveY", _moveDirection.y);
         _animator.SetFloat("moveX", _moveDirection.x);
@@ -81,7 +91,16 @@ public class Player : MonoBehaviour
             return;
         }
         if(isPaused) {return;}
-        _rb.linearVelocity = new Vector2(_moveDirection.x, _moveDirection.y).normalized * moveSpeed;
+
+        if (_isSprinting)
+        {
+            _rb.linearVelocity = new Vector2(_moveDirection.x, _moveDirection.y).normalized * (moveSpeed + sprintSpeed);
+        }
+        else
+        {
+            _rb.linearVelocity = new Vector2(_moveDirection.x, _moveDirection.y).normalized * moveSpeed;
+        }
+        
     }
 
     #region CONTROLS
@@ -151,6 +170,7 @@ public class Player : MonoBehaviour
         lastTouchedTowerZone = null;
         _gameManager.SwapBuildAndCombatMenu();
     }
+    
     #endregion
 
     private void BuildManagerState(Collider2D col, bool activate, bool calledFromBuildMenu = false)

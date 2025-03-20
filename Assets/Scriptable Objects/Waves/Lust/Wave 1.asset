@@ -15,7 +15,7 @@ MonoBehaviour:
   spawnPoint: {x: 6, y: 38, z: 0}
   routeIndex: 0
   spawnInterval: 0
-  waveCooldown: 5
+  waveCooldown: 30
   enemyList:
   - {fileID: 4664836877217421058, guid: 66c08733f76df5d419af34230ce21c14, type: 3}
   - {fileID: 4664836877217421058, guid: 66c08733f76df5d419af34230ce21c14, type: 3}

@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 [System.Serializable]
 internal class Route
@@ -21,25 +23,33 @@ public class WaveManager : MonoBehaviour
     //listSpawnPoints, listWaveGroups
 
     private Cooldown _cooldown;
+
+    [Header("UI")]
+    [SerializeField] private TextMeshProUGUI textWaveTimer;
+    [SerializeField] private Button buttonStartWave;
+
+    private string _strWaveTimer = "Wave Timer: ";
+    private string _strWaveInProgress = "Wave in progress";
     
     [Header("Routes")]
     [SerializeField] private List<Route> routes = new List<Route>();
     [SerializeField] private List<Waypoint> waypoints = new List<Waypoint>();
     
-    
-    
-    
     public List<WaveSO> waves = new List<WaveSO>();
-    private WaveSO _currentWave;
+    
+    
     [SerializeField] private List<Enemy> enemyList = new List<Enemy>();
     [SerializeField] private Vector3 spawnPosition;
-
+    
     [Header("Spawner Variables")]
     [SerializeField] private float spawnInterval = 1.0f;
     [SerializeField] private float spawnCooldown = 1.0f;
     [SerializeField] private int wavesListIndex = 0;
     [SerializeField] private List<GameObject> spawnPoints = new List<GameObject>();
-
+    
+    private WaveSO _currentWave;
+    private float _currentWaveTimer;
+    private bool _waveActive;
 
     private void Awake()
     {
@@ -48,6 +58,7 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
+        buttonStartWave.onClick.AddListener(() => SetWaveTimer(0));
         CreateVectorWaypoints();
         spawnCooldown *= spawnInterval;
         GetEnemyList();
@@ -55,12 +66,20 @@ public class WaveManager : MonoBehaviour
 
     private void Update()
     {
-        if (enemyList.Count > 0)
+        WaveTimer();
+        
+        if (enemyList.Count > 0 && _waveActive)
         {
             spawnCooldown -= Time.deltaTime;
             SpawnFromList();
         }
-        
+
+        if (enemyList.Count <= 0)
+        {
+            _waveActive = false;
+            wavesListIndex++;
+            GetEnemyList();
+        }
 
     }
 
@@ -77,6 +96,7 @@ public class WaveManager : MonoBehaviour
         enemyList = new List<Enemy>(_currentWave.enemyList);
         //spawnPosition = waves[wavesListIndex].spawnPoint;
         spawnPosition = spawnPoints[_currentWave.routeIndex].transform.position;
+        SetWaveTimer(_currentWave.waveCooldown);
 
     }
 
@@ -106,5 +126,22 @@ public class WaveManager : MonoBehaviour
                 waypoints[i].waypoints.Add(position);
             }
         }
+    }
+
+    private void WaveTimer()
+    {
+        if (_waveActive) {return;}
+        _currentWaveTimer -= Time.deltaTime;
+        textWaveTimer.SetText(_strWaveTimer + (int)_currentWaveTimer);
+        if (_currentWaveTimer <= 0)
+        {
+            textWaveTimer.SetText(_strWaveInProgress);
+            _waveActive = true;
+        }
+    }
+    
+    private void SetWaveTimer(float seconds)
+    {
+        _currentWaveTimer = seconds;
     }
 }
