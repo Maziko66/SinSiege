@@ -9,10 +9,13 @@ public class Player : MonoBehaviour
     private BuildManager _buildManager;
     private Rigidbody2D _rb;
     private Camera _cam;
+    [SerializeField] private GameObject _buildCameraObject;
+    private Rigidbody2D _buildCameraObjectRb;
     
     [Header("Util")]
     public InputAction playerControls;
     public GraphicRaycaster raycaster;
+    [SerializeField] private float buildCameraSpeed = 15f;
     private int _layerMaskTowerZone;
     
     [Header("Equipment")]
@@ -42,6 +45,8 @@ public class Player : MonoBehaviour
         _gameManager = FindFirstObjectByType<GameManager>();
         _buildManager = FindFirstObjectByType<BuildManager>();
         _cam = FindFirstObjectByType<Camera>();
+
+        _buildCameraObjectRb = _buildCameraObject.GetComponent<Rigidbody2D>();
         
         _layerMaskTowerZone = 1 << LayerMask.NameToLayer("TowerZone");
     }
@@ -58,9 +63,9 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if(isPaused || _gameManager.onBuildMenu) {return;}
+        if(isPaused) {return;}
         _moveDirection = playerControls.ReadValue<Vector2>();
-
+        if(_gameManager.onBuildMenu) {return;}
         _animator.SetFloat("moveY", _moveDirection.y);
         _animator.SetFloat("moveX", _moveDirection.x);
 
@@ -68,6 +73,13 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_gameManager.onBuildMenu)
+        {
+            _buildCameraObjectRb.linearVelocity = new Vector2(_moveDirection.x, _moveDirection.y).normalized * buildCameraSpeed;
+            _rb.linearVelocity = Vector2.zero;
+            Debug.Log("moving cam");
+            return;
+        }
         if(isPaused) {return;}
         _rb.linearVelocity = new Vector2(_moveDirection.x, _moveDirection.y).normalized * moveSpeed;
     }
