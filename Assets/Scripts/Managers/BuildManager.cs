@@ -109,6 +109,8 @@ public class BuildManager : MonoBehaviour
         //possibleTowerMergesByName.Add(towerVirtue, (towerAngel, towerAngel));
         //possibleTowerMergesByName.Add(towerChurch, (towerChapel, towerPriest));
         //Tier III Merges
+        
+        TowerZoneExpSliderActive(false);
     }
 
     private void Update()
@@ -148,6 +150,11 @@ public class BuildManager : MonoBehaviour
 
     #region UI DRAW
 
+    public void TowerZoneExpSliderActive(bool state)
+    {
+        _gameManager.sliderTowerZoneXP.gameObject.SetActive(state);
+    }
+    
     public void DrawUITowerBuilderCombat(bool calledFromBuildMenu = false)
     {
         uiTowerBuilderCombat.gameObject.SetActive(true);

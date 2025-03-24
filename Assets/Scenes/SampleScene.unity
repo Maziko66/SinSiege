@@ -668,7 +668,7 @@ MonoBehaviour:
   instantiatedUIMergeMenuCombat: {fileID: 0}
   sliderBaseHealth: {fileID: 1392023524}
   textSliderBaseHealth: {fileID: 1466801899}
-  sliderTowerZoneXP: {fileID: 0}
+  sliderTowerZoneXP: {fileID: 2075557354}
   onBuildMenu: 0
   mousePosition: {x: 0, y: 0}
 --- !u!1 &176024900
@@ -129368,6 +129368,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5643101990021388202, guid: 0ea95bdad96d5c44bb4d5ba9471d386f, type: 3}
   m_PrefabInstance: {fileID: 2075557352}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2075557354 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3856243701261470506, guid: 0ea95bdad96d5c44bb4d5ba9471d386f, type: 3}
+  m_PrefabInstance: {fileID: 2075557352}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45f4054ebe22ca4fb440fbef94bf36a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2095022710
 GameObject:
   m_ObjectHideFlags: 0

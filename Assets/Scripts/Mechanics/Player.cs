@@ -240,6 +240,7 @@ public class Player : MonoBehaviour
             //     Debug.Log("On Tower Zone Full");
             // }
             BuildManagerState(collision, true);
+            _buildManager.TowerZoneExpSliderActive(true);
         }
     }
     
@@ -261,6 +262,7 @@ public class Player : MonoBehaviour
             //     Debug.Log("Left Full Tower Zone");
             // }
             BuildManagerState(collision, false);
+            _buildManager.TowerZoneExpSliderActive(false);
         }
     }
     

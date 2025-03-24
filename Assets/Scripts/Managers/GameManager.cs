@@ -37,7 +37,8 @@ public class GameManager : MonoBehaviour
     //[SerializeField] private Slider sliderBaseHealth;
     [SerializeField] private UISliderHp sliderBaseHealth;
     [SerializeField] private TextMeshProUGUI textSliderBaseHealth;
-    [SerializeField] private UISliderHp sliderTowerZoneXP;
+    public UISliderHp sliderTowerZoneXP;
+        
     #endregion
 
     #region VARIABLES
