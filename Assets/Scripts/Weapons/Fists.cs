@@ -40,7 +40,7 @@ public class Fists : MonoBehaviour
     {
         //_cooldown.SetRefreshDelay(sfxReloadDelay);
         UpdateTargetTag();
-        Debug.Log(_currentTargetTag);
+        //Debug.Log(_currentTargetTag);
         _collider.enabled = false;
         _spriteRenderer.enabled = false;
         _cooldown.SetSliderUIName(weaponName);

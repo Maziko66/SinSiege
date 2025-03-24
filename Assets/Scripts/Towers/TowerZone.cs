@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class TowerZone : MonoBehaviour
 {
-    private GameManager _gameManager;
+    private BuildManager _buildmanager;
     
     [SerializeField] private UISliderHp expSlider;
     [SerializeField] private string strSlider = "Zone Veterancy: ";
@@ -17,12 +17,12 @@ public class TowerZone : MonoBehaviour
 
     private void Awake()
     {
-        _gameManager = FindFirstObjectByType<GameManager>();
+        _buildmanager = FindFirstObjectByType<BuildManager>();
     }
 
     private void Start()
     {
-        expSlider = _gameManager.GetZoneXpSlider();
+        expSlider = _buildmanager.GetZoneXpSlider();
     }
 
     public void IncreaseVet(float exp)
@@ -36,11 +36,12 @@ public class TowerZone : MonoBehaviour
     {
         if(rank == 3) {return;}
 
-        if (vet < vetPoints[rank])
+        if (vet >= vetPoints[rank])
         {
             if (rank < 3)
             {
                 rank++;
+                vet = 0;
             }
         }
     }
@@ -48,5 +49,15 @@ public class TowerZone : MonoBehaviour
     public void SetSliderText()
     {
         expSlider.SliderTextSet(strSlider + vet + "/" + vetPoints[rank]);
+    }
+
+    public float GetMaxVet()
+    {
+        return vetPoints[rank];
+    }
+
+    public float GetVet()
+    {
+        return vet;
     }
 }

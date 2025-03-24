@@ -100,10 +100,10 @@ public class Enemy : MonoBehaviour
             _isDamaged = true;
             sliderHealth = Instantiate(prefabSliderHealth.gameObject, _canvas.transform).GetComponent<Slider>();
             sliderHealth.maxValue = _health;
-            Debug.Log("slider instantiated");
+            //Debug.Log("slider instantiated");
         }
         _health -= damage;
-        Debug.Log("-damage");
+        //Debug.Log("-damage");
         sliderHealth.value = _health;
     }
 

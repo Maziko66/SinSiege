@@ -668,7 +668,6 @@ MonoBehaviour:
   instantiatedUIMergeMenuCombat: {fileID: 0}
   sliderBaseHealth: {fileID: 1392023524}
   textSliderBaseHealth: {fileID: 1466801899}
-  sliderTowerZoneXP: {fileID: 2075557354}
   onBuildMenu: 0
   mousePosition: {x: 0, y: 0}
 --- !u!1 &176024900
@@ -3320,6 +3319,10 @@ PrefabInstance:
       propertyPath: m_VerticalAlignment
       value: 4096
       objectReference: {fileID: 0}
+    - target: {fileID: 4545248155212952439, guid: e5f822f6ece2874498732359a4de681b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4963969832378803450, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_Name
       value: ui_slider_primary
@@ -3338,7 +3341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_Pivot.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_Pivot.y
@@ -3346,7 +3349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3354,7 +3357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_AnchorMin.y
@@ -3398,7 +3401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 20
+      value: -290
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -124504,6 +124507,8 @@ MonoBehaviour:
   uiTowerBuilderCombat: {fileID: 1724481533}
   uiTowerManagerCombat: {fileID: 1676259093}
   uiMergeMenuCombat: {fileID: 1372494383}
+  sliderTowerZoneXP: {fileID: 2075557354}
+  sliderTowerZoneExpOffset: {x: 0, y: 2.15, z: 0}
   parentTowers: {fileID: 1829589825}
   towerZoneParent: {fileID: 1263966809}
   towerZones: []
@@ -126667,6 +126672,10 @@ PrefabInstance:
       propertyPath: m_HorizontalAlignment
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4545248155212952439, guid: e5f822f6ece2874498732359a4de681b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4963969832378803450, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_Name
       value: ui_slider_secondary
@@ -126685,7 +126694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_Pivot.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_Pivot.y
@@ -126693,7 +126702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -126701,7 +126710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_AnchorMin.y
@@ -126745,7 +126754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 140
+      value: -170
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -129868,6 +129877,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 4545248155212952439, guid: e5f822f6ece2874498732359a4de681b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4963969832378803450, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_Name
       value: ui_slider_HP
@@ -129878,7 +129891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_Pivot.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_Pivot.y
@@ -129886,7 +129899,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -129894,7 +129907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_AnchorMin.y
@@ -129938,7 +129951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 20
+      value: -170
       objectReference: {fileID: 0}
     - target: {fileID: 5643101990021388202, guid: e5f822f6ece2874498732359a4de681b, type: 3}
       propertyPath: m_AnchoredPosition.y

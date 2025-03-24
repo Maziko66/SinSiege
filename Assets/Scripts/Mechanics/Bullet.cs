@@ -164,13 +164,20 @@ public class Bullet : MonoBehaviour
         if (_targetTag == "Enemy" || other.gameObject.CompareTag(_targetTag) || other.gameObject.CompareTag("Enemy"))
         {
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
-            enemy.ReduceHealth(_damage);
-            enemy.CheckHealth();
-            _health--;
-            _towerGeneric.bulletsHit++;
-            _towerGeneric.IncreaseTowerZoneVet(enemy.GetExp());
-            CheckHealth();
-            //Debug.Log("hit enemy");
+            if (enemy)
+            {
+                enemy.ReduceHealth(_damage);
+                enemy.CheckHealth();
+                _health--;
+                if (_towerGeneric)
+                {
+                    _towerGeneric.bulletsHit++;
+                    _towerGeneric.IncreaseTowerZoneVet(enemy.GetExp());
+                }
+                CheckHealth();
+                //Debug.Log("hit enemy");
+            }
+            
         }
         else if (other.gameObject.CompareTag("Bound"))
         {

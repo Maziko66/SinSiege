@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
     //[SerializeField] private Slider sliderBaseHealth;
     [SerializeField] private UISliderHp sliderBaseHealth;
     [SerializeField] private TextMeshProUGUI textSliderBaseHealth;
-    public UISliderHp sliderTowerZoneXP;
         
     #endregion
 
@@ -109,11 +108,7 @@ public class GameManager : MonoBehaviour
         _player.SetMoveDirection(Vector2.zero);
         _player.AnimatorToIdle();
     }
-
-    public UISliderHp GetZoneXpSlider()
-    {
-        return sliderTowerZoneXP;
-    }
+    
     #endregion
 
     

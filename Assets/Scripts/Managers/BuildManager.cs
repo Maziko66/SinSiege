@@ -13,6 +13,9 @@ public class BuildManager : MonoBehaviour
     [SerializeField] private UITowerBuilderCombat uiTowerBuilderCombat;
     [SerializeField] private UITowerManagerCombat uiTowerManagerCombat;
     [SerializeField] private UIMergeMenuCombat uiMergeMenuCombat;
+    [SerializeField] private UISliderHp sliderTowerZoneXP;
+    [SerializeField] private Vector3 sliderTowerZoneExpOffset;
+
 
     [Header("GameObjects")]
     [SerializeField] private GameObject parentTowers;
@@ -145,14 +148,35 @@ public class BuildManager : MonoBehaviour
         //         Destroy(_lastTouchedTowerZone.gameObject);
         //     }
         // }
-        
+        SetTowerZoneExpSliderPosition();
     }
 
     #region UI DRAW
 
     public void TowerZoneExpSliderActive(bool state)
     {
-        _gameManager.sliderTowerZoneXP.gameObject.SetActive(state);
+        sliderTowerZoneXP.gameObject.SetActive(state);
+        if(_player.lastTouchedTowerZone == null) {return;}
+        TowerZone zone = _player.lastTouchedTowerZone.GetComponent<TowerZone>();
+        sliderTowerZoneXP.SliderMinMaxValueSet(zone.GetMaxVet());
+        sliderTowerZoneXP.SliderValueSet(zone.GetVet());
+    }
+    
+    public UISliderHp GetZoneXpSlider()
+    {
+        return sliderTowerZoneXP;
+    }
+
+    private void SetTowerZoneExpSliderPosition()
+    {
+        if(_player.lastTouchedTowerZone == null) {return;}
+        GameObject zone = _player.lastTouchedTowerZone;
+        Vector3 screenPosition = Camera.main.WorldToScreenPoint(zone.transform.position + sliderTowerZoneExpOffset);
+
+        TowerZone towerZone = zone.GetComponent<TowerZone>();
+        towerZone.SetSliderText();
+
+        sliderTowerZoneXP.transform.position = screenPosition;
     }
     
     public void DrawUITowerBuilderCombat(bool calledFromBuildMenu = false)
