@@ -2,11 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
     Rigidbody2D rb;
+    private Canvas _canvas;
 
+    [SerializeField] private Slider prefabSliderHealth;
+    [SerializeField] private Vector3 sliderOffset;
+    
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _health = 5f;
     [SerializeField] private int damage;
@@ -17,10 +22,16 @@ public class Enemy : MonoBehaviour
     public List<Vector2> waypoints = new List<Vector2>();
     private Vector2 _waypointStop;
     private int _waypointsIndex = 0;
+
+
+    private Slider sliderHealth;
+    private bool _isDamaged;
+    
     
     
     private void Awake()
     {
+        _canvas = FindFirstObjectByType<Canvas>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -60,6 +71,14 @@ public class Enemy : MonoBehaviour
                 _waypointStop = waypoints[_waypointsIndex];
             }
         }
+
+        if (_isDamaged && sliderHealth)
+        {
+            Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position + sliderOffset);
+
+            // Set the slider's position
+            sliderHealth.transform.position = screenPosition;
+        }
     }
 
     private void FixedUpdate()
@@ -75,7 +94,16 @@ public class Enemy : MonoBehaviour
 
     public void ReduceHealth(float damage)
     {
+        if (damage > 0 && !_isDamaged)
+        {
+            _isDamaged = true;
+            sliderHealth = Instantiate(prefabSliderHealth.gameObject, _canvas.transform).GetComponent<Slider>();
+            sliderHealth.maxValue = _health;
+            Debug.Log("slider instantiated");
+        }
         _health -= damage;
+        Debug.Log("-damage");
+        sliderHealth.value = _health;
     }
 
     public void CheckHealth()
@@ -83,6 +111,7 @@ public class Enemy : MonoBehaviour
         if (_health <= 0)
         {
             //StartCoroutine(DestroyWithDelay(gameObject));
+            Destroy(sliderHealth.gameObject);
             Destroy(gameObject); return;
         }
     }
@@ -91,6 +120,7 @@ public class Enemy : MonoBehaviour
     {
         obj.SetActive(false);
         yield return new WaitForSeconds(0.1f);
+        Destroy(sliderHealth.gameObject);
         Destroy(obj);
     }
     

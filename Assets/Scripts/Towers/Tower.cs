@@ -1,8 +1,12 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
+    [Header("Util")]
+    public int segments = 32;
+    
     public enum TargetTag
     {
         Enemy,
@@ -12,6 +16,8 @@ public class Tower : MonoBehaviour
     
     //[SerializeField] private GameObject _nozzle;
     private Cooldown _cooldown;
+    
+    
     
     [Header("Attributes")]
     [SerializeField] private float attackRange = 6f;
@@ -37,6 +43,33 @@ public class Tower : MonoBehaviour
     private string _currentTargetTag;
     private int _currentFireMode;
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        // Calculate the angle between each segment
+        float angleStep = 360f / segments;
+        
+        DrawGizmoCircle(transform.position, attackRange, segments);
+    }
+
+    private void DrawGizmoCircle(Vector3 center, float radius, int segments)
+    {
+        // Calculate the angle between each segment
+        float angleStep = 360f / segments;
+
+        // Draw the circle using line segments
+        for (int i = 0; i < segments; i++)
+        {
+            float angle1 = i * angleStep;
+            float angle2 = (i + 1) * angleStep;
+
+            Vector3 point1 = center + Quaternion.Euler(0, 0, angle1) * Vector3.right * radius;
+            Vector3 point2 = center + Quaternion.Euler(0, 0, angle2) * Vector3.right * radius;
+
+            Gizmos.DrawLine(point1, point2);
+        }
+    }
+    
     private void Awake()
     {
         _cooldown = GetComponent<Cooldown>();

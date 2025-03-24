@@ -2975,8 +2975,8 @@ MonoBehaviour:
   _isSprinting: 0
   shotgun: {fileID: 1122032988}
   fists: {fileID: 1609988829}
-  moveSpeed: 7
-  sprintSpeed: 5
+  moveSpeed: 10
+  sprintSpeed: 10
   lastTouchedTowerZone: {fileID: 0}
   isPaused: 0
 --- !u!212 &519984799

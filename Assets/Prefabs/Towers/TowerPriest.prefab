@@ -119,7 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e405100b7a7b15041879fa91add29d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 6
+  segments: 32
+  attackRange: 12
   attackInterval: 1
   attackDamage: 1
   bulletSpeed: 10
