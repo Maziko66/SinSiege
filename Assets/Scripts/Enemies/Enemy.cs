@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _health = 5f;
     [SerializeField] private int damage;
+    [SerializeField] private float exp = 1;
 
     [SerializeField] private Vector3 _mainTargetLocation = Vector3.zero;
     
@@ -128,5 +129,10 @@ public class Enemy : MonoBehaviour
     public int GetDamage()
     {
         return damage;
+    }
+    
+    public float GetExp()
+    {
+        return exp;
     }
 }

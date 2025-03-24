@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Tower : MonoBehaviour
 {
     [Header("Util")]
     public int segments = 32;
+    [SerializeField] private TowerGeneric towerGeneric;
     
     public enum TargetTag
     {
@@ -73,6 +75,7 @@ public class Tower : MonoBehaviour
     private void Awake()
     {
         _cooldown = GetComponent<Cooldown>();
+        towerGeneric = GetComponent<TowerGeneric>();
     }
 
     private void Start()
@@ -145,7 +148,8 @@ public class Tower : MonoBehaviour
     {
         string tagString = FireMethods.GetTargetTagString(targetTag);
         //FireMethods.BulletFire(firingMode, bullet, transform, bulletSpeed, attackDamage, target.position, target);
-        FireMethods.BulletFire(_currentFireMode, bullet, fireTransform, bulletSpeed, attackDamage, target.position, bulletHealth, tagString, target);
+        FireMethods.BulletFire(_currentFireMode, bullet, fireTransform, bulletSpeed, attackDamage, target.position, bulletHealth, tagString, towerGeneric, target);
+        towerGeneric.bulletsFired++;
         _cooldown.SetCooldown(attackInterval);
         _cooldown.SetRefreshed(false);
     }

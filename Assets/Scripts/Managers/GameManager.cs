@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     //[SerializeField] private Slider sliderBaseHealth;
     [SerializeField] private UISliderHp sliderBaseHealth;
     [SerializeField] private TextMeshProUGUI textSliderBaseHealth;
+    [SerializeField] private UISliderHp sliderTowerZoneXP;
     #endregion
 
     #region VARIABLES
@@ -106,6 +107,11 @@ public class GameManager : MonoBehaviour
         cineCamPlayer.gameObject.SetActive(!cineCamPlayer.isActiveAndEnabled);
         _player.SetMoveDirection(Vector2.zero);
         _player.AnimatorToIdle();
+    }
+
+    public UISliderHp GetZoneXpSlider()
+    {
+        return sliderTowerZoneXP;
     }
     #endregion
 

@@ -4,6 +4,8 @@ public class Bullet : MonoBehaviour
 {
     private Rigidbody2D _rb;
 
+    private TowerGeneric _towerGeneric;
+    
     private float _speed = 5f;
     private float _damage = 1f;
     private int _health = 1;
@@ -139,6 +141,11 @@ public class Bullet : MonoBehaviour
         _targetTag = tag;
     }
 
+    public void SetTowerGeneric(TowerGeneric towerGeneric)
+    {
+        _towerGeneric = towerGeneric;
+    }
+
     // private void OnCollisionEnter2D(Collision2D collision)
     // {
     //     if (collision.gameObject.CompareTag(_targetTag) || (_targetTag == "Enemy" && (collision.gameObject.CompareTag("EnemyGround") || collision.gameObject.CompareTag("EnemyAir"))))
@@ -160,6 +167,8 @@ public class Bullet : MonoBehaviour
             enemy.ReduceHealth(_damage);
             enemy.CheckHealth();
             _health--;
+            _towerGeneric.bulletsHit++;
+            _towerGeneric.IncreaseTowerZoneVet(enemy.GetExp());
             CheckHealth();
             //Debug.Log("hit enemy");
         }

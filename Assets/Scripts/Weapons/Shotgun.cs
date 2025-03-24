@@ -65,7 +65,7 @@ public class Shotgun : MonoBehaviour
         if (_cooldown.GetCooldown() < 0)
         {
             //FireMethods.BulletFire(fireMode, bullet, transform, bulletSpeed, attackDamage, targetVector3, null, bulletCount, spreadAngle);
-            FireMethods.BulletFire(_currentFireMode, bullet, transform,bulletSpeed,attackDamage, targetVector3, bulletHealth, _currentTargetTag, null, bulletCount, spreadAngle);
+            FireMethods.BulletFire(_currentFireMode, bullet, transform,bulletSpeed,attackDamage, targetVector3, bulletHealth, _currentTargetTag, null, null, bulletCount, spreadAngle);
             
             sfxFire.Play();
             

@@ -59,13 +59,15 @@ public static class FireMethods
     /// <param name="targetTag">Tag of object to seek.</param>
     /// <param name="bulletCount">Number of bullets fired (used in spread mode).</param>
     /// <param name="spreadAngle">Angle spread between bullets (used in spread mode).</param>
+    /// <param name="towerGeneric">Source towergeneric.</param>
     public static void BulletFire(int firedFrom, Bullet bulletPrefab, Transform transform, float bulletSpeed, float attackDamage,
-                                  Vector3 targetVector3,int bulletHealth, string targetTag, Transform target = null,  int bulletCount = 1, float spreadAngle = 0f)
+                                  Vector3 targetVector3,int bulletHealth, string targetTag, TowerGeneric towerGeneric = null, Transform target = null,  int bulletCount = 1, float spreadAngle = 0f)
     {
         if (firedFrom == 0)
         {
             Bullet bullet = Object.Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             bullet.SetBulletStats(bulletSpeed, attackDamage, bulletHealth, transform.position, target.position, firedFrom, targetTag);
+            bullet.SetTowerGeneric(towerGeneric);
             bullet.SetTarget(target);
         }
         else if (firedFrom == 1)
@@ -79,6 +81,7 @@ public static class FireMethods
                 direction = FireMethods.RotateVector2(direction, startAngle);
                 //bullet.SetBulletStats(bulletSpeed, attackDamage, 1, transform.position, direction, 1);
                 bullet.SetBulletStats(bulletSpeed, attackDamage, bulletHealth, transform.position, direction, firedFrom, targetTag);
+                bullet.SetTowerGeneric(towerGeneric);
                 startAngle -= spreadAngle;
             }
         }

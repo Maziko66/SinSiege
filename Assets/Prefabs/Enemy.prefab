@@ -108,6 +108,7 @@ MonoBehaviour:
   _moveSpeed: 4
   _health: 5
   damage: 1
+  exp: 1
   _mainTargetLocation: {x: 0, y: 0, z: 0}
   waypoints: []
 --- !u!60 &666586091851538143
