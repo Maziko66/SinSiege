@@ -168,6 +168,7 @@ public class Player : MonoBehaviour
     {
         if(isPaused) {return;}
         lastTouchedTowerZone = null;
+        _buildManager.TowerZoneExpSliderActive(false);
         _gameManager.SwapBuildAndCombatMenu();
     }
     
@@ -218,6 +219,7 @@ public class Player : MonoBehaviour
     {
         _buildManager.DestroyUITowerBuilderCombat();
         _buildManager.DestroyUITowerManagerCombat();
+        //_buildManager.TowerZoneExpSliderActive(false);
         lastTouchedTowerZone = null;
     }
     
@@ -240,7 +242,11 @@ public class Player : MonoBehaviour
             //     Debug.Log("On Tower Zone Full");
             // }
             BuildManagerState(collision, true);
-            _buildManager.TowerZoneExpSliderActive(true);
+            if (!_gameManager.onBuildMenu)
+            {
+                _buildManager.TowerZoneExpSliderActive(true);
+            }
+            
         }
     }
     

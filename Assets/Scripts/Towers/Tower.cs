@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 public class Tower : MonoBehaviour
 {
     [Header("Util")]
-    public int segments = 32;
+    [SerializeField] private int _segments = 32;
     [SerializeField] private TowerGeneric towerGeneric;
     
     public enum TargetTag
@@ -49,9 +49,9 @@ public class Tower : MonoBehaviour
     {
         Gizmos.color = Color.green;
         // Calculate the angle between each segment
-        float angleStep = 360f / segments;
+        float angleStep = 360f / _segments;
         
-        DrawGizmoCircle(transform.position, attackRange, segments);
+        DrawGizmoCircle(transform.position, attackRange, _segments);
     }
 
     private void DrawGizmoCircle(Vector3 center, float radius, int segments)
