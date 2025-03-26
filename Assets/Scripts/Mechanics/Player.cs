@@ -1,6 +1,8 @@
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -9,12 +11,19 @@ public class Player : MonoBehaviour
     private BuildManager _buildManager;
     private Rigidbody2D _rb;
     private Camera _cam;
+    private CinemachineBrain _brain;
+    
     [SerializeField] private GameObject _buildCameraObject;
     private Rigidbody2D _buildCameraObjectRb;
     
     [Header("Util")]
     public InputAction playerControls;
     public InputAction playerSprint;
+    public InputAction playerScroll;
+
+    [SerializeField] private float cameraZoomAmount = 2f;
+    [SerializeField] private float cameraZoomCapMin = 6f, cameraZoomCapMax = 20f;
+    [SerializeField] private float cameraBuildZoomCapMin = 10f, cameraBuildZoomCapMax = 32f;
     
     
     public GraphicRaycaster raycaster;
@@ -50,6 +59,8 @@ public class Player : MonoBehaviour
         _gameManager = FindFirstObjectByType<GameManager>();
         _buildManager = FindFirstObjectByType<BuildManager>();
         _cam = FindFirstObjectByType<Camera>();
+        
+        _brain = _cam.gameObject.GetComponent<CinemachineBrain>();
 
         _buildCameraObjectRb = _buildCameraObject.GetComponent<Rigidbody2D>();
         
@@ -60,12 +71,14 @@ public class Player : MonoBehaviour
     {
         playerControls.Enable();
         playerSprint.Enable();
+        playerScroll.Enable();
     }
 
     private void OnDisable()
     {
         playerControls.Disable();
         playerSprint.Disable();
+        playerScroll.Disable();
     }
 
     private void Update()
@@ -74,6 +87,12 @@ public class Player : MonoBehaviour
         
         _moveDirection = playerControls.ReadValue<Vector2>();
         _isSprinting = playerSprint.IsPressed();
+
+        if (playerScroll.ReadValue<float>() != 0)
+        {
+            //Debug.Log("scroll in update");
+            CameraZoom(playerScroll.ReadValue<float>());
+        }
         
         if(_gameManager.onBuildMenu) {return;}
         _animator.SetFloat("moveY", _moveDirection.y);
@@ -221,6 +240,34 @@ public class Player : MonoBehaviour
         _buildManager.DestroyUITowerManagerCombat();
         //_buildManager.TowerZoneExpSliderActive(false);
         lastTouchedTowerZone = null;
+    }
+
+    private void CameraZoom(float input)
+    {
+        CinemachineCamera activeCam = GetActiveCinemachineCamera();
+        if (activeCam != null)
+        {
+            //Debug.Log("changing lens");
+            if (_gameManager.onBuildMenu)
+            {
+                float newValueBuild = Mathf.Clamp(activeCam.Lens.OrthographicSize - (input * cameraZoomAmount), cameraBuildZoomCapMin, cameraBuildZoomCapMax);
+                activeCam.Lens.OrthographicSize = newValueBuild;
+                return;
+            }
+            float newValue = Mathf.Clamp(activeCam.Lens.OrthographicSize - (input * cameraZoomAmount), cameraZoomCapMin, cameraZoomCapMax);
+            activeCam.Lens.OrthographicSize = newValue;
+        }
+    }
+    
+    private CinemachineCamera GetActiveCinemachineCamera()
+    {
+        if (_brain != null && _brain.ActiveVirtualCamera is CinemachineCamera vCam)
+        {
+            //Debug.Log("returning vcam");
+            return vCam;
+        }
+        //Debug.Log("returning null, " + _brain + ", " + _brain.ActiveVirtualCamera);
+        return null;
     }
     
     private void OnTriggerEnter2D(Collider2D collision)

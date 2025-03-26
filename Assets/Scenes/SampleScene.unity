@@ -2993,6 +2993,44 @@ MonoBehaviour:
       m_Action: Player Sprint
       m_Flags: 0
     m_Flags: 0
+  playerScroll:
+    m_Name: Player Scroll
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 459be8c6-6411-4a77-9c97-c342aa056358
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 1D Axis
+      m_Id: cd7ac8da-28d6-4f8a-92d8-5f537faf93c5
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Scroll
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: e49b3706-1363-4b53-bc00-3e1747570c9f
+      m_Path: <Mouse>/scroll/down
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Scroll
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: 32ca7fc6-f96f-481d-883b-a3435f2541e6
+      m_Path: <Mouse>/scroll/up
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Scroll
+      m_Flags: 8
+    m_Flags: 0
+  cameraZoomAmount: 2
+  cameraZoomCapMin: 6
+  cameraZoomCapMax: 20
+  cameraBuildZoomCapMin: 10
+  cameraBuildZoomCapMax: 32
   raycaster: {fileID: 372027731}
   buildCameraSpeed: 55
   _isSprinting: 0
