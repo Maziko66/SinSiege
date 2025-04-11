@@ -33,6 +33,10 @@ public class Player : MonoBehaviour
     
     [Header("Equipment")]
     [SerializeField] private Shotgun shotgun;
+    [SerializeField] private Vector3 shotgunPositionRight;
+    [SerializeField] private Vector3 shotgunPositionLeft;
+    [SerializeField] private Vector3 shotgunPositionUp;
+    [SerializeField] private Vector3 shotgunPositionDown;
     [SerializeField] private Fists fists;
     
     [Header("Character Stats")]
@@ -97,6 +101,7 @@ public class Player : MonoBehaviour
         if(_gameManager.onBuildMenu) {return;}
         _animator.SetFloat("moveY", _moveDirection.y);
         _animator.SetFloat("moveX", _moveDirection.x);
+        _animator.SetBool("isSprinting", _isSprinting);
 
     }
 
@@ -125,7 +130,7 @@ public class Player : MonoBehaviour
     #region CONTROLS
     private void OnAttack()
     {
-        if(isPaused || IsMouseOverIgnoredUI()) {return;}
+        if(isPaused || IsMouseOverIgnoredUI() || _isSprinting) {return;}
 
         if (_gameManager.onBuildMenu)
         {
@@ -192,6 +197,8 @@ public class Player : MonoBehaviour
     }
     
     #endregion
+    
+    #region UTIL
 
     private void BuildManagerState(Collider2D col, bool activate, bool calledFromBuildMenu = false)
     {
@@ -270,6 +277,35 @@ public class Player : MonoBehaviour
         return null;
     }
     
+    private bool IsMouseOverIgnoredUI()
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current);
+        eventData.position = Input.mousePosition;
+        
+        System.Collections.Generic.List<RaycastResult> results = new System.Collections.Generic.List<RaycastResult>();
+        raycaster.Raycast(eventData, results);
+        
+        //Debug.Log("Raycast results count: " + results.Count);
+        foreach (RaycastResult result in results)
+        {
+            //Debug.Log("Hit: " + result.gameObject.name + " | Tag: " + result.gameObject.tag);
+        }
+        
+        foreach (RaycastResult result in results)
+        {
+            if (result.gameObject.CompareTag("IgnoredUI"))
+            {
+                //Debug.Log("Ignored UI: " + result.gameObject.name);
+                return true;
+            }
+        }
+
+        //Debug.Log("No ignored UI detected.");
+        return false;
+    }
+    
+    #endregion
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Tower Zone"))
@@ -319,32 +355,7 @@ public class Player : MonoBehaviour
         }
     }
     
-    private bool IsMouseOverIgnoredUI()
-    {
-        PointerEventData eventData = new PointerEventData(EventSystem.current);
-        eventData.position = Input.mousePosition;
-        
-        System.Collections.Generic.List<RaycastResult> results = new System.Collections.Generic.List<RaycastResult>();
-        raycaster.Raycast(eventData, results);
-        
-        //Debug.Log("Raycast results count: " + results.Count);
-        foreach (RaycastResult result in results)
-        {
-            //Debug.Log("Hit: " + result.gameObject.name + " | Tag: " + result.gameObject.tag);
-        }
-        
-        foreach (RaycastResult result in results)
-        {
-            if (result.gameObject.CompareTag("IgnoredUI"))
-            {
-                //Debug.Log("Ignored UI: " + result.gameObject.name);
-                return true;
-            }
-        }
-
-        //Debug.Log("No ignored UI detected.");
-        return false;
-    }
+    
 
     public void SetMoveDirection(Vector2 direction)
     {
@@ -356,4 +367,5 @@ public class Player : MonoBehaviour
         _animator.SetFloat("moveX", 0);
         _animator.SetFloat("moveY", 0);
     }
+    
 }
