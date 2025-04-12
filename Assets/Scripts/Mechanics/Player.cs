@@ -29,7 +29,10 @@ public class Player : MonoBehaviour
     public GraphicRaycaster raycaster;
     [SerializeField] private float buildCameraSpeed = 15f;
     private int _layerMaskTowerZone;
+    
+    
     [SerializeField] private bool _isSprinting;
+    [SerializeField] private bool _isWalking;
     
     [Header("Equipment")]
     [SerializeField] private Shotgun shotgun;
@@ -90,6 +93,16 @@ public class Player : MonoBehaviour
         if(isPaused) {return;}
         
         _moveDirection = playerControls.ReadValue<Vector2>();
+
+        if (_moveDirection != Vector2.zero)
+        {
+            _isWalking = true;
+        }
+        else
+        {
+            _isWalking = false;
+        }
+        
         _isSprinting = playerSprint.IsPressed();
 
         if (playerScroll.ReadValue<float>() != 0)
@@ -99,8 +112,11 @@ public class Player : MonoBehaviour
         }
         
         if(_gameManager.onBuildMenu) {return;}
+        
         _animator.SetFloat("moveY", _moveDirection.y);
         _animator.SetFloat("moveX", _moveDirection.x);
+        
+        _animator.SetBool("isWalking", _isWalking);
         _animator.SetBool("isSprinting", _isSprinting);
 
     }
