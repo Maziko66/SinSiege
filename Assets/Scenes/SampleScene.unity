@@ -2225,7 +2225,7 @@ GameObject:
   - component: {fileID: 454993680}
   - component: {fileID: 454993679}
   - component: {fileID: 454993683}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: CinemachineCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2697,7 +2697,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -129126,7 +129126,7 @@ GameObject:
   - component: {fileID: 1981576117}
   - component: {fileID: 1981576116}
   - component: {fileID: 1981576118}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: CinemachineCameraBuildMode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
