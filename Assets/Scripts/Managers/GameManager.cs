@@ -37,14 +37,19 @@ public class GameManager : MonoBehaviour
     //[SerializeField] private Slider sliderBaseHealth;
     [SerializeField] private UISliderHp sliderBaseHealth;
     [SerializeField] private TextMeshProUGUI textSliderBaseHealth;
+    [SerializeField] private TextMeshProUGUI textCoins;
         
     #endregion
 
     #region VARIABLES
 
     [Header("Variables")]
+    public int coins;
+    
     private int _baseStartingHealth;
     private int _baseHealth;
+    
+    
     
     public bool onBuildMenu = false;
     public Vector2 mousePosition;
@@ -68,6 +73,7 @@ public class GameManager : MonoBehaviour
         UpdateBaseHealth();
         
         _buildManager.SetStateUIMergeMenuCombat(false);
+        UpdateCoinsText();
     }
 
     private void Update()
@@ -122,6 +128,11 @@ public class GameManager : MonoBehaviour
         _baseHealth = baseTower.GetBaseHealth();
         sliderBaseHealth.SliderValueSet(_baseHealth);
         sliderBaseHealth.SliderTextSet("Base Health: " + _baseHealth + "/" + _baseStartingHealth);
+    }
+
+    public void UpdateCoinsText()
+    {
+        textCoins.SetText("Souls: " + coins);
     }
 
     #endregion

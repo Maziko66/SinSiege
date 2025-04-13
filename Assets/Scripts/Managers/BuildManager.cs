@@ -233,7 +233,7 @@ public class BuildManager : MonoBehaviour
         {
             _uiTowerManagerCombatRectTransform.localPosition = Vector3.zero;
         }
-        
+        uiTowerManagerCombat.SetUpgradeButtonListener();
     }
     
     public void DrawUITowerBuilderBuild()
@@ -243,6 +243,7 @@ public class BuildManager : MonoBehaviour
     
     public void DestroyUITowerManagerCombat()
     {
+        uiTowerManagerCombat.RemoveUpgradeButtonListener();
         uiTowerManagerCombat.gameObject.SetActive(false);
     }
 
@@ -252,6 +253,12 @@ public class BuildManager : MonoBehaviour
 
     public void CreateTower(TowerGeneric towerToCreate, bool calledFromMerge = false)
     {
+        if (_gameManager.coins < towerToCreate.GetCost())
+        {
+            Debug.Log("Not enough souls to buy tower, need " + (towerToCreate.GetCost() - _gameManager.coins) + " more souls.");
+            return;
+        }
+        
         if (!calledFromMerge)
         {
             if(_player.lastTouchedTowerZone == null)
@@ -305,6 +312,8 @@ public class BuildManager : MonoBehaviour
             towerGeneric.attachedZone = _mergeTowerZone;
         }
         
+        _gameManager.coins -= towerToCreate.GetCost();
+        _gameManager.UpdateCoinsText();
     }
 
     public void TowerDestroy(bool calledFromMerge = false)

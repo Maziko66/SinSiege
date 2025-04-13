@@ -25,6 +25,7 @@ public class Tower : MonoBehaviour
     [SerializeField] private float attackRange = 6f;
     [SerializeField] private float attackInterval = 1f;
     [SerializeField] private float attackDamage = 1f;
+
     
     [Header("Bullet Properties")]
     [SerializeField] private float bulletSpeed = 6f;
@@ -159,4 +160,6 @@ public class Tower : MonoBehaviour
     {
         _currentTargetTag = FireMethods.GetTargetTagString(targetTag);
     }
+
+    
 }

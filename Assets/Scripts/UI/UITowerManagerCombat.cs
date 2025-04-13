@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,8 +27,32 @@ public class UITowerManagerCombat : MonoBehaviour
         buttonMerge.onClick.AddListener(() => _buildManager.AddToMerge(_attachedTower));
     }
 
+    private void OnEnable()
+    {
+        
+    }
+
+    private void OnDisable()
+    {
+        // buttonUpgrade.onClick.RemoveListener(_attachedTower.UpgradeTower);
+        // _attachedTower = null;
+        // Debug.Log("Disable Attached tower set to: " + _attachedTower.name);
+    }
+
     public void SetAttachedTower(TowerGeneric tower)
     {
         _attachedTower = tower;
+        Debug.Log("Attached tower set to: " + _attachedTower.name);
+    }
+
+    public void SetUpgradeButtonListener()
+    {
+        buttonUpgrade.onClick.RemoveListener(_attachedTower.UpgradeTower);
+        buttonUpgrade.onClick.AddListener(_attachedTower.UpgradeTower);
+    }
+
+    public void RemoveUpgradeButtonListener()
+    {
+        buttonUpgrade.onClick.RemoveListener(_attachedTower.UpgradeTower);
     }
 }
