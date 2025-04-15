@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using FMODUnity;
 
 public class Fists : MonoBehaviour
 {
@@ -14,7 +15,8 @@ public class Fists : MonoBehaviour
     [SerializeField] private string weaponName = "Fists";
     
     [Header("Audio")]
-    [SerializeField] private AudioSource punchSound;
+    //[SerializeField] private AudioSource punchSound;
+    public EventReference FireEvent;
     [SerializeField] private float sfxReloadDelay = 0.3f;
     
     [Header("Stats")]
@@ -57,8 +59,13 @@ public class Fists : MonoBehaviour
             
             _collider.enabled = true;
             _spriteRenderer.enabled = true;
-            punchSound.Play();
+            //punchSound.Play();
             //Debug.Log("Fist attack, enabled fist collider");
+            FMOD.Studio.EventInstance fire = FMODUnity.RuntimeManager.CreateInstance(FireEvent);
+            //fire.setParameterByID(fullHealthParameterId, restoreAll ? 1.0f : 0.0f);
+            //fire.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+            fire.start();
+            fire.release();
             
             Invoke(nameof(DisableComponents), activeTime);
             _cooldown.SetCooldown(attackInterval);
