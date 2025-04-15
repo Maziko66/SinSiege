@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using FMODUnity;
 
 public class Player : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class Player : MonoBehaviour
     public InputAction playerControls;
     public InputAction playerSprint;
     public InputAction playerScroll;
+    
+    [SerializeField] private PlayerCollectionAoe _playerCollectionAoe;
 
     [SerializeField] private float cameraZoomAmount = 2f;
     [SerializeField] private float cameraZoomCapMin = 6f, cameraZoomCapMax = 20f;

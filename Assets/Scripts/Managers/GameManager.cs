@@ -4,6 +4,7 @@ using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +20,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CinemachineCamera cineCamPlayer;
     [SerializeField] private CinemachineCamera cineCamBuild;
     [SerializeField] private Base baseTower;
+    
+    [SerializeField] private List<Coin> CoinPrefabs;
+    [SerializeField] private List<int> CoinValues;
+    [SerializeField] private GameObject coinParent;
+    private int _coinTypeAmount;
 
     #endregion
     
@@ -49,8 +55,6 @@ public class GameManager : MonoBehaviour
     private int _baseStartingHealth;
     private int _baseHealth;
     
-    
-    
     public bool onBuildMenu = false;
     public Vector2 mousePosition;
     
@@ -74,6 +78,8 @@ public class GameManager : MonoBehaviour
         
         _buildManager.SetStateUIMergeMenuCombat(false);
         UpdateCoinsText();
+
+        _coinTypeAmount = CoinPrefabs.Count;
     }
 
     private void Update()
@@ -135,7 +141,31 @@ public class GameManager : MonoBehaviour
         textCoins.SetText("Souls: " + coins);
     }
 
+    public void SpawnCoins(int value, Vector3 position)
+    {
+        if (CoinValues.Count != CoinPrefabs.Count)
+        {
+            Debug.LogError("CoinValues and CoinPrefabs must have the same length.");
+            return;
+        }
+        int div;
+        for (int i = 0; i < _coinTypeAmount; i++)
+        {
+            div = value / CoinValues[i];
+            for (int j = 0; j < div; j++)
+            {
+                Coin newCoin = Instantiate(CoinPrefabs[i], coinParent.transform);
+                float randX = Random.Range(-.5f, .5f);
+                float randY = Random.Range(-.5f, .5f);
+                newCoin.transform.position = position + new Vector3(randX, randY, 0);
+            }
+            value -= div * CoinValues[i];
+        }
+        Debug.Log("Spawned coins.");
+    }
+
     #endregion
+    
     
     #region FUNCTIONAL
 

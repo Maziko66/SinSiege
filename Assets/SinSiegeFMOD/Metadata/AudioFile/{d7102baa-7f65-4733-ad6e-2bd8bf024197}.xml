@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{d7102baa-7f65-4733-ad6e-2bd8bf024197}">
+		<property name="assetPath">
+			<value>punch-41105.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.22445833333333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{51cc531c-c412-47c4-a6ce-4458f2886c4f}</destination>
+		</relationship>
+	</object>
+</objects>

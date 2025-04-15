@@ -111,6 +111,7 @@ MonoBehaviour:
   exp: 1
   _mainTargetLocation: {x: 0, y: 0, z: 0}
   waypoints: []
+  coinValue: 17
 --- !u!60 &666586091851538143
 PolygonCollider2D:
   m_ObjectHideFlags: 0

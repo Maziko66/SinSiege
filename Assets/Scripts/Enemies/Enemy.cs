@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
 {
     Rigidbody2D rb;
     private Canvas _canvas;
+    private GameManager _gameManager;
 
     [SerializeField] private Slider prefabSliderHealth;
     [SerializeField] private Vector3 sliderOffset;
@@ -27,12 +28,13 @@ public class Enemy : MonoBehaviour
 
     private Slider sliderHealth;
     private bool _isDamaged;
-    
-    
+
+    public int coinValue;
     
     private void Awake()
     {
         _canvas = FindFirstObjectByType<Canvas>();
+        _gameManager = FindFirstObjectByType<GameManager>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -112,8 +114,10 @@ public class Enemy : MonoBehaviour
         if (_health <= 0)
         {
             //StartCoroutine(DestroyWithDelay(gameObject));
+            _gameManager.SpawnCoins(coinValue, transform.position);
             Destroy(sliderHealth.gameObject);
-            Destroy(gameObject); return;
+            Destroy(gameObject);
+            return;
         }
     }
     

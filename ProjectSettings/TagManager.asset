@@ -14,6 +14,7 @@ TagManager:
   - IgnoredUI
   - Tower Zone Extended
   - Bound
+  - Coin
   layers:
   - Default
   - TransparentFX

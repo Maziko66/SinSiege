@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{dedfbec6-c531-4296-8e62-117b139ddb5e}">
+		<property name="assetPath">
+			<value>shotgun fire.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.8432916666666668</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{51cc531c-c412-47c4-a6ce-4458f2886c4f}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class Shotgun : MonoBehaviour
@@ -9,8 +10,9 @@ public class Shotgun : MonoBehaviour
     [SerializeField] private string weaponName = "Shotgun";
     
     [Header("Audio")]
-    [SerializeField] private AudioSource sfxFire;
-    [SerializeField] private AudioSource sfxReload;
+    //[SerializeField] private AudioSource sfxFire;
+    //[SerializeField] private AudioSource sfxReload;
+    public EventReference FireEvent;
     [SerializeField] private float sfxReloadDelay = 0.3f;
     [SerializeField] private Bullet bullet;
     
@@ -67,7 +69,13 @@ public class Shotgun : MonoBehaviour
             //FireMethods.BulletFire(fireMode, bullet, transform, bulletSpeed, attackDamage, targetVector3, null, bulletCount, spreadAngle);
             FireMethods.BulletFire(_currentFireMode, bullet, transform,bulletSpeed,attackDamage, targetVector3, bulletHealth, _currentTargetTag, null, null, bulletCount, spreadAngle);
             
-            sfxFire.Play();
+            //RuntimeManager.PlayOneShot("event:/SFX/Player/Shotgunman/ShotgunFire");
+            
+            FMOD.Studio.EventInstance fire = FMODUnity.RuntimeManager.CreateInstance(FireEvent);
+            //fire.setParameterByID(fullHealthParameterId, restoreAll ? 1.0f : 0.0f);
+            //fire.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+            fire.start();
+            fire.release();
             
             _cooldown.SetCooldown(attackInterval);
             _cooldown.SetRefreshed(false);

@@ -1,22 +1,34 @@
 using System;
+using FMOD.Studio;
 using UnityEngine;
 using UnityEngine.UI;
+using FMODUnity;
 
 public class Cooldown : MonoBehaviour
 {
     private Player _player;
     
     [SerializeField] private UISliderHp slider;
-    [SerializeField] private AudioSource sfxRefresh; 
+    //[SerializeField] private AudioSource sfxRefresh; 
+    public EventReference sfxRefreshEvent;
     [SerializeField] private Text cooldownText;
 
     [SerializeField] private float refreshDelay;
     private float _cooldown;
     private bool _refreshed;
+    private bool _shouldPlaySound;
 
     private void Awake()
     {
         _player = FindFirstObjectByType<Player>();
+    }
+
+    private void Start()
+    {
+        if (!string.IsNullOrEmpty(sfxRefreshEvent.Path))
+        {
+            _shouldPlaySound = true;
+        }
     }
 
     private void Update()
@@ -31,10 +43,17 @@ public class Cooldown : MonoBehaviour
         }
         if (!_refreshed && _cooldown <= refreshDelay)
         {
-            if (sfxRefresh)
+            // if (sfxRefresh)
+            // {
+            //     sfxRefresh.Play();
+            // }
+            if (_shouldPlaySound)
             {
-                sfxRefresh.Play();
+                EventInstance refreshEvent = RuntimeManager.CreateInstance(sfxRefreshEvent);
+                refreshEvent.start();
+                refreshEvent.release();
             }
+            
             
             _refreshed = true;
         }
