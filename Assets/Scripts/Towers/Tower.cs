@@ -19,14 +19,6 @@ public class Tower : MonoBehaviour
     //[SerializeField] private GameObject _nozzle;
     private Cooldown _cooldown;
     
-    
-    
-    [Header("Attributes")]
-    [SerializeField] private float attackRange = 6f;
-    [SerializeField] private float attackInterval = 1f;
-    [SerializeField] private float attackDamage = 1f;
-
-    
     [Header("Bullet Properties")]
     [SerializeField] private float bulletSpeed = 6f;
     [SerializeField] private int bulletCount = 1;
@@ -52,7 +44,7 @@ public class Tower : MonoBehaviour
         // Calculate the angle between each segment
         float angleStep = 360f / _segments;
         
-        DrawGizmoCircle(transform.position, attackRange, _segments);
+        DrawGizmoCircle(transform.position, towerGeneric.GetAttackRange(), _segments);
     }
 
     private void DrawGizmoCircle(Vector3 center, float radius, int segments)
@@ -107,7 +99,7 @@ public class Tower : MonoBehaviour
 
     private void FindTarget()
     {
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, attackRange, (Vector2)transform.position, 0f, enemyMask);
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, towerGeneric.GetAttackRange(), (Vector2)transform.position, 0f, enemyMask);
         
         if (_currentTargetTag != "Enemy")
         {
@@ -142,16 +134,16 @@ public class Tower : MonoBehaviour
 
     private bool CheckTargetIsInRange()
     {
-        return Vector2.Distance(target.position, transform.position) <= attackRange;
+        return Vector2.Distance(target.position, transform.position) <= towerGeneric.GetAttackRange();
     }
 
     private void Fire()
     {
         string tagString = FireMethods.GetTargetTagString(targetTag);
         //FireMethods.BulletFire(firingMode, bullet, transform, bulletSpeed, attackDamage, target.position, target);
-        FireMethods.BulletFire(_currentFireMode, bullet, fireTransform, bulletSpeed, attackDamage, target.position, bulletHealth, tagString, towerGeneric, target);
+        FireMethods.BulletFire(_currentFireMode, bullet, fireTransform, bulletSpeed, towerGeneric.GetAttackDamage(), target.position, bulletHealth, tagString, towerGeneric, target);
         towerGeneric.bulletsFired++;
-        _cooldown.SetCooldown(attackInterval);
+        _cooldown.SetCooldown(towerGeneric.GetAttackInterval());
         _cooldown.SetRefreshed(false);
     }
     
@@ -160,6 +152,4 @@ public class Tower : MonoBehaviour
     {
         _currentTargetTag = FireMethods.GetTargetTagString(targetTag);
     }
-
-    
 }
