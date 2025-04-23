@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{916c8673-8b71-4789-b9f8-0ec8231a2ea2}">
+		<property name="assetPath">
+			<value>Music/chill test lust pad.ogg</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>103.33333333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{51cc531c-c412-47c4-a6ce-4458f2886c4f}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 {
     private GameManager _gameManager;
     private BuildManager _buildManager;
+    private MouseManager _mouseManager;
     private Rigidbody2D _rb;
     private Camera _cam;
     private CinemachineBrain _brain;
@@ -66,9 +67,11 @@ public class Player : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        
         _gameManager = FindFirstObjectByType<GameManager>();
         _buildManager = FindFirstObjectByType<BuildManager>();
         _cam = FindFirstObjectByType<Camera>();
+        _mouseManager = FindFirstObjectByType<MouseManager>();
         
         _brain = _cam.gameObject.GetComponent<CinemachineBrain>();
 
@@ -116,8 +119,11 @@ public class Player : MonoBehaviour
         
         if(_gameManager.onBuildMenu) {return;}
         
-        _animator.SetFloat("moveY", _moveDirection.y);
-        _animator.SetFloat("moveX", _moveDirection.x);
+        //_animator.SetFloat("moveX", _moveDirection.x);
+        //_animator.SetFloat("moveY", _moveDirection.y);
+        
+        _animator.SetFloat("moveX", _mouseManager.MouseDirectionX());
+        _animator.SetFloat("moveY", _mouseManager.MouseDirectionY());
         
         _animator.SetBool("isWalking", _isWalking);
         _animator.SetBool("isSprinting", _isSprinting);
