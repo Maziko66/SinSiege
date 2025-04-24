@@ -297,11 +297,7 @@
 			<destination>{276e26df-3405-4a50-b926-525dd3551b7d}</destination>
 		</relationship>
 	</object>
-	<object class="GainEffect" id="{ec5ffb85-6dfe-44a0-8f8b-2bb73423b04f}">
-		<property name="gain">
-			<value>8</value>
-		</property>
-	</object>
+	<object class="GainEffect" id="{ec5ffb85-6dfe-44a0-8f8b-2bb73423b04f}" />
 	<object class="MixerBusFader" id="{373198a7-8025-4e9a-aace-ed02eb58d7cc}" />
 	<object class="MixerBusFader" id="{d038ae1a-ea1a-4139-af93-fbeec3a609c5}" />
 	<object class="AutomationCurve" id="{c5fa7de4-8605-4a9d-be7e-385250ea6cfb}">
@@ -320,6 +316,9 @@
 		</property>
 		<property name="value">
 			<value>-80</value>
+		</property>
+		<property name="curveShape">
+			<value>-0.496492982</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{993e2be9-e498-443b-85c5-e0afbe8a1bc9}">

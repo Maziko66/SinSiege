@@ -161,7 +161,7 @@ public class GameManager : MonoBehaviour
             }
             value -= div * CoinValues[i];
         }
-        Debug.Log("Spawned coins.");
+        //Debug.Log("Spawned coins.");
     }
 
     #endregion

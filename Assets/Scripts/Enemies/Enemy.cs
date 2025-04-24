@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     private Canvas _canvas;
     private GameManager _gameManager;
+    private WaveManager _waveManager;
 
     [SerializeField] private Slider prefabSliderHealth;
     [SerializeField] private Vector3 sliderOffset;
@@ -128,7 +129,12 @@ public class Enemy : MonoBehaviour
         Destroy(sliderHealth.gameObject);
         Destroy(obj);
     }
-    
+
+    private void OnDestroy()
+    {
+        _waveManager.OnEnemyDestroyed(this);
+    }
+
 
     public int GetDamage()
     {
@@ -138,5 +144,10 @@ public class Enemy : MonoBehaviour
     public float GetExp()
     {
         return exp;
+    }
+
+    public void SetWaveManager(WaveManager waveManager)
+    {
+        _waveManager = waveManager;
     }
 }

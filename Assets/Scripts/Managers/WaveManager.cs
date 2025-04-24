@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -24,6 +23,8 @@ public class WaveManager : MonoBehaviour
 
     private Cooldown _cooldown;
 
+    [SerializeField] private GameObject enemyParent;
+
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI textWaveTimer;
     [SerializeField] private Button buttonStartWave;
@@ -39,17 +40,19 @@ public class WaveManager : MonoBehaviour
     
     
     [SerializeField] private List<Enemy> enemyList = new List<Enemy>();
+    [SerializeField] private List<Enemy> enemyAliveList = new List<Enemy>();
     [SerializeField] private Vector3 spawnPosition;
     
     [Header("Spawner Variables")]
     [SerializeField] private float spawnInterval = 1.0f;
-    [SerializeField] private float spawnCooldown = 1.0f;
+    [SerializeField] private float spawnCooldown = 0.0f;
     [SerializeField] private int wavesListIndex = 0;
     [SerializeField] private List<GameObject> spawnPoints = new List<GameObject>();
     
-    private WaveSO _currentWave;
-    private float _currentWaveTimer;
-    private bool _waveActive;
+    [Header("Current Wave")]
+    [SerializeField] private WaveSO currentWave;
+    [SerializeField] private float currentWaveTimer;
+    [SerializeField] private bool waveActive;
 
     private void Awake()
     {
@@ -58,31 +61,45 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
+        currentWaveTimer = 30;
         buttonStartWave.onClick.AddListener(() => SetWaveTimer(0));
         CreateVectorWaypoints();
         spawnCooldown *= spawnInterval;
-        GetEnemyList();
+        //GetEnemyList();
     }
 
     private void Update()
     {
         WaveTimer();
         
-        if (enemyList.Count > 0 && _waveActive)
+        if (enemyList.Count > 0 && waveActive)
         {
             spawnCooldown -= Time.deltaTime;
             SpawnFromList();
         }
+        // else if(enemyList.Count <= 0 && _waveActive)
+        // {
+        //     wavesListIndex++;
+        //     GetEnemyList();
+        // }
 
-        if (enemyList.Count <= 0)
+        
+        
+        //
+        //if (enemyParent.transform.childCount == 0 && _waveActive)
+        //if (enemyList.Count <= 0)
+        if (enemyAliveList.Count <= 0 && waveActive)
         {
-            _waveActive = false;
+            enemyAliveList.Clear();
+            waveActive = false;
             wavesListIndex++;
-            GetEnemyList();
+            //GetEnemyList();
+            MusicManager.Instance.SetCombatToFalse();
+            spawnCooldown = 0;
+            Debug.Log("enemy alive list <= 0");
         }
 
     }
-
 
     private void SpawnCooldown()
     {
@@ -92,11 +109,16 @@ public class WaveManager : MonoBehaviour
     private void GetEnemyList()
     {
         enemyList.Clear();
-        _currentWave = waves[wavesListIndex];
-        enemyList = new List<Enemy>(_currentWave.enemyList);
+        if (waves.Count < wavesListIndex + 1)
+        {
+            Debug.Log("no enemy waves found.");
+            return;
+        }
+        currentWave = waves[wavesListIndex];
+        enemyList = new List<Enemy>(currentWave.enemyList);
         //spawnPosition = waves[wavesListIndex].spawnPoint;
-        spawnPosition = spawnPoints[_currentWave.routeIndex].transform.position;
-        SetWaveTimer(_currentWave.waveCooldown);
+        spawnPosition = spawnPoints[currentWave.routeIndex].transform.position;
+        SetWaveTimer(currentWave.waveCooldown);
 
     }
 
@@ -104,10 +126,14 @@ public class WaveManager : MonoBehaviour
     {
         if(spawnCooldown <= 0.0f)
         {
-            GameObject instObj = Instantiate(enemyList[0].gameObject, spawnPosition, Quaternion.identity);
+            // GameObject instObj = Instantiate(enemyList[0].gameObject, spawnPosition, Quaternion.identity);
+            GameObject instObj = Instantiate(enemyList[0].gameObject, enemyParent.transform);
+            instObj.transform.position = spawnPosition;
             Enemy enemy = instObj.GetComponent<Enemy>();
-            enemy.waypoints = waypoints[_currentWave.routeIndex].waypoints;
+            enemy.waypoints = waypoints[currentWave.routeIndex].waypoints;
+            enemy.SetWaveManager(this);
             enemyList.RemoveAt(0);
+            enemyAliveList.Add(enemy);
             spawnCooldown = spawnInterval;
         }
         
@@ -130,18 +156,48 @@ public class WaveManager : MonoBehaviour
 
     private void WaveTimer()
     {
-        if (_waveActive) {return;}
-        _currentWaveTimer -= Time.deltaTime;
-        textWaveTimer.SetText(_strWaveTimer + (int)_currentWaveTimer);
-        if (_currentWaveTimer <= 0)
+        if (waveActive) {return;}
+        
+        currentWaveTimer -= Time.deltaTime;
+        textWaveTimer.SetText(_strWaveTimer + (int)currentWaveTimer);
+        
+        if (currentWaveTimer <= 0)
         {
             textWaveTimer.SetText(_strWaveInProgress);
-            _waveActive = true;
+            //waveActive = true;
+            //MusicManager.Instance.SetCombatToTrue();
+            SetWaveActive(true);
         }
     }
     
     private void SetWaveTimer(float seconds)
     {
-        _currentWaveTimer = seconds;
+        currentWaveTimer = seconds;
+        // if (seconds <= 0)
+        // {
+        //     //waveActive = true;
+        //     //MusicManager.Instance.SetCombatToTrue();
+        //     SetWaveActive(true);
+        // }
+    }
+
+    private void SetWaveActive(bool state)
+    {
+        if (state)
+        {
+            waveActive = true;
+            GetEnemyList();
+            MusicManager.Instance.SetCombatToTrue();
+        }
+        else
+        {
+            waveActive = false;
+            MusicManager.Instance.SetCombatToFalse();
+        }
+    }
+
+    public void OnEnemyDestroyed(Enemy enemy)
+    {
+        enemyAliveList.Remove(enemy);
     }
 }
