@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
 public class TowerGeneric : MonoBehaviour
 {
     private GameManager _gameManager;
-    
+    private Animator _animator;
+
+    [SerializeField] private string animationInit;
     
     [Header("Attributes")]
     [SerializeField] private float attackRangeDefault = 12f;
@@ -35,6 +38,13 @@ public class TowerGeneric : MonoBehaviour
     private void Awake()
     {
         _gameManager = FindFirstObjectByType<GameManager>();
+        
+        _animator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        _animator.Play(animationInit);
     }
 
     public void IncreaseTowerZoneVet(float exp)

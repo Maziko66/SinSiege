@@ -61,7 +61,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 693559d7ddd885d4aac7d2f65ded818a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -988149270, guid: 153fc1a7075eceb4989699486142361d, type: 3}
+  m_Sprite: {fileID: 670524158, guid: 5d6339cad3adad242944c72bacc175d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd96009df2169f4392a501c0cc7602d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationInit: animTowerCrossInit
   attackRangeDefault: 12
   attackIntervalDefault: 1
   attackDamageDefault: 1
@@ -234,8 +235,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.2}
-    oldSize: {x: 6, y: 9}
+    pivot: {x: 0.5, y: 0.235}
+    oldSize: {x: 6, y: 8}
     newSize: {x: 3, y: 3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

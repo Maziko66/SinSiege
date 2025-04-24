@@ -22,10 +22,13 @@ public class OffScreenArrow : MonoBehaviour
     private RectTransform canvasRect;
     private Vector2 screenCenter;
     private Vector2 lastScreenSize;
-
+    
     private void Awake()
     {
         _player = FindFirstObjectByType<Player>();
+
+        if (arrowRect == null) arrowRect = GetComponent<RectTransform>();
+        if (arrowImage == null) arrowImage = GetComponent<Image>();
     }
 
     private void Start()
@@ -33,9 +36,6 @@ public class OffScreenArrow : MonoBehaviour
         mainCamera = Camera.main;
         canvasRect = GetComponentInParent<Canvas>().GetComponent<RectTransform>();
         UpdateScreenCenter();
-        
-        if (arrowRect == null) arrowRect = GetComponent<RectTransform>();
-        if (arrowImage == null) arrowImage = GetComponent<Image>();
     }
 
     private void Update()
@@ -134,6 +134,11 @@ public class OffScreenArrow : MonoBehaviour
     public void SetTarget(Transform newTarget)
     {
         target = newTarget;
+
+        // Safety check in case Unity lifecycle timing causes issues
+        if (arrowImage == null)
+            arrowImage = GetComponent<Image>();
+
         arrowImage.enabled = target != null;
     }
 }

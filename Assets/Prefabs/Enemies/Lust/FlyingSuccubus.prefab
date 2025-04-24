@@ -103,11 +103,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3975505fa6986524cb6293ec86edf6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabSliderHealth: {fileID: 5926648263808796664, guid: 45613d7dbfdaf5d4f9bc217ed470dc43, type: 3}
+  sliderOffset: {x: 0, y: 1, z: 0}
   _moveSpeed: 4
   _health: 5
   damage: 1
+  exp: 1
   _mainTargetLocation: {x: 0, y: 0, z: 0}
   waypoints: []
+  coinValue: 0
 --- !u!50 &5463506877775490994
 Rigidbody2D:
   serializedVersion: 5

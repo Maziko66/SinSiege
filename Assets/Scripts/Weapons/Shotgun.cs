@@ -82,7 +82,7 @@ public class Shotgun : MonoBehaviour
         }
         else
         {
-            Debug.Log("Shotgun is on cooldown: " + _cooldown.GetCooldown());
+            //Debug.Log("Shotgun is on cooldown: " + _cooldown.GetCooldown());
         }
     }
 }

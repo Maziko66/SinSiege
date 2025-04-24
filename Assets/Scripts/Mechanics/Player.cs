@@ -2,9 +2,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
-using FMODUnity;
 
 public class Player : MonoBehaviour
 {
@@ -195,7 +193,7 @@ public class Player : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         
         RaycastHit2D hitItem = Physics2D.Raycast(mousePosition, Vector2.zero, Mathf.Infinity, _layerMaskItem);
-        Debug.Log(hitItem.collider);
+        //Debug.Log(hitItem.collider);
         
         if (hitItem.collider != null && hitItem.collider.CompareTag("Clickable"))
         {

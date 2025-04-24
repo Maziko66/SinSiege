@@ -10,7 +10,7 @@ public class ShopItem : MonoBehaviour
         if (_clickable != null)
         {
             _clickable.OnClicked += HandleClick;
-            Debug.Log("added ");
+            //Debug.Log("added ");
         }
     }
 

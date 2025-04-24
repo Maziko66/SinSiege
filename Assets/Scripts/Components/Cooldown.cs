@@ -24,7 +24,11 @@ public class Cooldown : MonoBehaviour
 
     private void Start()
     {
-        if (!string.IsNullOrEmpty(sfxRefreshEvent.Path))
+        // if (!string.IsNullOrEmpty(sfxRefreshEvent.Path))
+        // {
+        //     _shouldPlaySound = true;
+        // }
+        if (!sfxRefreshEvent.IsNull)
         {
             _shouldPlaySound = true;
         }

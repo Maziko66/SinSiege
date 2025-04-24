@@ -5,17 +5,17 @@ using UnityEngine;
 public class ArrowManager : MonoBehaviour
 {
     private Player _player;
-    
+
     [Header("Settings")]
     public GameObject arrowPrefab;
     public string targetTag = "Target";
     public float checkRadius = 25f;
     public LayerMask targetLayer;
-    
+
     [Header("References")]
     public Transform player;
     public Transform arrowsParent;
-    
+
     private List<Transform> currentTargets = new List<Transform>();
     private List<OffScreenArrow> arrows = new List<OffScreenArrow>();
     private Canvas parentCanvas;
@@ -29,56 +29,77 @@ public class ArrowManager : MonoBehaviour
     {
         parentCanvas = GetComponentInParent<Canvas>();
     }
-    
+
     private void Update()
     {
-        if (_player.isPaused) {return;}
+        if (_player.isPaused) return;
+
         FindTargets();
         UpdateArrows();
     }
-    
+
     private void FindTargets()
     {
         currentTargets.Clear();
-        
+
         Collider2D[] hits = Physics2D.OverlapCircleAll(player.position, checkRadius, targetLayer);
-        
+
         foreach (Collider2D hit in hits)
         {
-            if (hit.CompareTag(targetTag))
+            if (hit.CompareTag("Enemy") || hit.CompareTag("EnemyAir") || hit.CompareTag("EnemyGround"))
             {
                 currentTargets.Add(hit.transform);
             }
         }
     }
-    
+
     private void UpdateArrows()
     {
-        // Create new arrows if needed
+        // Ensure we have enough arrows
         while (arrows.Count < currentTargets.Count)
         {
             GameObject newArrow = Instantiate(arrowPrefab, arrowsParent);
-            
-            arrows.Add(newArrow.GetComponent<OffScreenArrow>());
+            OffScreenArrow arrowComponent = newArrow.GetComponent<OffScreenArrow>();
+
+            if (arrowComponent == null)
+            {
+                Debug.LogError("Arrow prefab does not have OffScreenArrow component!");
+                Destroy(newArrow);
+                return;
+            }
+
+            arrows.Add(arrowComponent);
         }
-        
-        // Disable extra arrows
+
+        // Disable unused arrows
         for (int i = currentTargets.Count; i < arrows.Count; i++)
         {
-            arrows[i].gameObject.SetActive(false);
+            if (arrows[i] != null && arrows[i].gameObject.activeSelf)
+            {
+                arrows[i].gameObject.SetActive(false);
+            }
         }
-        
-        // Assign targets to active arrows
+
+        // Update and activate used arrows
         for (int i = 0; i < currentTargets.Count; i++)
         {
-            if (!arrows[i].gameObject.activeSelf)
+            OffScreenArrow arrow = arrows[i];
+
+            if (arrow == null)
             {
-                arrows[i].gameObject.SetActive(true);
+                Debug.LogWarning($"Arrow at index {i} is null!");
+                continue;
             }
-            arrows[i].SetTarget(currentTargets[i]);
+
+            if (!arrow.gameObject.activeSelf)
+            {
+                arrow.gameObject.SetActive(true);
+            }
+
+            arrow.SetTarget(currentTargets[i]);
         }
     }
-    
+
     private void OnDrawGizmosSelected()
     {
         if (player != null)
@@ -86,12 +107,5 @@ public class ArrowManager : MonoBehaviour
             Gizmos.color = Color.cyan;
             Gizmos.DrawWireSphere(player.position, checkRadius);
         }
-    }
-    
-    private void CreateNewArrow()
-    {
-        GameObject newArrow = Instantiate(arrowPrefab, transform);
-        newArrow.transform.SetParent(transform); // Ensure it's parented to the manager
-        arrows.Add(newArrow.GetComponent<OffScreenArrow>());
     }
 }
