@@ -1,0 +1,996 @@
+fileFormatVersion: 2
+guid: 153fc1a7075eceb4989699486142361d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1847508057777670056
+    second: Cross Tower - Animation-96x144_0
+  - first:
+      213: -3473427779369676052
+    second: Cross Tower - Animation-96x144_1
+  - first:
+      213: 1982081216810751468
+    second: Cross Tower - Animation-96x144_2
+  - first:
+      213: 7032096761972651664
+    second: Cross Tower - Animation-96x144_3
+  - first:
+      213: -6448663294324597874
+    second: Cross Tower - Animation-96x144_4
+  - first:
+      213: -7534064601115246519
+    second: Cross Tower - Animation-96x144_5
+  - first:
+      213: 6883389081553979641
+    second: Cross Tower - Animation-96x144_6
+  - first:
+      213: -4761659434298768375
+    second: Cross Tower - Animation-96x144_7
+  - first:
+      213: 2719085677657630241
+    second: Cross Tower - Animation-96x144_8
+  - first:
+      213: -8230183749956820888
+    second: Cross Tower - Animation-96x144_9
+  - first:
+      213: -460026371041609654
+    second: Cross Tower - Animation-96x144_10
+  - first:
+      213: -7076064236290853785
+    second: Cross Tower - Animation-96x144_11
+  - first:
+      213: 4671795050557345029
+    second: Cross Tower - Animation-96x144_12
+  - first:
+      213: 3749119645542413567
+    second: Cross Tower - Animation-96x144_13
+  - first:
+      213: 7115967394121850796
+    second: Cross Tower - Animation-96x144_14
+  - first:
+      213: 8778911291803067014
+    second: Cross Tower - Animation-96x144_15
+  - first:
+      213: 6214161015502549354
+    second: Cross Tower - Animation-96x144_16
+  - first:
+      213: 6630286761457261674
+    second: Cross Tower - Animation-96x144_17
+  - first:
+      213: 4944145288879612220
+    second: Cross Tower - Animation-96x144_18
+  - first:
+      213: 620797089611753062
+    second: Cross Tower - Animation-96x144_19
+  - first:
+      213: -1121235105579629075
+    second: Cross Tower - Animation-96x144_20
+  - first:
+      213: -6680350838726397902
+    second: Cross Tower - Animation-96x144_21
+  - first:
+      213: 7915451536260609714
+    second: Cross Tower - Animation-96x144_22
+  - first:
+      213: 2692180908317059054
+    second: Cross Tower - Animation-96x144_23
+  - first:
+      213: -8874375094608957313
+    second: Cross Tower - Animation-96x144_24
+  - first:
+      213: 2732973347998931589
+    second: Cross Tower - Animation-96x144_25
+  - first:
+      213: 6616196032235862697
+    second: Cross Tower - Animation-96x144_26
+  - first:
+      213: -7329880773050997774
+    second: Cross Tower - Animation-96x144_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 720
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8587d70c5355c56e0800000000000000
+      internalID: -1847508057777670056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 720
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce252b176d7ebcfc0800000000000000
+      internalID: -3473427779369676052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 720
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce59afb7d54c18b10800000000000000
+      internalID: 1982081216810751468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 720
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 096fd835fb6079160800000000000000
+      internalID: 7032096761972651664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 720
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8b9ea976eeb186a0800000000000000
+      internalID: -6448663294324597874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_5
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 720
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9404ea79920a17790800000000000000
+      internalID: -7534064601115246519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f8c3d066e5b68f50800000000000000
+      internalID: 6883389081553979641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 576
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9040c3d09ff2bedb0800000000000000
+      internalID: -4761659434298768375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_8
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 126a2aa74022cb520800000000000000
+      internalID: 2719085677657630241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 576
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 860a1ab1c7388cd80800000000000000
+      internalID: -8230183749956820888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_10
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a48b0cee378ad99f0800000000000000
+      internalID: -460026371041609654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_11
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 576
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 764b9045115cccd90800000000000000
+      internalID: -7076064236290853785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 432
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50d06e3a8dc85d040800000000000000
+      internalID: 4671795050557345029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_13
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 432
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff47ef4347c870430800000000000000
+      internalID: 3749119645542413567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_14
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 432
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caf15e794aef0c260800000000000000
+      internalID: 7115967394121850796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_15
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 432
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6826696ae45f4d970800000000000000
+      internalID: 8778911291803067014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_16
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 432
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a613c1205822d3650800000000000000
+      internalID: 6214161015502549354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_17
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 432
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6c92a74ea2830c50800000000000000
+      internalID: 6630286761457261674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c31279de1f12d9440800000000000000
+      internalID: 4944145288879612220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_19
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 666a7e3f9a38d9800800000000000000
+      internalID: 620797089611753062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_20
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 288
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de58a3eac929070f0800000000000000
+      internalID: -1121235105579629075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_21
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 288
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 230fab26e40aa43a0800000000000000
+      internalID: -6680350838726397902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_22
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 288
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b632affb3559dd60800000000000000
+      internalID: 7915451536260609714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_23
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 288
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee7a357b54c8c5520800000000000000
+      internalID: 2692180908317059054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f707242bed2e7d480800000000000000
+      internalID: -8874375094608957313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_25
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 144
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58a1614b7c87de520800000000000000
+      internalID: 2732973347998931589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_26
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 144
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9aa74c9bc3371db50800000000000000
+      internalID: 6616196032235862697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_27
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 144
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f36454b548074a90800000000000000
+      internalID: -7329880773050997774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_28
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 144
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 129f31f18747a734285bf0acbedcaede
+      internalID: 63885148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_29
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 144
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4208cbd79a5025e42b835761e4536b87
+      internalID: -1253029471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1988a4b477143a5498276b9ef698af1d
+      internalID: 378302912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_31
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67a8c0e6e4b1d3240825baa1317580a1
+      internalID: 1769322915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_32
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20e2e29ad3940134a871666a18155b33
+      internalID: 2127168828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cross Tower - Animation-96x144_33
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 96
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f85355fd45afcf47938c79293de1c2c
+      internalID: -988149270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2e059734841e82346a3dfc7785fcff9e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Cross Tower - Animation-96x144_0: -1847508057777670056
+      Cross Tower - Animation-96x144_1: -3473427779369676052
+      Cross Tower - Animation-96x144_10: -460026371041609654
+      Cross Tower - Animation-96x144_11: -7076064236290853785
+      Cross Tower - Animation-96x144_12: 4671795050557345029
+      Cross Tower - Animation-96x144_13: 3749119645542413567
+      Cross Tower - Animation-96x144_14: 7115967394121850796
+      Cross Tower - Animation-96x144_15: 8778911291803067014
+      Cross Tower - Animation-96x144_16: 6214161015502549354
+      Cross Tower - Animation-96x144_17: 6630286761457261674
+      Cross Tower - Animation-96x144_18: 4944145288879612220
+      Cross Tower - Animation-96x144_19: 620797089611753062
+      Cross Tower - Animation-96x144_2: 1982081216810751468
+      Cross Tower - Animation-96x144_20: -1121235105579629075
+      Cross Tower - Animation-96x144_21: -6680350838726397902
+      Cross Tower - Animation-96x144_22: 7915451536260609714
+      Cross Tower - Animation-96x144_23: 2692180908317059054
+      Cross Tower - Animation-96x144_24: -8874375094608957313
+      Cross Tower - Animation-96x144_25: 2732973347998931589
+      Cross Tower - Animation-96x144_26: 6616196032235862697
+      Cross Tower - Animation-96x144_27: -7329880773050997774
+      Cross Tower - Animation-96x144_28: 63885148
+      Cross Tower - Animation-96x144_29: -1253029471
+      Cross Tower - Animation-96x144_3: 7032096761972651664
+      Cross Tower - Animation-96x144_30: 378302912
+      Cross Tower - Animation-96x144_31: 1769322915
+      Cross Tower - Animation-96x144_32: 2127168828
+      Cross Tower - Animation-96x144_33: -988149270
+      Cross Tower - Animation-96x144_4: -6448663294324597874
+      Cross Tower - Animation-96x144_5: -7534064601115246519
+      Cross Tower - Animation-96x144_6: 6883389081553979641
+      Cross Tower - Animation-96x144_7: -4761659434298768375
+      Cross Tower - Animation-96x144_8: 2719085677657630241
+      Cross Tower - Animation-96x144_9: -8230183749956820888
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

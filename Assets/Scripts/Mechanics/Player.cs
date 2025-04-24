@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     public GraphicRaycaster raycaster;
     [SerializeField] private float buildCameraSpeed = 15f;
     private int _layerMaskTowerZone;
+    private int _layerMaskItem;
     
     
     [SerializeField] private bool _isSprinting;
@@ -78,6 +79,7 @@ public class Player : MonoBehaviour
         _buildCameraObjectRb = _buildCameraObject.GetComponent<Rigidbody2D>();
         
         _layerMaskTowerZone = 1 << LayerMask.NameToLayer("TowerZone");
+        _layerMaskItem = 1 << LayerMask.NameToLayer("Item");
     }
 
     private void OnEnable()
@@ -190,7 +192,21 @@ public class Player : MonoBehaviour
         }
         
         System.Diagnostics.Debug.Assert(Camera.main != null, "Camera.main != null");
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        
+        RaycastHit2D hitItem = Physics2D.Raycast(mousePosition, Vector2.zero, Mathf.Infinity, _layerMaskItem);
+        Debug.Log(hitItem.collider);
+        
+        if (hitItem.collider != null && hitItem.collider.CompareTag("Clickable"))
+        {
+            Debug.Log("clickable");
+            Clickable clickable = hitItem.collider.gameObject.GetComponent<Clickable>();
+            clickable.HandleClick();
+            return;
+        }
+        
+        
+        
         shotgun.Fire(mousePosition);
         //Debug.Log("fire");
     }
