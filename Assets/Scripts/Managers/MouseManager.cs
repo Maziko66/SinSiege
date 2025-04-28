@@ -43,52 +43,102 @@ public class MouseManager : MonoBehaviour
         _mousePosNormalized = new Vector2(Mathf.Sign(_mousePos.x), Mathf.Sign(_mousePos.y));
         
         float angle = Mathf.Atan2(_mousePos.y, _mousePos.x) * Mathf.Rad2Deg;
-        angle = (angle + 360) % 360; // Normalize angle to 0-360
+        angle = (angle + 360) % 360;
         _mouseDirection = AngleToDirection(angle);
     }
     
     private int AngleToDirection(float angle)
     {
-        if (angle >= 45 && angle < 135)
-            return 1; // North
-        else if (angle >= 135 && angle < 225)
-            return 2; // West
-        else if (angle >= 225 && angle < 315)
-            return 3; // South
-        else
-            return 4; // East
+        // if (angle >= 45 && angle < 135)
+        //     return 1; // North
+        // else if (angle >= 135 && angle < 225)
+        //     return 2; // West
+        // else if (angle >= 225 && angle < 315)
+        //     return 3; // South
+        // else
+        //     return 4; // East
+        return Mathf.FloorToInt((angle + 22.5f) / 45f) % 8;
     }
 
+    // public int MouseDirectionX()
+    // {
+    //     if (_mouseDirection == 2)
+    //     {
+    //         return -1;
+    //     }
+    //     else if (_mouseDirection == 4)
+    //     {
+    //         return 1;
+    //     }
+    //     else
+    //     {
+    //         return 0;
+    //     }
+    // }
+    //
+    // public int MouseDirectionY()
+    // {
+    //     if (_mouseDirection == 1)
+    //     {
+    //         return 1;
+    //     }
+    //     else if (_mouseDirection == 3)
+    //     {
+    //         return -1;
+    //     }
+    //     else
+    //     {
+    //         return 0;
+    //     }
+    // }
+    
     public int MouseDirectionX()
     {
-        if (_mouseDirection == 2)
+        return _mouseDirection switch
         {
-            return -1;
-        }
-        else if (_mouseDirection == 4)
-        {
-            return 1;
-        }
-        else
-        {
-            return 0;
-        }
+            0 => 1,    // E
+            1 => 1,    // NE
+            2 => 0,    // N
+            3 => -1,   // NW
+            4 => -1,   // W
+            5 => -1,   // SW
+            6 => 0,    // S
+            7 => 1,    // SE
+            _ => 0
+        };
     }
-    
+
     public int MouseDirectionY()
     {
-        if (_mouseDirection == 1)
+        return _mouseDirection switch
         {
-            return 1;
-        }
-        else if (_mouseDirection == 3)
+            0 => 0,    // E
+            1 => 1,    // NE
+            2 => 1,    // N
+            3 => 1,    // NW
+            4 => 0,    // W
+            5 => -1,   // SW
+            6 => -1,   // S
+            7 => -1,   // SE
+            _ => 0
+        };
+    }
+    
+    public Vector2Int MouseDirection8()
+    {
+        // Maps index to unit vector directions
+        return _mouseDirection switch
         {
-            return -1;
-        }
-        else
-        {
-            return 0;
-        }
+            0 => new Vector2Int(1, 0),   // E
+            1 => new Vector2Int(1, 1),   // NE
+            2 => new Vector2Int(0, 1),   // N
+            3 => new Vector2Int(-1, 1),  // NW
+            4 => new Vector2Int(-1, 0),  // W
+            5 => new Vector2Int(-1, -1), // SW
+            6 => new Vector2Int(0, -1),  // S
+            7 => new Vector2Int(1, -1),  // SE
+            _ => Vector2Int.zero
+        };
     }
     
 }
