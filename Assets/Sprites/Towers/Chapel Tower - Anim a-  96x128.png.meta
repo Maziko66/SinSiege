@@ -1,0 +1,938 @@
+fileFormatVersion: 2
+guid: 3dc2f69f6433ac841954bf52fab31dd2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2485958260041941330
+    second: Chapel Tower - Anim a-  96x128_0
+  - first:
+      213: 533747516900944063
+    second: Chapel Tower - Anim a-  96x128_1
+  - first:
+      213: 8897582226192090700
+    second: Chapel Tower - Anim a-  96x128_2
+  - first:
+      213: 8035156554639371820
+    second: Chapel Tower - Anim a-  96x128_3
+  - first:
+      213: 1309071402673227263
+    second: Chapel Tower - Anim a-  96x128_4
+  - first:
+      213: 8480343439856060655
+    second: Chapel Tower - Anim a-  96x128_5
+  - first:
+      213: 5748166331390733239
+    second: Chapel Tower - Anim a-  96x128_6
+  - first:
+      213: -8091233875989788701
+    second: Chapel Tower - Anim a-  96x128_7
+  - first:
+      213: -3484198005433873580
+    second: Chapel Tower - Anim a-  96x128_8
+  - first:
+      213: 1976609665584017356
+    second: Chapel Tower - Anim a-  96x128_9
+  - first:
+      213: -9115511112618232484
+    second: Chapel Tower - Anim a-  96x128_10
+  - first:
+      213: -132377643714434038
+    second: Chapel Tower - Anim a-  96x128_11
+  - first:
+      213: 6924281627201169532
+    second: Chapel Tower - Anim a-  96x128_12
+  - first:
+      213: -7847616492672830384
+    second: Chapel Tower - Anim a-  96x128_13
+  - first:
+      213: -1927762397405400978
+    second: Chapel Tower - Anim a-  96x128_14
+  - first:
+      213: -311277510631682509
+    second: Chapel Tower - Anim a-  96x128_15
+  - first:
+      213: 6544265797838855901
+    second: Chapel Tower - Anim a-  96x128_16
+  - first:
+      213: -7493111770589920162
+    second: Chapel Tower - Anim a-  96x128_17
+  - first:
+      213: -3725908575365862731
+    second: Chapel Tower - Anim a-  96x128_18
+  - first:
+      213: 6546206285703927665
+    second: Chapel Tower - Anim a-  96x128_19
+  - first:
+      213: 7509265569727445438
+    second: Chapel Tower - Anim a-  96x128_20
+  - first:
+      213: -7861712534374076921
+    second: Chapel Tower - Anim a-  96x128_21
+  - first:
+      213: -4209641434132061618
+    second: Chapel Tower - Anim a-  96x128_22
+  - first:
+      213: 1885305748944089792
+    second: Chapel Tower - Anim a-  96x128_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2518f38cdd5ef7220800000000000000
+      internalID: 2485958260041941330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 640
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb8a0a8e980486700800000000000000
+      internalID: 533747516900944063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 640
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c464200b4ef8a7b70800000000000000
+      internalID: 8897582226192090700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 640
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2e6ee9705c928f60800000000000000
+      internalID: 8035156554639371820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 640
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff5c5f54181ca2210800000000000000
+      internalID: 1309071402673227263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_5
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 640
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe84fe18d6b30b570800000000000000
+      internalID: 8480343439856060655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bba764c2d695cf40800000000000000
+      internalID: 5748166331390733239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 512
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e78503b8a926bf80800000000000000
+      internalID: -8091233875989788701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_8
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 512
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45b4df6cf54a5afc0800000000000000
+      internalID: -3484198005433873580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 512
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccf2db0b4045e6b10800000000000000
+      internalID: 1976609665584017356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_10
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 512
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c55b34a60f23f7180800000000000000
+      internalID: -9115511112618232484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_11
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 512
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0ca2320c33b92ef0800000000000000
+      internalID: -132377643714434038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c78e61a147df71060800000000000000
+      internalID: 6924281627201169532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_13
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 384
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0543dbcd06aa71390800000000000000
+      internalID: -7847616492672830384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_14
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e60bb4330563f35e0800000000000000
+      internalID: -1927762397405400978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_15
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 384
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33e0b38d0ce1eabf0800000000000000
+      internalID: -311277510631682509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_16
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dde5ce3f117e1da50800000000000000
+      internalID: 6544265797838855901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_17
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 384
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5480bb7b8e130890800000000000000
+      internalID: -7493111770589920162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ba6cb334e9ea4cc0800000000000000
+      internalID: -3725908575365862731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_19
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 256
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 177dfcdfeebc8da50800000000000000
+      internalID: 6546206285703927665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_20
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb9fca7ff35463860800000000000000
+      internalID: 7509265569727445438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_21
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 256
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70ea5666a1695e290800000000000000
+      internalID: -7861712534374076921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_22
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e42eac65b695495c0800000000000000
+      internalID: -4209641434132061618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_23
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 256
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c270d20793f92a10800000000000000
+      internalID: 1885305748944089792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d50b9a7f6842a974cab0fc90cd55fe72
+      internalID: 297981007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_25
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e696c999f48c57d4d8750a78bf34d491
+      internalID: -1328174189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_26
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1312ca513d6edbf43a1a38393cc31888
+      internalID: -690336974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_27
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 128
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 310b34abf9b23ca42a3154ec66d2131c
+      internalID: -362668284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_28
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acc84370c490161408734971dd4587a2
+      internalID: -2083093149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_29
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 128
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0952df4db2f213458eda64dcb8f4853
+      internalID: 198377012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 189f66d5d99458d40aa6f25a4a2aa7b7
+      internalID: 115661716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chapel Tower - Anim a-  96x128_31
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 96
+        height: 128
+      alignment: 9
+      pivot: {x: 0.567, y: 0.361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c47e461ba94f831449c8a64ee1352a49
+      internalID: 1813968716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ed8cd9587f8a922448cbf8a2d217ea40
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Chapel Tower - Anim a-  96x128_0: 2485958260041941330
+      Chapel Tower - Anim a-  96x128_1: 533747516900944063
+      Chapel Tower - Anim a-  96x128_10: -9115511112618232484
+      Chapel Tower - Anim a-  96x128_11: -132377643714434038
+      Chapel Tower - Anim a-  96x128_12: 6924281627201169532
+      Chapel Tower - Anim a-  96x128_13: -7847616492672830384
+      Chapel Tower - Anim a-  96x128_14: -1927762397405400978
+      Chapel Tower - Anim a-  96x128_15: -311277510631682509
+      Chapel Tower - Anim a-  96x128_16: 6544265797838855901
+      Chapel Tower - Anim a-  96x128_17: -7493111770589920162
+      Chapel Tower - Anim a-  96x128_18: -3725908575365862731
+      Chapel Tower - Anim a-  96x128_19: 6546206285703927665
+      Chapel Tower - Anim a-  96x128_2: 8897582226192090700
+      Chapel Tower - Anim a-  96x128_20: 7509265569727445438
+      Chapel Tower - Anim a-  96x128_21: -7861712534374076921
+      Chapel Tower - Anim a-  96x128_22: -4209641434132061618
+      Chapel Tower - Anim a-  96x128_23: 1885305748944089792
+      Chapel Tower - Anim a-  96x128_24: 297981007
+      Chapel Tower - Anim a-  96x128_25: -1328174189
+      Chapel Tower - Anim a-  96x128_26: -690336974
+      Chapel Tower - Anim a-  96x128_27: -362668284
+      Chapel Tower - Anim a-  96x128_28: -2083093149
+      Chapel Tower - Anim a-  96x128_29: 198377012
+      Chapel Tower - Anim a-  96x128_3: 8035156554639371820
+      Chapel Tower - Anim a-  96x128_30: 115661716
+      Chapel Tower - Anim a-  96x128_31: 1813968716
+      Chapel Tower - Anim a-  96x128_4: 1309071402673227263
+      Chapel Tower - Anim a-  96x128_5: 8480343439856060655
+      Chapel Tower - Anim a-  96x128_6: 5748166331390733239
+      Chapel Tower - Anim a-  96x128_7: -8091233875989788701
+      Chapel Tower - Anim a-  96x128_8: -3484198005433873580
+      Chapel Tower - Anim a-  96x128_9: 1976609665584017356
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
