@@ -104,27 +104,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd96009df2169f4392a501c0cc7602d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationInit: 
   towerName: Angel
   towerSprite: {fileID: 21300000, guid: 6346b582fe98ea34aaa31ea2928610d4, type: 3}
   attachedZone: {fileID: 0}
   bulletsFired: 0
   bulletsHit: 0
+  level: 0
   towerCost: 100
-  _RankBonusDamage:
+  upgradeCosts: 64000000c80000002c010000
+  attackRangeDefault: 12
+  attackIntervalDefault: 1
+  attackDamageDefault: 1
+  targetTagDefault: 2
+  attackRange: 12
+  attackInterval: 1
+  attackDamage: 1
+  targetTag: 2
+  bullet: {fileID: 6250924970665204767, guid: 0e971f85226472b4fb7e5d90135e6b05, type: 3}
+  bulletSpeed: 17
+  bulletCount: 1
+  spreadAngle: 0
+  bulletHealth: 1
+  fireMode: 1
+  rankBonusDamage:
   - 0
   - 0.1
   - 0.2
   - 0.3
-  _RankBonusInterval:
+  rankBonusInterval:
   - 0
   - 0.1
   - 0.2
   - 0.3
-  _RankBonusRange:
+  rankBonusRange:
   - 0
   - 0.1
   - 0.2
   - 0.3
+  levelBonusDamage:
+  - 0
+  - 0.1
+  - 0.2
+  - 0.3
+  levelBonusInterval:
+  - 0
+  - 0.1
+  - 0.2
+  - 0.3
+  levelBonusRange:
+  - 0
+  - 0.1
+  - 0.2
+  - 0.3
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &1942448605766754239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,18 +172,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e405100b7a7b15041879fa91add29d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _segments: 32
-  towerGeneric: {fileID: 0}
+  animationInit: 
+  towerName: 
+  towerSprite: {fileID: 0}
+  attachedZone: {fileID: 0}
+  bulletsFired: 0
+  bulletsHit: 0
+  level: 0
+  towerCost: 100
+  upgradeCosts: 64000000c80000002c010000
+  attackRangeDefault: 12
+  attackIntervalDefault: 1
+  attackDamageDefault: 1
+  targetTagDefault: 0
   attackRange: 12
   attackInterval: 1
   attackDamage: 1
+  targetTag: 2
+  bullet: {fileID: 6250924970665204767, guid: 0e971f85226472b4fb7e5d90135e6b05, type: 3}
+  bulletSpeed: 17
+  bulletCount: 1
+  spreadAngle: 0
+  bulletHealth: 1
+  fireMode: 1
+  rankBonusDamage:
+  - 0
+  - 0.1
+  - 0.2
+  - 0.3
+  rankBonusInterval:
+  - 0
+  - 0.1
+  - 0.2
+  - 0.3
+  rankBonusRange:
+  - 0
+  - 0.1
+  - 0.2
+  - 0.3
+  levelBonusDamage:
+  - 0
+  - 0.1
+  - 0.2
+  - 0.3
+  levelBonusInterval:
+  - 0
+  - 0.1
+  - 0.2
+  - 0.3
+  levelBonusRange:
+  - 0
+  - 0.1
+  - 0.2
+  - 0.3
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _segments: 32
+  towerGeneric: {fileID: 0}
   bulletSpeed: 17
   bulletCount: 1
   spreadAngle: 0
   bulletHealth: 1
   fireMode: 1
   targetTag: 2
-  bullet: {fileID: 6250924970665204767, guid: 0e971f85226472b4fb7e5d90135e6b05, type: 3}
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
@@ -167,7 +254,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
-  sfxRefresh: {fileID: 0}
+  sfxRefreshEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   cooldownText: {fileID: 0}
   refreshDelay: 0
 --- !u!61 &815481130931939863
@@ -207,7 +300,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.49090907, y: 0.12941177}
     oldSize: {x: 3.4375, y: 5.3125}
     newSize: {x: 3, y: 3}
     adaptiveTilingThreshold: 0.5

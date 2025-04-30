@@ -276,18 +276,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationInit: animTowerCrossInit
-  attackRangeDefault: 12
-  attackIntervalDefault: 1
-  attackDamageDefault: 1
-  attackRange: 12
-  attackInterval: 1
-  attackDamage: 1
   towerName: Cross
   towerSprite: {fileID: 21300000, guid: c39506920afb90b4f999cc6d1fb1fb5f, type: 3}
   attachedZone: {fileID: 0}
   bulletsFired: 0
   bulletsHit: 0
+  level: 0
   towerCost: 100
+  upgradeCosts: 64000000c80000002c010000
+  attackRangeDefault: 12
+  attackIntervalDefault: 1
+  attackDamageDefault: 1
+  targetTagDefault: 1
+  attackRange: 12
+  attackInterval: 1
+  attackDamage: 1
+  targetTag: 1
+  bullet: {fileID: 6250924970665204767, guid: 0e971f85226472b4fb7e5d90135e6b05, type: 3}
+  bulletSpeed: 10
+  bulletCount: 1
+  spreadAngle: 0
+  bulletHealth: 1
+  fireMode: 1
   rankBonusDamage:
   - 0
   - 0.1
@@ -318,8 +328,6 @@ MonoBehaviour:
   - 0.1
   - 0.2
   - 0.3
-  level: 0
-  upgradeCosts: 64000000c80000002c010000
 --- !u!114 &1942448605766754239
 MonoBehaviour:
   m_ObjectHideFlags: 0

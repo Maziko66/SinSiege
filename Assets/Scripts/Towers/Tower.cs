@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Tower : MonoBehaviour
+public class Tower : TowerGeneric
 {
     [Header("Util")]
     [SerializeField] private int _segments = 32;
@@ -19,19 +19,8 @@ public class Tower : MonoBehaviour
     //[SerializeField] private GameObject _nozzle;
     private Cooldown _cooldown;
     
-    [Header("Bullet Properties")]
-    [SerializeField] private float bulletSpeed = 6f;
-    [SerializeField] private int bulletCount = 1;
-    [SerializeField] private float spreadAngle;
-    [SerializeField] private int bulletHealth = 1;
-    [SerializeField] private FireMethods.FireMode fireMode = FireMethods.FireMode.Homing;
-    [SerializeField] private FireMethods.TargetTag targetTag = FireMethods.TargetTag.Enemy;
-    
     [Header("Other")]
-    [SerializeField] private Bullet bullet;
-    [SerializeField] private LayerMask enemyMask;
     [SerializeField] private Transform fireTransform;
-    [SerializeField] private Transform target;
 
     //private float _cooldown = 0;
 

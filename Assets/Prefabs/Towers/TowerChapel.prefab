@@ -243,19 +243,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd96009df2169f4392a501c0cc7602d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationInit: 
-  attackRangeDefault: 12
-  attackIntervalDefault: 1
-  attackDamageDefault: 1
-  attackRange: 12
-  attackInterval: 1
-  attackDamage: 1
+  animationInit: animTowerChapelInit
   towerName: Chapel
   towerSprite: {fileID: 21300000, guid: 1131510fd5296994da9e49236e54d53d, type: 3}
   attachedZone: {fileID: 0}
   bulletsFired: 0
   bulletsHit: 0
+  level: 0
   towerCost: 100
+  upgradeCosts: 64000000c80000002c010000
+  attackRangeDefault: 12
+  attackIntervalDefault: 1
+  attackDamageDefault: 1
+  targetTagDefault: 1
+  attackRange: 12
+  attackInterval: 1
+  attackDamage: 5
+  targetTag: 1
   rankBonusDamage:
   - 0
   - 0.1
@@ -286,8 +290,6 @@ MonoBehaviour:
   - 0.1
   - 0.2
   - 0.3
-  level: 0
-  upgradeCosts: 64000000c80000002c010000
 --- !u!114 &108711519540557687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,12 +302,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c2334e71522cc4bb79e7e12385a8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aoe: {fileID: 6499225896777327218}
-  attackRadius: 9
+  animationInit: 
+  towerName: Chapel
+  towerSprite: {fileID: 21300000, guid: 1131510fd5296994da9e49236e54d53d, type: 3}
+  attachedZone: {fileID: 0}
+  bulletsFired: 0
+  bulletsHit: 0
+  level: 0
+  towerCost: 100
+  upgradeCosts: 64000000c80000002c010000
+  attackRangeDefault: 12
+  attackIntervalDefault: 1
+  attackDamageDefault: 1
+  targetTagDefault: 0
+  attackRange: 12
   attackInterval: 1
   attackDamage: 5
-  expandSpeed: 10
   targetTag: 1
+  rankBonusDamage:
+  - 0
+  - 0.1
+  - 0.2
+  - 0.3
+  rankBonusInterval:
+  - 0
+  - 0.1
+  - 0.2
+  - 0.3
+  rankBonusRange:
+  - 0
+  - 0.1
+  - 0.2
+  - 0.3
+  levelBonusDamage:
+  - 0
+  - 0.1
+  - 0.2
+  - 0.3
+  levelBonusInterval:
+  - 0
+  - 0.1
+  - 0.2
+  - 0.3
+  levelBonusRange:
+  - 0
+  - 0.1
+  - 0.2
+  - 0.3
+  aoe: {fileID: 6499225896777327218}
+  expandSpeed: 10
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
@@ -369,7 +414,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.567, y: 0.361}
     oldSize: {x: 6, y: 8}
     newSize: {x: 2, y: 2.625}
     adaptiveTilingThreshold: 0.5
