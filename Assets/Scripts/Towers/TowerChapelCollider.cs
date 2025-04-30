@@ -8,7 +8,7 @@ public class TowerChapelCollider : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
-            enemy.ReduceHealth(towerChapel.GetDamage());
+            enemy.ReduceHealth(towerChapel.GetAttackDamage());
             enemy.CheckHealth();
             Debug.Log("Tower Chapel Collided");
         }

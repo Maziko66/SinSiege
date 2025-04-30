@@ -5,6 +5,8 @@ public class TowerGeneric : MonoBehaviour
 {
     private GameManager _gameManager;
     private Animator _animator;
+    
+    protected Cooldown _cooldown;
 
     [SerializeField] private string animationInit;
     
@@ -56,16 +58,19 @@ public class TowerGeneric : MonoBehaviour
     [SerializeField] protected Transform target;
 
     protected string currentTargetTag;
-    
-    private void Awake()
+
+    protected virtual void Awake()
     {
         _gameManager = FindFirstObjectByType<GameManager>();
-        
+        _cooldown = GetComponent<Cooldown>();
         _animator = GetComponent<Animator>();
     }
-
-    private void Start()
+    
+    protected virtual void Start()
     {
+        target = null;
+        currentTargetTag = FireMethods.GetTargetTagString(targetTag);
+        
         if (_animator != null)
         {
             _animator.Play(animationInit);
@@ -88,6 +93,11 @@ public class TowerGeneric : MonoBehaviour
         _gameManager.coins -= upgradeCosts[level - 1];
         _gameManager.UpdateCoinsText();
         Debug.Log(gameObject.name + " has been upgraded to level: " + level);
+    }
+    
+    protected bool CheckTargetIsInRange()
+    {
+        return Vector2.Distance(target.position, transform.position) <= attackRange;
     }
 
     # region GETTERS

@@ -4,31 +4,26 @@ using UnityEngine;
 public class TowerChapel : TowerGeneric
 {
     [SerializeField] private GameObject aoe;
-    private Cooldown _cooldown;
     
     [Header("Chapel Mechanical Values")]
     [SerializeField] private float expandSpeed = 6f;
     
-    
     private bool _isExpanding;
-    
 
-    private void Awake()
+    protected override void Awake()
     {
-        _cooldown = GetComponent<Cooldown>();
+        base.Awake();
     }
 
-    private void Start()
+    protected override void Start()
     {
-        target = null;
-        currentTargetTag = FireMethods.GetTargetTagString(targetTag);
+        base.Start();
     }
-    
+
     private void Update()
     {
         if(target == null && !_isExpanding)
         {
-            
             FindTarget();
             return;
         }        
@@ -70,7 +65,7 @@ public class TowerChapel : TowerGeneric
     {
         //RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, attackRange, (Vector2)transform.position, 0f, enemyMask);
         //int hitCount = Physics2D.CircleCastNonAlloc(transform.position, attackRadius, Vector2.zero, _hitsCache, 0f, enemyMask);
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, attackRange, (Vector2)Vector2.zero, 0f, enemyMask);
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, attackRange, Vector2.zero, 0f, enemyMask);
         
         if (currentTargetTag != "Enemy")
         {
@@ -96,15 +91,4 @@ public class TowerChapel : TowerGeneric
             target = null;
         }
     }
-
-    private bool CheckTargetIsInRange()
-    {
-        return Vector2.Distance(target.position, transform.position) <= attackRange;
-    }
-
-    public float GetDamage()
-    {
-        return attackDamage;
-    }
-    
 }

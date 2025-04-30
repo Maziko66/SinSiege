@@ -254,12 +254,12 @@ public class Player : MonoBehaviour
             if(towerZone.isEmpty)
             {
                 _buildManager.DrawUITowerBuilderCombat(calledFromBuildMenu);
-                Debug.Log("On Tower Zone Empty");
+                //Debug.Log("On Tower Zone Empty");
             }
             else
             {
                 _buildManager.DrawUITowerManagerCombat(calledFromBuildMenu);
-                Debug.Log("On Tower Zone Full");
+                //Debug.Log("On Tower Zone Full");
             }
         }
         else
@@ -269,13 +269,13 @@ public class Player : MonoBehaviour
             {
                 _buildManager.DestroyUITowerBuilderCombat();
                 lastTouchedTowerZone = null;
-                Debug.Log("Left Empty Tower Zone");
+                //Debug.Log("Left Empty Tower Zone");
             }
             else
             {
                 _buildManager.DestroyUITowerManagerCombat();
                 lastTouchedTowerZone = null;
-                Debug.Log("Left Full Tower Zone");
+                //Debug.Log("Left Full Tower Zone");
             }
         }
     }

@@ -115,6 +115,7 @@ public class BuildManager : MonoBehaviour
         
         TowerZoneExpSliderActive(false);
     }
+    
 
     private void Update()
     {
@@ -206,6 +207,10 @@ public class BuildManager : MonoBehaviour
     
     public void DestroyUITowerBuilderCombat()
     {
+        if (uiTowerBuilderCombat == null)
+        {
+            return;
+        }
         uiTowerBuilderCombat.gameObject.SetActive(false);
     }
     

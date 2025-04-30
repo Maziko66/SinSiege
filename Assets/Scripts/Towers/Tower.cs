@@ -1,30 +1,19 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Tower : TowerGeneric
 {
     [Header("Util")]
     [SerializeField] private int _segments = 32;
-    [SerializeField] private TowerGeneric towerGeneric;
-    
-    public enum TargetTag
-    {
-        Enemy,
-        EnemyGround,
-        EnemyAir
-    }
     
     //[SerializeField] private GameObject _nozzle;
-    private Cooldown _cooldown;
+    
     
     [Header("Other")]
     [SerializeField] private Transform fireTransform;
 
     //private float _cooldown = 0;
-
-    private string _currentTargetTag;
+    
     private int _currentFireMode;
 
     private void OnDrawGizmosSelected()
@@ -33,7 +22,7 @@ public class Tower : TowerGeneric
         // Calculate the angle between each segment
         float angleStep = 360f / _segments;
         
-        DrawGizmoCircle(transform.position, towerGeneric.GetAttackRange(), _segments);
+        DrawGizmoCircle(transform.position, GetAttackRange(), _segments);
     }
 
     private void DrawGizmoCircle(Vector3 center, float radius, int segments)
@@ -54,16 +43,14 @@ public class Tower : TowerGeneric
         }
     }
     
-    private void Awake()
+    protected override void Awake()
     {
-        _cooldown = GetComponent<Cooldown>();
-        towerGeneric = GetComponent<TowerGeneric>();
+        base.Awake();
     }
 
-    private void Start()
+    protected override void Start()
     {
-        target = null;
-        _currentTargetTag = FireMethods.GetTargetTagString(targetTag);
+        base.Start();
         _currentFireMode = FireMethods.GetFireMode(fireMode);
     }
 
@@ -88,15 +75,15 @@ public class Tower : TowerGeneric
 
     private void FindTarget()
     {
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, towerGeneric.GetAttackRange(), (Vector2)transform.position, 0f, enemyMask);
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, GetAttackRange(), (Vector2)transform.position, 0f, enemyMask);
         
-        if (_currentTargetTag != "Enemy")
+        if (currentTargetTag != "Enemy")
         {
             List<RaycastHit2D> applicableHits = new List<RaycastHit2D>();
             
             foreach (var hit in hits)
             {
-                if (hit.collider.CompareTag(_currentTargetTag) || hit.collider.CompareTag("Enemy"))
+                if (hit.collider.CompareTag(currentTargetTag) || hit.collider.CompareTag("Enemy"))
                 {
                     applicableHits.Add(hit);
                 }
@@ -120,25 +107,21 @@ public class Tower : TowerGeneric
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         transform.rotation = targetRotation;
     }
-
-    private bool CheckTargetIsInRange()
-    {
-        return Vector2.Distance(target.position, transform.position) <= towerGeneric.GetAttackRange();
-    }
+    
 
     private void Fire()
     {
         string tagString = FireMethods.GetTargetTagString(targetTag);
         //FireMethods.BulletFire(firingMode, bullet, transform, bulletSpeed, attackDamage, target.position, target);
-        FireMethods.BulletFire(_currentFireMode, bullet, fireTransform, bulletSpeed, towerGeneric.GetAttackDamage(), target.position, bulletHealth, tagString, towerGeneric, target);
-        towerGeneric.bulletsFired++;
-        _cooldown.SetCooldown(towerGeneric.GetAttackInterval());
+        FireMethods.BulletFire(_currentFireMode, bullet, fireTransform, bulletSpeed, GetAttackDamage(), target.position, bulletHealth, tagString, this, target);
+        bulletsFired++;
+        _cooldown.SetCooldown(GetAttackInterval());
         _cooldown.SetRefreshed(false);
     }
     
     [ContextMenu("Update Target Tag")]
     private void UpdateTargetTag()
     {
-        _currentTargetTag = FireMethods.GetTargetTagString(targetTag);
+        currentTargetTag = FireMethods.GetTargetTagString(targetTag);
     }
 }
