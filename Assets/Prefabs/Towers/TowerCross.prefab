@@ -296,7 +296,7 @@ MonoBehaviour:
   bulletCount: 1
   spreadAngle: 0
   bulletHealth: 1
-  fireMode: 1
+  fireMode: 0
   rankBonusDamage:
   - 0
   - 0.1
@@ -332,7 +332,6 @@ MonoBehaviour:
     m_Bits: 64
   target: {fileID: 0}
   _segments: 32
-  towerGeneric: {fileID: 0}
   fireTransform: {fileID: 4802119673293493410}
 --- !u!114 &3464117249453483604
 MonoBehaviour:
