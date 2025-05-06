@@ -200,4 +200,17 @@ public class WaveManager : MonoBehaviour
     {
         enemyAliveList.Remove(enemy);
     }
+    
+    [ContextMenu("CalculateTotalGoldOfAllWaves")]
+    public void CalculateTotalGoldOfAllWaves()
+    {
+        foreach (WaveSO wave in waves)
+        {
+            wave.totalGoldValue = 0;
+            foreach (Enemy enemy in wave.enemyList)
+            {
+                wave.totalGoldValue += enemy.coinValue;
+            }
+        }
+    }
 }

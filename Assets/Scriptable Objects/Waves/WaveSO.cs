@@ -10,4 +10,5 @@ public class WaveSO : ScriptableObject
     public float waveCooldown;
     public List<Enemy> enemyList;
     public List<Enemy> enemyListHard;
+    public int totalGoldValue;
 }
