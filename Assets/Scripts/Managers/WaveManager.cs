@@ -181,6 +181,11 @@ public class WaveManager : MonoBehaviour
         // }
     }
 
+    private void SpawnHorde()
+    {
+        
+    }
+
     private void SetWaveActive(bool state)
     {
         if (state)

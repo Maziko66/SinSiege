@@ -11,4 +11,7 @@ public class WaveSO : ScriptableObject
     public List<Enemy> enemyList;
     public List<Enemy> enemyListHard;
     public int totalGoldValue;
+    public bool hasHorde;
+    public List<Enemy> hordeList;
+    public List<Enemy> hordeListHard;
 }

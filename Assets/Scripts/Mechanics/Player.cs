@@ -62,6 +62,8 @@ public class Player : MonoBehaviour
 
     public bool isPaused;
     
+    private bool _shouldInvalidateConfiner = false;
+    
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -128,6 +130,23 @@ public class Player : MonoBehaviour
         _animator.SetBool("isWalking", _isWalking);
         _animator.SetBool("isSprinting", _isSprinting);
 
+    }
+    private void LateUpdate()
+    {
+        if (_shouldInvalidateConfiner)
+        {
+            CinemachineCamera activeCam = GetActiveCinemachineCamera();
+            if (activeCam != null)
+            {
+                CinemachineConfiner2D confiner = activeCam.GetComponent<CinemachineConfiner2D>();
+                if (confiner != null)
+                {
+                    confiner.InvalidateCache();
+                }
+            }
+
+            _shouldInvalidateConfiner = false;
+        }
     }
 
     private void FixedUpdate()
@@ -293,15 +312,18 @@ public class Player : MonoBehaviour
         CinemachineCamera activeCam = GetActiveCinemachineCamera();
         if (activeCam != null)
         {
-            //Debug.Log("changing lens");
             if (_gameManager.onBuildMenu)
             {
                 float newValueBuild = Mathf.Clamp(activeCam.Lens.OrthographicSize - (input * cameraZoomAmount), cameraBuildZoomCapMin, cameraBuildZoomCapMax);
                 activeCam.Lens.OrthographicSize = newValueBuild;
-                return;
             }
-            float newValue = Mathf.Clamp(activeCam.Lens.OrthographicSize - (input * cameraZoomAmount), cameraZoomCapMin, cameraZoomCapMax);
-            activeCam.Lens.OrthographicSize = newValue;
+            else
+            {
+                float newValue = Mathf.Clamp(activeCam.Lens.OrthographicSize - (input * cameraZoomAmount), cameraZoomCapMin, cameraZoomCapMax);
+                activeCam.Lens.OrthographicSize = newValue;
+            }
+
+            _shouldInvalidateConfiner = true;
         }
     }
     
