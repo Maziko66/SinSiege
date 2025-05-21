@@ -131,12 +131,12 @@ TextureImporter:
       name: mc walk-n_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 78
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 18
+        y: 8
+        width: 34
+        height: 43
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -153,12 +153,12 @@ TextureImporter:
       name: mc walk-n_1
       rect:
         serializedVersion: 2
-        x: 78
-        y: 0
-        width: 78
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 96
+        y: 8
+        width: 34
+        height: 41
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -175,12 +175,12 @@ TextureImporter:
       name: mc walk-n_2
       rect:
         serializedVersion: 2
-        x: 156
-        y: 0
-        width: 78
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 174
+        y: 8
+        width: 33
+        height: 42
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: mc walk-n_3
       rect:
         serializedVersion: 2
-        x: 234
-        y: 0
-        width: 78
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 252
+        y: 8
+        width: 34
+        height: 43
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -219,12 +219,12 @@ TextureImporter:
       name: mc walk-n_4
       rect:
         serializedVersion: 2
-        x: 312
-        y: 0
-        width: 78
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 330
+        y: 8
+        width: 34
+        height: 41
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -241,12 +241,12 @@ TextureImporter:
       name: mc walk-n_5
       rect:
         serializedVersion: 2
-        x: 390
-        y: 0
-        width: 78
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 409
+        y: 8
+        width: 33
+        height: 42
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -271,7 +271,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.20000000298023225},"autoSlicingMethod":0,"spriteAlignment":9,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       mc walk-n_0: 6021976011531025289
       mc walk-n_1: -9074177989453329005

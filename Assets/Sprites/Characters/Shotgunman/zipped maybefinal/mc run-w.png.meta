@@ -131,12 +131,12 @@ TextureImporter:
       name: mc run-w_0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 7
-        width: 32
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 25
+        y: 8
+        width: 30
+        height: 42
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -153,12 +153,12 @@ TextureImporter:
       name: mc run-w_1
       rect:
         serializedVersion: 2
-        x: 102
-        y: 7
-        width: 34
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 103
+        y: 8
+        width: 32
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -175,12 +175,12 @@ TextureImporter:
       name: mc run-w_2
       rect:
         serializedVersion: 2
-        x: 180
-        y: 7
-        width: 30
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 181
+        y: 8
+        width: 28
+        height: 41
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: mc run-w_3
       rect:
         serializedVersion: 2
-        x: 258
-        y: 7
-        width: 32
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 259
+        y: 8
+        width: 30
+        height: 42
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -219,12 +219,12 @@ TextureImporter:
       name: mc run-w_4
       rect:
         serializedVersion: 2
-        x: 336
-        y: 7
-        width: 31
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 337
+        y: 8
+        width: 29
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -241,12 +241,12 @@ TextureImporter:
       name: mc run-w_5
       rect:
         serializedVersion: 2
-        x: 414
-        y: 7
-        width: 32
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 415
+        y: 8
+        width: 30
+        height: 41
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -263,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 61f7f2720be4eb74bbddcf98f1066526
     internalID: 0
     vertices: []
     indices: 
@@ -271,7 +271,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.20000000298023225},"autoSlicingMethod":0,"spriteAlignment":9,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       mc run-w_0: -7118533377750843664
       mc run-w_1: -5481548035941399805

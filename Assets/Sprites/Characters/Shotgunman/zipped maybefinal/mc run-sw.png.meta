@@ -129,11 +129,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1
-        width: 30
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 2
+        width: 29
+        height: 42
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -150,12 +150,12 @@ TextureImporter:
       name: mc run-sw_1
       rect:
         serializedVersion: 2
-        x: 28
-        y: 1
-        width: 30
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 29
+        y: 2
+        width: 28
+        height: 42
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -172,12 +172,12 @@ TextureImporter:
       name: mc run-sw_2
       rect:
         serializedVersion: 2
-        x: 56
-        y: 1
-        width: 31
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 57
+        y: 2
+        width: 29
+        height: 42
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -194,12 +194,12 @@ TextureImporter:
       name: mc run-sw_3
       rect:
         serializedVersion: 2
-        x: 85
+        x: 86
         y: 0
-        width: 68
+        width: 29
         height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -216,12 +216,12 @@ TextureImporter:
       name: mc run-sw_4
       rect:
         serializedVersion: 2
-        x: 151
+        x: 116
         y: 0
-        width: 33
+        width: 37
         height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -234,11 +234,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: mc run-sw_5
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 1
+        width: 32
+        height: 43
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd0038cfc687e446b8faee62c8d6de0
+      internalID: -1856263090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0c34c06203338b047a370db877864c25
     internalID: 0
     vertices: []
     indices: 
@@ -246,13 +268,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.20000000298023225},"autoSlicingMethod":0,"spriteAlignment":9,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       mc run-sw_0: -7849974019176576629
       mc run-sw_1: -5290387143975987960
       mc run-sw_2: -1114089659709556278
       mc run-sw_3: -2510463127730105925
       mc run-sw_4: 2410816861183713717
+      mc run-sw_5: -1856263090
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

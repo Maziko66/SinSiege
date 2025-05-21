@@ -131,12 +131,12 @@ TextureImporter:
       name: mc attack-w_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 7
-        width: 53
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4
+        y: 8
+        width: 51
+        height: 42
+      alignment: 9
+      pivot: {x: 0.72, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -153,12 +153,12 @@ TextureImporter:
       name: mc attack-w_1
       rect:
         serializedVersion: 2
-        x: 77
-        y: 7
-        width: 59
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 78
+        y: 8
+        width: 57
+        height: 40
+      alignment: 9
+      pivot: {x: 0.72, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -175,12 +175,12 @@ TextureImporter:
       name: mc attack-w_2
       rect:
         serializedVersion: 2
-        x: 157
-        y: 7
-        width: 53
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 158
+        y: 8
+        width: 51
+        height: 41
+      alignment: 9
+      pivot: {x: 0.72, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: mc attack-w_3
       rect:
         serializedVersion: 2
-        x: 251
-        y: 7
-        width: 40
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 252
+        y: 8
+        width: 38
+        height: 42
+      alignment: 9
+      pivot: {x: 0.6, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -219,12 +219,12 @@ TextureImporter:
       name: mc attack-w_4
       rect:
         serializedVersion: 2
-        x: 331
-        y: 7
-        width: 40
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 332
+        y: 8
+        width: 38
+        height: 40
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -241,12 +241,12 @@ TextureImporter:
       name: mc attack-w_5
       rect:
         serializedVersion: 2
-        x: 407
-        y: 7
-        width: 40
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 408
+        y: 8
+        width: 38
+        height: 41
+      alignment: 9
+      pivot: {x: 0.55, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -263,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5f4bdd19d2a59a543bd493139c7d240d
     internalID: 0
     vertices: []
     indices: 
@@ -271,7 +271,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.20000000298023225},"autoSlicingMethod":0,"spriteAlignment":9,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       mc attack-w_0: -8777606802960999997
       mc attack-w_1: 7760819169365478360
