@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     private Camera _cam;
     private CinemachineBrain _brain;
     
+    private SpriteRenderer _spriteRenderer;
+    
     [SerializeField] private GameObject _buildCameraObject;
     private Rigidbody2D _buildCameraObjectRb;
     
@@ -68,6 +70,7 @@ public class Player : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         
         _gameManager = FindFirstObjectByType<GameManager>();
         _buildManager = FindFirstObjectByType<BuildManager>();
@@ -147,6 +150,7 @@ public class Player : MonoBehaviour
 
             _shouldInvalidateConfiner = false;
         }
+        _spriteRenderer.sortingOrder = Mathf.RoundToInt(-_spriteRenderer.gameObject.transform.position.y * 100);
     }
 
     private void FixedUpdate()

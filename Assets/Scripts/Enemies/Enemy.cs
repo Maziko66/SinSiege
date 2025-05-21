@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     private Canvas _canvas;
     private GameManager _gameManager;
     private WaveManager _waveManager;
+    private SpriteRenderer _spriteRenderer;
 
     [SerializeField] private Slider prefabSliderHealth;
     [SerializeField] private Vector3 sliderOffset;
@@ -37,6 +38,7 @@ public class Enemy : MonoBehaviour
         _canvas = FindFirstObjectByType<Canvas>();
         _gameManager = FindFirstObjectByType<GameManager>();
         rb = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -83,6 +85,11 @@ public class Enemy : MonoBehaviour
             // Set the slider's position
             sliderHealth.transform.position = screenPosition;
         }
+    }
+
+    private void LateUpdate()
+    {
+        _spriteRenderer.sortingOrder = Mathf.RoundToInt(-_spriteRenderer.gameObject.transform.position.y * 100);
     }
 
     private void FixedUpdate()

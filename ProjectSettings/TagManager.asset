@@ -73,5 +73,17 @@ TagManager:
   - name: Bullets
     uniqueID: 1148803449
     locked: 0
+  - name: BackManaged
+    uniqueID: 462275777
+    locked: 0
+  - name: Managed
+    uniqueID: 3525401453
+    locked: 0
+  - name: FrontManaged
+    uniqueID: 431874121
+    locked: 0
+  - name: DoubleFrontManaged
+    uniqueID: 2084540295
+    locked: 0
   m_RenderingLayers:
   - Default
