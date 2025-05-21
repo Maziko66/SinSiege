@@ -1,0 +1,817 @@
+fileFormatVersion: 2
+guid: a3b1065f463108e49931273056ca8dd6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7173845120699074917
+    second: wish well_0
+  - first:
+      213: 4600980668848590536
+    second: wish well_1
+  - first:
+      213: -8750402577756404068
+    second: wish well_2
+  - first:
+      213: -8381240975769210122
+    second: wish well_3
+  - first:
+      213: 2747837398383675578
+    second: wish well_4
+  - first:
+      213: -8722624131025467683
+    second: wish well_5
+  - first:
+      213: 3089448992305154793
+    second: wish well_6
+  - first:
+      213: -8902607035241491978
+    second: wish well_7
+  - first:
+      213: -3453751451624391341
+    second: wish well_8
+  - first:
+      213: -85163564002928699
+    second: wish well_9
+  - first:
+      213: -444671109601054109
+    second: wish well_10
+  - first:
+      213: -4862600257853885113
+    second: wish well_11
+  - first:
+      213: 1292151226899623565
+    second: wish well_12
+  - first:
+      213: 6475885392152812367
+    second: wish well_13
+  - first:
+      213: 5158030347758337330
+    second: wish well_14
+  - first:
+      213: -9100972321938226764
+    second: wish well_15
+  - first:
+      213: 2273398770310032555
+    second: wish well_16
+  - first:
+      213: -1686053094881301010
+    second: wish well_17
+  - first:
+      213: 4698773189744398049
+    second: wish well_18
+  - first:
+      213: 7048839231208686642
+    second: wish well_19
+  - first:
+      213: -6070537081503307065
+    second: wish well_20
+  - first:
+      213: 2071301487592119717
+    second: wish well_21
+  - first:
+      213: -8898675353490078324
+    second: wish well_22
+  - first:
+      213: 2174241208709350528
+    second: wish well_23
+  - first:
+      213: 6602348909294163643
+    second: wish well_24
+  - first:
+      213: -2020141882760190876
+    second: wish well_25
+  - first:
+      213: 6424940243256711891
+    second: wish well_26
+  - first:
+      213: 6192128229636961519
+    second: wish well_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: wish well_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 644
+        width: 489
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56900fce02e9e8360800000000000000
+      internalID: 7173845120699074917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 639
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cec8219a87f9df30800000000000000
+      internalID: 4600980668848590536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_2
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 628
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c96ca279733509680800000000000000
+      internalID: -8750402577756404068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_3
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 611
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f2f35efcb9dfab80800000000000000
+      internalID: -8381240975769210122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_4
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 591
+        width: 31
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab8413f1e87422620800000000000000
+      internalID: 2747837398383675578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_5
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 590
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd60af8319303f680800000000000000
+      internalID: -8722624131025467683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_6
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 444
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ea890a6d7defda20800000000000000
+      internalID: 3089448992305154793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_7
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 444
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f19989c116937480800000000000000
+      internalID: -8902607035241491978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_8
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 444
+        width: 41
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35d307f7a5fc110d0800000000000000
+      internalID: -3453751451624391341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_9
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 443
+        width: 53
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c79cc3903071def0800000000000000
+      internalID: -85163564002928699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_10
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 443
+        width: 53
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 362b9565bf534d9f0800000000000000
+      internalID: -444671109601054109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_11
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 443
+        width: 56
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74575e124d2948cb0800000000000000
+      internalID: -4862600257853885113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_12
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 299
+        width: 59
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8eef6bd1b4aee110800000000000000
+      internalID: 1292151226899623565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_13
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 299
+        width: 62
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4bd8651477fed950800000000000000
+      internalID: 6475885392152812367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_14
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 299
+        width: 64
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23df1dad541059740800000000000000
+      internalID: 5158030347758337330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_15
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 299
+        width: 64
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b1c53864e9d2b180800000000000000
+      internalID: -9100972321938226764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_16
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 299
+        width: 64
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baca329f22cbc8f10800000000000000
+      internalID: 2273398770310032555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_17
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 299
+        width: 64
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eede62fa4afe998e0800000000000000
+      internalID: -1686053094881301010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_18
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 155
+        width: 64
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ee08d62255653140800000000000000
+      internalID: 4698773189744398049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_19
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 155
+        width: 64
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23408073fe182d160800000000000000
+      internalID: 7048839231208686642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_20
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 155
+        width: 64
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7caa82dffae11cba0800000000000000
+      internalID: -6070537081503307065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_21
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 155
+        width: 64
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ad9aae8abdbebc10800000000000000
+      internalID: 2071301487592119717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_22
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 155
+        width: 64
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8543b7c9ed818480800000000000000
+      internalID: -8898675353490078324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_23
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 155
+        width: 64
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08403251cd47c2e10800000000000000
+      internalID: 2174241208709350528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_24
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 11
+        width: 64
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb69aad2a5140ab50800000000000000
+      internalID: 6602348909294163643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_25
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 11
+        width: 64
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 464a03a29a307f3e0800000000000000
+      internalID: -2020141882760190876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_26
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 11
+        width: 64
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3da9d664c19f92950800000000000000
+      internalID: 6424940243256711891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wish well_27
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 11
+        width: 64
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe4fd2b41dbdee550800000000000000
+      internalID: 6192128229636961519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
