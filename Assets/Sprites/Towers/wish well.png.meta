@@ -177,6 +177,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -809,7 +822,35 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      wish well_0: 7173845120699074917
+      wish well_1: 4600980668848590536
+      wish well_10: -444671109601054109
+      wish well_11: -4862600257853885113
+      wish well_12: 1292151226899623565
+      wish well_13: 6475885392152812367
+      wish well_14: 5158030347758337330
+      wish well_15: -9100972321938226764
+      wish well_16: 2273398770310032555
+      wish well_17: -1686053094881301010
+      wish well_18: 4698773189744398049
+      wish well_19: 7048839231208686642
+      wish well_2: -8750402577756404068
+      wish well_20: -6070537081503307065
+      wish well_21: 2071301487592119717
+      wish well_22: -8898675353490078324
+      wish well_23: 2174241208709350528
+      wish well_24: 6602348909294163643
+      wish well_25: -2020141882760190876
+      wish well_26: 6424940243256711891
+      wish well_27: 6192128229636961519
+      wish well_3: -8381240975769210122
+      wish well_4: 2747837398383675578
+      wish well_5: -8722624131025467683
+      wish well_6: 3089448992305154793
+      wish well_7: -8902607035241491978
+      wish well_8: -3453751451624391341
+      wish well_9: -85163564002928699
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

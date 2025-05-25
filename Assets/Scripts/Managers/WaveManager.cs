@@ -23,6 +23,8 @@ public class WaveManager : MonoBehaviour
 
     private Cooldown _cooldown;
 
+    [SerializeField] private Camera _camera;
+
     [SerializeField] private GameObject enemyParent;
 
     [Header("UI")]
@@ -183,7 +185,39 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnHorde()
     {
-        
+        Vector3 viewportPos = GetRandomEdgeViewportPosition();
+        Vector3 worldPos = _camera.ViewportToWorldPoint(new Vector3(viewportPos.x, viewportPos.y, 0));
+        Instantiate(prefabToSpawn, worldPos, Quaternion.identity);
+    }
+    
+    Vector2 GetRandomEdgeViewportPosition()
+    {
+        float x = 0f;
+        float y = 0f;
+
+        int edge = Random.Range(0, 4); // 0 = top, 1 = bottom, 2 = left, 3 = right
+
+        switch (edge)
+        {
+            case 0: // Top
+                x = Random.Range(0f, 1f);
+                y = 1f;
+                break;
+            case 1: // Bottom
+                x = Random.Range(0f, 1f);
+                y = 0f;
+                break;
+            case 2: // Left
+                x = 0f;
+                y = Random.Range(0f, 1f);
+                break;
+            case 3: // Right
+                x = 1f;
+                y = Random.Range(0f, 1f);
+                break;
+        }
+
+        return new Vector2(x, y);
     }
 
     private void SetWaveActive(bool state)
