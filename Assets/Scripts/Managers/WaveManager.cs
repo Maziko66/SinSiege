@@ -187,7 +187,7 @@ public class WaveManager : MonoBehaviour
     {
         Vector3 viewportPos = GetRandomEdgeViewportPosition();
         Vector3 worldPos = _camera.ViewportToWorldPoint(new Vector3(viewportPos.x, viewportPos.y, 0));
-        Instantiate(prefabToSpawn, worldPos, Quaternion.identity);
+        //Instantiate(prefabToSpawn, worldPos, Quaternion.identity);
     }
     
     Vector2 GetRandomEdgeViewportPosition()
