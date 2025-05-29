@@ -18620,6 +18620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e0fd56b894a974a99b39165e04b75b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _camera: {fileID: 519420031}
   enemyParent: {fileID: 1695566074}
   textWaveTimer: {fileID: 1085530490}
   buttonStartWave: {fileID: 1948851716}
@@ -18753,6 +18754,7 @@ MonoBehaviour:
     - {fileID: 570417325}
     - {fileID: 279500499}
   waypoints: []
+  headquarters: {fileID: 1425803302}
   waves:
   - {fileID: 11400000, guid: 1c763cc931a985849af1894e04e2e7c1, type: 2}
   - {fileID: 11400000, guid: 30b658eb90bbed64eb8bb9c92eb37cac, type: 2}
@@ -18776,6 +18778,8 @@ MonoBehaviour:
   currentWave: {fileID: 0}
   currentWaveTimer: 0
   waveActive: 0
+  hordeList: []
+  hordeAliveList: []
 --- !u!114 &833164593
 MonoBehaviour:
   m_ObjectHideFlags: 0

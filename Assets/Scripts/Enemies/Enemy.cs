@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     private GameManager _gameManager;
     private WaveManager _waveManager;
     private SpriteRenderer _spriteRenderer;
+    private Player _player;
 
     [SerializeField] private Slider prefabSliderHealth;
     [SerializeField] private Vector3 sliderOffset;
@@ -32,6 +33,8 @@ public class Enemy : MonoBehaviour
     private bool _isDamaged;
 
     public int coinValue;
+
+    public bool followPlayer;
     
     private void Awake()
     {
@@ -43,6 +46,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        _player = _gameManager.GetPlayer();
         if (waypoints.Count == 0)
         {
             _waypointStop = _mainTargetLocation;
@@ -65,7 +69,12 @@ public class Enemy : MonoBehaviour
             transform .localScale = new Vector3(1, 1, 1);
         }
 
-        if (rb.position == _waypointStop)
+        if (followPlayer)
+        {
+            if(_player == null) { return; }
+            _waypointStop = _player.transform.position;
+        }
+        else if (rb.position == _waypointStop)
         {
             _waypointsIndex++;
             if (_waypointsIndex >= waypoints.Count)

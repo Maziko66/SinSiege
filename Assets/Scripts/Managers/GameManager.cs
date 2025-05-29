@@ -173,6 +173,11 @@ public class GameManager : MonoBehaviour
     {
         mousePosition = _cam.ScreenToWorldPoint(Input.mousePosition);
     }
+
+    public Player GetPlayer()
+    {
+        return _player;
+    }
     
     #endregion
     

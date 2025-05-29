@@ -17,7 +17,7 @@ public class WaveSO : ScriptableObject
     public bool hasHorde;
     public List<Enemy> hordeList;
     public List<Enemy> hordeListHard;
-    
+    public float hordeInterval;
     
     [Header("General")]
     public int totalGoldValue;
