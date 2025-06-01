@@ -26,8 +26,10 @@ MonoBehaviour:
   enemyListHard: []
   hasHorde: 1
   hordeList:
-  - {fileID: 4664836877217421058, guid: f3d3a0c7929b5834d9ad92a994a33b49, type: 3}
   - {fileID: 4664836877217421058, guid: fb4e957c0fe31744a82f6c967ecdcc1f, type: 3}
+  - {fileID: 4664836877217421058, guid: f3d3a0c7929b5834d9ad92a994a33b49, type: 3}
+  - {fileID: 4664836877217421058, guid: 053987bc93c06e04e8b2c374291fc776, type: 3}
+  - {fileID: 4664836877217421058, guid: 39dce3e39465f364f8f67ea224f375e4, type: 3}
   hordeListHard: []
   hordeInterval: 1
   totalGoldValue: 72
