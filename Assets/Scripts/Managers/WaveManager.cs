@@ -21,12 +21,16 @@ public class WaveManager : MonoBehaviour
     //LISTS TO CREATE:
     //listSpawnPoints, listWaveGroups
 
+    private UpgradeManager _upgradeManager;
     private Cooldown _cooldown;
 
     [SerializeField] private Camera _camera;
 
     [SerializeField] private GameObject enemyParent;
 
+    [Header("Info")]
+    [SerializeField] private int waveNumber;
+    
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI textWaveTimer;
     [SerializeField] private Button buttonStartWave;
@@ -68,6 +72,7 @@ public class WaveManager : MonoBehaviour
     private void Awake()
     {
         _cooldown = GetComponent<Cooldown>();
+        _upgradeManager = FindFirstObjectByType<UpgradeManager>();
     }
 
     private void Start()
@@ -112,6 +117,11 @@ public class WaveManager : MonoBehaviour
             MusicManager.Instance.SetCombatToFalse();
             spawnCooldown = 0;
             Debug.Log("enemy alive list <= 0");
+            waveNumber++;
+            if (waveNumber % 5 == 1)
+            {
+                _upgradeManager.TimeToUpgrade();
+            }
         }
 
     }
