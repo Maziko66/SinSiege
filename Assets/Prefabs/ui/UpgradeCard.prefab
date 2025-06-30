@@ -94,9 +94,10 @@ MonoBehaviour:
   textTitle: {fileID: 745730630815429541}
   textDescription: {fileID: 1025866523675690591}
   upgradeImage: {fileID: 5083383482419922673}
-  upgradeName: 
+  upgradeName: Damage 1
   upgradeDescription: 
   upgradeSprite: {fileID: 0}
+  rarity: 0
 --- !u!1 &866837142956172977
 GameObject:
   m_ObjectHideFlags: 0

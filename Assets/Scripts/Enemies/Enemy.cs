@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
     public int coinValue;
 
     public bool followPlayer;
+    public bool isHorde;
     
     private void Awake()
     {
@@ -148,7 +149,14 @@ public class Enemy : MonoBehaviour
 
     private void OnDestroy()
     {
-        _waveManager.OnEnemyDestroyed(this);
+        if (isHorde)
+        {
+            _waveManager.OnHordeDestroyed(this);
+        }
+        else
+        {
+            _waveManager.OnEnemyDestroyed(this);
+        }
     }
 
 

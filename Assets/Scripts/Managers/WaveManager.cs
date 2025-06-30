@@ -29,7 +29,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private GameObject enemyParent;
 
     [Header("Info")]
-    [SerializeField] private int waveNumber;
+    [SerializeField] private int waveNumber = 1;
     
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI textWaveTimer;
@@ -118,7 +118,7 @@ public class WaveManager : MonoBehaviour
             spawnCooldown = 0;
             Debug.Log("enemy alive list <= 0");
             waveNumber++;
-            if (waveNumber % 5 == 1)
+            if (waveNumber % 5 == 0)
             {
                 _upgradeManager.TimeToUpgrade();
             }
@@ -217,7 +217,7 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnHorde()
     {
-        if (enemyAliveList.Count >= 0 && _hordeCooldown <= 0.0f && _spawnHorde)
+        if (enemyAliveList.Count > 0 && _hordeCooldown <= 0.0f && _spawnHorde)
         {
             int randIndex = Random.Range(0, hordeList.Count);
             
@@ -227,6 +227,7 @@ public class WaveManager : MonoBehaviour
             Enemy enemy = instObj.GetComponent<Enemy>();
             //enemy.waypoints.Add(_headquartersPosition);
             enemy.followPlayer = true;
+            enemy.isHorde = true;
             enemy.SetWaveManager(this);
             
             hordeAliveList.Add(enemy);
@@ -253,19 +254,19 @@ public class WaveManager : MonoBehaviour
 
         switch (edge)
         {
-            case 0: // Top
+            case 0: // top
                 x = Random.Range(0f, 1f);
                 y = 1f;
                 break;
-            case 1: // Bottom
+            case 1: // bottom
                 x = Random.Range(0f, 1f);
                 y = 0f;
                 break;
-            case 2: // Left
+            case 2: // left
                 x = 0f;
                 y = Random.Range(0f, 1f);
                 break;
-            case 3: // Right
+            case 3: // right
                 x = 1f;
                 y = Random.Range(0f, 1f);
                 break;
@@ -292,6 +293,11 @@ public class WaveManager : MonoBehaviour
     public void OnEnemyDestroyed(Enemy enemy)
     {
         enemyAliveList.Remove(enemy);
+    }
+
+    public void OnHordeDestroyed(Enemy enemy)
+    {
+        hordeAliveList.Remove(enemy);
     }
     
     [ContextMenu("CalculateTotalGoldOfAllWaves")]

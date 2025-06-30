@@ -1,20 +1,26 @@
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class UpgradeCard : MonoBehaviour
+public class Upgrade : MonoBehaviour
 {
-    [Header("UI")]
-    [SerializeField] private TextMeshProUGUI textTitle;
-    [SerializeField] private TextMeshProUGUI textDescription;
-    [SerializeField] private Image upgradeImage;
-    
     [Header("Values")]
     [SerializeField] private string upgradeName;
     [SerializeField] private string upgradeDescription;
     [SerializeField] private Sprite upgradeSprite;
+    [SerializeField] private MasterDictionary.UpgradeRarity rarity;
     
     public string UpgradeName => upgradeName;
     public string UpgradeDescription => upgradeDescription;
     public Sprite UpgradeSprite => upgradeSprite;
+    public MasterDictionary.UpgradeRarity Rarity => rarity;
+    
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }
