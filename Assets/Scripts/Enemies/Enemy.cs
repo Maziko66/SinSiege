@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    private Material _matFlashDamaged;
+    private Material _matOriginal;
+    
     Rigidbody2D rb;
     private Canvas _canvas;
     private GameManager _gameManager;
@@ -39,10 +42,14 @@ public class Enemy : MonoBehaviour
     
     private void Awake()
     {
+        _matFlashDamaged = Resources.Load<Material>("Materials/FlashDamaged");
+        
         _canvas = FindFirstObjectByType<Canvas>();
         _gameManager = FindFirstObjectByType<GameManager>();
         rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        _matOriginal = _spriteRenderer.material;
     }
 
     private void Start()
@@ -122,6 +129,8 @@ public class Enemy : MonoBehaviour
             sliderHealth.maxValue = _health;
             //Debug.Log("slider instantiated");
         }
+        
+        StartCoroutine(FlashWhite());
         _health -= damage;
         //Debug.Log("-damage");
         sliderHealth.value = _health;
@@ -173,5 +182,14 @@ public class Enemy : MonoBehaviour
     public void SetWaveManager(WaveManager waveManager)
     {
         _waveManager = waveManager;
+    }
+    
+    
+    IEnumerator FlashWhite()
+    {
+        Debug.Log("Flash White");
+        _spriteRenderer.material = _matFlashDamaged;
+        yield return new WaitForSeconds(0.05f);
+        _spriteRenderer.material = _matOriginal;
     }
 }
