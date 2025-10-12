@@ -1,0 +1,572 @@
+fileFormatVersion: 2
+guid: adb680afef8be874aa8a41590fbee5f9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -29967901654740652
+    second: Tileset-Parts-4 - Copy_0
+  - first:
+      213: 3829151762376364686
+    second: Tileset-Parts-4 - Copy_1
+  - first:
+      213: 6897552574251652394
+    second: Tileset-Parts-4 - Copy_2
+  - first:
+      213: 8455204925145349314
+    second: Tileset-Parts-4 - Copy_3
+  - first:
+      213: 7039212630950571034
+    second: Tileset-Parts-4 - Copy_4
+  - first:
+      213: 2154010185397221379
+    second: Tileset-Parts-4 - Copy_5
+  - first:
+      213: -1841359218042997995
+    second: Tileset-Parts-4 - Copy_6
+  - first:
+      213: 2665721216550408833
+    second: Tileset-Parts-4 - Copy_7
+  - first:
+      213: 4023347138754743562
+    second: Tileset-Parts-4 - Copy_8
+  - first:
+      213: -15196771191252451
+    second: Tileset-Parts-4 - Copy_9
+  - first:
+      213: 9141083635255888305
+    second: Tileset-Parts-4 - Copy_10
+  - first:
+      213: -6385464745916276759
+    second: Tileset-Parts-4 - Copy_11
+  - first:
+      213: 4096433299714777759
+    second: Tileset-Parts-4 - Copy_12
+  - first:
+      213: 2635737607699812986
+    second: Tileset-Parts-4 - Copy_13
+  - first:
+      213: 3002985078407270929
+    second: Tileset-Parts-4 - Copy_14
+  - first:
+      213: -1120577292558869822
+    second: Tileset-Parts-4 - Copy_15
+  - first:
+      213: 1550298120813467749
+    second: Tileset-Parts-4 - Copy_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tileset-Parts-4 - Copy_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 159
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 451943b2a58859ff0800000000000000
+      internalID: -29967901654740652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Parts-4 - Copy_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 164
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e82118b7d31e32530800000000000000
+      internalID: 3829151762376364686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Parts-4 - Copy_2
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 164
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a25d9df758709bf50800000000000000
+      internalID: 6897552574251652394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Parts-4 - Copy_3
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 159
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ccfb62f41ce65570800000000000000
+      internalID: 8455204925145349314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Parts-4 - Copy_4
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 159
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1c604ea79e40b160800000000000000
+      internalID: 7039212630950571034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Parts-4 - Copy_5
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 162
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 308bc27e9d494ed10800000000000000
+      internalID: 2154010185397221379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Parts-4 - Copy_6
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 163
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 513f7a01c8d2276e0800000000000000
+      internalID: -1841359218042997995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Parts-4 - Copy_7
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 159
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18295b6a25b8ef420800000000000000
+      internalID: 2665721216550408833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Parts-4 - Copy_8
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 159
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0d8f85f7ecc5d730800000000000000
+      internalID: 4023347138754743562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Parts-4 - Copy_9
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 31
+        width: 30
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1a996bfd920acff0800000000000000
+      internalID: -15196771191252451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Parts-4 - Copy_10
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 31
+        width: 31
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b9409d7227abde70800000000000000
+      internalID: 9141083635255888305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Parts-4 - Copy_11
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 31
+        width: 34
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ef51ed25a54267a0800000000000000
+      internalID: -6385464745916276759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Parts-4 - Copy_12
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 35
+        width: 34
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f92a49bd16479d830800000000000000
+      internalID: 4096433299714777759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Parts-4 - Copy_13
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 31
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a72d514b365049420800000000000000
+      internalID: 2635737607699812986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Parts-4 - Copy_14
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 31
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1129340b40fbca920800000000000000
+      internalID: 3002985078407270929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Parts-4 - Copy_15
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 31
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cad8a5b3e8e270f0800000000000000
+      internalID: -1120577292558869822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tileset-Parts-4 - Copy_16
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 31
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 568da035de3c38510800000000000000
+      internalID: 1550298120813467749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Tileset-Parts-4 - Copy_0: -29967901654740652
+      Tileset-Parts-4 - Copy_1: 3829151762376364686
+      Tileset-Parts-4 - Copy_10: 9141083635255888305
+      Tileset-Parts-4 - Copy_11: -6385464745916276759
+      Tileset-Parts-4 - Copy_12: 4096433299714777759
+      Tileset-Parts-4 - Copy_13: 2635737607699812986
+      Tileset-Parts-4 - Copy_14: 3002985078407270929
+      Tileset-Parts-4 - Copy_15: -1120577292558869822
+      Tileset-Parts-4 - Copy_16: 1550298120813467749
+      Tileset-Parts-4 - Copy_2: 6897552574251652394
+      Tileset-Parts-4 - Copy_3: 8455204925145349314
+      Tileset-Parts-4 - Copy_4: 7039212630950571034
+      Tileset-Parts-4 - Copy_5: 2154010185397221379
+      Tileset-Parts-4 - Copy_6: -1841359218042997995
+      Tileset-Parts-4 - Copy_7: 2665721216550408833
+      Tileset-Parts-4 - Copy_8: 4023347138754743562
+      Tileset-Parts-4 - Copy_9: -15196771191252451
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
