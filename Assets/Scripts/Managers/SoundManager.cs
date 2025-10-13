@@ -8,6 +8,8 @@ public class SoundManager : MonoBehaviour
     
     [Header("Audio")]
     public EventReference sfxCoinPickup;
+    public EventReference sfxEnemyDamage;
+    public EventReference sfxEnemyDeath;
     
     private void Awake()
     {

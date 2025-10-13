@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UpgradeManager : MonoBehaviour
 {
+    public bool hasUpgraded;
+    
     [Header("UI")]
     [SerializeField] GameObject upgradePanel;
     [SerializeField] private Button btnUpgradePanelClose;
@@ -24,18 +26,27 @@ public class UpgradeManager : MonoBehaviour
     private void Start()
     {
         LoadUpgradeCards();
-        btnUpgradePanelClose.onClick.AddListener(() => SetUpgradePanelState(false));
+        btnUpgradePanelClose.onClick.AddListener(() => SetUpgradePanelState(false, true));
         upgradePanel.SetActive(false);
     }
 
     public void TimeToUpgrade()
     {
-        SetUpgradePanelState(true);
+        if (!hasUpgraded)
+        {
+            SetUpgradePanelState(true);
+        }
+        
     }
 
-    public void SetUpgradePanelState(bool state)
+    public void SetUpgradePanelState(bool state, bool isCloseButton = false)
     {
         upgradePanel.SetActive(state);
+        if (!isCloseButton)
+        {
+            hasUpgraded = true;
+            Debug.Log("Upgrade Panel Closed without Upgrading.");
+        }
     }
     
     private void LoadUpgradeCards()

@@ -34,6 +34,8 @@ public class WaveManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI textWaveTimer;
     [SerializeField] private Button buttonStartWave;
+    
+    
 
     private string _strWaveTimer = "Wave Timer: ";
     private string _strWaveInProgress = "Wave in progress";
@@ -94,6 +96,7 @@ public class WaveManager : MonoBehaviour
         {
             spawnCooldown -= Time.deltaTime;
             SpawnFromList();
+            _upgradeManager.hasUpgraded = false;
         }
         
         SpawnHorde();
@@ -118,7 +121,7 @@ public class WaveManager : MonoBehaviour
             spawnCooldown = 0;
             Debug.Log("enemy alive list <= 0");
             waveNumber++;
-            if (waveNumber % 5 == 0)
+            if (waveNumber % 5 == 0 && !_upgradeManager.hasUpgraded)
             {
                 _upgradeManager.TimeToUpgrade();
             }

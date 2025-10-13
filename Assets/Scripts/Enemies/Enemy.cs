@@ -95,6 +95,13 @@ public class Enemy : MonoBehaviour
             }
         }
 
+        
+    }
+
+    private void LateUpdate()
+    {
+        _spriteRenderer.sortingOrder = Mathf.RoundToInt(-_spriteRenderer.gameObject.transform.position.y * 100);
+        
         if (_isDamaged && sliderHealth)
         {
             Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position + sliderOffset);
@@ -102,11 +109,6 @@ public class Enemy : MonoBehaviour
             // Set the slider's position
             sliderHealth.transform.position = screenPosition;
         }
-    }
-
-    private void LateUpdate()
-    {
-        _spriteRenderer.sortingOrder = Mathf.RoundToInt(-_spriteRenderer.gameObject.transform.position.y * 100);
     }
 
     private void FixedUpdate()
@@ -144,6 +146,7 @@ public class Enemy : MonoBehaviour
             _gameManager.SpawnCoins(coinValue, transform.position);
             Destroy(sliderHealth.gameObject);
             Destroy(gameObject);
+            SoundManager.Instance.PlaySound(SoundManager.Instance.sfxEnemyDeath);
             return;
         }
     }

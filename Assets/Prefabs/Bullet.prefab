@@ -56,6 +56,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -77,6 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1148803449
   m_SortingLayer: 6
   m_SortingOrder: 0
@@ -103,6 +106,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae23edd8f0249449b4aacb00fa2cddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyDamage:
+    Guid:
+      Data1: -1350691750
+      Data2: 1092810031
+      Data3: -1293441882
+      Data4: 350172592
+    Path: event:/SFX/Misc/EnemyHit
 --- !u!50 &6286203354809470443
 Rigidbody2D:
   serializedVersion: 5

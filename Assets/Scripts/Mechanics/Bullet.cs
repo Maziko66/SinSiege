@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMODUnity;
 
 public class Bullet : MonoBehaviour
 {
@@ -166,6 +167,11 @@ public class Bullet : MonoBehaviour
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
             if (enemy)
             {
+                if (SoundManager.Instance != null && gameObject.scene.isLoaded)
+                {
+                    //SoundManager.Instance.PlaySound(SoundManager.Instance.sfxCoinPickup, transform.position);
+                    SoundManager.Instance.PlaySound(SoundManager.Instance.sfxEnemyDamage);
+                }
                 enemy.ReduceHealth(_damage);
                 enemy.CheckHealth();
                 _health--;
@@ -176,6 +182,7 @@ public class Bullet : MonoBehaviour
                 }
                 CheckHealth();
                 //Debug.Log("hit enemy");
+                
             }
             
         }
