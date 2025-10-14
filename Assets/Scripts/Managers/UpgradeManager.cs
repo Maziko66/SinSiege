@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class UpgradeManager : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class UpgradeManager : MonoBehaviour
     {
         LoadUpgradeCards();
         btnUpgradePanelClose.onClick.AddListener(() => SetUpgradePanelState(false, true));
-        upgradePanel.SetActive(false);
+        //upgradePanel.SetActive(false);
     }
 
     public void TimeToUpgrade()
@@ -76,5 +77,28 @@ public class UpgradeManager : MonoBehaviour
                 break;
             }
         }
+    }
+
+    private void SelectRandomCards()
+    {
+        foreach (UpgradeCard card in upgradeCardsUI)
+        {
+            int random = Random.Range(0, 4);
+
+            // switch (random)
+            // {
+            //     case 0:
+            //     {
+            //         
+            //     }
+            // }
+            
+        }
+    }
+
+    private void SetUpgradeCard(UpgradeCard card, Upgrade upgrade)
+    {
+        card.upgrade = upgrade;
+        card.SetUIToUpgrade();
     }
 }

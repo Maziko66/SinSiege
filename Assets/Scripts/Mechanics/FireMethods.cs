@@ -53,20 +53,32 @@ public static class FireMethods
     /// <param name="transform">The transform from which the bullet is fired.</param>
     /// <param name="bulletSpeed">Speed of the bullet.</param>
     /// <param name="attackDamage">Damage dealt by the bullet.</param>
-    /// <param name="target">The main target the bullet is directed at.</param>
     /// <param name="targetVector3">The target position in world space.</param>
     /// <param name="bulletHealth">Health of the bullet.</param>
     /// <param name="targetTag">Tag of object to seek.</param>
-    /// <param name="bulletCount">Number of bullets fired (used in spread mode).</param>
-    /// <param name="spreadAngle">Angle spread between bullets (used in spread mode).</param>
-    /// <param name="towerGeneric">Source towergeneric.</param>
-    public static void BulletFire(int firedFrom, Bullet bulletPrefab, Transform transform, float bulletSpeed, float attackDamage,
-                                  Vector3 targetVector3,int bulletHealth, string targetTag, TowerGeneric towerGeneric = null, Transform target = null,  int bulletCount = 1, float spreadAngle = 0f)
+    /// <param name="towerGeneric">Source towergeneric. Default value "null".</param>
+    /// <param name="target">The main target the bullet is directed at. Default value "null".</param>
+    /// <param name="bulletCount">Number of bullets fired (used in spread mode). Default value "1".</param>
+    /// <param name="spreadAngle">Angle spread between bullets (used in spread mode). Default value "0f".</param>
+    /// <param name="isSpinning">Checks bullet's isSpinning bool. Default value "false".</param>
+    public static void BulletFire(int firedFrom, 
+                                    Bullet bulletPrefab,
+                                    Transform transform,
+                                    float bulletSpeed,
+                                    float attackDamage,
+                                    Vector3 targetVector3,
+                                    int bulletHealth,
+                                    string targetTag,
+                                    TowerGeneric towerGeneric = null,
+                                    Transform target = null,
+                                    int bulletCount = 1,
+                                    float spreadAngle = 0f,
+                                    bool isSpinning = false)
     {
         if (firedFrom == 0)
         {
             Bullet bullet = Object.Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            bullet.SetBulletStats(bulletSpeed, attackDamage, bulletHealth, transform.position, target.position, firedFrom, targetTag);
+            bullet.SetBulletStats(bulletSpeed, attackDamage, bulletHealth, transform.position, target.position, firedFrom, targetTag, 1f, isSpinning);
             bullet.SetTowerGeneric(towerGeneric);
             bullet.SetTarget(target);
         }

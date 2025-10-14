@@ -85,6 +85,9 @@
 		<property name="volume">
 			<value>-7</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{a1596127-3791-44a9-9d71-e0c04a196964}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{0f0e7ea8-15f3-43fb-aeb2-f117ba611be9}</destination>
 		</relationship>
@@ -153,6 +156,17 @@
 		<relationship name="output">
 			<destination>{bbf68d15-168a-4ff9-80f1-4f27a593be8f}</destination>
 		</relationship>
+	</object>
+	<object class="RandomizerModulator" id="{a1596127-3791-44a9-9d71-e0c04a196964}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="clockSource">
+			<value>1</value>
+		</property>
+		<property name="amount">
+			<value>7</value>
+		</property>
 	</object>
 	<object class="MixerBusEffectChain" id="{0f0e7ea8-15f3-43fb-aeb2-f117ba611be9}">
 		<relationship name="effects">

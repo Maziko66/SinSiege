@@ -75,9 +75,7 @@ public class Base : MonoBehaviour
         return center + new Vector3(x, y, 0);
     }
     
-    private void Oscillate(){
-        
-    }
+    
     
     private void OnTriggerEnter2D(Collider2D other)
     {

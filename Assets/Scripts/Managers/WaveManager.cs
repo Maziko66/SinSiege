@@ -225,7 +225,8 @@ public class WaveManager : MonoBehaviour
             int randIndex = Random.Range(0, hordeList.Count);
             
             GameObject instObj = Instantiate(hordeList[randIndex].gameObject, enemyParent.transform);
-            instObj.transform.position = new Vector3(GetHordeSpawnPosition().x, GetHordeSpawnPosition().y, 0);
+            Vector2 spawnPos = GetHordeSpawnPosition();
+            instObj.transform.position = new Vector3(spawnPos.x, spawnPos.y, 0);
 
             Enemy enemy = instObj.GetComponent<Enemy>();
             //enemy.waypoints.Add(_headquartersPosition);

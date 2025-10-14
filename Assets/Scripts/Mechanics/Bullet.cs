@@ -23,6 +23,10 @@ public class Bullet : MonoBehaviour
     
     private string _targetTag;
 
+    private bool _isSpinning;
+
+    private float _speedSpin = -450f;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -48,6 +52,10 @@ public class Bullet : MonoBehaviour
             Vector2 newPosition = Vector2.MoveTowards(_rb.position, _target.position, _speed * Time.fixedDeltaTime);
             _rb.MovePosition(newPosition);
             
+            if (_isSpinning)
+            {
+                transform.Rotate(0f, 0f, _speedSpin * Time.fixedDeltaTime);
+            }
         }
         
         _lifeSpan -= Time.fixedDeltaTime;
@@ -77,7 +85,8 @@ public class Bullet : MonoBehaviour
     /// <param name="mode">Bullet mode. (0 = homing, 1 = direct)</param>
     /// <param name="tagToHit">Tag of gameobject to destroy.</param>
     /// <param name="mass">Bullet mass.</param>
-    public void SetBulletStats(float speed, float damage, int health, Vector3 startPosition, Vector3 targetVector, int mode, string tagToHit, float mass = 1f)
+    /// <param name="isSpinning">Checks bullet spin.</param>
+    public void SetBulletStats(float speed, float damage, int health, Vector3 startPosition, Vector3 targetVector, int mode, string tagToHit, float mass = 1f, bool isSpinning = false)
     {
         SetBulletSpeed(speed);
         SetBulletDamage(damage);
@@ -87,6 +96,7 @@ public class Bullet : MonoBehaviour
         SetFiredFrom(mode);
         SetTargetTag(tagToHit);
         SetBulletMass(mass);
+        SetBulletSpinning(isSpinning);
     }
 
     public void SetBulletSpeed(float speed)
@@ -135,6 +145,11 @@ public class Bullet : MonoBehaviour
     public void SetBulletMass(float mass = 1f)
     {
         _mass = mass;
+    }
+
+    public void SetBulletSpinning(bool isSpinning)
+    {
+        _isSpinning = isSpinning;
     }
 
     public void SetTargetTag(string tag)

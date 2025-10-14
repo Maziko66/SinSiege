@@ -42,6 +42,7 @@ public class TowerGeneric : MonoBehaviour
     [SerializeField] protected int bulletHealth = 1;
     [SerializeField] protected FireMethods.FireMode fireMode = FireMethods.FireMode.Homing;
     //[SerializeField] private FireMethods.TargetTag targetTag = FireMethods.TargetTag.Enemy;
+    [SerializeField] protected bool bulletIsSpinning;
     
     [Header("Tower Rank Multipliers")]
     [SerializeField] protected float[] rankBonusDamage = {0.0f, 0.1f, 0.2f, 0.3f};
