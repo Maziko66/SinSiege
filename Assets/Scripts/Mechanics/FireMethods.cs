@@ -61,6 +61,7 @@ public static class FireMethods
     /// <param name="bulletCount">Number of bullets fired (used in spread mode). Default value "1".</param>
     /// <param name="spreadAngle">Angle spread between bullets (used in spread mode). Default value "0f".</param>
     /// <param name="isSpinning">Checks bullet's isSpinning bool. Default value "false".</param>
+    /// <param name="startPosition">Start position of bullet (Vector2).</param>
     public static void BulletFire(int firedFrom, 
                                     Bullet bulletPrefab,
                                     Transform transform,
@@ -73,7 +74,8 @@ public static class FireMethods
                                     Transform target = null,
                                     int bulletCount = 1,
                                     float spreadAngle = 0f,
-                                    bool isSpinning = false)
+                                    bool isSpinning = false,
+                                    Vector2? startPosition = null)
     {
         if (firedFrom == 0)
         {
@@ -89,6 +91,22 @@ public static class FireMethods
             for (int i = 0; i < bulletCount; i++)
             {
                 Bullet bullet = Object.Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                Vector2 direction = ((Vector2)targetVector3 - (Vector2)transform.position).normalized;
+                direction = FireMethods.RotateVector2(direction, startAngle);
+                //bullet.SetBulletStats(bulletSpeed, attackDamage, 1, transform.position, direction, 1);
+                bullet.SetBulletStats(bulletSpeed, attackDamage, bulletHealth, transform.position, direction, firedFrom, targetTag);
+                bullet.SetTowerGeneric(towerGeneric);
+                startAngle -= spreadAngle;
+            }
+        }
+        else if (firedFrom == 2)
+        {
+            float startAngle = (bulletCount * spreadAngle) / 2 - 5;
+        
+            for (int i = 0; i < bulletCount; i++)
+            {
+                Vector2 pos = startPosition ?? Vector2.zero;
+                Bullet bullet = Object.Instantiate(bulletPrefab, pos, Quaternion.identity);
                 Vector2 direction = ((Vector2)targetVector3 - (Vector2)transform.position).normalized;
                 direction = FireMethods.RotateVector2(direction, startAngle);
                 //bullet.SetBulletStats(bulletSpeed, attackDamage, 1, transform.position, direction, 1);

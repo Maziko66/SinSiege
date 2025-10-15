@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using FMODUnity;
 
@@ -17,7 +18,7 @@ public class Bullet : MonoBehaviour
 
     private Transform _target;
 
-    private int _bulletMode; //0: Turret Homing, 1: Shoutgun, Direct
+    private int _bulletMode; //0: Turret Homing, 1: Shoutgun, Direct, 2: Enemy, Direct
 
     private float _lifeSpan = 4;
     
@@ -34,8 +35,9 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
+        //Debug.Log("Bullet Start");
         _rb.mass = _mass;
-        if (_bulletMode == 1)
+        if (_bulletMode == 1 || _bulletMode == 2)
         {
             _rb.AddForce(_targetVector * _speed /** _mass*/, ForceMode2D.Impulse);
         }
@@ -177,7 +179,11 @@ public class Bullet : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (_targetTag == "Enemy" || other.gameObject.CompareTag(_targetTag) || other.gameObject.CompareTag("Enemy"))
+        if (_bulletMode == 2)
+        {
+
+        }
+        else if (_targetTag == "Enemy" || other.gameObject.CompareTag(_targetTag) || other.gameObject.CompareTag("Enemy"))
         {
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
             if (enemy)
@@ -216,6 +222,8 @@ public class Bullet : MonoBehaviour
                             _towerGeneric.bulletsHit++;
                             _towerGeneric.IncreaseTowerZoneVet(enemy.GetExp());
                         }
+
+                        _health--;
                         CheckHealth();
                     }
                 }
@@ -225,6 +233,18 @@ public class Bullet : MonoBehaviour
         else if (other.gameObject.CompareTag("Bound"))
         {
             _health = 0;
+            CheckHealth();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Player player = other.gameObject.GetComponent<Player>();
+            Debug.Log("Bullet hit player.");
+            
+            _health--;
             CheckHealth();
         }
     }

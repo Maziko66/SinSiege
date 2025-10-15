@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour
     public EventReference sfxCoinPickup;
     public EventReference sfxEnemyDamage;
     public EventReference sfxEnemyDeath;
+    public EventReference sfxMammonArmHit;
     
     private void Awake()
     {
