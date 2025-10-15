@@ -197,7 +197,28 @@ public class Bullet : MonoBehaviour
                 }
                 CheckHealth();
                 //Debug.Log("hit enemy");
-                
+            }
+            else
+            {
+                Boss boss = other.gameObject.GetComponent<Boss>();
+                {
+                    if (boss)
+                    {
+                        if (SoundManager.Instance != null && gameObject.scene.isLoaded)
+                        {
+                            //SoundManager.Instance.PlaySound(SoundManager.Instance.sfxCoinPickup, transform.position);
+                            SoundManager.Instance.PlaySound(SoundManager.Instance.sfxEnemyDamage);
+                        }
+                        boss.ReduceHealth(_damage);
+                        //boss.CheckHealth();
+                        if (_towerGeneric)
+                        {
+                            _towerGeneric.bulletsHit++;
+                            _towerGeneric.IncreaseTowerZoneVet(enemy.GetExp());
+                        }
+                        CheckHealth();
+                    }
+                }
             }
             
         }

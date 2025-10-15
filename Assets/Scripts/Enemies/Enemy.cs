@@ -105,8 +105,7 @@ public class Enemy : MonoBehaviour
         if (_isDamaged && sliderHealth)
         {
             Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position + sliderOffset);
-
-            // Set the slider's position
+            
             sliderHealth.transform.position = screenPosition;
         }
     }
