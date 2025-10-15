@@ -17,7 +17,7 @@ public class UpgradeCard : MonoBehaviour
         textTitle.SetText(upgradeName);
         textDescription.SetText(upgradeDescription);
         upgradeImage.sprite = upgradeSprite;
-        textTitle.color = Color.white;
+        textTitle.color = MasterDictionary.GetRarityColor(rarity);
     }
 
     public void SetUIToUpgrade()

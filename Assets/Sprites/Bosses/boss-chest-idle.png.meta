@@ -1,34 +1,34 @@
 fileFormatVersion: 2
-guid: d6fc5642ba5fb09448d63c7a0dbcbfd6
+guid: 6a11de5dc97acc347a6e7142d5bc5d3f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7976007810370987040
-    second: boss-head-idle_0
+      213: -1837546949490081563
+    second: boss-chest-idle_0
   - first:
-      213: 5971524697943620344
-    second: boss-head-idle_1
+      213: 7135406110089441486
+    second: boss-chest-idle_1
   - first:
-      213: -5024826612236902057
-    second: boss-head-idle_2
+      213: 6578533537462307314
+    second: boss-chest-idle_2
   - first:
-      213: -6057083333592126017
-    second: boss-head-idle_3
+      213: 5944425895902108454
+    second: boss-chest-idle_3
   - first:
-      213: 9001083587539467779
-    second: boss-head-idle_4
+      213: -1616297151520020979
+    second: boss-chest-idle_4
   - first:
-      213: 4549905507848283734
-    second: boss-head-idle_5
+      213: -2460765253648551081
+    second: boss-chest-idle_5
   - first:
-      213: -8270357485241078601
-    second: boss-head-idle_6
+      213: -2332312612119824197
+    second: boss-chest-idle_6
   - first:
-      213: -4247658431617110155
-    second: boss-head-idle_7
+      213: 2302667346716669254
+    second: boss-chest-idle_7
   - first:
-      213: -8085850709927223010
-    second: boss-head-idle_8
+      213: -3884657193294771893
+    second: boss-chest-idle_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,7 +96,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -120,11 +120,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boss-head-idle_0
+      name: boss-chest-idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -139,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0eb9819b7278f4190800000000000000
-      internalID: -7976007810370987040
+      spriteID: 5e08a8109c8bf76e0800000000000000
+      internalID: -1837546949490081563
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-head-idle_1
+      name: boss-chest-idle_1
       rect:
         serializedVersion: 2
         x: 320
@@ -161,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8fab664031e1fd250800000000000000
-      internalID: 5971524697943620344
+      spriteID: ec078085d0e060360800000000000000
+      internalID: 7135406110089441486
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-head-idle_2
+      name: boss-chest-idle_2
       rect:
         serializedVersion: 2
         x: 640
@@ -183,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 751a0bf91da344ab0800000000000000
-      internalID: -5024826612236902057
+      spriteID: 2f94f63d565ab4b50800000000000000
+      internalID: 6578533537462307314
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-head-idle_3
+      name: boss-chest-idle_3
       rect:
         serializedVersion: 2
         x: 960
@@ -205,14 +218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fbd6d46cccae0fba0800000000000000
-      internalID: -6057083333592126017
+      spriteID: 62bd0ee7bd7de7250800000000000000
+      internalID: 5944425895902108454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-head-idle_4
+      name: boss-chest-idle_4
       rect:
         serializedVersion: 2
         x: 1280
@@ -227,14 +240,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 30e73e445d54aec70800000000000000
-      internalID: 9001083587539467779
+      spriteID: d066c20ed42c199e0800000000000000
+      internalID: -1616297151520020979
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-head-idle_5
+      name: boss-chest-idle_5
       rect:
         serializedVersion: 2
         x: 1600
@@ -249,14 +262,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 656e3e4f3f2842f30800000000000000
-      internalID: 4549905507848283734
+      spriteID: 75377ac1a0b99ddd0800000000000000
+      internalID: -2460765253648551081
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-head-idle_6
+      name: boss-chest-idle_6
       rect:
         serializedVersion: 2
         x: 1920
@@ -271,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7bc66b67fa9c93d80800000000000000
-      internalID: -8270357485241078601
+      spriteID: bb83f615906f1afd0800000000000000
+      internalID: -2332312612119824197
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-head-idle_7
+      name: boss-chest-idle_7
       rect:
         serializedVersion: 2
         x: 2240
@@ -293,14 +306,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 57fe44859294d05c0800000000000000
-      internalID: -4247658431617110155
+      spriteID: 64530f470c7b4ff10800000000000000
+      internalID: 2302667346716669254
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-head-idle_8
+      name: boss-chest-idle_8
       rect:
         serializedVersion: 2
         x: 2560
@@ -315,8 +328,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e11a2f7be9949cf80800000000000000
-      internalID: -8085850709927223010
+      spriteID: b49cf7f4ddce61ac0800000000000000
+      internalID: -3884657193294771893
       vertices: []
       indices: 
       edges: []
@@ -325,7 +338,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 927b0082a9c504d4f91cde769fa32d36
+    spriteID: f38a7aff8a686a14a8de366143fad51d
     internalID: 0
     vertices: []
     indices: 
@@ -337,15 +350,15 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":9.0,"y":1.0},"gridSpriteSize":{"x":320.0,"y":272.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      boss-head-idle_0: -7976007810370987040
-      boss-head-idle_1: 5971524697943620344
-      boss-head-idle_2: -5024826612236902057
-      boss-head-idle_3: -6057083333592126017
-      boss-head-idle_4: 9001083587539467779
-      boss-head-idle_5: 4549905507848283734
-      boss-head-idle_6: -8270357485241078601
-      boss-head-idle_7: -4247658431617110155
-      boss-head-idle_8: -8085850709927223010
+      boss-chest-idle_0: -1837546949490081563
+      boss-chest-idle_1: 7135406110089441486
+      boss-chest-idle_2: 6578533537462307314
+      boss-chest-idle_3: 5944425895902108454
+      boss-chest-idle_4: -1616297151520020979
+      boss-chest-idle_5: -2460765253648551081
+      boss-chest-idle_6: -2332312612119824197
+      boss-chest-idle_7: 2302667346716669254
+      boss-chest-idle_8: -3884657193294771893
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

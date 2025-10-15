@@ -11,16 +11,20 @@ public class UpgradeManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] GameObject upgradePanel;
     [SerializeField] private Button btnUpgradePanelClose;
+    [SerializeField] private Button btnReroll;
     [SerializeField] private List<UpgradeCard> upgradeCardsUI;
     
     
     [Header("Mechanical")]
     [SerializeField] List<Upgrade> upgrades = new List<Upgrade>();
+    
     [SerializeField] List<Upgrade> upgradesCommon = new List<Upgrade>();
     [SerializeField] List<Upgrade> upgradesUncommon = new List<Upgrade>();
     [SerializeField] List<Upgrade> upgradesRare = new List<Upgrade>();
     [SerializeField] List<Upgrade> upgradesLegendary = new List<Upgrade>();
     [SerializeField] List<Upgrade> upgradesUnique = new List<Upgrade>();
+    
+    private List<List<Upgrade>> rarityList = new List<List<Upgrade>>();
     
 
 
@@ -28,7 +32,16 @@ public class UpgradeManager : MonoBehaviour
     {
         LoadUpgradeCards();
         btnUpgradePanelClose.onClick.AddListener(() => SetUpgradePanelState(false, true));
-        //upgradePanel.SetActive(false);
+        btnReroll.onClick.AddListener(Reroll);
+        upgradePanel.SetActive(false);
+        
+        rarityList.Add(upgradesCommon);
+        rarityList.Add(upgradesUncommon);
+        rarityList.Add(upgradesRare);
+        rarityList.Add(upgradesLegendary);
+        // rarityList.Add(upgradesUnique);
+        
+        //SelectRandomCards();
     }
 
     public void TimeToUpgrade()
@@ -43,6 +56,7 @@ public class UpgradeManager : MonoBehaviour
     public void SetUpgradePanelState(bool state, bool isCloseButton = false)
     {
         upgradePanel.SetActive(state);
+        SelectRandomCards();
         if (!isCloseButton)
         {
             hasUpgraded = true;
@@ -85,14 +99,9 @@ public class UpgradeManager : MonoBehaviour
         {
             int random = Random.Range(0, 4);
 
-            // switch (random)
-            // {
-            //     case 0:
-            //     {
-            //         
-            //     }
-            // }
+            List<Upgrade> randomList = rarityList[random];
             
+            SetUpgradeCard(card, randomList[Random.Range(0, randomList.Count)]);
         }
     }
 
@@ -100,5 +109,10 @@ public class UpgradeManager : MonoBehaviour
     {
         card.upgrade = upgrade;
         card.SetUIToUpgrade();
+    }
+
+    private void Reroll()
+    {
+        SelectRandomCards();
     }
 }

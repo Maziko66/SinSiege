@@ -1,34 +1,34 @@
 fileFormatVersion: 2
-guid: b8a6226aa2d127643ba7700ee429b7b1
+guid: d6fc5642ba5fb09448d63c7a0dbcbfd6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3470871105780377063
-    second: boss-Rarm-idle_0
+      213: -7976007810370987040
+    second: boss-head-idle_0
   - first:
-      213: -5090403339638463652
-    second: boss-Rarm-idle_1
+      213: 5971524697943620344
+    second: boss-head-idle_1
   - first:
-      213: -4345495740571086282
-    second: boss-Rarm-idle_2
+      213: -5024826612236902057
+    second: boss-head-idle_2
   - first:
-      213: 1029916036245155545
-    second: boss-Rarm-idle_3
+      213: -6057083333592126017
+    second: boss-head-idle_3
   - first:
-      213: -3934863676893585837
-    second: boss-Rarm-idle_4
+      213: 9001083587539467779
+    second: boss-head-idle_4
   - first:
-      213: 5097392876694043086
-    second: boss-Rarm-idle_5
+      213: 4549905507848283734
+    second: boss-head-idle_5
   - first:
-      213: -8635661328116250135
-    second: boss-Rarm-idle_6
+      213: -8270357485241078601
+    second: boss-head-idle_6
   - first:
-      213: 1872438718961928795
-    second: boss-Rarm-idle_7
+      213: -4247658431617110155
+    second: boss-head-idle_7
   - first:
-      213: 6926150299131892344
-    second: boss-Rarm-idle_8
+      213: -8085850709927223010
+    second: boss-head-idle_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,7 +96,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -120,11 +120,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boss-Rarm-idle_0
+      name: boss-head-idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -139,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7e5e43991e20b2030800000000000000
-      internalID: 3470871105780377063
+      spriteID: 0eb9819b7278f4190800000000000000
+      internalID: -7976007810370987040
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-Rarm-idle_1
+      name: boss-head-idle_1
       rect:
         serializedVersion: 2
         x: 320
@@ -161,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c532369f1214b59b0800000000000000
-      internalID: -5090403339638463652
+      spriteID: 8fab664031e1fd250800000000000000
+      internalID: 5971524697943620344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-Rarm-idle_2
+      name: boss-head-idle_2
       rect:
         serializedVersion: 2
         x: 640
@@ -183,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 632994ab5a2b1b3c0800000000000000
-      internalID: -4345495740571086282
+      spriteID: 751a0bf91da344ab0800000000000000
+      internalID: -5024826612236902057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-Rarm-idle_3
+      name: boss-head-idle_3
       rect:
         serializedVersion: 2
         x: 960
@@ -205,14 +218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9deeed0ad2ffa4e00800000000000000
-      internalID: 1029916036245155545
+      spriteID: fbd6d46cccae0fba0800000000000000
+      internalID: -6057083333592126017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-Rarm-idle_4
+      name: boss-head-idle_4
       rect:
         serializedVersion: 2
         x: 1280
@@ -227,14 +240,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 35e9b2b655e8469c0800000000000000
-      internalID: -3934863676893585837
+      spriteID: 30e73e445d54aec70800000000000000
+      internalID: 9001083587539467779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-Rarm-idle_5
+      name: boss-head-idle_5
       rect:
         serializedVersion: 2
         x: 1600
@@ -249,14 +262,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec974ff60d39db640800000000000000
-      internalID: 5097392876694043086
+      spriteID: 656e3e4f3f2842f30800000000000000
+      internalID: 4549905507848283734
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-Rarm-idle_6
+      name: boss-head-idle_6
       rect:
         serializedVersion: 2
         x: 1920
@@ -271,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e98d0996c7f72880800000000000000
-      internalID: -8635661328116250135
+      spriteID: 7bc66b67fa9c93d80800000000000000
+      internalID: -8270357485241078601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-Rarm-idle_7
+      name: boss-head-idle_7
       rect:
         serializedVersion: 2
         x: 2240
@@ -293,14 +306,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b5ac963281d3cf910800000000000000
-      internalID: 1872438718961928795
+      spriteID: 57fe44859294d05c0800000000000000
+      internalID: -4247658431617110155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: boss-Rarm-idle_8
+      name: boss-head-idle_8
       rect:
         serializedVersion: 2
         x: 2560
@@ -315,8 +328,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 872d8b03001ae1060800000000000000
-      internalID: 6926150299131892344
+      spriteID: e11a2f7be9949cf80800000000000000
+      internalID: -8085850709927223010
       vertices: []
       indices: 
       edges: []
@@ -325,7 +338,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e831148b98f764e4989993cb4b56f257
+    spriteID: 927b0082a9c504d4f91cde769fa32d36
     internalID: 0
     vertices: []
     indices: 
@@ -337,15 +350,15 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":9.0,"y":1.0},"gridSpriteSize":{"x":320.0,"y":272.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      boss-Rarm-idle_0: 3470871105780377063
-      boss-Rarm-idle_1: -5090403339638463652
-      boss-Rarm-idle_2: -4345495740571086282
-      boss-Rarm-idle_3: 1029916036245155545
-      boss-Rarm-idle_4: -3934863676893585837
-      boss-Rarm-idle_5: 5097392876694043086
-      boss-Rarm-idle_6: -8635661328116250135
-      boss-Rarm-idle_7: 1872438718961928795
-      boss-Rarm-idle_8: 6926150299131892344
+      boss-head-idle_0: -7976007810370987040
+      boss-head-idle_1: 5971524697943620344
+      boss-head-idle_2: -5024826612236902057
+      boss-head-idle_3: -6057083333592126017
+      boss-head-idle_4: 9001083587539467779
+      boss-head-idle_5: 4549905507848283734
+      boss-head-idle_6: -8270357485241078601
+      boss-head-idle_7: -4247658431617110155
+      boss-head-idle_8: -8085850709927223010
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
