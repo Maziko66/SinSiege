@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4918921690066542270}
   - component: {fileID: 3670360590733287669}
+  - component: {fileID: 7473133395990834920}
   m_Layer: 0
   m_Name: prop_bones_4
   m_TagString: Untagged
@@ -34,6 +35,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3670360590733287669
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -52,6 +54,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -73,9 +77,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -769565843
   m_SortingLayer: 8
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -1471546515091541907, guid: 9a926a61ffcd9ca41b7501e8b6fbe954, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -85,5 +91,76 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7473133395990834920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3329941904377966308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.ShadowCaster2D
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 00000000d1bddf54c9510dfc795d05a051cfd6bcbf76655879597944c1c48d1b6d5b21d249e0bd19878f3f7c
+  m_ShapePath:
+  - {x: -0.18590188, y: -0.18472576, z: 0}
+  - {x: -0.24434066, y: -0.1221714, z: 0}
+  - {x: -0.43936443, y: -0.12889671, z: 0}
+  - {x: -0.50437236, y: -0.05940342, z: 0}
+  - {x: -0.5043726, y: 0.12217045, z: 0}
+  - {x: -0.4436922, y: 0.18248367, z: 0}
+  - {x: -0.25779057, y: 0.18717861, z: 0}
+  - {x: -0.18829918, y: 0.25891113, z: 0}
+  - {x: -0.07173324, y: 0.31495285, z: 0}
+  - {x: 0.0044829845, y: 0.31943607, z: 0}
+  - {x: 0.12553239, y: 0.25218582, z: 0}
+  - {x: 0.19054055, y: 0.13562012, z: 0}
+  - {x: 0.25554824, y: 0.1378622, z: 0}
+  - {x: 0.31158996, y: 0.19838619, z: 0}
+  - {x: 0.38556457, y: 0.17821121, z: 0}
+  - {x: 0.5110972, y: 0.0795784, z: 0}
+  - {x: 0.5088556, y: 0.007845879, z: 0}
+  - {x: 0.3809259, y: -0.12238121, z: 0}
+  - {x: 0.31591773, y: -0.13092613, z: 0}
+  - {x: 0.25554824, y: -0.063887596, z: 0}
+  - {x: 0.18381524, y: -0.052679062, z: 0}
+  - {x: 0.13225746, y: -0.19390297, z: 0}
+  - {x: -0.00224185, y: -0.25218678, z: 0}
+  - {x: -0.067249775, y: -0.24994469, z: 0}
+  m_ShapePathHash: -1958484023
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DProvider:
+    rid: -2
+  m_ShadowCastingSource: 1
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0.003362298, y: 0.03362465, z: 0}
+      m_Extent: {x: 0.5077349, y: 0.28581142, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.03
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0.03
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0.03
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 1
+  m_PreviousShadowShape2DSource: {fileID: 3670360590733287669}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5469624569042709756}
   - component: {fileID: 7775175761182488137}
+  - component: {fileID: -4309865904542296475}
   m_Layer: 0
   m_Name: prop_tabloid_1
   m_TagString: Untagged
@@ -34,6 +35,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7775175761182488137
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -52,6 +54,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -73,9 +77,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -769565843
   m_SortingLayer: 8
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 7877204382101420279, guid: 9a926a61ffcd9ca41b7501e8b6fbe954, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -85,5 +91,91 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-4309865904542296475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4464282178937101055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.ShadowCaster2D
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 00000000d1bddf54c9510dfc795d05a051cfd6bcbf76655879597944c1c48d1b6d5b21d249e0bd19878f3f7c
+  m_ShapePath:
+  - {x: -0.38164043, y: -0.5864525, z: 0}
+  - {x: -1.0054708, y: -0.4627037, z: 0}
+  - {x: -1.0114799, y: -0.0931263, z: 0}
+  - {x: -0.81917953, y: 0.3065014, z: 0}
+  - {x: -0.7560806, y: 0.3034954, z: 0}
+  - {x: -0.76509476, y: 0.9585171, z: 0}
+  - {x: -1.1857529, y: 1.1087532, z: 0}
+  - {x: -1.2548633, y: 1.1538181, z: 0}
+  - {x: -1.2435927, y: 1.7472038, z: 0}
+  - {x: -1.1869612, y: 1.8713112, z: 0}
+  - {x: -1.0762095, y: 1.9256649, z: 0}
+  - {x: -0.62778854, y: 1.9256649, z: 0}
+  - {x: -0.6271663, y: 1.8572292, z: 0}
+  - {x: -0.8700962, y: 1.7304821, z: 0}
+  - {x: -1.056694, y: 1.6424637, z: 0}
+  - {x: -0.9933214, y: 1.5403633, z: 0}
+  - {x: -0.91234446, y: 1.3748894, z: 0}
+  - {x: -0.8137646, y: 1.431221, z: 0}
+  - {x: -0.75743294, y: 1.6847134, z: 0}
+  - {x: -0.70814276, y: 1.7340031, z: 0}
+  - {x: 0.69310474, y: 1.7340031, z: 0}
+  - {x: 0.75647783, y: 1.6671085, z: 0}
+  - {x: 0.75999856, y: 1.4241791, z: 0}
+  - {x: 0.9149103, y: 1.3678474, z: 0}
+  - {x: 1.0029285, y: 1.5333214, z: 0}
+  - {x: 1.0557394, y: 1.6495056, z: 0}
+  - {x: 0.615649, y: 1.8572292, z: 0}
+  - {x: 0.60860753, y: 1.9170799, z: 0}
+  - {x: 1.0704441, y: 1.9201679, z: 0}
+  - {x: 1.1860061, y: 1.8642693, z: 0}
+  - {x: 1.2599411, y: 1.737524, z: 0}
+  - {x: 1.2634621, y: 1.1636467, z: 0}
+  - {x: 1.1930475, y: 1.0967522, z: 0}
+  - {x: 0.75647783, y: 0.97000694, z: 0}
+  - {x: 0.7662897, y: 0.3150444, z: 0}
+  - {x: 0.8063638, y: 0.30049324, z: 0}
+  - {x: 1.0076785, y: -0.08110428, z: 0}
+  - {x: 1.0006106, y: -0.4572487, z: 0}
+  - {x: 0.37669182, y: -0.5889015, z: 0}
+  m_ShapePathHash: -1681286073
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DProvider:
+    rid: -2
+  m_ShadowCastingSource: 1
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0.0042994022, y: 0.6683817, z: 0}
+      m_Extent: {x: 1.2591627, y: 1.2572832, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.1
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0.1
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 1
+  m_PreviousShadowShape2DSource: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

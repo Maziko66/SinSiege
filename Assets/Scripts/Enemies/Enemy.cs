@@ -189,7 +189,7 @@ public class Enemy : MonoBehaviour
     
     IEnumerator FlashWhite()
     {
-        Debug.Log("Flash White");
+        //Debug.Log("Flash White");
         _spriteRenderer.material = _matFlashDamaged;
         yield return new WaitForSeconds(0.05f);
         _spriteRenderer.material = _matOriginal;

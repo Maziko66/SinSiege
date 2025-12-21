@@ -285,7 +285,8 @@ public class WaveManager : MonoBehaviour
         {
             waveActive = true;
             GetEnemyList();
-            MusicManager.Instance.SetCombatToTrue();
+            if (MusicManager.Instance != null) { MusicManager.Instance.SetCombatToTrue(); }else{Debug.Log("MusicManager instance is null.");}
+            
         }
         else
         {

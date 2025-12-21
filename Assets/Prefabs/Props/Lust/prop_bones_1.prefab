@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1664912773989849392}
   - component: {fileID: 3453056241681597189}
+  - component: {fileID: 2307152801367461138}
   m_Layer: 0
   m_Name: prop_bones_1
   m_TagString: Untagged
@@ -34,6 +35,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3453056241681597189
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -52,6 +54,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -73,9 +77,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -769565843
   m_SortingLayer: 8
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 8454267359416019055, guid: 9a926a61ffcd9ca41b7501e8b6fbe954, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -85,5 +91,84 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2307152801367461138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3438906532106141819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.ShadowCaster2D
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 5
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 00000000d1bddf54c9510dfc795d05a051cfd6bcbf76655879597944c1c48d1b6d5b21d249e0bd19878f3f7c
+  m_ShapePath:
+  - {x: -0.1916101, y: -0.44228077, z: 0}
+  - {x: -0.19078362, y: -0.2626543, z: 0}
+  - {x: -0.3162303, y: -0.19731712, z: 0}
+  - {x: -0.32668424, y: 0.04834938, z: 0}
+  - {x: -0.45213103, y: 0.12152672, z: 0}
+  - {x: -0.50701404, y: 0.24174595, z: 0}
+  - {x: -0.5182942, y: 0.507617, z: 0}
+  - {x: -0.43645012, y: 0.5605898, z: 0}
+  - {x: -0.18032968, y: 0.5658169, z: 0}
+  - {x: -0.18555665, y: 0.5030937, z: 0}
+  - {x: -0.2456665, y: 0.49786663, z: 0}
+  - {x: -0.25089347, y: 0.38287354, z: 0}
+  - {x: -0.3083899, y: 0.3698063, z: 0}
+  - {x: -0.31361687, y: 0.3227644, z: 0}
+  - {x: -0.1829431, y: 0.3149233, z: 0}
+  - {x: -0.17510271, y: 0.2626543, z: 0}
+  - {x: 0.12806022, y: 0.26004028, z: 0}
+  - {x: 0.13328719, y: 0.31231022, z: 0}
+  - {x: 0.24305308, y: 0.3175373, z: 0}
+  - {x: 0.23259914, y: 0.3698063, z: 0}
+  - {x: 0.17771626, y: 0.3724203, z: 0}
+  - {x: 0.17771626, y: 0.49002647, z: 0}
+  - {x: 0.12283325, y: 0.50048065, z: 0}
+  - {x: 0.1254468, y: 0.5605898, z: 0}
+  - {x: 0.38418067, y: 0.57104397, z: 0}
+  - {x: 0.445117, y: 0.5023899, z: 0}
+  - {x: 0.4416771, y: 0.24435997, z: 0}
+  - {x: 0.3711133, y: 0.1189127, z: 0}
+  - {x: 0.2718013, y: 0.050962448, z: 0}
+  - {x: 0.24566656, y: -0.18947697, z: 0}
+  - {x: 0.12806022, y: -0.26526737, z: 0}
+  - {x: 0.13150024, y: -0.43443966, z: 0}
+  m_ShapePathHash: -1538839463
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DProvider:
+    rid: -2
+  m_ShadowCastingSource: 1
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: -0.03658861, y: 0.0643816, z: 0}
+      m_Extent: {x: 0.4817056, y: 0.50666237, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.05
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0.05
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0.05
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 1
+  m_PreviousShadowShape2DSource: {fileID: 3453056241681597189}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
