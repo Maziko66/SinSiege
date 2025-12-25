@@ -8,6 +8,8 @@ public class UpgradeManager : MonoBehaviour
 {
     public bool hasUpgraded;
     
+    public static UpgradeManager Instance;
+    
     [Header("UI")]
     [SerializeField] GameObject upgradePanel;
     [SerializeField] private Button btnUpgradePanelClose;
@@ -25,8 +27,13 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] List<Upgrade> upgradesUnique = new List<Upgrade>();
     
     private List<List<Upgrade>> rarityList = new List<List<Upgrade>>();
-    
 
+    public event Action OnRecalculateUpgrades;
+    
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {

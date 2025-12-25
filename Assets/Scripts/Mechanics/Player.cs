@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -29,12 +30,10 @@ public class Player : MonoBehaviour
     [SerializeField] private float cameraZoomCapMin = 6f, cameraZoomCapMax = 20f;
     [SerializeField] private float cameraBuildZoomCapMin = 10f, cameraBuildZoomCapMax = 32f;
     
-    
     public GraphicRaycaster raycaster;
     [SerializeField] private float buildCameraSpeed = 15f;
     private int _layerMaskTowerZone;
     private int _layerMaskItem;
-    
     
     [SerializeField] private bool _isSprinting;
     [SerializeField] private bool _isWalking;
@@ -54,6 +53,14 @@ public class Player : MonoBehaviour
     [Header("Triggers")]
     public GameObject lastTouchedTowerZone;
 
+    [Header("Upgrades")]
+    public UpgradeData upgradeMoveSpeed;
+    public UpgradeData upgradeSprintSpeed;
+
+    [Header("Calculated")]
+    [SerializeField] private float calculatedMoveSpeed;
+    [SerializeField] private float calculatedSprintSpeed;
+    
     #region ANIMATOR
     
     private Animator _animator;
@@ -90,6 +97,11 @@ public class Player : MonoBehaviour
         playerControls.Enable();
         playerSprint.Enable();
         playerScroll.Enable();
+
+        if (UpgradeManager.Instance != null)
+        {
+            UpgradeManager.Instance.OnRecalculateUpgrades += CalculateUpgrades;
+        }
     }
 
     private void OnDisable()
@@ -97,6 +109,11 @@ public class Player : MonoBehaviour
         playerControls.Disable();
         playerSprint.Disable();
         playerScroll.Disable();
+        
+        if (UpgradeManager.Instance != null)
+        {
+            UpgradeManager.Instance.OnRecalculateUpgrades -= CalculateUpgrades;
+        }
     }
 
     private void Update()
@@ -166,11 +183,11 @@ public class Player : MonoBehaviour
 
         if (_isSprinting)
         {
-            _rb.linearVelocity = new Vector2(_moveDirection.x, _moveDirection.y).normalized * (moveSpeed + sprintSpeed);
+            _rb.linearVelocity = new Vector2(_moveDirection.x, _moveDirection.y).normalized * (calculatedMoveSpeed + calculatedSprintSpeed);
         }
         else
         {
-            _rb.linearVelocity = new Vector2(_moveDirection.x, _moveDirection.y).normalized * moveSpeed;
+            _rb.linearVelocity = new Vector2(_moveDirection.x, _moveDirection.y).normalized * calculatedMoveSpeed;
         }
         
     }
@@ -419,9 +436,13 @@ public class Player : MonoBehaviour
             _buildManager.TowerZoneExpSliderActive(false);
         }
     }
-    
-    
 
+    private void CalculateUpgrades()
+    {
+        calculatedMoveSpeed   = moveSpeed   + (upgradeMoveSpeed?.Value ?? 0);
+        calculatedSprintSpeed = sprintSpeed + (upgradeMoveSpeed?.Value/2 ?? 0);
+    }
+    
     public void SetMoveDirection(Vector2 direction)
     {
         _moveDirection = direction;
@@ -432,5 +453,4 @@ public class Player : MonoBehaviour
         _animator.SetFloat("moveX", 0);
         _animator.SetFloat("moveY", 0);
     }
-    
 }

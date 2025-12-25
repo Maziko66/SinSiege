@@ -30,10 +30,41 @@ public class Shotgun : MonoBehaviour
     [Header("Other")]
     [SerializeField] private bool continuousFire;
     
+    [Header("Upgrades")]
+    public UpgradeData upgradeAttackInterval;
+    public UpgradeData upgradeAttackDamage;
+    public UpgradeData upgradeBulletSpeed;
+    public UpgradeData upgradeBulletCount;
+    public UpgradeData upgradeBulletHealth;
+    
+    
+    [Header("Calculated")]
+    [SerializeField] private float calculatedAttackInterval;
+    [SerializeField] private float calculatedAttackDamage;
+    [SerializeField] private float calculatedBulletSpeed;
+    [SerializeField] private float calculatedBulletCount;
+    [SerializeField] private float calculatedBulletHealth;
+    
     // private bool _reloaded;
     
     private string _currentTargetTag;
     private int _currentFireMode;
+    
+    private void OnEnable()
+    {
+        if (UpgradeManager.Instance != null)
+        {
+            UpgradeManager.Instance.OnRecalculateUpgrades += CalculateUpgrades;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (UpgradeManager.Instance != null)
+        {
+            UpgradeManager.Instance.OnRecalculateUpgrades -= CalculateUpgrades;
+        }
+    }
     
     private void Awake()
     {
@@ -84,5 +115,14 @@ public class Shotgun : MonoBehaviour
         {
             //Debug.Log("Shotgun is on cooldown: " + _cooldown.GetCooldown());
         }
+    }
+
+    private void CalculateUpgrades()
+    {
+        calculatedAttackInterval = attackInterval + (upgradeAttackInterval?.Value ?? 0);
+        calculatedAttackDamage   = attackDamage   + (upgradeAttackDamage?.Value ?? 0);
+        calculatedBulletSpeed    = bulletSpeed    + (upgradeBulletSpeed?.Value ?? 0);
+        calculatedBulletCount    = bulletCount    + (upgradeBulletCount?.Value ?? 0);
+        calculatedBulletHealth   = bulletHealth   + (upgradeBulletHealth?.Value ?? 0);
     }
 }

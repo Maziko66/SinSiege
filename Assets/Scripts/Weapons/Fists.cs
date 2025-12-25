@@ -10,7 +10,6 @@ public class Fists : MonoBehaviour
     //private Animator _animator;
     private Collider2D _collider;
     private SpriteRenderer _spriteRenderer;
-
    
     [SerializeField] private string weaponName = "Fists";
     
@@ -28,6 +27,30 @@ public class Fists : MonoBehaviour
     //private float _cooldown;
     private float _activeTimeCooldown;
     private string _currentTargetTag;
+    
+    [Header("Upgrades")]
+    public UpgradeData upgradeAttackInterval;
+    public UpgradeData upgradeAttackDamage;
+    
+    [Header("Calculated")]
+    [SerializeField] private float calculatedAttackInterval;
+    [SerializeField] private float calculatedAttackDamage;
+    
+    private void OnEnable()
+    {
+        if (UpgradeManager.Instance != null)
+        {
+            UpgradeManager.Instance.OnRecalculateUpgrades += CalculateUpgrades;
+        }
+    }
+    
+    private void OnDisable()
+    {
+        if (UpgradeManager.Instance != null)
+        {
+            UpgradeManager.Instance.OnRecalculateUpgrades -= CalculateUpgrades;
+        }
+    }
     
     private void Awake()
     {
@@ -68,7 +91,7 @@ public class Fists : MonoBehaviour
             fire.release();
             
             Invoke(nameof(DisableComponents), activeTime);
-            _cooldown.SetCooldown(attackInterval);
+            _cooldown.SetCooldown(calculatedAttackInterval);
             _cooldown.SetRefreshed(false);
         }
         else
@@ -83,7 +106,7 @@ public class Fists : MonoBehaviour
             }
         }
     }
-
+    
     private void DisableComponents()
     {
         _collider.enabled = false;
@@ -97,12 +120,18 @@ public class Fists : MonoBehaviour
         _currentTargetTag = FireMethods.GetTargetTagString(targetTag);
     }
     
+    private void CalculateUpgrades()
+    {
+        calculatedAttackInterval = attackInterval + (upgradeAttackInterval?.Value ?? 0);
+        calculatedAttackDamage   = damage         + (upgradeAttackDamage?.Value ?? 0);
+    }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (_currentTargetTag == "Enemy" || other.gameObject.CompareTag(_currentTargetTag) || other.gameObject.CompareTag("Enemy"))
         {
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
-            enemy.ReduceHealth(damage);
+            enemy.ReduceHealth(calculatedAttackDamage);
             enemy.CheckHealth();
             //Debug.Log("fists hit enemy");
         }
