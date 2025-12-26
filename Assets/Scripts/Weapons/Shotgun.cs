@@ -42,8 +42,8 @@ public class Shotgun : MonoBehaviour
     [SerializeField] private float calculatedAttackInterval;
     [SerializeField] private float calculatedAttackDamage;
     [SerializeField] private float calculatedBulletSpeed;
-    [SerializeField] private float calculatedBulletCount;
-    [SerializeField] private float calculatedBulletHealth;
+    [SerializeField] private int calculatedBulletCount;
+    [SerializeField] private int calculatedBulletHealth;
     
     // private bool _reloaded;
     
@@ -98,7 +98,17 @@ public class Shotgun : MonoBehaviour
         if (_cooldown.GetCooldown() < 0)
         {
             //FireMethods.BulletFire(fireMode, bullet, transform, bulletSpeed, attackDamage, targetVector3, null, bulletCount, spreadAngle);
-            FireMethods.BulletFire(_currentFireMode, bullet, transform,bulletSpeed,attackDamage, targetVector3, bulletHealth, _currentTargetTag, null, null, bulletCount, spreadAngle);
+            FireMethods.BulletFire(_currentFireMode, 
+                                    bullet, 
+                                    transform, 
+                                    calculatedBulletSpeed, 
+                                    calculatedAttackDamage, 
+                                    targetVector3, 
+                                    calculatedBulletHealth, 
+                                    _currentTargetTag, 
+                                    null, 
+                                    null, calculatedBulletCount, 
+                                    spreadAngle);
             
             //RuntimeManager.PlayOneShot("event:/SFX/Player/Shotgunman/ShotgunFire");
             
@@ -108,7 +118,7 @@ public class Shotgun : MonoBehaviour
             fire.start();
             fire.release();
             
-            _cooldown.SetCooldown(attackInterval);
+            _cooldown.SetCooldown(calculatedAttackInterval);
             _cooldown.SetRefreshed(false);
         }
         else
@@ -121,8 +131,8 @@ public class Shotgun : MonoBehaviour
     {
         calculatedAttackInterval = attackInterval + (upgradeAttackInterval?.Value ?? 0);
         calculatedAttackDamage   = attackDamage   + (upgradeAttackDamage?.Value ?? 0);
-        calculatedBulletSpeed    = bulletSpeed    + (upgradeBulletSpeed?.Value ?? 0);
-        calculatedBulletCount    = bulletCount    + (upgradeBulletCount?.Value ?? 0);
-        calculatedBulletHealth   = bulletHealth   + (upgradeBulletHealth?.Value ?? 0);
+        calculatedBulletSpeed    = bulletSpeed + (upgradeBulletSpeed?.Value ?? 0);
+        calculatedBulletCount    = (int)(bulletCount + (upgradeBulletCount?.Value ?? 0));
+        calculatedBulletHealth   = (int)(bulletHealth + (upgradeBulletHealth?.Value ?? 0));
     }
 }

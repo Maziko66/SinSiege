@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c191e2ead1e969744897cb6cab7fe7f8, type: 3}
+  m_Name: LocalizationData
+  m_EditorClassIdentifier: Assembly-CSharp::LocalizationData
+  languageCodes:
+  - en
+  - tr
+  entries:
+  - key: menuStart
+    values:
+    - Start
+    - "Ba\u015Fla"
+  - key: menuSettings
+    values:
+    - Settings
+    - "Se\xE7enekler"
+  - key: menuExtras
+    values:
+    - Extras
+    - Ekstralar
+  - key: menuCredits
+    values:
+    - Credits
+    - "Eme\u011Fi Ge\xE7enler"
+  - key: menuExit
+    values:
+    - Exit
+    - "\xC7\u0131k\u0131\u015F"
+  - key: towerUpgrade
+    values:
+    - Upgrade
+    - "Geli\u015Ftir"
+  - key: towerMerge
+    values:
+    - Merge
+    - "Birle\u015Ftir"
+  - key: towerDestroy
+    values:
+    - Destiny
+    - Yok et
+  - key: towerDetails
+    values:
+    - Details
+    - Detaylar
+  - key: towerPriest
+    values:
+    - Priest
+    - Rahip
+  - key: towerCross
+    values:
+    - Cross
+    - "Ha\xE7"
+  - key: towerChapel
+    values:
+    - Chapel
+    - "\xC7apel"
+  - key: towerAngel
+    values:
+    - Angel
+    - Melek

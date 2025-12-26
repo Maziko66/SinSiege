@@ -2,6 +2,34 @@ using UnityEngine;
 
 public static class MasterDictionary
 {
+    public enum GameLanguage
+    {
+        English,            // en
+        Turkish,            // tr
+        French,             // fr
+        Italian,            // it
+        German,             // de
+        Portuguese,         // pt
+        Russian,            // ru
+        Polish,             // pl
+        Korean,             // kr
+        Japanese,           // jp
+        ChineseSimplified,  // zh
+        ChineseTraditional  // tc
+    }
+    public enum Characters
+    {
+        Generic,
+        Shotgunman,
+        Scoundrel,
+        Firemage,
+        Noble,
+        Papa,
+        Detective,
+        Jester,
+        Scientist
+    }
+    
     public enum UpgradeRarity
     {
         Common,

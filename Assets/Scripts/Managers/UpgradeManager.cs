@@ -6,6 +6,8 @@ using Random = UnityEngine.Random;
 
 public class UpgradeManager : MonoBehaviour
 {
+    public bool CharacterIndex;
+    
     public bool hasUpgraded;
     
     public static UpgradeManager Instance;
@@ -49,6 +51,8 @@ public class UpgradeManager : MonoBehaviour
         // rarityList.Add(upgradesUnique);
         
         //SelectRandomCards();
+        
+        RecalculateUpgrades();
     }
 
     public void TimeToUpgrade()
@@ -58,6 +62,12 @@ public class UpgradeManager : MonoBehaviour
             SetUpgradePanelState(true);
         }
         
+    }
+
+    private void RecalculateUpgrades()
+    {
+        Debug.Log("RecalculateUpgrades");
+        OnRecalculateUpgrades?.Invoke();
     }
 
     public void SetUpgradePanelState(bool state, bool isCloseButton = false)

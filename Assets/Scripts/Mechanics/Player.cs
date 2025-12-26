@@ -55,10 +55,11 @@ public class Player : MonoBehaviour
 
     [Header("Upgrades")]
     public UpgradeData upgradeMoveSpeed;
-    public UpgradeData upgradeSprintSpeed;
+    public UpgradeData upgradeMaxHealth;
 
     [Header("Calculated")]
     [SerializeField] private float calculatedMoveSpeed;
+    [SerializeField] private float calculatedHealth;
     [SerializeField] private float calculatedSprintSpeed;
     
     #region ANIMATOR
@@ -441,6 +442,7 @@ public class Player : MonoBehaviour
     {
         calculatedMoveSpeed   = moveSpeed   + (upgradeMoveSpeed?.Value ?? 0);
         calculatedSprintSpeed = sprintSpeed + (upgradeMoveSpeed?.Value/2 ?? 0);
+        Debug.Log("calculated upgrades");
     }
     
     public void SetMoveDirection(Vector2 direction)
