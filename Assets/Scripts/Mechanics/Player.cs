@@ -16,8 +16,13 @@ public class Player : MonoBehaviour
     
     private SpriteRenderer _spriteRenderer;
     
+    [Header("Build Camera Settings")]
     [SerializeField] private GameObject _buildCameraObject;
     private Rigidbody2D _buildCameraObjectRb;
+    [SerializeField] float buildCamMinX = -500f;
+    [SerializeField] float buildCamMaxX = 500f;
+    [SerializeField] float buildCamMinY = -500f;
+    [SerializeField] float buildCamMaxY = 500f;
     
     [Header("Util")]
     public InputAction playerControls;
@@ -175,8 +180,43 @@ public class Player : MonoBehaviour
     {
         if (_gameManager.onBuildMenu)
         {
-            _buildCameraObjectRb.linearVelocity = new Vector2(_moveDirection.x, _moveDirection.y).normalized * buildCameraSpeed;
-            _rb.linearVelocity = Vector2.zero;
+           
+            Vector2 currentPos = _buildCameraObjectRb.transform.position;
+    
+            // 3. Create a temporary move vector
+            Vector2 desiredMove = _moveDirection;
+
+            // 4. Check X axis: If we are past the limit AND trying to move further out, stop X movement
+            if ((currentPos.x >= buildCamMaxX && desiredMove.x > 0) || (currentPos.x <= buildCamMinX && desiredMove.x < 0))
+            {
+                desiredMove.x = 0;
+            }
+
+            // 5. Check Y axis: Same logic
+            if ((currentPos.y >= buildCamMaxY && desiredMove.y > 0) || (currentPos.y <= buildCamMinY && desiredMove.y < 0))
+            {
+                desiredMove.y = 0;
+            }
+
+            // 6. Apply the modified velocity
+            // Note: We normalize ONLY if we are actually moving, to prevent divide by zero errors or weird behavior at edges
+            if (desiredMove != Vector2.zero)
+            {
+                _buildCameraObjectRb.linearVelocity = desiredMove.normalized * buildCameraSpeed;
+            }
+            else
+            {
+                _buildCameraObjectRb.linearVelocity = Vector2.zero;
+            }
+
+            _rb.linearVelocity = Vector2.zero; // Keeping your original player stop logic
+            // Optional: Hard clamp position to prevent drifting past bounds over time
+            _buildCameraObjectRb.transform.position = new Vector3(
+                Mathf.Clamp(currentPos.x, buildCamMinX, buildCamMaxX),
+                Mathf.Clamp(currentPos.y, buildCamMinY, buildCamMaxY),
+                _buildCameraObjectRb.transform.position.z
+            );
+
             Debug.Log("moving cam");
             return;
         }

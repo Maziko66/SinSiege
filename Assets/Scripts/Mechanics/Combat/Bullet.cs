@@ -28,6 +28,10 @@ public class Bullet : MonoBehaviour
 
     private float _speedSpin = -450f;
 
+    private bool _crossBullet;
+
+    [SerializeField] private GameObject crossBulletImpactPrefab;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -88,7 +92,7 @@ public class Bullet : MonoBehaviour
     /// <param name="tagToHit">Tag of gameobject to destroy.</param>
     /// <param name="mass">Bullet mass.</param>
     /// <param name="isSpinning">Checks bullet spin.</param>
-    public void SetBulletStats(float speed, float damage, int health, Vector3 startPosition, Vector3 targetVector, int mode, string tagToHit, float mass = 1f, bool isSpinning = false)
+    public void SetBulletStats(float speed, float damage, int health, Vector3 startPosition, Vector3 targetVector, int mode, string tagToHit, float mass = 1f, bool isSpinning = false, bool crossBullet = false)
     {
         SetBulletSpeed(speed);
         SetBulletDamage(damage);
@@ -99,6 +103,7 @@ public class Bullet : MonoBehaviour
         SetTargetTag(tagToHit);
         SetBulletMass(mass);
         SetBulletSpinning(isSpinning);
+        _crossBullet = crossBullet;
     }
 
     public void SetBulletSpeed(float speed)
@@ -140,6 +145,16 @@ public class Bullet : MonoBehaviour
     {
         if (_health <= 0)
         {
+            if (_crossBullet)
+            {
+                GameObject impact = Instantiate(crossBulletImpactPrefab, transform.position, Quaternion.identity);
+                CrossBulletImpact cbi = impact.GetComponent<CrossBulletImpact>();
+                cbi.targetTag = _targetTag;
+                cbi.damage = _damage;
+                
+                //cbi.
+                
+            }
             Destroy(gameObject);
         }
     }
@@ -193,7 +208,10 @@ public class Bullet : MonoBehaviour
                     //SoundManager.Instance.PlaySound(SoundManager.Instance.sfxCoinPickup, transform.position);
                     SoundManager.Instance.PlaySound(SoundManager.Instance.sfxEnemyDamage);
                 }
-                enemy.ReduceHealth(_damage);
+                if (!_crossBullet)
+                {
+                    enemy.ReduceHealth(_damage);
+                }
                 enemy.CheckHealth();
                 _health--;
                 if (_towerGeneric)

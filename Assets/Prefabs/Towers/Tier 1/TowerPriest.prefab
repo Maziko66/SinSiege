@@ -208,6 +208,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4046721547241623055
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -253,6 +254,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -6941519638042711501, guid: dfa0305dfaa52e64c9c02fc19ebff416, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -262,7 +264,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1942448605766754239
 MonoBehaviour:
@@ -294,11 +295,12 @@ MonoBehaviour:
   attackDamage: 1
   targetTag: 1
   bullet: {fileID: 6250924970665204767, guid: 0e971f85226472b4fb7e5d90135e6b05, type: 3}
-  bulletSpeed: 10
+  bulletSpeed: 25
   bulletCount: 1
   spreadAngle: 0
   bulletHealth: 1
   fireMode: 0
+  bulletIsSpinning: 0
   rankBonusDamage:
   - 0
   - 0.1
@@ -437,6 +439,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3379152615202539997
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -482,6 +485,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.745283, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -491,5 +495,4 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0

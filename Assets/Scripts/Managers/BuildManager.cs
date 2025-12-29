@@ -15,6 +15,7 @@ public class BuildManager : MonoBehaviour
     [SerializeField] private UIMergeMenuCombat uiMergeMenuCombat;
     [SerializeField] private UISliderHp sliderTowerZoneXP;
     [SerializeField] private Vector3 sliderTowerZoneExpOffset;
+    [SerializeField] private GameObject buildMenuCrosshair;
 
 
     [Header("GameObjects")]
@@ -79,6 +80,7 @@ public class BuildManager : MonoBehaviour
     private string[] _mergeArrayNames = new string[2];
     private TowerZone _mergeTowerZone;
     
+
     private void Awake()
     {
         _canvas = FindFirstObjectByType<Canvas>();
@@ -89,6 +91,7 @@ public class BuildManager : MonoBehaviour
 
     private void Start()
     {
+        SetStateBuildMenuCrosshair(false);
         AddTowerZonesToTowerZones();
         
         _uiTowerBuilderCombatRectTransform = uiTowerBuilderCombat.GetComponent<RectTransform>();
@@ -209,6 +212,7 @@ public class BuildManager : MonoBehaviour
     {
         if (uiTowerBuilderCombat == null)
         {
+            Debug.Log("uiTowerBuilderCombat == null");
             return;
         }
         uiTowerBuilderCombat.gameObject.SetActive(false);
@@ -248,6 +252,11 @@ public class BuildManager : MonoBehaviour
     
     public void DestroyUITowerManagerCombat()
     {
+        if (uiTowerBuilderCombat == null)
+        {
+            Debug.Log("uiTowerBuilderCombat is null.");
+            return;
+        }
         uiTowerManagerCombat.RemoveUpgradeButtonListener();
         uiTowerManagerCombat.gameObject.SetActive(false);
     }
@@ -476,5 +485,10 @@ public class BuildManager : MonoBehaviour
         {
             towerZones.Add(towerZoneParent.transform.GetChild(i).GetComponent<TowerZone>());
         }
+    }
+
+    public void SetStateBuildMenuCrosshair(bool onBuildMenu)
+    {
+        buildMenuCrosshair.SetActive(onBuildMenu);
     }
 }

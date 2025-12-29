@@ -113,7 +113,7 @@ public class Tower : TowerGeneric
     {
         string tagString = FireMethods.GetTargetTagString(targetTag);
         //FireMethods.BulletFire(firingMode, bullet, transform, bulletSpeed, attackDamage, target.position, target);
-        FireMethods.BulletFire(_currentFireMode, bullet, fireTransform, bulletSpeed, GetAttackDamage(), target.position, bulletHealth, tagString, this, target, 1, 0f, bulletIsSpinning);
+        FireMethods.BulletFire(_currentFireMode, bullet, fireTransform, bulletSpeed, GetAttackDamage(), target.position, bulletHealth, tagString, this, target, 1, 0f, bulletIsSpinning,null, isAOEBullet);
         bulletsFired++;
         _cooldown.SetCooldown(GetAttackInterval());
         _cooldown.SetRefreshed(false);

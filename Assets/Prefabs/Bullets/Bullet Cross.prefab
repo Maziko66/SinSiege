@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 9b1f8a1d6063d29409a82f70586793e1, type: 3}
+    - target: {fileID: 6250924970665204767, guid: 0e971f85226472b4fb7e5d90135e6b05, type: 3}
+      propertyPath: crossBulletImpactPrefab
+      value: 
+      objectReference: {fileID: 8643209131935864388, guid: b3e853beae32781418bfb30e2862e483, type: 3}
     - target: {fileID: 6909474607860216581, guid: 0e971f85226472b4fb7e5d90135e6b05, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.6

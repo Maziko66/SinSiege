@@ -38,7 +38,7 @@ public class OffScreenArrow : MonoBehaviour
         UpdateScreenCenter();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if(_player.isPaused) {return;}
         // update for screen res, might need fixing

@@ -111,6 +111,7 @@ public class GameManager : MonoBehaviour
         _buildManager.DestroyUITowerManagerCombat();
         onBuildMenu = !onBuildMenu;
         _mmc.gameObject.SetActive(!onBuildMenu);
+        _buildManager.SetStateBuildMenuCrosshair(onBuildMenu);
     }
     
     public void TransitionBetweenBuildAndPlayerCameras()

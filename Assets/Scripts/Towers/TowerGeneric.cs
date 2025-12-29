@@ -43,6 +43,7 @@ public class TowerGeneric : MonoBehaviour
     [SerializeField] protected FireMethods.FireMode fireMode = FireMethods.FireMode.Homing;
     //[SerializeField] private FireMethods.TargetTag targetTag = FireMethods.TargetTag.Enemy;
     [SerializeField] protected bool bulletIsSpinning;
+    [SerializeField] protected bool isAOEBullet;
     
     [Header("Tower Rank Multipliers")]
     [SerializeField] protected float[] rankBonusDamage = {0.0f, 0.1f, 0.2f, 0.3f};
@@ -80,6 +81,11 @@ public class TowerGeneric : MonoBehaviour
 
     public void IncreaseTowerZoneVet(float exp)
     {
+        if (attachedZone == null)
+        {
+            Debug.Log("Attached Zone not set.");
+            return;
+        }
         attachedZone.IncreaseVet(exp);
     }
     

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bullet
+  m_Name: Bullet AOE
   m_Shader: {fileID: -6465566751694194690, guid: 02374596b646cba48ae81db8aa10eccc, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0

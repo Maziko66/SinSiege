@@ -30,7 +30,7 @@ public class ArrowManager : MonoBehaviour
         parentCanvas = GetComponentInParent<Canvas>();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (_player.isPaused) return;
 

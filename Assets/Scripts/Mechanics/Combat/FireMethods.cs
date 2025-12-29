@@ -75,12 +75,13 @@ public static class FireMethods
                                     int bulletCount = 1,
                                     float spreadAngle = 0f,
                                     bool isSpinning = false,
-                                    Vector2? startPosition = null)
+                                    Vector2? startPosition = null,
+                                    bool isAOE = false)
     {
         if (firedFrom == 0)
         {
             Bullet bullet = Object.Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            bullet.SetBulletStats(bulletSpeed, attackDamage, bulletHealth, transform.position, target.position, firedFrom, targetTag, 1f, isSpinning);
+            bullet.SetBulletStats(bulletSpeed, attackDamage, bulletHealth, transform.position, target.position, firedFrom, targetTag, 1f, isSpinning, isAOE);
             bullet.SetTowerGeneric(towerGeneric);
             bullet.SetTarget(target);
         }

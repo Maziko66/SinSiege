@@ -47,12 +47,21 @@ public class UITowerManagerCombat : MonoBehaviour
 
     public void SetUpgradeButtonListener()
     {
+        if (_attachedTower == null)
+        {
+            
+        }
         buttonUpgrade.onClick.RemoveListener(_attachedTower.UpgradeTower);
         buttonUpgrade.onClick.AddListener(_attachedTower.UpgradeTower);
     }
 
     public void RemoveUpgradeButtonListener()
     {
+        if (_attachedTower == null)
+        {
+            Debug.Log("Attached tower is null.");
+            return;
+        }
         buttonUpgrade.onClick.RemoveListener(_attachedTower.UpgradeTower);
     }
 }
