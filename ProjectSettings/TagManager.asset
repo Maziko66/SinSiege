@@ -18,6 +18,7 @@ TagManager:
   - ShopItem
   - Clickable
   - Shop
+  - BuildChecker
   layers:
   - Default
   - TransparentFX

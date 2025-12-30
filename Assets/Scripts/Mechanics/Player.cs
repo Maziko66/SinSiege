@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
     
     public GraphicRaycaster raycaster;
     [SerializeField] private float buildCameraSpeed = 15f;
+    [SerializeField] private float buildCameraSprintSpeed = 30f;
     private int _layerMaskTowerZone;
     private int _layerMaskItem;
     
@@ -182,27 +183,23 @@ public class Player : MonoBehaviour
         {
            
             Vector2 currentPos = _buildCameraObjectRb.transform.position;
-    
-            // 3. Create a temporary move vector
+            
             Vector2 desiredMove = _moveDirection;
-
-            // 4. Check X axis: If we are past the limit AND trying to move further out, stop X movement
+            
             if ((currentPos.x >= buildCamMaxX && desiredMove.x > 0) || (currentPos.x <= buildCamMinX && desiredMove.x < 0))
             {
                 desiredMove.x = 0;
             }
-
-            // 5. Check Y axis: Same logic
+            
             if ((currentPos.y >= buildCamMaxY && desiredMove.y > 0) || (currentPos.y <= buildCamMinY && desiredMove.y < 0))
             {
                 desiredMove.y = 0;
             }
-
-            // 6. Apply the modified velocity
-            // Note: We normalize ONLY if we are actually moving, to prevent divide by zero errors or weird behavior at edges
+            
             if (desiredMove != Vector2.zero)
             {
-                _buildCameraObjectRb.linearVelocity = desiredMove.normalized * buildCameraSpeed;
+                
+                _buildCameraObjectRb.linearVelocity = desiredMove.normalized * (playerSprint.IsPressed() ? buildCameraSprintSpeed : buildCameraSpeed);
             }
             else
             {
@@ -217,7 +214,7 @@ public class Player : MonoBehaviour
                 _buildCameraObjectRb.transform.position.z
             );
 
-            Debug.Log("moving cam");
+            //Debug.Log("moving cam");
             return;
         }
         if(isPaused) {return;}
@@ -320,7 +317,7 @@ public class Player : MonoBehaviour
     
     #region UTIL
 
-    private void BuildManagerState(Collider2D col, bool activate, bool calledFromBuildMenu = false)
+    public void BuildManagerState(Collider2D col, bool activate, bool calledFromBuildMenu = false)
     {
         if (calledFromBuildMenu)
         {

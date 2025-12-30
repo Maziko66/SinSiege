@@ -16,6 +16,7 @@ public class BuildManager : MonoBehaviour
     [SerializeField] private UISliderHp sliderTowerZoneXP;
     [SerializeField] private Vector3 sliderTowerZoneExpOffset;
     [SerializeField] private GameObject buildMenuCrosshair;
+    [SerializeField] private GameObject buildMenuChecker;
 
 
     [Header("GameObjects")]
@@ -490,5 +491,6 @@ public class BuildManager : MonoBehaviour
     public void SetStateBuildMenuCrosshair(bool onBuildMenu)
     {
         buildMenuCrosshair.SetActive(onBuildMenu);
+        buildMenuChecker.SetActive(onBuildMenu);
     }
 }
