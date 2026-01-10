@@ -1,9 +1,9 @@
 using UnityEngine;
-using TMPro; // Use UnityEngine.UI if using legacy Text
+using TMPro;
 
 public class LocalizedText : MonoBehaviour
 {
-    public string key; // e.g., "menu_start"
+    public string key;
 
     private TMP_Text textComponent;
 
@@ -11,19 +11,20 @@ public class LocalizedText : MonoBehaviour
     {
         textComponent = GetComponent<TMP_Text>();
         
-        // Subscribe to the event
         if (LocalizationManager.Instance != null)
         {
             LocalizationManager.Instance.OnLanguageChanged += UpdateText;
             
-            // Try to update immediately in case data is already there
             UpdateText();
+        }
+        else
+        {
+            Debug.Log("LocalizationManager is null.");
         }
     }
 
     void OnDestroy()
     {
-        // Always unsubscribe to prevent memory leaks
         if (LocalizationManager.Instance != null)
         {
             LocalizationManager.Instance.OnLanguageChanged -= UpdateText;

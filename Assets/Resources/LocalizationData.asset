@@ -15,56 +15,224 @@ MonoBehaviour:
   languageCodes:
   - en
   - tr
+  - fr
+  - it
+  - de
+  - pt
+  - ru
+  - pl
+  - kr
+  - jp
+  - zh
+  - tc
   entries:
   - key: menuStart
     values:
     - Start
     - "Ba\u015Fla"
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
   - key: menuSettings
     values:
     - Settings
     - "Se\xE7enekler"
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
   - key: menuExtras
     values:
     - Extras
     - Ekstralar
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
   - key: menuCredits
     values:
     - Credits
     - "Eme\u011Fi Ge\xE7enler"
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
   - key: menuExit
     values:
     - Exit
     - "\xC7\u0131k\u0131\u015F"
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
   - key: towerUpgrade
     values:
     - Upgrade
     - "Geli\u015Ftir"
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
   - key: towerMerge
     values:
     - Merge
     - "Birle\u015Ftir"
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
   - key: towerDestroy
     values:
     - Destiny
     - Yok et
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
   - key: towerDetails
     values:
     - Details
     - Detaylar
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
   - key: towerPriest
     values:
     - Priest
     - Rahip
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
   - key: towerCross
     values:
     - Cross
     - "Ha\xE7"
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
   - key: towerChapel
     values:
     - Chapel
     - "\xC7apel"
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
   - key: towerAngel
     values:
     - Angel
     - Melek
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: upgradeNameShotgunDamage
+    values:
+    - Shotgun Damage
+    - "Pompal\u0131 Hasar\u0131"
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: upgradeDescShotgunDamage
+    values:
+    - Shotgun Damage Desc
+    - "Pompal\u0131 Hasar\u0131 A\xE7\u0131klama"
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 

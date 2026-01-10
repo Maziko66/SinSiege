@@ -4,7 +4,7 @@ using System;
 
 public class LocalizationManager : MonoBehaviour
 {
-    public static LocalizationManager Instance;
+    public static LocalizationManager Instance => PersistentManager.Instance.LocalizationManager;
 
     [Header("Settings")]
     // Now uses your MasterDictionary enum
@@ -17,14 +17,9 @@ public class LocalizationManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
-        
-        DontDestroyOnLoad(gameObject);
-
         LoadData();
     }
-
+    
     private void LoadData()
     {
         dataAsset = Resources.Load<LocalizationData>("LocalizationData");
