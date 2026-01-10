@@ -19,7 +19,6 @@ public static class MasterDictionary
     }
     public enum Characters
     {
-        Generic,
         Shotgunman,
         Scoundrel,
         Firemage,

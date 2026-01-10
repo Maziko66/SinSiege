@@ -96,6 +96,342 @@ MonoBehaviour:
     - 
     - 
     - 
+  - key: characterFullShotgunman
+    values:
+    - Benedict "Buck" Shotwell
+    - Benedict "Buck" Shotwell
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterFullScoundrel
+    values:
+    - Jacques le Carreau
+    - Jacques le Carreau
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterFullFiremage
+    values:
+    - Ignatia "Cindy" Shotwell
+    - Ignatia "Cindy" Shotwell
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterFullNoble
+    values:
+    - Dawn
+    - Dawn
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterFullPapa
+    values:
+    - Papa Cornelius
+    - Papa Cornelius
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterFullDetective
+    values:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterFullJester
+    values:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterFullScientist
+    values:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterShotgunman
+    values:
+    - The Gunman
+    - "Tetik\xE7i"
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterScoundrel
+    values:
+    - The Scoundrel
+    - Hergele
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterFiremage
+    values:
+    - The Fire Mage
+    - "Ate\u015Fbaz"
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterNoble
+    values:
+    - The Noble
+    - Soylu
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterPapa
+    values:
+    - Papa
+    - Papa
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterDetective
+    values:
+    - The Detective
+    - Dedektif
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterJester
+    values:
+    - The Jester
+    - "Soytar\u0131"
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterScholar
+    values:
+    - The Scholar
+    - Alim
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterDescShotgunman
+    values:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterDescScoundrel
+    values:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterDescFiremage
+    values:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterDescNoble
+    values:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterDescPapa
+    values:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterDescDetective
+    values:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterDescJester
+    values:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+  - key: characterDescScientist
+    values:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
   - key: towerUpgrade
     values:
     - Upgrade
