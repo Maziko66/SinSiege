@@ -1,15 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events; // Added for UnityEvent
 
 public class InfiniteScroll : MonoBehaviour
 {
     [Header("Settings")]
-    public float snapSpeed = 10f; // Higher = faster snap
-    public bool centerOnScreen = true; // If true, centers the selected item in the viewport
+    public float snapSpeed = 10f;
+    public bool centerOnScreen = true;
+
+    [Header("Events")]
+    // Drag your UI update function here (e.g. UpdateCharacterStats(GameObject character))
+    public UnityEvent<GameObject> onSelectionChanged; 
 
     [Header("References")]
     public ScrollRect scrollRect;
-    public RectTransform viewportTransform; // Needed for centering logic
+    public RectTransform viewportTransform;
     public RectTransform contentPanelTransform;
     public HorizontalLayoutGroup HLG;
     public RectTransform[] ItemList;
@@ -18,22 +23,21 @@ public class InfiniteScroll : MonoBehaviour
     private float _itemAndSpaceWidth;
     private float _targetX;
     private bool _isInitialized;
+    
+    // Tracks which index (0 to ItemList.Length-1) is currently selected
+    private int _currentIndex = 0; 
 
     void Start()
     {
-        // 0. Disable ScrollRect mouse/touch control
         scrollRect.horizontal = false; 
         scrollRect.inertia = false;
 
-        // 1. Calculate widths
-        // Assumes all items are the same width
         float itemWidth = ItemList[0].rect.width;
         float spacing = HLG.spacing;
         
         _itemAndSpaceWidth = itemWidth + spacing;
         _oneSetWidth = _itemAndSpaceWidth * ItemList.Length;
 
-        // 2. Clear & Instantiate 3 sets
         foreach (Transform child in contentPanelTransform)
         {
             Destroy(child.gameObject);
@@ -49,11 +53,7 @@ public class InfiniteScroll : MonoBehaviour
             }
         }
         
-        // 3. Initialize Positions
-        // Start at Set 1 (The Middle Set)
         float startX = -_oneSetWidth;
-
-        // Optional: Add offset to center the item in the viewport
         if (centerOnScreen && viewportTransform != null)
         {
             float viewportCenter = viewportTransform.rect.width / 2f;
@@ -62,8 +62,10 @@ public class InfiniteScroll : MonoBehaviour
         }
 
         _targetX = startX;
-        
         InitializePosition(startX);
+
+        // Notify UI about the first character immediately
+        NotifySelection();
     }
 
     private void InitializePosition(float xPos)
@@ -78,11 +80,59 @@ public class InfiniteScroll : MonoBehaviour
     public void OnNextButtonClick()
     {
         _targetX -= _itemAndSpaceWidth;
+        UpdateIndex(1); // Moved forward (Right in array, Content moves Left)
     }
 
     public void OnPrevButtonClick()
     {
         _targetX += _itemAndSpaceWidth;
+        UpdateIndex(-1); // Moved backward
+    }
+
+    // --- INDEX LOGIC ---
+
+    private void UpdateIndex(int direction)
+    {
+        _currentIndex += direction;
+
+        // Wrap around logic
+        if (_currentIndex >= ItemList.Length)
+        {
+            _currentIndex = 0;
+        }
+        else if (_currentIndex < 0)
+        {
+            _currentIndex = ItemList.Length - 1;
+        }
+
+        NotifySelection();
+    }
+
+    private void NotifySelection()
+    {
+        // Get the PREFAB that corresponds to the selected character
+        GameObject selectedPrefab = ItemList[_currentIndex].gameObject;
+
+        // Fire the event so other scripts can update the UI
+        onSelectionChanged?.Invoke(selectedPrefab);
+    }
+
+    // Call this from other scripts if you need to pull the data manually
+    public GameObject GetSelectedCharacterPrefab()
+    {
+        if (ItemList == null || ItemList.Length == 0) return null;
+        return ItemList[_currentIndex].gameObject;
+    }
+    
+    public int GetSelectedIndex()
+    {
+        return _currentIndex;
+    }
+
+    public void DebugGetSelectedIndex()
+    {
+        int selectedIndex = GetSelectedIndex();
+        Debug.Log(selectedIndex);
     }
 
     // --- MAIN LOOP ---
@@ -91,36 +141,22 @@ public class InfiniteScroll : MonoBehaviour
     {
         if (!_isInitialized) return;
 
-        // 1. Smoothly move towards the target
         float currentX = contentPanelTransform.anchoredPosition.x;
         float newX = Mathf.Lerp(currentX, _targetX, Time.deltaTime * snapSpeed);
         
-        // Snap to target if very close (prevents micro-jitter)
         if (Mathf.Abs(newX - _targetX) < 0.1f) newX = _targetX;
 
         contentPanelTransform.anchoredPosition = new Vector2(newX, contentPanelTransform.anchoredPosition.y);
 
-        // 2. Seamless Teleport Logic
-        // We check the TARGET position for the seamless loop to ensure consistent logic
-        // If the target has scrolled past the bounds, we shift BOTH the physical object and the target value.
-
-        // Moving Right -> Left (Next)
-        // If we have moved past Set 1 completely into Set 2...
-        // Threshold: The start of Set 2 (which is -2 * oneSetWidth)
-        // We add the centering offset to the threshold check if needed
-        
         float relativeX = contentPanelTransform.anchoredPosition.x;
         
-        // Note: The thresholds are slightly loose to allow the lerp to overshoot smoothly
         if (relativeX > 0) 
         {
-            // Too far Right (Seeing Left Buffer) -> Teleport Left
             contentPanelTransform.anchoredPosition -= new Vector2(_oneSetWidth, 0);
             _targetX -= _oneSetWidth;
         }
         else if (relativeX < -(_oneSetWidth * 2)) 
         {
-            // Too far Left (Seeing Right Buffer) -> Teleport Right
             contentPanelTransform.anchoredPosition += new Vector2(_oneSetWidth, 0);
             _targetX += _oneSetWidth;
         }
