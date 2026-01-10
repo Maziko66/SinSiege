@@ -7,9 +7,11 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject[] panels;
     [SerializeField] private GameObject panelMainMenu;
     [SerializeField] private GameObject panelStartGame;
+    [SerializeField] private GameObject panelUpgradeMenu;
     
     [Header("Buttons")]
     [SerializeField] private ButtonGeneral buttonStartGame;
+    [SerializeField] private ButtonGeneral buttonUpgradeMenu;
     [SerializeField] private ButtonGeneral buttonSettings;
     [SerializeField] private ButtonGeneral buttonExtras;
     [SerializeField] private ButtonGeneral buttonExit;
@@ -18,8 +20,10 @@ public class MainMenuManager : MonoBehaviour
     {
         panelMainMenu.SetActive(true);
         panelStartGame.SetActive(false);
+        panelUpgradeMenu.SetActive(false);
         
         buttonStartGame.onClick.AddListener(StartGame);
+        buttonUpgradeMenu.onClick.AddListener(UpgradeMenu);
         buttonSettings.onClick.AddListener(Settings);
         buttonExtras.onClick.AddListener(Extras);
         buttonExtras.onClick.AddListener(Exit);
@@ -31,6 +35,11 @@ public class MainMenuManager : MonoBehaviour
     {
         panelMainMenu.SetActive(false);
         panelStartGame.SetActive(true);
+    }
+    private void UpgradeMenu()
+    {
+        panelMainMenu.SetActive(false);
+        panelUpgradeMenu.SetActive(true);
     }
 
     private void Settings()

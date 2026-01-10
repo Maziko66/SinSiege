@@ -40,6 +40,20 @@ MonoBehaviour:
     - 
     - 
     - 
+  - key: menuUpgrades
+    values:
+    - Upgrades
+    - "Geli\u015Ftirmeler"
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
   - key: menuSettings
     values:
     - Settings
