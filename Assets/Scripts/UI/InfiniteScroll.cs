@@ -9,7 +9,6 @@ public class InfiniteScroll : MonoBehaviour
     public bool centerOnScreen = true;
 
     [Header("Events")]
-    // Drag your UI update function here (e.g. UpdateCharacterStats(GameObject character))
     public UnityEvent<GameObject> onSelectionChanged; 
 
     [Header("References")]
@@ -24,7 +23,6 @@ public class InfiniteScroll : MonoBehaviour
     private float _targetX;
     private bool _isInitialized;
     
-    // Tracks which index (0 to ItemList.Length-1) is currently selected
     private int _currentIndex = 0; 
 
     void Start()
@@ -63,8 +61,7 @@ public class InfiniteScroll : MonoBehaviour
 
         _targetX = startX;
         InitializePosition(startX);
-
-        // Notify UI about the first character immediately
+        
         NotifySelection();
     }
 
@@ -74,28 +71,23 @@ public class InfiniteScroll : MonoBehaviour
         contentPanelTransform.anchoredPosition = new Vector2(xPos, contentPanelTransform.anchoredPosition.y);
         _isInitialized = true;
     }
-
-    // --- BUTTON CONTROLS ---
     
     public void OnNextButtonClick()
     {
         _targetX -= _itemAndSpaceWidth;
-        UpdateIndex(1); // Moved forward (Right in array, Content moves Left)
+        UpdateIndex(1);
     }
 
     public void OnPrevButtonClick()
     {
         _targetX += _itemAndSpaceWidth;
-        UpdateIndex(-1); // Moved backward
+        UpdateIndex(-1);
     }
-
-    // --- INDEX LOGIC ---
 
     private void UpdateIndex(int direction)
     {
         _currentIndex += direction;
-
-        // Wrap around logic
+        
         if (_currentIndex >= ItemList.Length)
         {
             _currentIndex = 0;
@@ -110,14 +102,11 @@ public class InfiniteScroll : MonoBehaviour
 
     private void NotifySelection()
     {
-        // Get the PREFAB that corresponds to the selected character
         GameObject selectedPrefab = ItemList[_currentIndex].gameObject;
-
-        // Fire the event so other scripts can update the UI
+        
         onSelectionChanged?.Invoke(selectedPrefab);
     }
-
-    // Call this from other scripts if you need to pull the data manually
+    
     public GameObject GetSelectedCharacterPrefab()
     {
         if (ItemList == null || ItemList.Length == 0) return null;
@@ -134,8 +123,6 @@ public class InfiniteScroll : MonoBehaviour
         int selectedIndex = GetSelectedIndex();
         Debug.Log(selectedIndex);
     }
-
-    // --- MAIN LOOP ---
 
     void Update()
     {

@@ -23,7 +23,7 @@ public class CharacterSelectCard : MonoBehaviour
 
     private void SetTexts()
     {
-        Debug.Log(characterData.Name);
+        //Debug.Log(characterData.Name);
         textName.SetText(LocalizationManager.Instance.GetLocalizedValue(characterData.Name));
         textFullName.SetText(LocalizationManager.Instance.GetLocalizedValue(characterData.FullName));
         textDescription.SetText(LocalizationManager.Instance.GetLocalizedValue(characterData.Desc));

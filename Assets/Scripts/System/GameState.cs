@@ -2,15 +2,13 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public static GameState Instance => PersistentManager.Instance.GameState;
+    
+    [SerializeField] private MasterDictionary.Characters selectedCharacter;
+    public MasterDictionary.Characters SelectedCharacter => selectedCharacter;
 
-    // Update is called once per frame
-    void Update()
+    public void SelectCharacter(MasterDictionary.Characters character)
     {
-        
+        selectedCharacter = character;
     }
 }

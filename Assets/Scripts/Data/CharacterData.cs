@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CharacterData", menuName = "Scriptable Objects/CharacterData")]
-public class CharacterData : ScriptableObject
+public partial class CharacterData : ScriptableObject
 {
     [SerializeField] private MasterDictionary.Characters id;
     public MasterDictionary.Characters ID => id;

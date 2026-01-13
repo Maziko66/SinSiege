@@ -16,6 +16,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private ButtonGeneral buttonExtras;
     [SerializeField] private ButtonGeneral buttonExit;
 
+    [SerializeField] private InfiniteScroll infiniteScrollCharacterSelect;
+
     private void Start()
     {
         panelMainMenu.SetActive(true);
@@ -29,6 +31,12 @@ public class MainMenuManager : MonoBehaviour
         buttonExtras.onClick.AddListener(Exit);
     }
 
+    public void EnterGame()
+    {
+        GameState.Instance.SelectCharacter((MasterDictionary.Characters)infiniteScrollCharacterSelect.GetSelectedIndex());
+        SceneManager.Instance.StartGame();
+    }
+    
     #region MAIN_MENU_BUTTON_METHODS
 
     private void StartGame()
@@ -58,6 +66,5 @@ public class MainMenuManager : MonoBehaviour
     }
 
     #endregion
-    
     
 }
