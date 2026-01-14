@@ -24,7 +24,7 @@ public class FMODBootstrap : MonoBehaviour
         }
 
         loaded = true;
-        Debug.Log("FMOD banks loaded.");
+        // Debug.Log("FMOD banks loaded.");
         // Now it's safe to create / start events
     }
 }

@@ -19,6 +19,8 @@ TagManager:
   - Clickable
   - Shop
   - BuildChecker
+  - CinemachineBuildCam
+  - CinemachineCam
   layers:
   - Default
   - TransparentFX

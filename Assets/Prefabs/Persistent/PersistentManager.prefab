@@ -182,7 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SaveManager
   useEncryption: 0
   fileName: savegame.json
-  gameData: {fileID: 0}
+  gameData: {fileID: 11400000, guid: 012944569ad5f174d880d919e887cf41, type: 2}
 --- !u!1 &4821195848040566872
 GameObject:
   m_ObjectHideFlags: 0

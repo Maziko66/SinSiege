@@ -63,4 +63,6 @@ public static class MasterDictionary
     };
 
     public static Color GetRarityColor(UpgradeRarity rarity) => rarityColors[(int)rarity];
+    
+    public static readonly string SceneMainMenuName = "MainMenu";
 }

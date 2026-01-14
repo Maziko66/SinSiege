@@ -93,6 +93,10 @@ public class Player : MonoBehaviour
         
         _brain = _cam.gameObject.GetComponent<CinemachineBrain>();
 
+        if (_buildCameraObject == null)
+        {
+            _buildCameraObject = GameObject.FindGameObjectWithTag("CinemachineBuildCam");
+        }
         _buildCameraObjectRb = _buildCameraObject.GetComponent<Rigidbody2D>();
         
         _layerMaskTowerZone = 1 << LayerMask.NameToLayer("TowerZone");

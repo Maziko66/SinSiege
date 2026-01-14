@@ -30,7 +30,12 @@ public class ButtonGeneral : Button
     protected override void DoStateTransition(SelectionState state, bool instant)
     {
         base.DoStateTransition(state, instant);
-        
+
+        if (text == null)
+        {
+            //Debug.Log("no text attached");
+            return;
+        }
         if (state == SelectionState.Normal)
         {
             text.color = defaultColor;

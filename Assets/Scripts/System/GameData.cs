@@ -17,6 +17,17 @@ public class GameData : ScriptableObject
         false,
         false
     };
+
+    public bool[] mapNormalUnlocks = new bool[7]
+    {
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+    };
     
     public ShotgunmanData shotgunmanData;
     public ScoundrelData scoundrelData;
@@ -42,6 +53,11 @@ public class ShotgunmanData
 public class ScoundrelData
 {
     public CommonCharData common;
+
+    public void Reset()
+    {
+        common.Reset(MasterDictionary.Characters.Scoundrel);
+    }
 }
 
 [System.Serializable]

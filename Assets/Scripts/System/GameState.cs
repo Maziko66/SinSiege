@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameState : MonoBehaviour
 {
@@ -7,8 +9,15 @@ public class GameState : MonoBehaviour
     [SerializeField] private MasterDictionary.Characters selectedCharacter;
     public MasterDictionary.Characters SelectedCharacter => selectedCharacter;
 
+    [Header("Menu")]
+    [SerializeField] private Button buttonSelectCharacter;
+
     public void SelectCharacter(MasterDictionary.Characters character)
     {
-        selectedCharacter = character;
+        if (SceneManager.Instance.GetCurrentSceneName().Equals(MasterDictionary.SceneMainMenuName))
+        {
+            selectedCharacter = character;
+            Debug.Log($"Selected character: {character}");
+        }
     }
 }
