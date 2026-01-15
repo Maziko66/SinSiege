@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 [System.Serializable]
-internal class Route
+public class Route
 {
     public List<GameObject> routepoints;
 }
@@ -30,6 +30,7 @@ public class WaveManager : MonoBehaviour
 
     [Header("Info")]
     [SerializeField] private int waveNumber = 1;
+    [SerializeField] private LevelData levelData;
     
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI textWaveTimer;
@@ -316,5 +317,10 @@ public class WaveManager : MonoBehaviour
                 wave.totalGoldValue += enemy.coinValue;
             }
         }
+    }
+
+    public void SetLevelData(LevelData levelData)
+    {
+        this.levelData = levelData;
     }
 }

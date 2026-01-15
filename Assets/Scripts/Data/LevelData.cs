@@ -1,16 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelData : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int levelIndex;
+    
+    [SerializeField] private List<Route> routes = new List<Route>();
+    public List<Route> Routes => routes;
+    
+    [SerializeField] private List<WaveSO> waves = new List<WaveSO>();
+    public List<WaveSO> Waves => waves;
 }

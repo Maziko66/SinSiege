@@ -7811,6 +7811,7 @@ MonoBehaviour:
   _camera: {fileID: 519420031}
   enemyParent: {fileID: 1695566074}
   waveNumber: 1
+  levelData: {fileID: 0}
   textWaveTimer: {fileID: 1085530490}
   buttonStartWave: {fileID: 1948851716}
   routes:

@@ -1,10 +1,16 @@
 using System;
+using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 
 public class LevelInitializer : MonoBehaviour
 {
     public static LevelInitializer Instance { get; private set; }
+
+    [SerializeField] private List<LevelData> levelDatas  = new List<LevelData>();
+    public List<LevelData> LevelDatas => levelDatas;
+
+    public int levelIndex;
     
     [Header("References")]
     [field: SerializeField] public Player Player { get; private set; }
