@@ -80,14 +80,18 @@ public class BuildManager : MonoBehaviour
     private int _mergeArrayIndex = 0;
     private string[] _mergeArrayNames = new string[2];
     private TowerZone _mergeTowerZone;
-    
+
+    public void Init()
+    {
+        _canvas = FindFirstObjectByType<Canvas>();
+        _player = LevelInitializer.Instance.Player;
+        
+        _gameManager = LevelInitializer.Instance.GameManager;
+    }
 
     private void Awake()
     {
-        _canvas = FindFirstObjectByType<Canvas>();
-        _player = FindFirstObjectByType<Player>();
         
-        _gameManager = FindFirstObjectByType<GameManager>();
     }
 
     private void Start()

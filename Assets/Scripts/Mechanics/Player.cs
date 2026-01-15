@@ -79,20 +79,20 @@ public class Player : MonoBehaviour
     public bool isPaused;
     
     private bool _shouldInvalidateConfiner = false;
-    
-    private void Awake()
+
+    public void Init()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         
-        _gameManager = FindFirstObjectByType<GameManager>();
-        _buildManager = FindFirstObjectByType<BuildManager>();
-        _cam = FindFirstObjectByType<Camera>();
-        _mouseManager = FindFirstObjectByType<MouseManager>();
+        _gameManager = LevelInitializer.Instance.GameManager;
+        _buildManager = LevelInitializer.Instance.BuildManager;
+        _mouseManager = LevelInitializer.Instance.MouseManager;
         
+        _cam = LevelInitializer.Instance.MainCamera;
         _brain = _cam.gameObject.GetComponent<CinemachineBrain>();
-
+        
         if (_buildCameraObject == null)
         {
             _buildCameraObject = GameObject.FindGameObjectWithTag("CinemachineBuildCam");

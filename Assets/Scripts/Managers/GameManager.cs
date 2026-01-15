@@ -59,16 +59,16 @@ public class GameManager : MonoBehaviour
     public Vector2 mousePosition;
     
     #endregion
-    
-    private void Awake()
+
+    public void Init()
     {
         _canvas = FindFirstObjectByType<Canvas>();
-        _player = FindFirstObjectByType<Player>();
-        _cam = FindFirstObjectByType<Camera>();
+        _player = LevelInitializer.Instance.Player;
+        _cam = LevelInitializer.Instance.MainCamera;
         _mmc = FindFirstObjectByType<MinimapCollider>();
-        _buildManager = FindFirstObjectByType<BuildManager>();
+        _buildManager = LevelInitializer.Instance.BuildManager;
     }
-
+    
     void Start()
     {
         //SliderBaseHealthMinMaxValueSet();

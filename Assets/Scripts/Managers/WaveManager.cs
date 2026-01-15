@@ -70,11 +70,11 @@ public class WaveManager : MonoBehaviour
     private bool _spawnHorde;
     private float _hordeInterval;
     private float _hordeCooldown;
-    
-    private void Awake()
+
+    public void Init()
     {
+        _upgradeManager = LevelInitializer.Instance.UpgradeManager;
         _cooldown = GetComponent<Cooldown>();
-        _upgradeManager = FindFirstObjectByType<UpgradeManager>();
     }
 
     private void Start()
@@ -117,7 +117,7 @@ public class WaveManager : MonoBehaviour
             waveActive = false;
             wavesListIndex++;
             //GetEnemyList();
-            MusicManager.Instance.SetCombatToFalse();
+            MusicManager.Instance?.SetCombatToFalse();
             spawnCooldown = 0;
             Debug.Log("enemy alive list <= 0");
             waveNumber++;

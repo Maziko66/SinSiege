@@ -17,10 +17,11 @@ public class MouseManager : MonoBehaviour
     [SerializeField] private int _mouseDirection;
     public int MouseDirection => _mouseDirection;
 
-    private void Awake()
+    public void Init()
     {
-        _player = FindFirstObjectByType<Player>();
+        _player = LevelInitializer.Instance.Player;
     }
+    
 
     private void Start()
     {

@@ -20,11 +20,12 @@ public class ArrowManager : MonoBehaviour
     private List<OffScreenArrow> arrows = new List<OffScreenArrow>();
     private Canvas parentCanvas;
 
-    private void Awake()
+    public void Init()
     {
-        _player = FindFirstObjectByType<Player>();
+        _player = LevelInitializer.Instance.Player;
+        player = _player.transform;
     }
-
+    
     private void Start()
     {
         parentCanvas = GetComponentInParent<Canvas>();
@@ -32,6 +33,18 @@ public class ArrowManager : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (_player == null)
+        {
+            _player = LevelInitializer.Instance.Player;
+            if (_player == null)
+            {
+                Debug.LogError("Player is null");
+                return;
+            }
+
+            player = _player.transform;
+        }
+        
         if (_player.isPaused) return;
 
         FindTargets();
