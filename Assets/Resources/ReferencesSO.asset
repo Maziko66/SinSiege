@@ -21,3 +21,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5e0a73f423546b04280a608b578c5ff0, type: 2}
   - {fileID: 11400000, guid: 0ca629eb1b42fb047b2aacdfc87c8919, type: 2}
   - {fileID: 11400000, guid: 7c291844b621c0349a662510cbf53278, type: 2}
+  colors:
+  - serializedVersion: 2
+    rgba: 4278454461

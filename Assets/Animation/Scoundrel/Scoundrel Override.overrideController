@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Scoundrel Override
+  m_Controller: {fileID: 9100000, guid: c31280162fb3ce346a3b7f930248dca5, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 5784e84604e7db84581ab7394ae0947c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 20bb9e10701173c4697f465ea22eec85, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e9f3d80da75483c42884e81e7b819940, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3e2f214400b1c3d4b90c845efe594f20, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: faf07a2ee2a216c4382cf1ad51552634, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 23b2bc3017bfc7c478d2ff957af0aced, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1d0e5d5d8a13de34181a2efe567fdf2a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8f76c855c8e46ee498d1e38e9f148595, type: 2}
