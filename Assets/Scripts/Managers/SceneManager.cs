@@ -26,9 +26,10 @@ public class SceneManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("Lust1");
     }
 
-    public void StartLevelWithData(string sceneName)
+    public void StartLevelWithData(string sceneName, int levelIndex)
     {
         Debug.Log($"Starting level '{sceneName}' with data.");
+        PersistentManager.Instance.GameState.SetLevelIndex(levelIndex);
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
 
