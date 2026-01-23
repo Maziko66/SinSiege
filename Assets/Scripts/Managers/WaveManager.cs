@@ -36,8 +36,6 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textWaveTimer;
     [SerializeField] private Button buttonStartWave;
     
-    
-
     private string _strWaveTimer = "Wave Timer: ";
     private string _strWaveInProgress = "Wave in progress";
     
@@ -112,7 +110,9 @@ public class WaveManager : MonoBehaviour
         //
         //if (enemyParent.transform.childCount == 0 && _waveActive)
         //if (enemyList.Count <= 0)
-        if (enemyAliveList.Count <= 0 && hordeAliveList.Count <= 0 && waveActive)
+        
+        //if (enemyAliveList.Count <= 0 && hordeAliveList.Count <= 0 && waveActive)
+        if (enemyList.Count == 0 && enemyAliveList.Count <= 0 && hordeAliveList.Count <= 0 && waveActive)
         {
             enemyAliveList.Clear();
             waveActive = false;
@@ -150,7 +150,18 @@ public class WaveManager : MonoBehaviour
         hordeList = new List<Enemy>(currentWave.hordeList);
         
         //spawnPosition = waves[wavesListIndex].spawnPoint;
-        spawnPosition = spawnPoints[currentWave.routeIndex].transform.position;
+        //spawnPosition = spawnPoints[currentWave.routeIndex].transform.position;
+        
+        if (currentWave.routeIndex < spawnPoints.Count)
+        {
+            spawnPosition = spawnPoints[currentWave.routeIndex].transform.position;
+        }
+        else
+        {
+            Debug.LogError($"Wave {waveNumber} asks for Route {currentWave.routeIndex}, but only {spawnPoints.Count} spawn points exist!");
+            spawnPosition = Vector3.zero; // Fallback
+        }
+        
         SetWaveTimer(currentWave.waveCooldown);
         
         _hordeInterval = currentWave.hordeInterval;
@@ -323,4 +334,74 @@ public class WaveManager : MonoBehaviour
     {
         this.levelData = levelData;
     }
+
+    public void GetWavesAndRoutesFromLevelData()
+    {
+        routes = new List<Route>(levelData.Routes);
+        waves = new List<WaveSO>(levelData.Waves);
+    }
+
+    public void ResetWavesAndRoutes()
+    {
+        if (routes != null) routes.Clear(); 
+        else routes = new List<Route>();
+
+        if (waves != null) waves.Clear(); 
+        else waves = new List<WaveSO>();
+    }
+    
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        // Don't draw if we have no routes
+        if (routes == null || routes.Count == 0) return;
+
+        // A list of colors to cycle through so different routes look distinct
+        Color[] routeColors = {
+            Color.red,
+            new Color(1f, 0.64f, 0f),   // Orange
+            Color.yellow,
+            new Color(0.6f, 1f, 0.2f),  // Lime
+            Color.green,
+            new Color(0f, 0.5f, 0.5f),  // Teal
+            Color.cyan,
+            Color.blue,
+            new Color(0.5f, 0f, 1f),    // Violet
+            Color.magenta,
+            new Color(1f, 0.4f, 0.7f),  // Pink
+            Color.white                 // White
+        };
+
+        for (int r = 0; r < routes.Count; r++)
+        {
+            Route currentRoute = routes[r];
+            if (currentRoute.routepoints == null || currentRoute.routepoints.Count < 2) continue;
+
+            // Pick a color based on the route index (loops back if you have many routes)
+            Gizmos.color = routeColors[r % routeColors.Length];
+
+            for (int i = 0; i < currentRoute.routepoints.Count - 1; i++)
+            {
+                GameObject startNode = currentRoute.routepoints[i];
+                GameObject endNode = currentRoute.routepoints[i + 1];
+
+                // Ensure nodes haven't been deleted from the scene
+                if (startNode != null && endNode != null)
+                {
+                    // Draw the line connecting them
+                    Gizmos.DrawLine(startNode.transform.position, endNode.transform.position);
+
+                    // Draw a small sphere at every point so we can see the "joints"
+                    Gizmos.DrawSphere(startNode.transform.position, 0.2f);
+                    
+                    // Mark the END of the path with a different shape (Cube)
+                    if (i == currentRoute.routepoints.Count - 2)
+                    {
+                        Gizmos.DrawCube(endNode.transform.position, Vector3.one * 0.3f);
+                    }
+                }
+            }
+        }
+    }
+#endif
 }

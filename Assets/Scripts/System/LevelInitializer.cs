@@ -43,6 +43,25 @@ public class LevelInitializer : MonoBehaviour
         Instance = this;
         
         FindManagersAndObjects();
+        
+        SetLevelIndex();
+        LoadLevel();
+    }
+    
+    private void OnEnable()
+    {
+        if (PersistentManager.Instance != null && PersistentManager.Instance.GameState != null)
+        {
+            PersistentManager.Instance.GameState.OnLevelChanged += OnLevelChangedHandler;
+        }
+    }
+    
+    private void OnDisable()
+    {
+        if (PersistentManager.Instance != null && PersistentManager.Instance.GameState != null)
+        {
+            PersistentManager.Instance.GameState.OnLevelChanged -= OnLevelChangedHandler;
+        }
     }
 
     private void FindManagersAndObjects()
@@ -75,5 +94,30 @@ public class LevelInitializer : MonoBehaviour
         GameManager.Init();
         MouseManager.Init();
         WaveManager.Init();
+    }
+
+    private void OnLevelChangedHandler(int newIndex)
+    {
+        Debug.Log($"LevelInitializer: Detected Level Change to {newIndex}");
+        this.levelIndex = newIndex;
+
+        LoadLevel(); 
+    }
+    
+    public void SetLevelIndex()
+    {
+        if (PersistentManager.Instance != null)
+        {
+            levelIndex = PersistentManager.GameState.LevelIndex;
+        }
+    }
+    
+    private void LoadLevel()
+    {
+        WaveManager.SetLevelData(levelDatas[levelIndex]);
+
+        WaveManager.ResetWavesAndRoutes();
+        
+        WaveManager.GetWavesAndRoutesFromLevelData();
     }
 }

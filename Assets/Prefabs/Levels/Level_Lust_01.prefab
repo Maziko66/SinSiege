@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 58153077414624607}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -39.5, y: 33.5, z: 0}
+  m_LocalPosition: {x: -39.5, y: 32.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112280,6 +112280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 005241849beffcd439bc66297e0686e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
+  levelIndex: 0
   routes:
   - routepoints:
     - {fileID: 7538724743036518776}
@@ -112410,7 +112411,6 @@ MonoBehaviour:
     - {fileID: 2286678620256894904}
     - {fileID: 4684777973511375038}
   waves:
-  - {fileID: 11400000, guid: c004f9625e4bc3d4bbe77731e093384a, type: 2}
   - {fileID: 11400000, guid: 1c763cc931a985849af1894e04e2e7c1, type: 2}
   - {fileID: 11400000, guid: 4f58ebc8b40e6794e8c080be0167fe61, type: 2}
   - {fileID: 11400000, guid: a7f78f4ac8f896e42a7f25829a574712, type: 2}
@@ -169545,7 +169545,7 @@ Transform:
   m_GameObject: {fileID: 5904674701059156200}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 3, z: 0}
+  m_LocalPosition: {x: -4, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -172284,7 +172284,7 @@ Transform:
   m_GameObject: {fileID: 7089750115736709766}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -47.5, y: 37, z: 0}
+  m_LocalPosition: {x: -47.5, y: 38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
