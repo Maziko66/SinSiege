@@ -38,4 +38,11 @@ public class LocalizedText : MonoBehaviour
             textComponent.text = LocalizationManager.Instance.GetLocalizedValue(key);
         }
     }
+
+    public void UpdateKeyAndText(string newKey)
+    {
+        key = newKey;
+        
+        UpdateText();
+    }
 }

@@ -1,28 +1,31 @@
 fileFormatVersion: 2
-guid: 377b2e90fdddb5e41b5179affc2c0901
+guid: c25154b54030d474993aa8f473f4a521
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7043467615931121333
-    second: icon 1 (1)_0
+      213: -8648549339464048370
+    second: next icon hover_0
   - first:
-      213: -8885582260025289419
-    second: icon 1 (1)_1
+      213: 283730174693398372
+    second: next icon hover_1
   - first:
-      213: -825345442606669312
-    second: icon 1 (1)_2
+      213: 5873451433666812154
+    second: next icon hover_2
   - first:
-      213: 7502757721998802329
-    second: icon 1 (1)_3
+      213: -3908800461697758590
+    second: next icon hover_3
   - first:
-      213: -3400675106804447480
-    second: icon 1 (1)_4
+      213: 1116757966353574184
+    second: next icon hover_4
   - first:
-      213: -3458650934492841639
-    second: icon 1 (1)_5
+      213: 2538289271814644266
+    second: next icon hover_5
   - first:
-      213: -6002264239898216032
-    second: icon 1 (1)_6
+      213: 8058838640926550477
+    second: next icon hover_6
+  - first:
+      213: -3558885046389085043
+    second: next icon hover_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -118,13 +121,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: icon 1 (1)_0
+      name: next icon hover_0
       rect:
         serializedVersion: 2
-        x: 52
-        y: 56
-        width: 177
-        height: 183
+        x: 5
+        y: 35
+        width: 16
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,20 +136,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b41457d6583904e90800000000000000
-      internalID: -7043467615931121333
+      spriteID: e016ece923e2af780800000000000000
+      internalID: -8648549339464048370
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icon 1 (1)_1
+      name: next icon hover_1
       rect:
         serializedVersion: 2
-        x: 54
-        y: 195
-        width: 62
-        height: 63
+        x: 18
+        y: 35
+        width: 18
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5351ea8230210b480800000000000000
-      internalID: -8885582260025289419
+      spriteID: 467d8a2371300f300800000000000000
+      internalID: 283730174693398372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icon 1 (1)_2
+      name: next icon hover_2
       rect:
         serializedVersion: 2
-        x: 161
-        y: 236
-        width: 12
-        height: 26
+        x: 25
+        y: 35
+        width: 24
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,20 +180,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 002217c51b8cb84f0800000000000000
-      internalID: -825345442606669312
+      spriteID: af81835c5f0b28150800000000000000
+      internalID: 5873451433666812154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icon 1 (1)_3
+      name: next icon hover_3
       rect:
         serializedVersion: 2
-        x: 183
-        y: 198
-        width: 73
-        height: 65
+        x: 42
+        y: 35
+        width: 20
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,20 +202,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 99dbe8795662f1860800000000000000
-      internalID: 7502757721998802329
+      spriteID: 28a4f9690b621c9c0800000000000000
+      internalID: -3908800461697758590
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icon 1 (1)_4
+      name: next icon hover_4
       rect:
         serializedVersion: 2
-        x: 224
-        y: 192
-        width: 22
-        height: 12
+        x: 47
+        y: 27
+        width: 30
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 807486602006ec0d0800000000000000
-      internalID: -3400675106804447480
+      spriteID: 829a79c14758f7f00800000000000000
+      internalID: 1116757966353574184
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icon 1 (1)_5
+      name: next icon hover_5
       rect:
         serializedVersion: 2
         x: 61
-        y: 56
-        width: 54
-        height: 55
+        y: 42
+        width: 17
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,20 +246,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9593b7fbc476000d0800000000000000
-      internalID: -3458650934492841639
+      spriteID: a2262bfe4a0d93320800000000000000
+      internalID: 2538289271814644266
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: icon 1 (1)_6
+      name: next icon hover_6
       rect:
         serializedVersion: 2
-        x: 220
-        y: 79
-        width: 35
-        height: 56
+        x: 82
+        y: 9
+        width: 20
+        height: 69
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,8 +268,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0a936d4a97ca3bca0800000000000000
-      internalID: -6002264239898216032
+      spriteID: dc96e9edb0fb6df60800000000000000
+      internalID: 8058838640926550477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: next icon hover_7
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 33
+        width: 126
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8c6785f7ec4c9ec0800000000000000
+      internalID: -3558885046389085043
       vertices: []
       indices: 
       edges: []
@@ -285,13 +310,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      icon 1 (1)_0: -7043467615931121333
-      icon 1 (1)_1: -8885582260025289419
-      icon 1 (1)_2: -825345442606669312
-      icon 1 (1)_3: 7502757721998802329
-      icon 1 (1)_4: -3400675106804447480
-      icon 1 (1)_5: -3458650934492841639
-      icon 1 (1)_6: -6002264239898216032
+      next icon hover_0: -8648549339464048370
+      next icon hover_1: 283730174693398372
+      next icon hover_2: 5873451433666812154
+      next icon hover_3: -3908800461697758590
+      next icon hover_4: 1116757966353574184
+      next icon hover_5: 2538289271814644266
+      next icon hover_6: 8058838640926550477
+      next icon hover_7: -3558885046389085043
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

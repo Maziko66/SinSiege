@@ -22,6 +22,13 @@ public class ButtonGeneralEditor : ButtonEditor
         DrawPropertyIfFound("highlightedColor");
         DrawPropertyIfFound("pressedColor");
         DrawPropertyIfFound("disabledColor");
+        DrawPropertyIfFound("_images");
+        DrawPropertyIfFound("upgradedSprite");
+        DrawPropertyIfFound("defaultSprite");
+        DrawPropertyIfFound("lineSpriteDefault");
+        DrawPropertyIfFound("lineSpriteUpgraded");
+        DrawPropertyIfFound("hasLine");
+        DrawPropertyIfFound("lineImage");
 
         // 3. Draw ANY other fields defined in child scripts (like sceneToLoad)
         DrawRemainingProperties();
@@ -70,6 +77,7 @@ public class ButtonGeneralEditor : ButtonEditor
     {
         // List the variable names from ButtonGeneral you already handled manually
         return name == "text" || name == "defaultColor" || name == "highlightedColor" || 
-               name == "pressedColor" || name == "disabledColor";
+               name == "pressedColor" || name == "disabledColor" || name == "_images" || name == "upgradedSprite" ||
+               name == "defaultSprite" || name == "lineSpriteDefault" || name == "lineSpriteUpgraded" || name == "hasLine" || name == "lineImage";
     }
 }

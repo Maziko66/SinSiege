@@ -18,6 +18,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private ButtonGeneral buttonExtras;
     [SerializeField] private ButtonGeneral buttonExit;
 
+    [SerializeField] private ButtonGeneral buttonBackToMainMenuFromUpgradeMenu;
+
     [SerializeField] private Button buttonSelectCharacter;
 
     [SerializeField] private InfiniteScroll infiniteScrollCharacterSelect;
@@ -34,6 +36,8 @@ public class MainMenuManager : MonoBehaviour
         buttonSettings.onClick.AddListener(Settings);
         buttonExtras.onClick.AddListener(Extras);
         buttonExtras.onClick.AddListener(Exit);
+        
+        buttonBackToMainMenuFromUpgradeMenu.onClick.AddListener(BackToMainMenuFromUpgradeMenu);
         
         buttonSelectCharacter.onClick.AddListener(LevelSelect);
     }
@@ -76,6 +80,12 @@ public class MainMenuManager : MonoBehaviour
     private void Exit()
     {
         throw new NotImplementedException();
+    }
+
+    private void BackToMainMenuFromUpgradeMenu()
+    {
+        panelUpgradeMenu.SetActive(false);
+        panelMainMenu.SetActive(true);
     }
 
     #endregion

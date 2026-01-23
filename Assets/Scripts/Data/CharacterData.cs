@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CharacterData", menuName = "Data/CharacterData")]
 public partial class CharacterData : ScriptableObject
 {
+    [Header("General Info")]
     [SerializeField] private MasterDictionary.Characters id;
     public MasterDictionary.Characters ID => id;
     
@@ -15,6 +16,11 @@ public partial class CharacterData : ScriptableObject
     [SerializeField] private string desc;
     public string Desc => desc;
 
+    [Header("UI")]
+    [SerializeField] private Sprite upgradeMenuPortrait;
+    public Sprite UpgradeMenuPortrait => upgradeMenuPortrait;
+
+    [Header("Attributes")]
     [SerializeField] private int damage;
     public int Damage => damage;
 

@@ -110,6 +110,20 @@ MonoBehaviour:
     - 
     - 
     - 
+  - key: menuBack
+    values:
+    - Back
+    - "Geri D\xF6n"
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
   - key: characterFullShotgunman
     values:
     - Benedict "Buck" Shotwell
@@ -336,7 +350,11 @@ MonoBehaviour:
     - 
   - key: characterDescShotgunman
     values:
-    - 
+    - Benedict Shotwell, also known as Buck, a hero for some; a villain for most.
+      He is a man who speaks only in violence, carving a path through his enemies
+      with his trusty boomstick and iron-hard fists. But this intimidation is merely
+      an armor; his true strength comes from the locket in his pocket and the promise
+      that he will burn down the abyss itself to get back to his kin.
     - 
     - 
     - 
@@ -350,7 +368,11 @@ MonoBehaviour:
     - 
   - key: characterDescScoundrel
     values:
-    - 
+    - A thief, a rascal, and an unrepentant scoundrel, Jacques le Carreus is a cheeky
+      opportunist with a gadget for every lock. He has burned every bridge he has
+      ever crossed, leaving him with zero friends and a legion of enemies. While
+      others fight to save the humanity, Jacques is only here for the chaos, using
+      the demonic invasion as cover to loot as much as he desires.
     - 
     - 
     - 
@@ -364,7 +386,12 @@ MonoBehaviour:
     - 
   - key: characterDescFiremage
     values:
-    - 
+    - Ignatia 'Cindy' Shotwell is whispered to be a powerful 'Firemage' by the common
+      folk, but she possesses no arcane blood, only a brilliant, volatile mind. Her
+      "spells" are actually the product of pressurized, fuel-injected wristbands
+      that launch devastating balls of combustion. She has ventured into the inferno
+      not for glory, but on a desperate manhunt, burning a path through the demonic
+      swarm to find her missing father.
     - 
     - 
     - 
