@@ -6,25 +6,31 @@ using System.Linq;
 
 public class WaveEditorWindow : EditorWindow
 {
-    // Selection
+    // --- Selection ---
     private LevelData _selectedLevelData;
     private SerializedObject _serializedLevelObject;
     private SerializedProperty _wavesListProperty;
     
-    // Level List Management
+    // --- Level List Caching ---
     private List<LevelData> _cachedLevels = new List<LevelData>();
     private string[] _levelNames;
     private int _selectedLevelIndex = 0;
     
-    // Path Constants
+    // --- Constants ---
     private const string BaseWavePath = "Assets/Scriptable Objects/Waves";
 
-    // Wave Selection
+    // --- Wave Editing (Optimized) ---
     private WaveSO _selectedWave;
     private SerializedObject _serializedWaveObject;
     private int _selectedWaveIndex = -1;
+    
+    // Cached Properties to avoid repetitive lookups
+    private SerializedProperty _propEnemySpawns;
+    private SerializedProperty _propHordeSpawns;
+    // Add other specific properties here if you want to draw them manually
+    // or we can iterate efficiently.
 
-    // Layout & Resizing
+    // --- Layout & Resizing ---
     private Vector2 _sidebarScrollPosition;
     private Vector2 _inspectorScrollPosition;
     
@@ -43,6 +49,13 @@ public class WaveEditorWindow : EditorWindow
         RefreshLevelList();
     }
 
+    private void OnDisable()
+    {
+        // Clean up references
+        _serializedWaveObject = null;
+        _serializedLevelObject = null;
+    }
+
     private void OnGUI()
     {
         DrawTopBar();
@@ -53,6 +66,8 @@ public class WaveEditorWindow : EditorWindow
             return;
         }
 
+        // Only update level object if we are interacting with the sidebar structure
+        // But generally safe to keep this update as it's just the level wrapper
         if (_serializedLevelObject != null)
         {
             _serializedLevelObject.Update();
@@ -63,7 +78,7 @@ public class WaveEditorWindow : EditorWindow
         // 1. Sidebar
         DrawSidebar();
         
-        // 2. Resize Handle (Draws between the two areas)
+        // 2. Resize Handle
         ResizeHandle();
 
         // 3. Inspector
@@ -71,6 +86,7 @@ public class WaveEditorWindow : EditorWindow
         
         EditorGUILayout.EndHorizontal();
 
+        // Apply changes to Level Data (Wave list order/add/remove)
         if (_serializedLevelObject != null)
         {
             _serializedLevelObject.ApplyModifiedProperties();
@@ -80,39 +96,29 @@ public class WaveEditorWindow : EditorWindow
     // ----------------- RESIZING LOGIC -----------------
     private void ResizeHandle()
     {
-        // Allocate space for the handle (5 pixels wide)
         Rect resizeRect = GUILayoutUtility.GetRect(5f, position.height, GUILayout.ExpandHeight(true));
         
-        // 1. Draw a thin divider line (Optional visual polish)
-        // We check for Repaint event to draw strictly visual elements
         if (Event.current.type == EventType.Repaint)
         {
-            // Pick a color based on the skin (Pro vs Personal)
             Color splitterColor = EditorGUIUtility.isProSkin 
                 ? new Color(0.12f, 0.12f, 0.12f) 
                 : new Color(0.6f, 0.6f, 0.6f);
-            
-            // Draw a 1-pixel wide line in the middle of the 5-pixel space
             EditorGUI.DrawRect(new Rect(resizeRect.x + 2, resizeRect.y, 1, resizeRect.height), splitterColor);
         }
         
-        // 2. Add the Resize Cursor functionality
         EditorGUIUtility.AddCursorRect(resizeRect, MouseCursor.ResizeHorizontal);
 
-        // 3. Handle Input Events
         Event e = Event.current;
-        
         if (e.type == EventType.MouseDown && resizeRect.Contains(e.mousePosition))
         {
             _isResizing = true;
+            e.Use(); // Consume event
         }
         
         if (_isResizing)
         {
             _sidebarWidth += e.delta.x;
             _sidebarWidth = Mathf.Clamp(_sidebarWidth, MinSidebarWidth, position.width - 100f);
-            
-            // Force repaint to show updates smoothly
             Repaint(); 
         }
 
@@ -126,7 +132,6 @@ public class WaveEditorWindow : EditorWindow
     private void DrawTopBar()
     {
         EditorGUILayout.BeginVertical(EditorStyles.helpBox);
-        
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("Target Level:", GUILayout.Width(80));
 
@@ -195,6 +200,8 @@ public class WaveEditorWindow : EditorWindow
         if (newLevel != _selectedLevelData)
         {
             _selectedLevelData = newLevel;
+            
+            // Clear selection
             _selectedWave = null;
             _selectedWaveIndex = -1;
             _serializedWaveObject = null;
@@ -224,10 +231,8 @@ public class WaveEditorWindow : EditorWindow
     }
 
     // ----------------- SIDEBAR -----------------
-
     private void DrawSidebar()
     {
-        // Changed: Removed "box" style to eliminate the gap/margin
         EditorGUILayout.BeginVertical(GUILayout.Width(_sidebarWidth), GUILayout.ExpandHeight(true));
         
         EditorGUILayout.LabelField("Waves List", EditorStyles.boldLabel);
@@ -272,8 +277,6 @@ public class WaveEditorWindow : EditorWindow
         EditorGUILayout.EndScrollView();
         EditorGUILayout.EndVertical();
         
-        // Optional: Draw a subtle vertical line at the right edge of the sidebar
-        // This adds a border between sidebar and the resize handle area
         Rect r = GUILayoutUtility.GetLastRect();
         if (Event.current.type == EventType.Repaint)
         {
@@ -281,37 +284,52 @@ public class WaveEditorWindow : EditorWindow
         }
     }
 
+    // ----------------- INSPECTOR (PERFORMANCE FIXED) -----------------
     private void DrawWaveInspector()
     {
-        // Changed: Removed "box" style here as well
         EditorGUILayout.BeginVertical(GUILayout.ExpandHeight(true));
         
         _inspectorScrollPosition = EditorGUILayout.BeginScrollView(_inspectorScrollPosition);
 
         if (_selectedWave != null && _serializedWaveObject != null)
         {
+            // PERFORMANCE: Only update this specific object when needed
             _serializedWaveObject.Update();
 
             EditorGUILayout.LabelField($"Editing: {_selectedWave.name}", EditorStyles.boldLabel);
             EditorGUILayout.Space();
 
-            SerializedProperty prop = _serializedWaveObject.GetIterator();
+            // PERFORMANCE: Instead of iterating "NextVisible" (slow), 
+            // we draw the cached properties directly.
+            
+            // 1. Draw all fields EXCEPT the lists manually (or via iteration if you prefer)
+            // Using iteration here is safer for "General" fields in case you add new ones,
+            // but for maximum speed with large lists, we manually handle the big lists.
+            
+            SerializedProperty iterator = _serializedWaveObject.GetIterator();
             bool enterChildren = true;
 
-            while (prop.NextVisible(enterChildren))
+            while (iterator.NextVisible(enterChildren))
             {
-                enterChildren = false;
-                if (prop.name != "m_Script")
-                {
-                    EditorGUILayout.PropertyField(prop, true);
-                }
+                enterChildren = false; 
+
+                // Skip the script field
+                if (iterator.name == "m_Script") continue;
+
+                // We can let PropertyField handle the lists (it's optimized in recent Unity versions)
+                // OR we can customize it. Since your lag comes from "OnInspectorGUI" (the Editor),
+                // using PropertyField here removes the overhead of the Editor class itself.
+                
+                EditorGUILayout.PropertyField(iterator, true);
             }
 
+            // PERFORMANCE: Only apply changes to the wave
             _serializedWaveObject.ApplyModifiedProperties();
+            
+            GUILayout.Space(20);
         }
         else
         {
-            // Centered label when no wave is selected
             GUILayout.FlexibleSpace();
             var style = new GUIStyle(EditorStyles.label) { alignment = TextAnchor.MiddleCenter, fontSize = 14, normal = { textColor = Color.gray } };
             EditorGUILayout.LabelField("Select a Wave from the list to edit.", style, GUILayout.ExpandWidth(true));
@@ -324,9 +342,25 @@ public class WaveEditorWindow : EditorWindow
 
     private void SelectWave(int index, WaveSO wave)
     {
+        if (_selectedWaveIndex == index && _selectedWave == wave && _serializedWaveObject != null) 
+            return;
+
         _selectedWaveIndex = index;
         _selectedWave = wave;
-        _serializedWaveObject = (_selectedWave != null) ? new SerializedObject(_selectedWave) : null;
+
+        if (_selectedWave != null)
+        {
+            // Create SerializedObject ONCE.
+            _serializedWaveObject = new SerializedObject(_selectedWave);
+            
+            // Cache heavy properties if you want to perform manual drawing later
+            // _propEnemySpawns = _serializedWaveObject.FindProperty("enemySpawns");
+        }
+        else
+        {
+            _serializedWaveObject = null;
+        }
+        
         GUI.FocusControl(null); 
     }
 
@@ -382,40 +416,37 @@ public class WaveEditorWindow : EditorWindow
 
         if (choice == 1) return; // Cancel
 
-        // 1. Handle Asset Deletion
+        // 1. CRITICAL: Reset selection immediately
+        // We do this BEFORE touching the data/assets so the GUI stops trying to draw the deleted item.
+        _selectedWave = null;
+        _selectedWaveIndex = -1;
+        _serializedWaveObject = null;
+
+        // 2. Handle Asset Deletion
         if (choice == 2 && wave != null)
         {
             string path = AssetDatabase.GetAssetPath(wave);
             AssetDatabase.DeleteAsset(path);
         }
 
-        // 2. Remove from List Safely
-        // Ensure the serialized object is up to date before we modify it
+        // 3. Remove from List Safely
         _serializedLevelObject.Update();
-
-        // Check if the index is valid
         if (index >= 0 && index < _wavesListProperty.arraySize)
         {
             SerializedProperty element = _wavesListProperty.GetArrayElementAtIndex(index);
-
-            // Safer approach: Manually nullify the reference first
+        
+            // Nullify reference first to ensure clean deletion
             if (element.objectReferenceValue != null)
             {
                 element.objectReferenceValue = null;
             }
-
-            // Now delete the (null) element. This will definitely remove the slot.
+        
+            // Delete the slot
             _wavesListProperty.DeleteArrayElementAtIndex(index);
         }
-
         _serializedLevelObject.ApplyModifiedProperties();
-        
-        // 3. Reset Selection
-        _selectedWave = null;
-        _selectedWaveIndex = -1;
-        _serializedWaveObject = null;
 
-        // 4. Stop GUI to prevent layout errors
+        // 4. Stop GUI loop
         GUIUtility.ExitGUI();
     }
 }

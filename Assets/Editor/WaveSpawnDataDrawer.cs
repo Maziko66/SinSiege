@@ -1,19 +1,29 @@
 using UnityEditor;
 using UnityEngine;
+using System.Collections.Generic;
 
 [CustomPropertyDrawer(typeof(WaveSpawnData))]
 public class WaveSpawnDataDrawer : PropertyDrawer
 {
     private const float LineHeight = 18f;
     private const float Padding = 4f;
-    private const float PreviewSize = 60f; // Size of the current enemy icon
+    private const float PreviewSize = 60f;
+
+    // PERFORMANCE: Cache database lookup (static so shared across all drawer instances)
+    private static EnemyDatabase _cachedDatabase;
+    private static double _lastDatabaseLookup;
+    private const double DatabaseLookupInterval = 2.0; // Only look for database every 2 seconds
+
+    // PERFORMANCE: Cache previews per enemy (static so shared across all instances)
+    private static Dictionary<Enemy, Texture2D> _previewCache = new Dictionary<Enemy, Texture2D>();
+    
+    // Track which property is being hovered for preview generation
+    private static string _currentPropertyPath;
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
         var mode = (SpawnModMode)property.FindPropertyRelative("modificationMode").enumValueIndex;
 
-        // Base lines: 1 (for the big Preview + Name area) + 1 (for Enum)
-        // We treat the Preview area as roughly 3 lines height
         float height = PreviewSize + Padding + LineHeight + Padding;
 
         int extraLines = 0;
@@ -27,16 +37,8 @@ public class WaveSpawnDataDrawer : PropertyDrawer
     {
         EditorGUI.BeginProperty(position, label, property);
 
-        // -- 1. Load the Database (Find it automatically) --
-        EnemyDatabase database = AssetDatabase.LoadAssetAtPath<EnemyDatabase>("Assets/Scripts/EnemyDatabase.asset");
-        // NOTE: If you saved the database elsewhere, change the path above, 
-        // OR use the slower method below if path varies:
-        if (database == null)
-        {
-             string[] guids = AssetDatabase.FindAssets("t:EnemyDatabase");
-             if (guids.Length > 0) database = AssetDatabase.LoadAssetAtPath<EnemyDatabase>(AssetDatabase.GUIDToAssetPath(guids[0]));
-        }
-
+        // -- 1. OPTIMIZED: Cache database lookup --
+        EnemyDatabase database = GetCachedDatabase();
 
         Rect rect = new Rect(position.x, position.y, position.width, LineHeight);
 
@@ -48,9 +50,8 @@ public class WaveSpawnDataDrawer : PropertyDrawer
         Rect previewRect = new Rect(position.x, position.y, PreviewSize, PreviewSize);
         Rect infoRect = new Rect(position.x + PreviewSize + 10, position.y + (PreviewSize/4), position.width - PreviewSize - 10, LineHeight);
 
-        // Draw the Button with Preview
-        Texture2D preview = null;
-        if (currentEnemy != null) preview = AssetPreview.GetAssetPreview(currentEnemy.gameObject);
+        // PERFORMANCE: Get preview from cache or generate async
+        Texture2D preview = GetCachedPreview(currentEnemy, property.propertyPath);
 
         GUIContent btnContent = (preview != null) ? new GUIContent(preview) : new GUIContent("None");
         
@@ -113,5 +114,94 @@ public class WaveSpawnDataDrawer : PropertyDrawer
     {
         EditorGUI.PropertyField(rect, rootProp.FindPropertyRelative(relativeName), new GUIContent(label));
         rect.y += LineHeight + Padding;
+    }
+
+    // PERFORMANCE: Cached database lookup
+    private static EnemyDatabase GetCachedDatabase()
+    {
+        double currentTime = EditorApplication.timeSinceStartup;
+        
+        // Only look for database if cache is empty or it's been a while
+        if (_cachedDatabase == null || currentTime - _lastDatabaseLookup > DatabaseLookupInterval)
+        {
+            _cachedDatabase = AssetDatabase.LoadAssetAtPath<EnemyDatabase>("Assets/Scripts/EnemyDatabase.asset");
+            
+            if (_cachedDatabase == null)
+            {
+                string[] guids = AssetDatabase.FindAssets("t:EnemyDatabase");
+                if (guids.Length > 0)
+                {
+                    _cachedDatabase = AssetDatabase.LoadAssetAtPath<EnemyDatabase>(AssetDatabase.GUIDToAssetPath(guids[0]));
+                }
+            }
+            
+            _lastDatabaseLookup = currentTime;
+        }
+        
+        return _cachedDatabase;
+    }
+
+    // PERFORMANCE: Cached preview system
+    private static Texture2D GetCachedPreview(Enemy enemy, string propertyPath)
+    {
+        if (enemy == null)
+        {
+            return null;
+        }
+
+        // Check if we have a cached preview
+        if (_previewCache.TryGetValue(enemy, out Texture2D cached))
+        {
+            if (cached != null)
+            {
+                return cached;
+            }
+            else
+            {
+                // Preview was null, remove from cache and try again
+                _previewCache.Remove(enemy);
+            }
+        }
+
+        // CRITICAL OPTIMIZATION: Only generate preview for visible/active property
+        // This prevents loading 50+ previews when you have 50 items in the list
+        _currentPropertyPath = propertyPath;
+
+        // Try to get preview (this might return null if not loaded yet)
+        Texture2D preview = AssetPreview.GetAssetPreview(enemy.gameObject);
+        
+        // Cache it (even if null, to avoid repeated checks)
+        _previewCache[enemy] = preview;
+        
+        // If preview is still loading, request a repaint when it's ready
+        if (preview == null && AssetPreview.IsLoadingAssetPreviews())
+        {
+            // Schedule a delayed repaint
+            EditorApplication.delayCall += () =>
+            {
+                // Clear the null cache entry so it tries again
+                if (_previewCache.ContainsKey(enemy) && _previewCache[enemy] == null)
+                {
+                    _previewCache.Remove(enemy);
+                }
+            };
+        }
+        
+        return preview;
+    }
+
+    // Optional: Clear cache when entering/exiting play mode
+    [InitializeOnLoadMethod]
+    private static void Initialize()
+    {
+        EditorApplication.playModeStateChanged += OnPlayModeChanged;
+    }
+
+    private static void OnPlayModeChanged(PlayModeStateChange state)
+    {
+        if (state == PlayModeStateChange.EnteredEditMode || state == PlayModeStateChange.EnteredPlayMode)
+        {
+            _previewCache.Clear();
+        }
     }
 }

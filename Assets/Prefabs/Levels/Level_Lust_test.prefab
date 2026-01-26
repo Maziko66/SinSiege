@@ -112410,7 +112410,9 @@ MonoBehaviour:
     - {fileID: 5183002649430592797}
     - {fileID: 2286678620256894904}
     - {fileID: 4684777973511375038}
-  waves: []
+  waves:
+  - {fileID: 11400000, guid: 103a92ec3577f9e48aa8ff4e91368b74, type: 2}
+  - {fileID: 11400000, guid: b96deaff7ffe695429939c83c3602a3f, type: 2}
 --- !u!1 &2680136658917525297
 GameObject:
   m_ObjectHideFlags: 0
