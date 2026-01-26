@@ -1,31 +1,14 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
-
-[System.Serializable]
-public class Route
-{
-    public List<GameObject> routepoints;
-}
-
-[System.Serializable]
-internal class Waypoint
-{
-    public List<Vector2> waypoints;
-}
 
 public class WaveManager : MonoBehaviour
 {
-    //LISTS TO CREATE:
-    //listSpawnPoints, listWaveGroups
-
     private UpgradeManager _upgradeManager;
     private Cooldown _cooldown;
 
     [SerializeField] private Camera _camera;
-
     [SerializeField] private GameObject enemyParent;
 
     [Header("Info")]
@@ -39,18 +22,15 @@ public class WaveManager : MonoBehaviour
     private string _strWaveTimer = "Wave Timer: ";
     private string _strWaveInProgress = "Wave in progress";
     
-    [Header("Routes")]
-    [SerializeField] private List<Route> routes = new List<Route>();
-    [SerializeField] private List<Waypoint> waypoints = new List<Waypoint>();
+    [Header("Pathing")]
     [SerializeField] private Base headquarters;
-    private Vector2 _headquartersPosition = Vector2.zero;
-    
+    // We cache the calculated paths (List of Vector2s) here for performance
+    private List<List<Vector2>> _cachedPaths = new List<List<Vector2>>();
+
     public List<WaveSO> waves = new List<WaveSO>();
     
-    
-    [SerializeField] private List<Enemy> enemyList = new List<Enemy>();
+    [SerializeField] private List<Enemy> enemyList = new List<Enemy>(); // Debug/View only
     [SerializeField] private List<Enemy> enemyAliveList = new List<Enemy>();
-    [SerializeField] private Vector3 spawnPosition;
     
     [SerializeField] private List<WaveSpawnData> currentWaveConfigList = new List<WaveSpawnData>();
     [SerializeField] private List<WaveSpawnData> currentHordeConfigList = new List<WaveSpawnData>();
@@ -59,7 +39,6 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private float spawnInterval = 1.0f;
     [SerializeField] private float spawnCooldown = 0.0f;
     [SerializeField] private int wavesListIndex = 0;
-    [SerializeField] private List<GameObject> spawnPoints = new List<GameObject>();
     
     [Header("Current Wave")]
     [SerializeField] private WaveSO currentWave;
@@ -75,67 +54,65 @@ public class WaveManager : MonoBehaviour
 
     public void Init()
     {
-        _upgradeManager = LevelInitializer.Instance.UpgradeManager;
+        // Safety check if singleton exists, otherwise try GetComponent or find
+        if (LevelInitializer.Instance != null)
+            _upgradeManager = LevelInitializer.Instance.UpgradeManager;
+        
         _cooldown = GetComponent<Cooldown>();
+
+        // Pre-Calculate all paths from LevelData when the level starts
+        if (levelData != null)
+        {
+            _cachedPaths.Clear();
+            foreach (var mapRoute in levelData.MapRoutes)
+            {
+                _cachedPaths.Add(mapRoute.GetCalculatedPath());
+            }
+        }
     }
 
     private void Start()
     {
+        // Ensure Init is called if not called externally
+        if (_cachedPaths.Count == 0) Init();
+
         currentWaveTimer = 30;
         buttonStartWave.onClick.AddListener(() => SetWaveTimer(0));
-        CreateVectorWaypoints();
-        spawnCooldown *= spawnInterval;
-        //GetEnemyList();
         
-        _headquartersPosition = headquarters.transform.position;
+        spawnCooldown *= spawnInterval;
     }
 
     private void Update()
     {
         WaveTimer();
         
-        if (enemyList.Count > 0 && waveActive)
+        if (currentWaveConfigList.Count > 0 && waveActive)
         {
             spawnCooldown -= Time.deltaTime;
             SpawnFromList();
-            _upgradeManager.hasUpgraded = false;
+            if (_upgradeManager != null) _upgradeManager.hasUpgraded = false;
         }
         
         SpawnHorde();
-        // else if(enemyList.Count <= 0 && _waveActive)
-        // {
-        //     wavesListIndex++;
-        //     GetEnemyList();
-        // }
-
         
-        
-        //
-        //if (enemyParent.transform.childCount == 0 && _waveActive)
-        //if (enemyList.Count <= 0)
-        
-        //if (enemyAliveList.Count <= 0 && hordeAliveList.Count <= 0 && waveActive)
-        if (enemyList.Count == 0 && enemyAliveList.Count <= 0 && hordeAliveList.Count <= 0 && waveActive)
+        // Game Loop / Next Wave Logic
+        if (currentWaveConfigList.Count == 0 && enemyAliveList.Count <= 0 && hordeAliveList.Count <= 0 && waveActive)
         {
             enemyAliveList.Clear();
             waveActive = false;
             wavesListIndex++;
-            //GetEnemyList();
-            MusicManager.Instance?.SetCombatToFalse();
+            
+            if (MusicManager.Instance != null) MusicManager.Instance.SetCombatToFalse();
+            
             spawnCooldown = 0;
-            Debug.Log("enemy alive list <= 0");
+            Debug.Log("Wave Complete");
             waveNumber++;
-            if (waveNumber % 5 == 0 && !_upgradeManager.hasUpgraded)
+            
+            if (_upgradeManager != null && waveNumber % 5 == 0 && !_upgradeManager.hasUpgraded)
             {
                 _upgradeManager.TimeToUpgrade();
             }
         }
-
-    }
-
-    private void SpawnCooldown()
-    {
-        
     }
 
     private void GetEnemyList()
@@ -145,7 +122,7 @@ public class WaveManager : MonoBehaviour
     
         if (waves.Count < wavesListIndex + 1)
         {
-            Debug.Log("no enemy waves found.");
+            Debug.Log("No more waves defined.");
             return;
         }
 
@@ -154,15 +131,6 @@ public class WaveManager : MonoBehaviour
         // Copy the configs
         currentWaveConfigList = new List<WaveSpawnData>(currentWave.enemySpawns);
         currentHordeConfigList = new List<WaveSpawnData>(currentWave.hordeSpawns);
-
-        if (currentWave.routeIndex < spawnPoints.Count)
-        {
-            spawnPosition = spawnPoints[currentWave.routeIndex].transform.position;
-        }
-        else
-        {
-            spawnPosition = Vector3.zero; 
-        }
 
         SetWaveTimer(currentWave.waveCooldown);
         _hordeInterval = currentWave.hordeInterval;
@@ -182,39 +150,39 @@ public class WaveManager : MonoBehaviour
                 return;
             }
 
-            // 2. Instantiate
+            // 2. Determine Path & Start Position
+            List<Vector2> path = null;
+            Vector3 startPos = Vector3.zero;
+            int routeIndex = currentWave.routeIndex;
+
+            if (routeIndex >= 0 && routeIndex < _cachedPaths.Count)
+            {
+                path = _cachedPaths[routeIndex];
+                if(path != null && path.Count > 0) startPos = path[0];
+            }
+            else
+            {
+                Debug.LogWarning($"Wave requested Route {routeIndex} but only {_cachedPaths.Count} routes exist.");
+            }
+
+            // 3. Instantiate
             GameObject instObj = Instantiate(data.enemyPrefab.gameObject, enemyParent.transform);
-            instObj.transform.position = spawnPosition;
+            instObj.transform.position = startPos;
         
             Enemy enemy = instObj.GetComponent<Enemy>();
             enemy.followPlayer = false;
-            enemy.waypoints = waypoints[currentWave.routeIndex].waypoints;
+            
+            // 4. Set the Path (New Method)
+            enemy.SetPath(path);
             enemy.SetWaveManager(this);
 
-            // 3. APPLY STATS
+            // 5. Apply Stats
             ApplyConfigToEnemy(enemy, data);
 
-            // 4. Cleanup
+            // 6. Cleanup
             currentWaveConfigList.RemoveAt(0);
-        
-            // We add to alive list to track game end conditions
             enemyAliveList.Add(enemy); 
             spawnCooldown = spawnInterval;
-        }
-    }
-
-    private void CreateVectorWaypoints()
-    {
-        for (int i = 0; i < routes.Count; i++)
-        {
-            Waypoint newWaypoint = new Waypoint();
-            newWaypoint.waypoints = new List<Vector2>();
-            waypoints.Add(newWaypoint);
-            for (int j = 0; j < routes[i].routepoints.Count; j++)
-            {
-                Vector2 position = routes[i].routepoints[j].transform.position;
-                waypoints[i].waypoints.Add(position);
-            }
         }
     }
 
@@ -228,8 +196,6 @@ public class WaveManager : MonoBehaviour
         if (currentWaveTimer <= 0)
         {
             textWaveTimer.SetText(_strWaveInProgress);
-            //waveActive = true;
-            //MusicManager.Instance.SetCombatToTrue();
             SetWaveActive(true);
         }
     }
@@ -238,22 +204,16 @@ public class WaveManager : MonoBehaviour
     {
         if (calledFromButton && waveActive)
         {
-            Debug.Log("Wave is active, wait until it's over to call the next wave.");
+            Debug.Log("Wave is active, wait until it's over.");
+            return;
         }
         currentWaveTimer = seconds;
-        // if (seconds <= 0)
-        // {
-        //     //waveActive = true;
-        //     //MusicManager.Instance.SetCombatToTrue();
-        //     SetWaveActive(true);
-        // }
     }
 
     private void SpawnHorde()
     {
         if (enemyAliveList.Count > 0 && _hordeCooldown <= 0.0f && _spawnHorde && currentHordeConfigList.Count > 0)
         {
-            // Get Random config from horde list
             int randIndex = Random.Range(0, currentHordeConfigList.Count);
             WaveSpawnData data = currentHordeConfigList[randIndex];
 
@@ -266,7 +226,6 @@ public class WaveManager : MonoBehaviour
             enemy.isHorde = true;
             enemy.SetWaveManager(this);
         
-            // APPLY STATS
             ApplyConfigToEnemy(enemy, data);
 
             hordeAliveList.Add(enemy);
@@ -286,29 +245,15 @@ public class WaveManager : MonoBehaviour
     {
         float x = 0f;
         float y = 0f;
-
-        int edge = Random.Range(0, 4); // 0 = top, 1 = bottom, 2 = left, 3 = right
+        int edge = Random.Range(0, 4); // 0=top, 1=bottom, 2=left, 3=right
 
         switch (edge)
         {
-            case 0: // top
-                x = Random.Range(0f, 1f);
-                y = 1f;
-                break;
-            case 1: // bottom
-                x = Random.Range(0f, 1f);
-                y = 0f;
-                break;
-            case 2: // left
-                x = 0f;
-                y = Random.Range(0f, 1f);
-                break;
-            case 3: // right
-                x = 1f;
-                y = Random.Range(0f, 1f);
-                break;
+            case 0: x = Random.Range(0f, 1f); y = 1f; break;
+            case 1: x = Random.Range(0f, 1f); y = 0f; break;
+            case 2: x = 0f; y = Random.Range(0f, 1f); break;
+            case 3: x = 1f; y = Random.Range(0f, 1f); break;
         }
-
         return new Vector2(x, y);
     }
 
@@ -318,13 +263,12 @@ public class WaveManager : MonoBehaviour
         {
             waveActive = true;
             GetEnemyList();
-            if (MusicManager.Instance != null) { MusicManager.Instance.SetCombatToTrue(); }else{Debug.Log("MusicManager instance is null.");}
-            
+            if (MusicManager.Instance != null) MusicManager.Instance.SetCombatToTrue();
         }
         else
         {
             waveActive = false;
-            MusicManager.Instance.SetCombatToFalse();
+            if (MusicManager.Instance != null) MusicManager.Instance.SetCombatToFalse();
         }
     }
 
@@ -337,19 +281,6 @@ public class WaveManager : MonoBehaviour
     {
         hordeAliveList.Remove(enemy);
     }
-    
-    // [ContextMenu("CalculateTotalGoldOfAllWaves")]
-    // public void CalculateTotalGoldOfAllWaves()
-    // {
-    //     foreach (WaveSO wave in waves)
-    //     {
-    //         wave.totalGoldValue = 0;
-    //         foreach (Enemy enemy in wave.enemyList)
-    //         {
-    //             wave.totalGoldValue += enemy.coinValue;
-    //         }
-    //     }
-    // }
 
     public void SetLevelData(LevelData levelData)
     {
@@ -358,24 +289,20 @@ public class WaveManager : MonoBehaviour
 
     public void GetWavesAndRoutesFromLevelData()
     {
-        routes = new List<Route>(levelData.Routes);
+        // We only load waves here now, routes are processed in Init()
         waves = new List<WaveSO>(levelData.Waves);
+        Init(); // Re-cache paths
     }
 
     public void ResetWavesAndRoutes()
     {
-        if (routes != null) routes.Clear(); 
-        else routes = new List<Route>();
-
+        _cachedPaths.Clear();
         if (waves != null) waves.Clear(); 
         else waves = new List<WaveSO>();
     }
-    
-    // ... (The rest of WaveManager remains the same, only this method changes)
 
     private void ApplyConfigToEnemy(Enemy enemy, WaveSpawnData data)
     {
-        // Retrieve base values (Ensure you added the Getters to your Enemy script as discussed previously)
         float finalHealth = enemy.BaseHealth; 
         float finalSpeed = enemy.BaseSpeed;
         int finalDamage = enemy.BaseDamage;
@@ -384,19 +311,14 @@ public class WaveManager : MonoBehaviour
 
         if (data.modificationMode == SpawnModMode.Multiplier)
         {
-            // Apply individual multipliers directly
             finalHealth *= data.hpMultiplier;
             finalSpeed *= data.speedMultiplier;
-        
-            // Use Mathf.RoundToInt for integers to keep values clean
             finalDamage = Mathf.RoundToInt(finalDamage * data.damageMultiplier);
             finalCoin = Mathf.RoundToInt(finalCoin * data.goldMultiplier);
-        
             finalExp *= data.expMultiplier;
         }
         else if (data.modificationMode == SpawnModMode.CustomValue)
         {
-            // Apply custom overrides
             finalHealth = data.customHealth;
             finalSpeed = data.customSpeed;
             finalDamage = data.customDamage;
@@ -404,61 +326,35 @@ public class WaveManager : MonoBehaviour
             finalExp = data.customExp;
         }
 
-        // Pass final stats to the enemy
         enemy.InitializeStats(finalHealth, finalSpeed, finalDamage, finalCoin, finalExp);
     }
     
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        // Don't draw if we have no routes
-        if (routes == null || routes.Count == 0) return;
+        if (levelData == null || levelData.MapRoutes == null) return;
 
-        // A list of colors to cycle through so different routes look distinct
         Color[] routeColors = {
-            Color.red,
-            new Color(1f, 0.64f, 0f),   // Orange
-            Color.yellow,
-            new Color(0.6f, 1f, 0.2f),  // Lime
-            Color.green,
-            new Color(0f, 0.5f, 0.5f),  // Teal
-            Color.cyan,
-            Color.blue,
-            new Color(0.5f, 0f, 1f),    // Violet
-            Color.magenta,
-            new Color(1f, 0.4f, 0.7f),  // Pink
-            Color.white                 // White
+            Color.red, new Color(1f, 0.64f, 0f), Color.yellow, new Color(0.6f, 1f, 0.2f),
+            Color.green, new Color(0f, 0.5f, 0.5f), Color.cyan, Color.blue, Color.magenta, Color.white
         };
 
-        for (int r = 0; r < routes.Count; r++)
+        for (int r = 0; r < levelData.MapRoutes.Count; r++)
         {
-            Route currentRoute = routes[r];
-            if (currentRoute.routepoints == null || currentRoute.routepoints.Count < 2) continue;
+            var route = levelData.MapRoutes[r];
+            List<Vector2> points = route.GetCalculatedPath();
 
-            // Pick a color based on the route index (loops back if you have many routes)
+            if (points.Count < 2) continue;
+
             Gizmos.color = routeColors[r % routeColors.Length];
 
-            for (int i = 0; i < currentRoute.routepoints.Count - 1; i++)
+            for (int i = 0; i < points.Count - 1; i++)
             {
-                GameObject startNode = currentRoute.routepoints[i];
-                GameObject endNode = currentRoute.routepoints[i + 1];
-
-                // Ensure nodes haven't been deleted from the scene
-                if (startNode != null && endNode != null)
-                {
-                    // Draw the line connecting them
-                    Gizmos.DrawLine(startNode.transform.position, endNode.transform.position);
-
-                    // Draw a small sphere at every point so we can see the "joints"
-                    Gizmos.DrawSphere(startNode.transform.position, 0.2f);
-                    
-                    // Mark the END of the path with a different shape (Cube)
-                    if (i == currentRoute.routepoints.Count - 2)
-                    {
-                        Gizmos.DrawCube(endNode.transform.position, Vector3.one * 0.3f);
-                    }
-                }
+                Gizmos.DrawLine(points[i], points[i+1]);
+                Gizmos.DrawSphere(points[i], 0.2f);
             }
+            if(points.Count > 0)
+                Gizmos.DrawCube(points[points.Count - 1], Vector3.one * 0.4f);
         }
     }
 #endif
