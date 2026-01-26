@@ -10,4 +10,7 @@ public class LevelData : MonoBehaviour
     
     [SerializeField] private List<WaveSO> waves = new List<WaveSO>();
     public List<WaveSO> Waves => waves;
+    
+    [SerializeField] private List<GameObject> spawnPoints = new List<GameObject>();
+    public List<GameObject> SpawnPoints => spawnPoints;
 }

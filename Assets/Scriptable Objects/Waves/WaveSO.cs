@@ -54,23 +54,66 @@ public class WaveSpawnData
 //     [Header("General")]
 //     public int totalGoldValue;
 // }
+
 public class WaveSO : ScriptableObject
 {
     [Header("Tower Defense Waves")]
-    public Vector3 spawnPoint;
     public int routeIndex;
     public float waveCooldown;
     
-    // CHANGED: Using the new Data Class instead of List<Enemy>
     public List<WaveSpawnData> enemySpawns; 
     
-    // Keeping hard/horde separate? You can update them to use WaveSpawnData too if desired.
-    // For now, I'll update Horde to use it as well so you have full control.
     [Header("Horde")]
     public bool hasHorde;
-    public List<WaveSpawnData> hordeSpawns; // Updated to new system
+    public List<WaveSpawnData> hordeSpawns; 
     public float hordeInterval;
     
-    [Header("General")]
+    [Header("General (Calculated)")]
     public int totalGoldValue;
+    public float totalExpValue;
+    
+    public void CalculateTotalStats()
+    {
+        totalGoldValue = 0;
+        totalExpValue = 0;
+
+        CalculateList(enemySpawns);
+
+        if (hasHorde)
+        {
+            CalculateList(hordeSpawns);
+        }
+    }
+    
+    private void CalculateList(List<WaveSpawnData> list)
+    {
+        if (list == null) return;
+
+        foreach (WaveSpawnData data in list)
+        {
+            if (data.enemyPrefab == null) continue;
+
+            // Get Base Values
+            // Ensure your Enemy script has public int coinValue and public float GetExp()
+            int currentGold = data.enemyPrefab.coinValue; 
+            float currentExp = data.enemyPrefab.GetExp(); 
+
+            // Apply Modifications
+            if (data.modificationMode == SpawnModMode.Multiplier)
+            {
+                currentGold = Mathf.RoundToInt(currentGold * data.goldMultiplier);
+                currentExp *= data.expMultiplier;
+            }
+            else if (data.modificationMode == SpawnModMode.CustomValue)
+            {
+                currentGold = Mathf.RoundToInt(data.customGold);
+                currentExp = data.customExp;
+            }
+
+            totalGoldValue += currentGold;
+            totalExpValue += currentExp;
+        }
+    }
 }
+
+

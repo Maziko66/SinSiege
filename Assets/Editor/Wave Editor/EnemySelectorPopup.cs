@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 public class EnemySelectorPopup : PopupWindowContent
 {
@@ -8,12 +10,19 @@ public class EnemySelectorPopup : PopupWindowContent
     private readonly SerializedProperty _property;
     private Vector2 _scrollPos;
     
-    // Constants for layout
+    // Layout Constants
     private const float IconSize = 70f; 
     private const float Padding = 5f;
     private const int Columns = 3;
 
-    // PERFORMANCE: Cache all previews on open
+    // Categorization
+    private Dictionary<string, List<Enemy>> _categorizedEnemies = new Dictionary<string, List<Enemy>>();
+    private readonly string[] _orderedCategories = new string[] 
+    { 
+        "Pride", "Envy", "Wrath", "Sloth", "Greed", "Gluttony", "Lust", "Depth", "Generic" 
+    };
+
+    // Performance Caching
     private Dictionary<Enemy, Texture2D> _previewCache = new Dictionary<Enemy, Texture2D>();
     private bool _previewsLoaded = false;
 
@@ -25,34 +34,75 @@ public class EnemySelectorPopup : PopupWindowContent
 
     public override Vector2 GetWindowSize()
     {
-        float width = (IconSize + Padding) * Columns + 25f;
-        return new Vector2(width, 450); 
+        // Width for 3 columns + scrollbar padding
+        float width = (IconSize + Padding) * Columns + 30f; 
+        return new Vector2(width, 500); // Fixed height, scrollable content
     }
 
     public override void OnOpen()
     {
         base.OnOpen();
-        // PERFORMANCE: Preload all previews asynchronously
+        CategorizeEnemies();
         LoadPreviews();
+    }
+
+    private void CategorizeEnemies()
+    {
+        _categorizedEnemies.Clear();
+
+        if (_database == null || _database.allEnemies == null) return;
+
+        foreach (Enemy enemy in _database.allEnemies)
+        {
+            if (enemy == null) continue;
+
+            string path = AssetDatabase.GetAssetPath(enemy);
+            string category = GetCategoryFromPath(path);
+
+            if (!_categorizedEnemies.ContainsKey(category))
+            {
+                _categorizedEnemies[category] = new List<Enemy>();
+            }
+            _categorizedEnemies[category].Add(enemy);
+        }
+    }
+
+    private string GetCategoryFromPath(string path)
+    {
+        // path example: "Assets/Prefabs/Enemies/Pride/Lion.prefab"
+        // We look for the folder immediately following "Enemies"
+        
+        string keyword = "/Enemies/";
+        int index = path.IndexOf(keyword);
+
+        if (index != -1)
+        {
+            string subPath = path.Substring(index + keyword.Length);
+            // subPath is now "Pride/Lion.prefab" or "Generic/Goblin.prefab"
+            
+            int slashIndex = subPath.IndexOf('/');
+            if (slashIndex != -1)
+            {
+                return subPath.Substring(0, slashIndex);
+            }
+        }
+
+        return "Uncategorized";
     }
 
     private void LoadPreviews()
     {
-        if (_database == null || _database.allEnemies.Count == 0)
-            return;
+        if (_database == null || _database.allEnemies.Count == 0) return;
 
-        // Start loading previews in the background
         foreach (Enemy enemy in _database.allEnemies)
         {
             if (enemy != null)
             {
-                // This triggers async loading
                 Texture2D preview = AssetPreview.GetAssetPreview(enemy.gameObject);
                 _previewCache[enemy] = preview;
             }
         }
 
-        // Schedule updates while previews are loading
         if (AssetPreview.IsLoadingAssetPreviews())
         {
             EditorApplication.delayCall += CheckPreviewsLoaded;
@@ -68,21 +118,16 @@ public class EnemySelectorPopup : PopupWindowContent
         if (!AssetPreview.IsLoadingAssetPreviews())
         {
             _previewsLoaded = true;
-            
-            // Refresh cache with loaded previews
+            // Update cache one last time
             foreach (Enemy enemy in _database.allEnemies)
             {
                 if (enemy != null)
-                {
                     _previewCache[enemy] = AssetPreview.GetAssetPreview(enemy.gameObject);
-                }
             }
-            
             editorWindow?.Repaint();
         }
         else
         {
-            // Keep checking
             EditorApplication.delayCall += CheckPreviewsLoaded;
         }
     }
@@ -97,7 +142,6 @@ public class EnemySelectorPopup : PopupWindowContent
             return;
         }
 
-        // Show loading indicator if previews aren't ready
         if (!_previewsLoaded && AssetPreview.IsLoadingAssetPreviews())
         {
             EditorGUILayout.HelpBox("Loading previews...", MessageType.Info);
@@ -105,42 +149,71 @@ public class EnemySelectorPopup : PopupWindowContent
 
         _scrollPos = GUILayout.BeginScrollView(_scrollPos);
 
+        // 1. Draw Ordered Categories first (Pride, Envy, etc.)
+        foreach (string category in _orderedCategories)
+        {
+            if (_categorizedEnemies.ContainsKey(category))
+            {
+                DrawCategorySection(category, _categorizedEnemies[category]);
+            }
+        }
+
+        // 2. Draw any other categories found (e.g. "Uncategorized" or custom folders)
+        foreach (var kvp in _categorizedEnemies)
+        {
+            if (!_orderedCategories.Contains(kvp.Key))
+            {
+                DrawCategorySection(kvp.Key, kvp.Value);
+            }
+        }
+
+        GUILayout.EndScrollView();
+    }
+
+    private void DrawCategorySection(string header, List<Enemy> enemies)
+    {
+        if (enemies.Count == 0) return;
+
+        // Draw Header
+        GUILayout.Space(10);
+        GUILayout.Label(header, EditorStyles.boldLabel);
+        GUILayout.Space(2);
+
+        // Draw Grid
+        int count = enemies.Count;
         int index = 0;
-        while (index < _database.allEnemies.Count)
+
+        while (index < count)
         {
             GUILayout.BeginHorizontal();
             
             for (int i = 0; i < Columns; i++)
             {
-                if (index >= _database.allEnemies.Count) 
+                if (index < count)
                 {
-                    GUILayout.Label("", GUILayout.Width(IconSize));
+                    Enemy enemy = enemies[index];
+                    DrawEnemyCell(enemy);
+                    index++;
                 }
                 else
                 {
-                    Enemy enemy = _database.allEnemies[index];
-                    if (enemy != null)
-                    {
-                        DrawEnemyCell(enemy);
-                    }
-                    index++;
+                    // Empty spacer to maintain layout alignment
+                    GUILayout.Label("", GUILayout.Width(IconSize));
                 }
-                
+
                 if (i < Columns - 1) GUILayout.Space(Padding);
             }
-            GUILayout.EndHorizontal();
             
-            GUILayout.Space(10);
+            GUILayout.EndHorizontal();
+            GUILayout.Space(10); // Row spacing
         }
-
-        GUILayout.EndScrollView();
     }
 
     private void DrawEnemyCell(Enemy enemy)
     {
         GUILayout.BeginVertical(GUILayout.Width(IconSize)); 
 
-        // PERFORMANCE: Use cached preview
+        // Get cached preview
         Texture2D preview = null;
         if (_previewCache.TryGetValue(enemy, out Texture2D cached))
         {
@@ -154,7 +227,7 @@ public class EnemySelectorPopup : PopupWindowContent
             SelectEnemy(enemy);
         }
 
-        // Name label
+        // Name Label
         GUIStyle labelStyle = new GUIStyle(EditorStyles.miniLabel);
         labelStyle.alignment = TextAnchor.UpperCenter;
         labelStyle.wordWrap = true;

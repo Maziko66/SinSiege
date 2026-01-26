@@ -24,11 +24,9 @@ public class WaveEditorWindow : EditorWindow
     private SerializedObject _serializedWaveObject;
     private int _selectedWaveIndex = -1;
     
-    // Cached Properties to avoid repetitive lookups
-    private SerializedProperty _propEnemySpawns;
-    private SerializedProperty _propHordeSpawns;
-    // Add other specific properties here if you want to draw them manually
-    // or we can iterate efficiently.
+    // --- Stats Caching ---
+    private int _cachedLevelTotalGold;
+    private float _cachedLevelTotalExp;
 
     // --- Layout & Resizing ---
     private Vector2 _sidebarScrollPosition;
@@ -51,13 +49,17 @@ public class WaveEditorWindow : EditorWindow
 
     private void OnDisable()
     {
-        // Clean up references
         _serializedWaveObject = null;
         _serializedLevelObject = null;
     }
 
     private void OnGUI()
     {
+        if (Event.current.type == EventType.Layout && _selectedLevelData != null)
+        {
+            CalculateLevelTotals();
+        }
+
         DrawTopBar();
 
         if (_selectedLevelData == null)
@@ -66,8 +68,6 @@ public class WaveEditorWindow : EditorWindow
             return;
         }
 
-        // Only update level object if we are interacting with the sidebar structure
-        // But generally safe to keep this update as it's just the level wrapper
         if (_serializedLevelObject != null)
         {
             _serializedLevelObject.Update();
@@ -86,10 +86,27 @@ public class WaveEditorWindow : EditorWindow
         
         EditorGUILayout.EndHorizontal();
 
-        // Apply changes to Level Data (Wave list order/add/remove)
         if (_serializedLevelObject != null)
         {
             _serializedLevelObject.ApplyModifiedProperties();
+        }
+    }
+    
+    // --- STATS LOGIC ---
+    private void CalculateLevelTotals()
+    {
+        _cachedLevelTotalGold = 0;
+        _cachedLevelTotalExp = 0;
+
+        if (_selectedLevelData == null || _selectedLevelData.Waves == null) return;
+
+        foreach (WaveSO wave in _selectedLevelData.Waves)
+        {
+            if (wave != null)
+            {
+                _cachedLevelTotalGold += wave.totalGoldValue;
+                _cachedLevelTotalExp += wave.totalExpValue;
+            }
         }
     }
 
@@ -112,7 +129,7 @@ public class WaveEditorWindow : EditorWindow
         if (e.type == EventType.MouseDown && resizeRect.Contains(e.mousePosition))
         {
             _isResizing = true;
-            e.Use(); // Consume event
+            e.Use();
         }
         
         if (_isResizing)
@@ -132,6 +149,8 @@ public class WaveEditorWindow : EditorWindow
     private void DrawTopBar()
     {
         EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+        
+        // Row 1: Level Selection
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("Target Level:", GUILayout.Width(80));
 
@@ -159,8 +178,30 @@ public class WaveEditorWindow : EditorWindow
             UpdateDropdownIndexFromSelection();
         }
 
-        if (_selectedLevelData != null)
+        // Row 2: Level Stats Display
+        if (_selectedLevelData != null && _wavesListProperty != null)
         {
+            EditorGUILayout.Space(5);
+            EditorGUILayout.BeginHorizontal("box");
+            
+            // --- NEW: Wave Count ---
+            EditorGUILayout.LabelField($"Waves: {_wavesListProperty.arraySize}", EditorStyles.boldLabel, GUILayout.Width(80));
+            
+            // Divider
+            GUILayout.Label("|", GUILayout.Width(10));
+
+            // Gold
+            GUI.color = new Color(1f, 0.9f, 0.4f); // Gold tint
+            EditorGUILayout.LabelField($"Level Gold: {_cachedLevelTotalGold}", EditorStyles.boldLabel);
+            GUI.color = Color.white;
+            
+            // Exp
+            GUI.color = new Color(0.6f, 0.8f, 1f); // Blue tint
+            EditorGUILayout.LabelField($"Level Exp: {_cachedLevelTotalExp}", EditorStyles.boldLabel);
+            GUI.color = Color.white;
+            
+            EditorGUILayout.EndHorizontal();
+
             string targetFolder = $"{BaseWavePath}/{_selectedLevelData.name}";
             GUIStyle pathStyle = new GUIStyle(EditorStyles.miniLabel);
             pathStyle.normal.textColor = Color.gray;
@@ -200,8 +241,6 @@ public class WaveEditorWindow : EditorWindow
         if (newLevel != _selectedLevelData)
         {
             _selectedLevelData = newLevel;
-            
-            // Clear selection
             _selectedWave = null;
             _selectedWaveIndex = -1;
             _serializedWaveObject = null;
@@ -210,6 +249,7 @@ public class WaveEditorWindow : EditorWindow
             {
                 _serializedLevelObject = new SerializedObject(_selectedLevelData);
                 _wavesListProperty = _serializedLevelObject.FindProperty("waves");
+                CalculateLevelTotals(); 
             }
         }
     }
@@ -284,7 +324,7 @@ public class WaveEditorWindow : EditorWindow
         }
     }
 
-    // ----------------- INSPECTOR (PERFORMANCE FIXED) -----------------
+    // ----------------- INSPECTOR -----------------
     private void DrawWaveInspector()
     {
         EditorGUILayout.BeginVertical(GUILayout.ExpandHeight(true));
@@ -293,19 +333,21 @@ public class WaveEditorWindow : EditorWindow
 
         if (_selectedWave != null && _serializedWaveObject != null)
         {
-            // PERFORMANCE: Only update this specific object when needed
             _serializedWaveObject.Update();
 
+            // Header Area
             EditorGUILayout.LabelField($"Editing: {_selectedWave.name}", EditorStyles.boldLabel);
+            
+            // Wave Stats Display (Dynamic)
+            EditorGUILayout.BeginHorizontal("helpBox");
+            EditorGUILayout.LabelField($"Wave Gold: {_selectedWave.totalGoldValue}", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField($"Wave Exp: {_selectedWave.totalExpValue}", EditorStyles.boldLabel);
+            EditorGUILayout.EndHorizontal();
+            
             EditorGUILayout.Space();
 
-            // PERFORMANCE: Instead of iterating "NextVisible" (slow), 
-            // we draw the cached properties directly.
-            
-            // 1. Draw all fields EXCEPT the lists manually (or via iteration if you prefer)
-            // Using iteration here is safer for "General" fields in case you add new ones,
-            // but for maximum speed with large lists, we manually handle the big lists.
-            
+            EditorGUI.BeginChangeCheck();
+
             SerializedProperty iterator = _serializedWaveObject.GetIterator();
             bool enterChildren = true;
 
@@ -313,18 +355,20 @@ public class WaveEditorWindow : EditorWindow
             {
                 enterChildren = false; 
 
-                // Skip the script field
                 if (iterator.name == "m_Script") continue;
+                if (iterator.name == "totalGoldValue" || iterator.name == "totalExpValue") continue;
 
-                // We can let PropertyField handle the lists (it's optimized in recent Unity versions)
-                // OR we can customize it. Since your lag comes from "OnInspectorGUI" (the Editor),
-                // using PropertyField here removes the overhead of the Editor class itself.
-                
                 EditorGUILayout.PropertyField(iterator, true);
             }
 
-            // PERFORMANCE: Only apply changes to the wave
             _serializedWaveObject.ApplyModifiedProperties();
+
+            if (EditorGUI.EndChangeCheck())
+            {
+                _selectedWave.CalculateTotalStats();
+                EditorUtility.SetDirty(_selectedWave);
+                CalculateLevelTotals();
+            }
             
             GUILayout.Space(20);
         }
@@ -350,11 +394,7 @@ public class WaveEditorWindow : EditorWindow
 
         if (_selectedWave != null)
         {
-            // Create SerializedObject ONCE.
             _serializedWaveObject = new SerializedObject(_selectedWave);
-            
-            // Cache heavy properties if you want to perform manual drawing later
-            // _propEnemySpawns = _serializedWaveObject.FindProperty("enemySpawns");
         }
         else
         {
@@ -401,6 +441,7 @@ public class WaveEditorWindow : EditorWindow
         _serializedLevelObject.ApplyModifiedProperties();
 
         SelectWave(index, newWave);
+        CalculateLevelTotals();
     }
 
     private void DeleteWave(int index, WaveSO wave)
@@ -416,37 +457,29 @@ public class WaveEditorWindow : EditorWindow
 
         if (choice == 1) return; // Cancel
 
-        // 1. CRITICAL: Reset selection immediately
-        // We do this BEFORE touching the data/assets so the GUI stops trying to draw the deleted item.
         _selectedWave = null;
         _selectedWaveIndex = -1;
         _serializedWaveObject = null;
 
-        // 2. Handle Asset Deletion
         if (choice == 2 && wave != null)
         {
             string path = AssetDatabase.GetAssetPath(wave);
             AssetDatabase.DeleteAsset(path);
         }
 
-        // 3. Remove from List Safely
         _serializedLevelObject.Update();
         if (index >= 0 && index < _wavesListProperty.arraySize)
         {
             SerializedProperty element = _wavesListProperty.GetArrayElementAtIndex(index);
-        
-            // Nullify reference first to ensure clean deletion
             if (element.objectReferenceValue != null)
             {
                 element.objectReferenceValue = null;
             }
-        
-            // Delete the slot
             _wavesListProperty.DeleteArrayElementAtIndex(index);
         }
         _serializedLevelObject.ApplyModifiedProperties();
 
-        // 4. Stop GUI loop
         GUIUtility.ExitGUI();
+        CalculateLevelTotals();
     }
 }
