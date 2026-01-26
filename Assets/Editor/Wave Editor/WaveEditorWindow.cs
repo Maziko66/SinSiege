@@ -42,6 +42,8 @@ public class WaveEditorWindow : EditorWindow
     // --- Layout ---
     private Vector2 _sidebarScrollPosition;
     private Vector2 _inspectorScrollPosition;
+    private Vector2 _segmentAvailableScroll; // New
+    private Vector2 _segmentSelectedScroll; // New
     private float _sidebarWidth = 250f;
     private bool _isResizing = false;
     private const float MinSidebarWidth = 150f;
@@ -818,16 +820,18 @@ public class WaveEditorWindow : EditorWindow
         EditorGUILayout.Space(5);
 
         // 2. Dual List UI
-        EditorGUILayout.BeginHorizontal(); // Main split
+        EditorGUILayout.BeginHorizontal(GUILayout.ExpandHeight(true)); // Main split
 
         // --- LEFT COLUMN: Available Points in Scene (under Waypoints) ---
-        EditorGUILayout.BeginVertical("box", GUILayout.ExpandHeight(true));
+        // Use a min width but allow expansion, or fixed width?
+        // User "too wide": Let's try flexible but with a max or fixed reasonable width.
+        EditorGUILayout.BeginVertical("box", GUILayout.Width(300), GUILayout.ExpandHeight(true));
         EditorGUILayout.LabelField("Available in Scene", EditorStyles.boldLabel);
         
         Transform waypointsRoot = _selectedLevelData.transform.Find("Waypoints");
         if (waypointsRoot != null)
         {
-            _inspectorScrollPosition = EditorGUILayout.BeginScrollView(_inspectorScrollPosition);
+            _segmentAvailableScroll = EditorGUILayout.BeginScrollView(_segmentAvailableScroll, GUILayout.ExpandHeight(true));
             
             // Scan recursive? Or just children? User said "Waypoints -> points"
             foreach (Transform child in waypointsRoot)
@@ -836,7 +840,8 @@ public class WaveEditorWindow : EditorWindow
                 bool alreadyAdded = false;
                 for(int i=0; i<pointsProp.arraySize; i++)
                 {
-                    if (pointsProp.GetArrayElementAtIndex(i).objectReferenceValue == child)
+                    SerializedProperty p = pointsProp.GetArrayElementAtIndex(i);
+                    if (p.objectReferenceValue == child)
                     {
                         alreadyAdded = true; 
                         break;
@@ -844,7 +849,7 @@ public class WaveEditorWindow : EditorWindow
                 }
 
                 EditorGUILayout.BeginHorizontal();
-                GUILayout.Label(child.name, GUILayout.Width(150));
+                GUILayout.Label(child.name, GUILayout.MinWidth(50));
                 
                 GUI.enabled = !alreadyAdded;
                 if (GUILayout.Button("Add >", GUILayout.Width(50)))
@@ -867,6 +872,8 @@ public class WaveEditorWindow : EditorWindow
         // --- RIGHT COLUMN: Selected Points ---
         EditorGUILayout.BeginVertical("box", GUILayout.ExpandHeight(true));
         EditorGUILayout.LabelField("Selected Waypoints", EditorStyles.boldLabel);
+        
+        _segmentSelectedScroll = EditorGUILayout.BeginScrollView(_segmentSelectedScroll, GUILayout.ExpandHeight(true));
         
         // Simple list with Remove buttons
         for (int i = 0; i < pointsProp.arraySize; i++)
@@ -896,6 +903,11 @@ public class WaveEditorWindow : EditorWindow
 
             EditorGUILayout.EndHorizontal();
         }
+        
+        EditorGUILayout.EndScrollView();
+        
+        // Bottom Margin
+        GUILayout.Space(20); 
         EditorGUILayout.EndVertical();
 
         EditorGUILayout.EndHorizontal();
