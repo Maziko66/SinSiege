@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c06af16dc9a609e449da4df62874499a, type: 3}
+  m_Name: EnemyDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDatabase
+  allEnemies:
+  - {fileID: 4664836877217421058, guid: 3c1a94c99a9673f4d96e075047c37fce, type: 3}
+  - {fileID: 4664836877217421058, guid: 984708b9554125d4a852142002138983, type: 3}
+  - {fileID: 4664836877217421058, guid: 5b8fc3768f079e94492f3223f7ebc329, type: 3}
+  - {fileID: 4664836877217421058, guid: 57c34c263d219dc488eb7ceadacd2a10, type: 3}
+  - {fileID: 4664836877217421058, guid: 1d3b9b04f1a92644a93a0e4b2d9ae08e, type: 3}
+  - {fileID: 4664836877217421058, guid: 9cf5a9d9246bdfa428161fe10e4faff1, type: 3}
+  - {fileID: 4664836877217421058, guid: fb4e957c0fe31744a82f6c967ecdcc1f, type: 3}
+  - {fileID: 4664836877217421058, guid: f3d3a0c7929b5834d9ad92a994a33b49, type: 3}
+  - {fileID: 4664836877217421058, guid: 053987bc93c06e04e8b2c374291fc776, type: 3}
+  - {fileID: 4664836877217421058, guid: 39dce3e39465f364f8f67ea224f375e4, type: 3}
+  - {fileID: 4664836877217421058, guid: 66c08733f76df5d419af34230ce21c14, type: 3}

@@ -40,6 +40,12 @@ public class Enemy : MonoBehaviour
     public bool followPlayer;
     public bool isHorde;
     
+    public float BaseHealth => _health;
+    public float BaseSpeed => _moveSpeed;
+    public int BaseDamage => damage;
+    public int BaseCoin => coinValue;
+    public float BaseExp => exp;
+    
     private void Awake()
     {
         _matFlashDamaged = Resources.Load<Material>("Materials/FlashDamaged");
@@ -193,5 +199,20 @@ public class Enemy : MonoBehaviour
         _spriteRenderer.material = _matFlashDamaged;
         yield return new WaitForSeconds(0.05f);
         _spriteRenderer.material = _matOriginal;
+    }
+    
+    public void InitializeStats(float overrideHealth, float overrideSpeed, int overrideDamage, int overrideCoin, float overrideExp)
+    {
+        _health = overrideHealth;
+        _moveSpeed = overrideSpeed;
+        damage = overrideDamage;
+        coinValue = overrideCoin;
+        exp = overrideExp;
+
+        if (sliderHealth != null)
+        {
+            sliderHealth.maxValue = _health;
+            sliderHealth.value = _health;
+        }
     }
 }

@@ -52,6 +52,9 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private List<Enemy> enemyAliveList = new List<Enemy>();
     [SerializeField] private Vector3 spawnPosition;
     
+    [SerializeField] private List<WaveSpawnData> currentWaveConfigList = new List<WaveSpawnData>();
+    [SerializeField] private List<WaveSpawnData> currentHordeConfigList = new List<WaveSpawnData>();
+    
     [Header("Spawner Variables")]
     [SerializeField] private float spawnInterval = 1.0f;
     [SerializeField] private float spawnCooldown = 0.0f;
@@ -137,55 +140,67 @@ public class WaveManager : MonoBehaviour
 
     private void GetEnemyList()
     {
-        enemyList.Clear();
-        hordeList.Clear();
+        currentWaveConfigList.Clear();
+        currentHordeConfigList.Clear();
+    
         if (waves.Count < wavesListIndex + 1)
         {
             Debug.Log("no enemy waves found.");
             return;
         }
-        currentWave = waves[wavesListIndex];
-        enemyList = new List<Enemy>(currentWave.enemyList);
 
-        hordeList = new List<Enemy>(currentWave.hordeList);
-        
-        //spawnPosition = waves[wavesListIndex].spawnPoint;
-        //spawnPosition = spawnPoints[currentWave.routeIndex].transform.position;
-        
+        currentWave = waves[wavesListIndex];
+    
+        // Copy the configs
+        currentWaveConfigList = new List<WaveSpawnData>(currentWave.enemySpawns);
+        currentHordeConfigList = new List<WaveSpawnData>(currentWave.hordeSpawns);
+
         if (currentWave.routeIndex < spawnPoints.Count)
         {
             spawnPosition = spawnPoints[currentWave.routeIndex].transform.position;
         }
         else
         {
-            Debug.LogError($"Wave {waveNumber} asks for Route {currentWave.routeIndex}, but only {spawnPoints.Count} spawn points exist!");
-            spawnPosition = Vector3.zero; // Fallback
+            spawnPosition = Vector3.zero; 
         }
-        
+
         SetWaveTimer(currentWave.waveCooldown);
-        
         _hordeInterval = currentWave.hordeInterval;
         _spawnHorde = currentWave.hasHorde;
     }
 
     private void SpawnFromList()
     {
-        if(spawnCooldown <= 0.0f)
+        if (spawnCooldown <= 0.0f && currentWaveConfigList.Count > 0)
         {
-            // GameObject instObj = Instantiate(enemyList[0].gameObject, spawnPosition, Quaternion.identity);
-            GameObject instObj = Instantiate(enemyList[0].gameObject, enemyParent.transform);
+            // 1. Get the Data Config
+            WaveSpawnData data = currentWaveConfigList[0];
+
+            if (data.enemyPrefab == null) 
+            {
+                currentWaveConfigList.RemoveAt(0);
+                return;
+            }
+
+            // 2. Instantiate
+            GameObject instObj = Instantiate(data.enemyPrefab.gameObject, enemyParent.transform);
             instObj.transform.position = spawnPosition;
+        
             Enemy enemy = instObj.GetComponent<Enemy>();
             enemy.followPlayer = false;
             enemy.waypoints = waypoints[currentWave.routeIndex].waypoints;
             enemy.SetWaveManager(this);
-            
-            enemyList.RemoveAt(0);
-            enemyAliveList.Add(enemy);
+
+            // 3. APPLY STATS
+            ApplyConfigToEnemy(enemy, data);
+
+            // 4. Cleanup
+            currentWaveConfigList.RemoveAt(0);
+        
+            // We add to alive list to track game end conditions
+            enemyAliveList.Add(enemy); 
             spawnCooldown = spawnInterval;
         }
-
-        
     }
 
     private void CreateVectorWaypoints()
@@ -219,8 +234,12 @@ public class WaveManager : MonoBehaviour
         }
     }
     
-    private void SetWaveTimer(float seconds)
+    private void SetWaveTimer(float seconds, bool calledFromButton = false)
     {
+        if (calledFromButton && waveActive)
+        {
+            Debug.Log("Wave is active, wait until it's over to call the next wave.");
+        }
         currentWaveTimer = seconds;
         // if (seconds <= 0)
         // {
@@ -232,26 +251,28 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnHorde()
     {
-        if (enemyAliveList.Count > 0 && _hordeCooldown <= 0.0f && _spawnHorde)
+        if (enemyAliveList.Count > 0 && _hordeCooldown <= 0.0f && _spawnHorde && currentHordeConfigList.Count > 0)
         {
-            int randIndex = Random.Range(0, hordeList.Count);
-            
-            GameObject instObj = Instantiate(hordeList[randIndex].gameObject, enemyParent.transform);
+            // Get Random config from horde list
+            int randIndex = Random.Range(0, currentHordeConfigList.Count);
+            WaveSpawnData data = currentHordeConfigList[randIndex];
+
+            GameObject instObj = Instantiate(data.enemyPrefab.gameObject, enemyParent.transform);
             Vector2 spawnPos = GetHordeSpawnPosition();
             instObj.transform.position = new Vector3(spawnPos.x, spawnPos.y, 0);
 
             Enemy enemy = instObj.GetComponent<Enemy>();
-            //enemy.waypoints.Add(_headquartersPosition);
             enemy.followPlayer = true;
             enemy.isHorde = true;
             enemy.SetWaveManager(this);
-            
+        
+            // APPLY STATS
+            ApplyConfigToEnemy(enemy, data);
+
             hordeAliveList.Add(enemy);
             _hordeCooldown = _hordeInterval;
         }
-        
         _hordeCooldown -= Time.deltaTime;
-        //Instantiate(prefabToSpawn, worldPos, Quaternion.identity);
     }
 
     private Vector3 GetHordeSpawnPosition()
@@ -317,18 +338,18 @@ public class WaveManager : MonoBehaviour
         hordeAliveList.Remove(enemy);
     }
     
-    [ContextMenu("CalculateTotalGoldOfAllWaves")]
-    public void CalculateTotalGoldOfAllWaves()
-    {
-        foreach (WaveSO wave in waves)
-        {
-            wave.totalGoldValue = 0;
-            foreach (Enemy enemy in wave.enemyList)
-            {
-                wave.totalGoldValue += enemy.coinValue;
-            }
-        }
-    }
+    // [ContextMenu("CalculateTotalGoldOfAllWaves")]
+    // public void CalculateTotalGoldOfAllWaves()
+    // {
+    //     foreach (WaveSO wave in waves)
+    //     {
+    //         wave.totalGoldValue = 0;
+    //         foreach (Enemy enemy in wave.enemyList)
+    //         {
+    //             wave.totalGoldValue += enemy.coinValue;
+    //         }
+    //     }
+    // }
 
     public void SetLevelData(LevelData levelData)
     {
@@ -348,6 +369,43 @@ public class WaveManager : MonoBehaviour
 
         if (waves != null) waves.Clear(); 
         else waves = new List<WaveSO>();
+    }
+    
+    // ... (The rest of WaveManager remains the same, only this method changes)
+
+    private void ApplyConfigToEnemy(Enemy enemy, WaveSpawnData data)
+    {
+        // Retrieve base values (Ensure you added the Getters to your Enemy script as discussed previously)
+        float finalHealth = enemy.BaseHealth; 
+        float finalSpeed = enemy.BaseSpeed;
+        int finalDamage = enemy.BaseDamage;
+        int finalCoin = enemy.BaseCoin;
+        float finalExp = enemy.BaseExp;
+
+        if (data.modificationMode == SpawnModMode.Multiplier)
+        {
+            // Apply individual multipliers directly
+            finalHealth *= data.hpMultiplier;
+            finalSpeed *= data.speedMultiplier;
+        
+            // Use Mathf.RoundToInt for integers to keep values clean
+            finalDamage = Mathf.RoundToInt(finalDamage * data.damageMultiplier);
+            finalCoin = Mathf.RoundToInt(finalCoin * data.goldMultiplier);
+        
+            finalExp *= data.expMultiplier;
+        }
+        else if (data.modificationMode == SpawnModMode.CustomValue)
+        {
+            // Apply custom overrides
+            finalHealth = data.customHealth;
+            finalSpeed = data.customSpeed;
+            finalDamage = data.customDamage;
+            finalCoin = data.customGold;
+            finalExp = data.customExp;
+        }
+
+        // Pass final stats to the enemy
+        enemy.InitializeStats(finalHealth, finalSpeed, finalDamage, finalCoin, finalExp);
     }
     
 #if UNITY_EDITOR

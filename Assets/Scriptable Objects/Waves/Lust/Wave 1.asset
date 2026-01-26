@@ -14,17 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {x: 6, y: 38, z: 0}
   routeIndex: 0
-  spawnInterval: 0
   waveCooldown: 45
-  enemyList:
-  - {fileID: 4664836877217421058, guid: 984708b9554125d4a852142002138983, type: 3}
-  - {fileID: 4664836877217421058, guid: 984708b9554125d4a852142002138983, type: 3}
-  - {fileID: 4664836877217421058, guid: 984708b9554125d4a852142002138983, type: 3}
-  - {fileID: 4664836877217421058, guid: 984708b9554125d4a852142002138983, type: 3}
-  - {fileID: 4664836877217421058, guid: 984708b9554125d4a852142002138983, type: 3}
-  enemyListHard: []
+  enemySpawns:
+  - enemyPrefab: {fileID: 4664836877217421058, guid: 984708b9554125d4a852142002138983, type: 3}
+    modificationMode: 0
+    hpMultiplier: 0
+    speedMultiplier: 0
+    damageMultiplier: 0
+    goldMultiplier: 0
+    expMultiplier: 0
+    customHealth: 1
+    customSpeed: 1
+    customDamage: 1
+    customGold: 1
+    customExp: 1
   hasHorde: 0
-  hordeList: []
-  hordeListHard: []
+  hordeSpawns: []
   hordeInterval: 3
   totalGoldValue: 72

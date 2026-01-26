@@ -8136,6 +8136,8 @@ MonoBehaviour:
   enemyList: []
   enemyAliveList: []
   spawnPosition: {x: 0, y: 0, z: 0}
+  currentWaveConfigList: []
+  currentHordeConfigList: []
   spawnInterval: 1
   spawnCooldown: 0
   wavesListIndex: 0
@@ -20677,6 +20679,14 @@ PrefabInstance:
       propertyPath: m_ShadowMesh.m_Mesh
       value: 
       objectReference: {fileID: 1514745303}
+    - target: {fileID: 238586584878353521, guid: cfa77a7b9a9e489439518c11480fb007, type: 3}
+      propertyPath: waves.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 238586584878353521, guid: cfa77a7b9a9e489439518c11480fb007, type: 3}
+      propertyPath: 'waves.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 99e5502b2071dcb41ab339b389fa9a18, type: 2}
     - target: {fileID: 360003008277732042, guid: cfa77a7b9a9e489439518c11480fb007, type: 3}
       propertyPath: m_ShadowMesh.m_Mesh
       value: 
