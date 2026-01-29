@@ -112294,6 +112294,7 @@ MonoBehaviour:
       - {fileID: 7084854948799952643}
   waves:
   - {fileID: 11400000, guid: 5455a277bbda7ed44a1a0637485111d8, type: 2}
+  - {fileID: 11400000, guid: 182a86287c3a19f4f8a1931c02b84d77, type: 2}
   spawnPoints: []
   availableSegments:
   - segmentName: Top Left w Spawn

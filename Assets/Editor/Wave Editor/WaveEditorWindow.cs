@@ -7,7 +7,7 @@ using System.Linq;
 public class WaveEditorWindow : EditorWindow
 {
     // --- MODE SWITCHING ---
-    private enum EditorMode { Waves, Segments, Routes } // Updated Enum
+    private enum EditorMode { Waves, Segments, Routes }
     private EditorMode _currentMode = EditorMode.Waves;
 
     // --- Selection ---
@@ -15,7 +15,7 @@ public class WaveEditorWindow : EditorWindow
     private SerializedObject _serializedLevelObject;
     private SerializedProperty _wavesListProperty;
     private SerializedProperty _mapRoutesProperty;
-    private SerializedProperty _availableSegmentsProperty; // New Property
+    private SerializedProperty _availableSegmentsProperty;
 
     // --- Level List Caching ---
     private List<LevelData> _cachedLevels = new List<LevelData>();
@@ -32,7 +32,7 @@ public class WaveEditorWindow : EditorWindow
     
     // --- Path/Segment Editing ---
     private int _selectedRouteIndex = -1;
-    private int _selectedSegmentIndex = -1; // New Index for Segment Editor
+    private int _selectedSegmentIndex = -1;
     private bool _showSceneHandles = true;
 
     // --- Stats Caching ---
@@ -42,11 +42,15 @@ public class WaveEditorWindow : EditorWindow
     // --- Layout ---
     private Vector2 _sidebarScrollPosition;
     private Vector2 _inspectorScrollPosition;
-    private Vector2 _segmentAvailableScroll; // New
-    private Vector2 _segmentSelectedScroll; // New
-    private float _sidebarWidth = 250f;
+    private Vector2 _segmentAvailableScroll;
+    private Vector2 _segmentSelectedScroll;
+    private float _sidebarWidth = 300f;
     private bool _isResizing = false;
-    private const float MinSidebarWidth = 150f;
+    private const float MinSidebarWidth = 200f;
+
+    // --- Cached Styles ---
+    private GUIStyle _selectedButtonStyle;
+    private GUIStyle _centeredGreyLabel;
 
     [MenuItem("Tools/Wave Editor")]
     public static void ShowWindow()
@@ -67,8 +71,29 @@ public class WaveEditorWindow : EditorWindow
         _serializedLevelObject = null;
     }
 
+    private void InitializeStyles()
+    {
+        if (_selectedButtonStyle == null)
+        {
+            _selectedButtonStyle = new GUIStyle(GUI.skin.button);
+            _selectedButtonStyle.normal = GUI.skin.button.active;
+        }
+
+        if (_centeredGreyLabel == null)
+        {
+            _centeredGreyLabel = new GUIStyle(EditorStyles.label)
+            {
+                alignment = TextAnchor.MiddleCenter,
+                fontSize = 14,
+                normal = { textColor = Color.gray }
+            };
+        }
+    }
+
     private void OnGUI()
     {
+        InitializeStyles();
+
         if (Event.current.type == EventType.Layout && _selectedLevelData != null)
         {
             CalculateLevelTotals();
@@ -95,7 +120,7 @@ public class WaveEditorWindow : EditorWindow
             case EditorMode.Segments:
                 DrawSegmentEditor();
                 break;
-            case EditorMode.Routes: // Renamed from Paths for clarity, effectively existing logic
+            case EditorMode.Routes:
                 DrawPathEditor();
                 break;
         }
@@ -109,7 +134,6 @@ public class WaveEditorWindow : EditorWindow
     // --- SCENE GUI (HANDLES) ---
     private void OnSceneGUI(SceneView sceneView)
     {
-        // Add support for Segment Editor handles too?
         if (_selectedLevelData == null || !_showSceneHandles) return;
 
         if (_currentMode == EditorMode.Segments)
@@ -125,6 +149,8 @@ public class WaveEditorWindow : EditorWindow
     private void DrawRouteModeHandles()
     {
         var routes = _selectedLevelData.MapRoutes;
+        if (routes == null) return;
+
         for (int r = 0; r < routes.Count; r++)
         {
             bool isSelectedRoute = (r == _selectedRouteIndex);
@@ -166,9 +192,8 @@ public class WaveEditorWindow : EditorWindow
 
     private void DrawSegmentModeHandles()
     {
-        // Draw handles for the currently selected Segment from the Pool
         var pool = _selectedLevelData.AvailableSegments;
-        if (_selectedSegmentIndex < 0 || _selectedSegmentIndex >= pool.Count) return;
+        if (pool == null || _selectedSegmentIndex < 0 || _selectedSegmentIndex >= pool.Count) return;
 
         PathSegment seg = pool[_selectedSegmentIndex];
         if (seg.waypoints == null) return;
@@ -260,7 +285,6 @@ public class WaveEditorWindow : EditorWindow
     private void DrawRoutesSidebar()
     {
         EditorGUILayout.LabelField("Map Routes", EditorStyles.boldLabel);
-        
 
         if (GUILayout.Button("+ Create New Route", GUILayout.Height(30)))
         {
@@ -288,7 +312,7 @@ public class WaveEditorWindow : EditorWindow
 
                 EditorGUILayout.BeginHorizontal();
 
-                GUIStyle btnStyle = (i == _selectedRouteIndex) ? new GUIStyle(GUI.skin.button) { normal = GUI.skin.button.active } : GUI.skin.button;
+                GUIStyle btnStyle = (i == _selectedRouteIndex) ? _selectedButtonStyle : GUI.skin.button;
                 
                 if (GUILayout.Button(name, btnStyle, GUILayout.Height(25)))
                 {
@@ -320,7 +344,7 @@ public class WaveEditorWindow : EditorWindow
     {
         _inspectorScrollPosition = EditorGUILayout.BeginScrollView(_inspectorScrollPosition);
 
-        if (_selectedRouteIndex != -1 && _selectedRouteIndex < _mapRoutesProperty.arraySize)
+        if (_selectedRouteIndex != -1 && _mapRoutesProperty != null && _selectedRouteIndex < _mapRoutesProperty.arraySize)
         {
             SerializedProperty routeProp = _mapRoutesProperty.GetArrayElementAtIndex(_selectedRouteIndex);
             
@@ -328,13 +352,7 @@ public class WaveEditorWindow : EditorWindow
             EditorGUILayout.Space();
 
             EditorGUILayout.PropertyField(routeProp.FindPropertyRelative("routeName"));
-            // Deprecated direct spawnPoint on Route? 
-            // User: "Routes will start with a segment that has Spawn point"
-            // So we might hide the route's own spawnPoint field or keep it as legacy override?
-            // Let's keep it but maybe warn if redundant.
-            // Actually, LevelData.MapRoute has spawnPoint. Let's leave it for now but focus on Segments.
 
-            
             EditorGUILayout.Space(10);
             EditorGUILayout.LabelField("Segment Sequence", EditorStyles.boldLabel);
 
@@ -358,7 +376,7 @@ public class WaveEditorWindow : EditorWindow
             for (int i = 0; i < segmentsProp.arraySize; i++)
             {
                 SerializedProperty segProp = segmentsProp.GetArrayElementAtIndex(i);
-                DrawSegmentInRouteUI(segProp, segmentsProp, i); // Custom mini-view
+                DrawSegmentInRouteUI(segProp, segmentsProp, i);
                 EditorGUILayout.Space(2);
             }
 
@@ -394,8 +412,7 @@ public class WaveEditorWindow : EditorWindow
         else
         {
             GUILayout.FlexibleSpace();
-            var style = new GUIStyle(EditorStyles.label) { alignment = TextAnchor.MiddleCenter, fontSize = 14, normal = { textColor = Color.gray } };
-            EditorGUILayout.LabelField("Select a Route to edit.", style, GUILayout.ExpandWidth(true));
+            EditorGUILayout.LabelField("Select a Route to edit.", _centeredGreyLabel, GUILayout.ExpandWidth(true));
             GUILayout.FlexibleSpace();
         }
 
@@ -407,7 +424,6 @@ public class WaveEditorWindow : EditorWindow
         EditorGUILayout.BeginHorizontal("helpBox");
         
         SerializedProperty nameProp = segmentProp.FindPropertyRelative("segmentName");
-        // We might want to show if it has a spawn point
         SerializedProperty spawnProp = segmentProp.FindPropertyRelative("spawnPoint");
         bool hasSpawn = spawnProp.objectReferenceValue != null;
         
@@ -474,114 +490,10 @@ public class WaveEditorWindow : EditorWindow
         }
     }
 
-    // --- Segment UI ---
-    private void DrawSegmentUI(SerializedProperty segmentProp, SerializedProperty listProp, int index)
-    {
-        EditorGUILayout.BeginVertical("helpBox");
-        
-        SerializedProperty nameProp = segmentProp.FindPropertyRelative("segmentName");
-        SerializedProperty pointsProp = segmentProp.FindPropertyRelative("waypoints");
-
-        EditorGUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField($"Segment {index + 1}", EditorStyles.boldLabel);
-        
-        if (GUILayout.Button("Remove Segment", GUILayout.Width(110)))
-        {
-            listProp.DeleteArrayElementAtIndex(index);
-            listProp.serializedObject.ApplyModifiedProperties(); // Save delete immediately
-            EditorGUILayout.EndHorizontal();
-            EditorGUILayout.EndVertical();
-            GUIUtility.ExitGUI(); 
-        }
-        EditorGUILayout.EndHorizontal();
-
-        EditorGUILayout.PropertyField(nameProp);
-
-        EditorGUI.indentLevel++;
-        pointsProp.isExpanded = EditorGUILayout.Foldout(pointsProp.isExpanded, "Waypoints", true);
-        
-        if (pointsProp.isExpanded)
-        {
-            // 1. Gather Valid Options
-            string segmentName = nameProp.stringValue;
-            Transform segmentContainer = null;
-            Transform waypointsContainer = _selectedLevelData.transform.Find("Waypoints");
-            
-            if (waypointsContainer != null)
-                segmentContainer = waypointsContainer.Find(segmentName);
-
-            // Warning Box logic
-            if (segmentContainer == null)
-            {
-                GUI.backgroundColor = new Color(1f, 0.8f, 0.8f);
-                EditorGUILayout.HelpBox($"GameObject 'Waypoints/{segmentName}' not found in Prefab.\nCannot find points to list.", MessageType.Warning);
-                GUI.backgroundColor = Color.white;
-            }
-
-            List<string> options = new List<string> { "None" };
-            List<Transform> values = new List<Transform> { null };
-
-            if (segmentContainer != null)
-            {
-                foreach (Transform child in segmentContainer)
-                {
-                    options.Add(child.name);
-                    values.Add(child);
-                }
-            }
-
-            // 2. Draw Points
-            for (int p = 0; p < pointsProp.arraySize; p++)
-            {
-                SerializedProperty pointRef = pointsProp.GetArrayElementAtIndex(p);
-                Transform currentPoint = (Transform)pointRef.objectReferenceValue;
-
-                EditorGUILayout.BeginHorizontal();
-                
-                int currentIndex = 0;
-                if (currentPoint != null)
-                {
-                    int found = values.IndexOf(currentPoint);
-                    if (found != -1) currentIndex = found;
-                    else
-                    {
-                        options.Add(currentPoint.name + " (External)");
-                        values.Add(currentPoint);
-                        currentIndex = values.Count - 1;
-                    }
-                }
-
-                int newIndex = EditorGUILayout.Popup($"Point {p}", currentIndex, options.ToArray());
-                if (newIndex != currentIndex)
-                {
-                    pointRef.objectReferenceValue = values[newIndex];
-                }
-
-                if (GUILayout.Button("X", GUILayout.Width(25)))
-                {
-                    pointsProp.DeleteArrayElementAtIndex(p);
-                    pointsProp.serializedObject.ApplyModifiedProperties();
-                }
-                
-                EditorGUILayout.EndHorizontal();
-            }
-            
-            // 3. Add Slot
-            EditorGUILayout.BeginHorizontal();
-            if (GUILayout.Button("+ Add Empty Slot", GUILayout.Height(20)))
-            {
-                pointsProp.InsertArrayElementAtIndex(pointsProp.arraySize);
-                pointsProp.GetArrayElementAtIndex(pointsProp.arraySize - 1).objectReferenceValue = null;
-            }
-            EditorGUILayout.EndHorizontal();
-        }
-        EditorGUI.indentLevel--;
-
-        EditorGUILayout.EndVertical();
-    }
-
     private void CreateNewRoute()
     {
+        if (_mapRoutesProperty == null) return;
+
         int index = _mapRoutesProperty.arraySize;
         _mapRoutesProperty.InsertArrayElementAtIndex(index);
         SerializedProperty newRoute = _mapRoutesProperty.GetArrayElementAtIndex(index);
@@ -592,66 +504,6 @@ public class WaveEditorWindow : EditorWindow
         newRoute.FindPropertyRelative("baseTarget").objectReferenceValue = null;
         
         _selectedRouteIndex = index;
-    }
-
-    // --- UPDATED METHOD: Uses PrefabUtility to modify hierarchy on disk ---
-    private void CreateSegmentForRoute(int routeIndex)
-    {
-        string assetPath = AssetDatabase.GetAssetPath(_selectedLevelData);
-        
-        // 1. Load the Prefab content so we can edit the hierarchy
-        GameObject prefabRoot = PrefabUtility.LoadPrefabContents(assetPath);
-
-        try
-        {
-            // 2. Modify Hierarchy on the 'prefabRoot' instance
-            Transform waypointsContainer = prefabRoot.transform.Find("Waypoints");
-            if (waypointsContainer == null)
-            {
-                GameObject containerGO = new GameObject("Waypoints");
-                containerGO.transform.SetParent(prefabRoot.transform);
-                containerGO.transform.localPosition = Vector3.zero;
-                waypointsContainer = containerGO.transform;
-            }
-
-            // Generate unique name
-            int count = waypointsContainer.childCount;
-            string segName = $"Segment_{count}";
-            
-            GameObject segGO = new GameObject(segName);
-            segGO.transform.SetParent(waypointsContainer);
-            segGO.transform.localPosition = Vector3.zero;
-
-            // 3. Update the LevelData component ON THE PREFAB ROOT
-            // We cannot use _serializedLevelObject here because it points to the Asset, which is being overwritten
-            LevelData dataOnPrefab = prefabRoot.GetComponent<LevelData>();
-            if (dataOnPrefab != null && routeIndex < dataOnPrefab.MapRoutes.Count)
-            {
-                MapRoute route = dataOnPrefab.MapRoutes[routeIndex];
-                
-                PathSegment newSeg = new PathSegment();
-                newSeg.segmentName = segName;
-                newSeg.waypoints = new List<Transform>();
-                
-                route.pathSegments.Add(newSeg);
-            }
-
-            // 4. Save changes back to the Asset
-            PrefabUtility.SaveAsPrefabAsset(prefabRoot, assetPath);
-        }
-        catch (System.Exception e)
-        {
-            Debug.LogError($"Error creating segment: {e.Message}");
-        }
-        finally
-        {
-            // 5. Unload the temporary prefab scene
-            PrefabUtility.UnloadPrefabContents(prefabRoot);
-        }
-
-        // 6. Force Refresh the tool to reload the updated asset
-        ChangeSelectedLevel(AssetDatabase.LoadAssetAtPath<LevelData>(assetPath));
-        Repaint();
     }
 
     private void PopulateRouteFromHierarchy()
@@ -670,7 +522,12 @@ public class WaveEditorWindow : EditorWindow
                 return;
             }
 
-            // Create new Route data
+            if (waypointsContainer.childCount == 0)
+            {
+                Debug.LogWarning("Waypoints container is empty!");
+                return;
+            }
+
             LevelData dataOnPrefab = prefabRoot.GetComponent<LevelData>();
             if (dataOnPrefab == null)
             {
@@ -686,7 +543,6 @@ public class WaveEditorWindow : EditorWindow
             newSeg.segmentName = "Main_Path";
             newSeg.waypoints = new List<Transform>();
 
-            // Add all children of Waypoints as points
             foreach (Transform child in waypointsContainer)
             {
                 newSeg.waypoints.Add(child);
@@ -715,10 +571,6 @@ public class WaveEditorWindow : EditorWindow
     //                                    SEGMENT EDITOR LOGIC
     // ==========================================================================================
 
-    // ==========================================================================================
-    //                                    SEGMENT EDITOR LOGIC
-    // ==========================================================================================
-
     private void DrawSegmentEditor()
     {
         EditorGUILayout.BeginHorizontal();
@@ -739,16 +591,13 @@ public class WaveEditorWindow : EditorWindow
         else
         {
             GUILayout.FlexibleSpace();
-            var style = new GUIStyle(EditorStyles.label) { alignment = TextAnchor.MiddleCenter, fontSize = 14, normal = { textColor = Color.gray } };
-            EditorGUILayout.LabelField("Select a Segment to edit.", style, GUILayout.ExpandWidth(true));
+            EditorGUILayout.LabelField("Select a Segment to edit.", _centeredGreyLabel, GUILayout.ExpandWidth(true));
             GUILayout.FlexibleSpace();
         }
         EditorGUILayout.EndVertical();
 
         EditorGUILayout.EndHorizontal();
     }
-
-
 
     private void DrawSegmentsSidebar()
     {
@@ -775,7 +624,7 @@ public class WaveEditorWindow : EditorWindow
 
                 EditorGUILayout.BeginHorizontal();
 
-                GUIStyle btnStyle = (i == _selectedSegmentIndex) ? new GUIStyle(GUI.skin.button) { normal = GUI.skin.button.active } : GUI.skin.button;
+                GUIStyle btnStyle = (i == _selectedSegmentIndex) ? _selectedButtonStyle : GUI.skin.button;
                 
                 if (GUILayout.Button(name, btnStyle, GUILayout.Height(25)))
                 {
@@ -804,259 +653,181 @@ public class WaveEditorWindow : EditorWindow
     }
 
     private void DrawDualListSegmentInspector()
-{
-    SerializedProperty segProp = _availableSegmentsProperty.GetArrayElementAtIndex(_selectedSegmentIndex);
-    SerializedProperty nameProp = segProp.FindPropertyRelative("segmentName");
-    SerializedProperty spawnProp = segProp.FindPropertyRelative("spawnPoint");
-    SerializedProperty pointsProp = segProp.FindPropertyRelative("waypoints");
-
-    // 1. Header (fixed height, outside scroll)
-    EditorGUILayout.BeginVertical("helpBox");
-    EditorGUILayout.LabelField("Segment Settings", EditorStyles.boldLabel);
-    EditorGUILayout.PropertyField(nameProp);
-    DrawSpawnPointSelector(spawnProp);
-    EditorGUILayout.EndVertical();
-
-    EditorGUILayout.Space(5);
-
-    // 2. Dual List UI - Calculate available height
-    float availableHeight = position.height - 180f; // Reserve space for header and top bar
-    availableHeight = Mathf.Max(availableHeight, 200f); // Minimum height
-
-    EditorGUILayout.BeginHorizontal(GUILayout.Height(availableHeight));
-
-    // --- LEFT COLUMN: Available Points in Scene ---
-    EditorGUILayout.BeginVertical("box", GUILayout.Width(300));
-    EditorGUILayout.LabelField("Available in Scene", EditorStyles.boldLabel);
-    
-    Transform waypointsRoot = _selectedLevelData.transform.Find("Waypoints");
-    if (waypointsRoot != null)
     {
-        _segmentAvailableScroll = EditorGUILayout.BeginScrollView(_segmentAvailableScroll);
+        SerializedProperty segProp = _availableSegmentsProperty.GetArrayElementAtIndex(_selectedSegmentIndex);
+        SerializedProperty nameProp = segProp.FindPropertyRelative("segmentName");
+        SerializedProperty spawnProp = segProp.FindPropertyRelative("spawnPoint");
+        SerializedProperty pointsProp = segProp.FindPropertyRelative("waypoints");
+
+        // 1. Header (fixed height, outside scroll)
+        EditorGUILayout.BeginVertical("helpBox");
+        EditorGUILayout.LabelField("Segment Settings", EditorStyles.boldLabel);
+        EditorGUILayout.PropertyField(nameProp);
+        DrawSpawnPointSelector(spawnProp);
+        EditorGUILayout.EndVertical();
+
+        EditorGUILayout.Space(5);
+
+        // 2. Dual List UI - Calculate available height
+        float availableHeight = position.height - 180f;
+        availableHeight = Mathf.Max(availableHeight, 200f);
+
+        EditorGUILayout.BeginHorizontal(GUILayout.Height(availableHeight));
+
+        // --- LEFT COLUMN: Available Points in Scene ---
+        EditorGUILayout.BeginVertical("box", GUILayout.Width(300));
+        EditorGUILayout.LabelField("Available in Scene", EditorStyles.boldLabel);
         
-        foreach (Transform child in waypointsRoot)
+        Transform waypointsRoot = _selectedLevelData.transform.Find("Waypoints");
+        if (waypointsRoot != null)
         {
-            bool alreadyAdded = false;
-            for(int i=0; i<pointsProp.arraySize; i++)
+            _segmentAvailableScroll = EditorGUILayout.BeginScrollView(_segmentAvailableScroll);
+            
+            foreach (Transform child in waypointsRoot)
             {
-                SerializedProperty p = pointsProp.GetArrayElementAtIndex(i);
-                if (p.objectReferenceValue == child)
+                bool alreadyAdded = false;
+                for (int i = 0; i < pointsProp.arraySize; i++)
                 {
-                    alreadyAdded = true; 
-                    break;
+                    SerializedProperty p = pointsProp.GetArrayElementAtIndex(i);
+                    if (p.objectReferenceValue == child)
+                    {
+                        alreadyAdded = true; 
+                        break;
+                    }
                 }
+
+                EditorGUILayout.BeginHorizontal();
+                GUILayout.Label(child.name, GUILayout.MinWidth(50));
+                
+                GUI.enabled = !alreadyAdded;
+                if (GUILayout.Button("Add >", GUILayout.Width(50)))
+                {
+                    pointsProp.InsertArrayElementAtIndex(pointsProp.arraySize);
+                    pointsProp.GetArrayElementAtIndex(pointsProp.arraySize - 1).objectReferenceValue = child;
+                }
+                GUI.enabled = true;
+                EditorGUILayout.EndHorizontal();
             }
+            EditorGUILayout.EndScrollView();
+        }
+        else
+        {
+            EditorGUILayout.HelpBox("No 'Waypoints' GameObject found in Prefab.", MessageType.Warning);
+        }
+        EditorGUILayout.EndVertical();
+
+        // --- RIGHT COLUMN: Selected Points ---
+        EditorGUILayout.BeginVertical("box");
+        EditorGUILayout.LabelField("Selected Waypoints", EditorStyles.boldLabel);
+        
+        _segmentSelectedScroll = EditorGUILayout.BeginScrollView(_segmentSelectedScroll);
+        
+        for (int i = 0; i < pointsProp.arraySize; i++)
+        {
+            SerializedProperty pt = pointsProp.GetArrayElementAtIndex(i);
+            Transform t = (Transform)pt.objectReferenceValue;
+            string label = t != null ? t.name : "(Null)";
 
             EditorGUILayout.BeginHorizontal();
-            GUILayout.Label(child.name, GUILayout.MinWidth(50));
+            GUILayout.Label($"{i}. {label}", GUILayout.ExpandWidth(true));
             
-            GUI.enabled = !alreadyAdded;
-            if (GUILayout.Button("Add >", GUILayout.Width(50)))
+            if (GUILayout.Button("Up", GUILayout.Width(30)) && i > 0)
             {
-                pointsProp.InsertArrayElementAtIndex(pointsProp.arraySize);
-                pointsProp.GetArrayElementAtIndex(pointsProp.arraySize - 1).objectReferenceValue = child;
-                pointsProp.serializedObject.ApplyModifiedProperties();
+                pointsProp.MoveArrayElement(i, i - 1);
             }
-            GUI.enabled = true;
+            if (GUILayout.Button("Dn", GUILayout.Width(30)) && i < pointsProp.arraySize - 1)
+            {
+                pointsProp.MoveArrayElement(i, i + 1);
+            }
+            
+            GUI.backgroundColor = new Color(1f, 0.6f, 0.6f);
+            if (GUILayout.Button("X", GUILayout.Width(25)))
+            {
+                pointsProp.DeleteArrayElementAtIndex(i);
+            }
+            GUI.backgroundColor = Color.white;
+
             EditorGUILayout.EndHorizontal();
         }
+        
         EditorGUILayout.EndScrollView();
-    }
-    else
-    {
-        EditorGUILayout.HelpBox("No 'Waypoints' GameObject found in Prefab.", MessageType.Warning);
-    }
-    EditorGUILayout.EndVertical();
-
-    // --- RIGHT COLUMN: Selected Points ---
-    EditorGUILayout.BeginVertical("box");
-    EditorGUILayout.LabelField("Selected Waypoints", EditorStyles.boldLabel);
-    
-    _segmentSelectedScroll = EditorGUILayout.BeginScrollView(_segmentSelectedScroll);
-    
-    for (int i = 0; i < pointsProp.arraySize; i++)
-    {
-        SerializedProperty pt = pointsProp.GetArrayElementAtIndex(i);
-        Transform t = (Transform)pt.objectReferenceValue;
-        string label = t != null ? t.name : "(Null)";
-
-        EditorGUILayout.BeginHorizontal();
-        GUILayout.Label($"{i}. {label}", GUILayout.ExpandWidth(true));
-        
-        if (GUILayout.Button("Up", GUILayout.Width(30)) && i > 0)
-        {
-            pointsProp.MoveArrayElement(i, i - 1);
-        }
-        if (GUILayout.Button("Dn", GUILayout.Width(30)) && i < pointsProp.arraySize - 1)
-        {
-            pointsProp.MoveArrayElement(i, i + 1);
-        }
-        
-        GUI.backgroundColor = new Color(1f, 0.6f, 0.6f);
-        if (GUILayout.Button("X", GUILayout.Width(25)))
-        {
-            pointsProp.DeleteArrayElementAtIndex(i);
-        }
-        GUI.backgroundColor = Color.white;
+        EditorGUILayout.EndVertical();
 
         EditorGUILayout.EndHorizontal();
     }
-    
-    EditorGUILayout.EndScrollView();
-    EditorGUILayout.EndVertical();
-
-    EditorGUILayout.EndHorizontal();
-    
-    if (GUI.changed)
-    {
-        pointsProp.serializedObject.ApplyModifiedProperties();
-    }
-}
 
     private void CreateNewSegmentInPool()
     {
-        // Similar to creating a segment on disk, but here we just add to the list
-        // and MAYBE create a container object in the scene if we want to be fancy, 
-        // but broadly we just need the data entry first.
-        
+        if (_availableSegmentsProperty == null) return;
+
         int index = _availableSegmentsProperty.arraySize;
         _availableSegmentsProperty.InsertArrayElementAtIndex(index);
         SerializedProperty newSeg = _availableSegmentsProperty.GetArrayElementAtIndex(index);
         
         newSeg.FindPropertyRelative("segmentName").stringValue = "New_Segment_" + index;
         newSeg.FindPropertyRelative("waypoints").ClearArray();
+        newSeg.FindPropertyRelative("spawnPoint").objectReferenceValue = null;
         
         _selectedSegmentIndex = index;
     }
 
-    // Refactored helper to draw points list, shared or specific?
-    private void DrawWaypointsList(SerializedProperty pointsProp, string segmentNameContext)
-    {
-        EditorGUILayout.BeginVertical("helpBox");
-        pointsProp.isExpanded = EditorGUILayout.Foldout(pointsProp.isExpanded, "Waypoints", true);
-        
-        if (pointsProp.isExpanded)
-        {
-             // 1. Gather Valid Options (Same logic as before, roughly)
-            List<string> options = new List<string> { "None" };
-            List<Transform> values = new List<Transform> { null };
-            
-            // Try to find a logical container in the scene?
-            // "Waypoints/{segmentName}"
-             Transform waypointsContainer = _selectedLevelData.transform.Find("Waypoints");
-             Transform segmentContainer = null;
-             if (waypointsContainer != null) segmentContainer = waypointsContainer.Find(segmentNameContext);
-
-             if (segmentContainer != null)
-             {
-                 foreach (Transform child in segmentContainer)
-                 {
-                     options.Add(child.name);
-                     values.Add(child);
-                 }
-             }
-
-            // 2. Draw Points
-            for (int p = 0; p < pointsProp.arraySize; p++)
-            {
-                SerializedProperty pointRef = pointsProp.GetArrayElementAtIndex(p);
-                Transform currentPoint = (Transform)pointRef.objectReferenceValue;
-
-                EditorGUILayout.BeginHorizontal();
-                
-                int currentIndex = 0;
-                if (currentPoint != null)
-                {
-                    int found = values.IndexOf(currentPoint);
-                    if (found != -1) currentIndex = found;
-                    else
-                    {
-                        options.Add(currentPoint.name + " (External)");
-                        values.Add(currentPoint);
-                        currentIndex = values.Count - 1;
-                    }
-                }
-
-                int newIndex = EditorGUILayout.Popup($"Point {p}", currentIndex, options.ToArray());
-                // Also allow object drag
-                Transform dragged = (Transform)EditorGUILayout.ObjectField(values[newIndex], typeof(Transform), true, GUILayout.Width(100));
-                
-                if (dragged != values[newIndex])
-                {
-                     pointRef.objectReferenceValue = dragged;
-                }
-                else if (newIndex != currentIndex)
-                {
-                    pointRef.objectReferenceValue = values[newIndex];
-                }
-
-                if (GUILayout.Button("X", GUILayout.Width(25)))
-                {
-                    pointsProp.DeleteArrayElementAtIndex(p);
-                    pointsProp.serializedObject.ApplyModifiedProperties();
-                }
-                
-                EditorGUILayout.EndHorizontal();
-            }
-            
-            // 3. Add Slot
-            EditorGUILayout.BeginHorizontal();
-            if (GUILayout.Button("+ Add Empty Slot", GUILayout.Height(20)))
-            {
-                pointsProp.InsertArrayElementAtIndex(pointsProp.arraySize);
-                pointsProp.GetArrayElementAtIndex(pointsProp.arraySize - 1).objectReferenceValue = null;
-            }
-            if (GUILayout.Button("Auto-Fill from Selection", GUILayout.Height(20)))
-            {
-                foreach(var obj in Selection.transforms)
-                {
-                     pointsProp.InsertArrayElementAtIndex(pointsProp.arraySize);
-                     pointsProp.GetArrayElementAtIndex(pointsProp.arraySize - 1).objectReferenceValue = obj;
-                }
-            }
-            EditorGUILayout.EndHorizontal();
-        }
-        EditorGUILayout.EndVertical();
-    }
-
     private void AddSegmentFromPoolToRoute(int routeIndex, int poolIndex)
     {
-        // We need to copy the data from the pool to the route structure on the prefab
-        // Similar to CreateSegmentForRoute but populating data
-        
+        if (_selectedLevelData == null) return;
+
         string assetPath = AssetDatabase.GetAssetPath(_selectedLevelData);
         GameObject prefabRoot = PrefabUtility.LoadPrefabContents(assetPath);
 
         try
         {
-            SerializedObject tempSO = new SerializedObject(prefabRoot.GetComponent<LevelData>());
-            SerializedProperty poolProp = tempSO.FindProperty("availableSegments");
-            SerializedProperty srcSeg = poolProp.GetArrayElementAtIndex(poolIndex);
-
-            // Get Destination
             LevelData dataOnPrefab = prefabRoot.GetComponent<LevelData>();
+            if (dataOnPrefab == null || dataOnPrefab.AvailableSegments == null || dataOnPrefab.MapRoutes == null)
+            {
+                Debug.LogError("Invalid LevelData on prefab!");
+                return;
+            }
+
+            if (poolIndex < 0 || poolIndex >= dataOnPrefab.AvailableSegments.Count)
+            {
+                Debug.LogError("Pool index out of range!");
+                return;
+            }
+
+            if (routeIndex < 0 || routeIndex >= dataOnPrefab.MapRoutes.Count)
+            {
+                Debug.LogError("Route index out of range!");
+                return;
+            }
+
+            // Read directly from the prefab's data
+            PathSegment srcSeg = dataOnPrefab.AvailableSegments[poolIndex];
             MapRoute route = dataOnPrefab.MapRoutes[routeIndex];
             
             PathSegment newSeg = new PathSegment();
-            newSeg.segmentName = srcSeg.FindPropertyRelative("segmentName").stringValue;
-            // Copy Spawn Point
-            SerializedProperty srcSpawn = srcSeg.FindPropertyRelative("spawnPoint");
-            newSeg.spawnPoint = (Transform)srcSpawn.objectReferenceValue;
-
+            newSeg.segmentName = srcSeg.segmentName;
+            newSeg.spawnPoint = srcSeg.spawnPoint;
             newSeg.waypoints = new List<Transform>();
             
-            SerializedProperty srcPoints = srcSeg.FindPropertyRelative("waypoints");
-            for(int k=0; k<srcPoints.arraySize; k++)
+            if (srcSeg.waypoints != null)
             {
-                newSeg.waypoints.Add((Transform)srcPoints.GetArrayElementAtIndex(k).objectReferenceValue);
+                foreach (var wp in srcSeg.waypoints)
+                {
+                    newSeg.waypoints.Add(wp);
+                }
             }
             
             route.pathSegments.Add(newSeg);
 
             PrefabUtility.SaveAsPrefabAsset(prefabRoot, assetPath);
         }
-        catch (System.Exception e) { Debug.LogError(e); }
-        finally { PrefabUtility.UnloadPrefabContents(prefabRoot); }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Error adding segment to route: {e.Message}");
+        }
+        finally
+        {
+            PrefabUtility.UnloadPrefabContents(prefabRoot);
+        }
 
         ChangeSelectedLevel(AssetDatabase.LoadAssetAtPath<LevelData>(assetPath));
         Repaint();
@@ -1094,7 +865,7 @@ public class WaveEditorWindow : EditorWindow
 
                 EditorGUILayout.BeginHorizontal();
 
-                GUIStyle btnStyle = (i == _selectedWaveIndex) ? new GUIStyle(GUI.skin.button) { normal = GUI.skin.button.active } : GUI.skin.button;
+                GUIStyle btnStyle = (i == _selectedWaveIndex) ? _selectedButtonStyle : GUI.skin.button;
                 string btnLabel = waveRef != null ? $"Wave {i + 1}: {waveRef.name}" : $"Wave {i + 1}: (Empty)";
                 
                 if (GUILayout.Button(btnLabel, btnStyle, GUILayout.Height(25))) SelectWave(i, waveRef);
@@ -1122,9 +893,20 @@ public class WaveEditorWindow : EditorWindow
         {
             _serializedWaveObject.Update();
 
-            EditorGUILayout.LabelField($"Editing: {_selectedWave.name}", EditorStyles.boldLabel);
+            // Wave Name Field with Rename functionality
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Editing:", GUILayout.Width(50));
+            
+            EditorGUI.BeginChangeCheck();
+            string newName = EditorGUILayout.DelayedTextField(_selectedWave.name, EditorStyles.boldLabel);
+            if (EditorGUI.EndChangeCheck() && !string.IsNullOrWhiteSpace(newName) && newName != _selectedWave.name)
+            {
+                RenameWaveAsset(_selectedWave, newName);
+            }
+            EditorGUILayout.EndHorizontal();
+            
             EditorGUILayout.BeginHorizontal("helpBox");
-            if(_wavesListProperty != null) EditorGUILayout.LabelField($"Waves: {_wavesListProperty.arraySize}", EditorStyles.boldLabel, GUILayout.Width(80));
+            if (_wavesListProperty != null) EditorGUILayout.LabelField($"Waves: {_wavesListProperty.arraySize}", EditorStyles.boldLabel, GUILayout.Width(80));
             GUILayout.Label("|", GUILayout.Width(10));
             EditorGUILayout.LabelField($"Wave Gold: {_selectedWave.totalGoldValue}", EditorStyles.boldLabel);
             EditorGUILayout.LabelField($"Wave Exp: {_selectedWave.totalExpValue}", EditorStyles.boldLabel);
@@ -1134,7 +916,6 @@ public class WaveEditorWindow : EditorWindow
 
             EditorGUI.BeginChangeCheck();
 
-            // Custom handling for Route Index to show dropdown
             SerializedProperty iterator = _serializedWaveObject.GetIterator();
             bool enterChildren = true;
 
@@ -1146,12 +927,14 @@ public class WaveEditorWindow : EditorWindow
                 
                 if (iterator.name == "routeIndex")
                 {
-                    // Draw Dropdown
                     List<string> routeNames = new List<string>();
                     var routes = _selectedLevelData.MapRoutes;
-                    for(int r=0; r<routes.Count; r++)
+                    if (routes != null)
                     {
-                        routeNames.Add($"{r}: {routes[r].routeName}");
+                        for (int r = 0; r < routes.Count; r++)
+                        {
+                            routeNames.Add($"{r}: {routes[r].routeName}");
+                        }
                     }
                     
                     if (routeNames.Count > 0)
@@ -1185,8 +968,7 @@ public class WaveEditorWindow : EditorWindow
         else
         {
             GUILayout.FlexibleSpace();
-            var style = new GUIStyle(EditorStyles.label) { alignment = TextAnchor.MiddleCenter, fontSize = 14, normal = { textColor = Color.gray } };
-            EditorGUILayout.LabelField("Select a Wave from the list to edit.", style, GUILayout.ExpandWidth(true));
+            EditorGUILayout.LabelField("Select a Wave from the list to edit.", _centeredGreyLabel, GUILayout.ExpandWidth(true));
             GUILayout.FlexibleSpace();
         }
 
@@ -1229,6 +1011,7 @@ public class WaveEditorWindow : EditorWindow
             _selectedWaveIndex = -1;
             _serializedWaveObject = null;
             _selectedRouteIndex = -1;
+            _selectedSegmentIndex = -1;
 
             if (_selectedLevelData != null)
             {
@@ -1237,6 +1020,13 @@ public class WaveEditorWindow : EditorWindow
                 _mapRoutesProperty = _serializedLevelObject.FindProperty("mapRoutes");
                 _availableSegmentsProperty = _serializedLevelObject.FindProperty("availableSegments");
                 CalculateLevelTotals(); 
+            }
+            else
+            {
+                _serializedLevelObject = null;
+                _wavesListProperty = null;
+                _mapRoutesProperty = null;
+                _availableSegmentsProperty = null;
             }
         }
     }
@@ -1277,7 +1067,7 @@ public class WaveEditorWindow : EditorWindow
     private void ResizeHandle()
     {
         Rect resizeRect = GUILayoutUtility.GetRect(5f, 0f, GUILayout.Width(5f), GUILayout.ExpandHeight(true));
-    
+        
         if (Event.current.type == EventType.Repaint)
         {
             Color splitterColor = EditorGUIUtility.isProSkin 
@@ -1285,7 +1075,7 @@ public class WaveEditorWindow : EditorWindow
                 : new Color(0.6f, 0.6f, 0.6f);
             EditorGUI.DrawRect(new Rect(resizeRect.x + 2, resizeRect.y, 1, resizeRect.height), splitterColor);
         }
-    
+        
         EditorGUIUtility.AddCursorRect(resizeRect, MouseCursor.ResizeHorizontal);
 
         Event e = Event.current;
@@ -1294,7 +1084,7 @@ public class WaveEditorWindow : EditorWindow
             _isResizing = true;
             e.Use();
         }
-    
+        
         if (_isResizing)
         {
             _sidebarWidth += e.delta.x;
@@ -1331,6 +1121,8 @@ public class WaveEditorWindow : EditorWindow
 
     private void MoveWave(int index, int direction)
     {
+        if (_wavesListProperty == null) return;
+
         int newIndex = index + direction;
         if (newIndex >= 0 && newIndex < _wavesListProperty.arraySize)
         {
@@ -1342,6 +1134,8 @@ public class WaveEditorWindow : EditorWindow
 
     private void CreateNewWave()
     {
+        if (_selectedLevelData == null || _wavesListProperty == null) return;
+
         string levelName = _selectedLevelData.name;
         string folderPath = $"{BaseWavePath}/{levelName}";
 
@@ -1394,7 +1188,36 @@ public class WaveEditorWindow : EditorWindow
         }
         _serializedLevelObject.ApplyModifiedProperties();
 
-        GUIUtility.ExitGUI();
         CalculateLevelTotals();
+        GUIUtility.ExitGUI();
+    }
+
+    private void RenameWaveAsset(WaveSO wave, string newName)
+    {
+        if (wave == null || string.IsNullOrWhiteSpace(newName)) return;
+
+        string oldPath = AssetDatabase.GetAssetPath(wave);
+        if (string.IsNullOrEmpty(oldPath)) return;
+
+        // Sanitize the name for file system
+        string sanitizedName = newName.Replace(" ", "_");
+        foreach (char c in Path.GetInvalidFileNameChars())
+        {
+            sanitizedName = sanitizedName.Replace(c.ToString(), "");
+        }
+
+        string error = AssetDatabase.RenameAsset(oldPath, sanitizedName);
+        
+        if (string.IsNullOrEmpty(error))
+        {
+            AssetDatabase.SaveAssets();
+            // Refresh the serialized object to reflect the new name
+            _serializedWaveObject = new SerializedObject(_selectedWave);
+            Repaint();
+        }
+        else
+        {
+            Debug.LogError($"Failed to rename wave asset: {error}");
+        }
     }
 }
