@@ -112282,7 +112282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   levelIndex: 0
   mapRoutes:
-  - routeName: New Route
+  - routeName: Top Left to Base
     spawnPoint: {fileID: 0}
     pathSegments:
     - segmentName: Top Left w Spawn
@@ -112292,9 +112292,40 @@ MonoBehaviour:
       - {fileID: 1004653212585821208}
       - {fileID: 5979990773810606786}
       - {fileID: 7084854948799952643}
+    - segmentName: TL Mid to Base
+      spawnPoint: {fileID: 0}
+      waypoints:
+      - {fileID: 947063954419338527}
+      - {fileID: 5100693621379306019}
+      - {fileID: 6945187957426600331}
+      - {fileID: 2968536454115872940}
+      - {fileID: 6921971539151087546}
+  - routeName: Top Right to Base
+    spawnPoint: {fileID: 0}
+    pathSegments:
+    - segmentName: Top Mid w Spawn
+      spawnPoint: {fileID: 5358900838420171132}
+      waypoints:
+      - {fileID: 6176061574690803917}
+      - {fileID: 5731296532014650425}
+      - {fileID: 8710421171641584293}
+    - segmentName: Upper Mid to Base
+      spawnPoint: {fileID: 0}
+      waypoints:
+      - {fileID: 3051001805199553263}
+      - {fileID: 2082253406809118099}
+      - {fileID: 6582520982779405272}
+      - {fileID: 6186218691975437013}
+      - {fileID: 1152573054165200429}
+      - {fileID: 74776236165596167}
+      - {fileID: 5100693621379306019}
+      - {fileID: 6945187957426600331}
+      - {fileID: 2968536454115872940}
+      - {fileID: 6921971539151087546}
+      - {fileID: 1095392201646475453}
   waves:
-  - {fileID: 11400000, guid: 5455a277bbda7ed44a1a0637485111d8, type: 2}
-  - {fileID: 11400000, guid: 182a86287c3a19f4f8a1931c02b84d77, type: 2}
+  - {fileID: 11400000, guid: 103a92ec3577f9e48aa8ff4e91368b74, type: 2}
+  - {fileID: 11400000, guid: ee0869fe835494d46aa8c6390700173f, type: 2}
   spawnPoints: []
   availableSegments:
   - segmentName: Top Left w Spawn
@@ -112310,7 +112341,7 @@ MonoBehaviour:
     - {fileID: 6176061574690803917}
     - {fileID: 5731296532014650425}
     - {fileID: 8710421171641584293}
-  - segmentName: Mid to Base
+  - segmentName: TL Mid to Base
     spawnPoint: {fileID: 0}
     waypoints:
     - {fileID: 947063954419338527}

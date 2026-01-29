@@ -144,6 +144,10 @@ public class WaveEditorWindow : EditorWindow
         {
             DrawRouteModeHandles();
         }
+        else if (_currentMode == EditorMode.Waves)
+        {
+            DrawWaveModeHandles();
+        }
     }
 
     private void DrawRouteModeHandles()
@@ -220,6 +224,59 @@ public class WaveEditorWindow : EditorWindow
         }
     }
 
+    private void DrawWaveModeHandles()
+    {
+        // Draw the route assigned to the selected wave
+        if (_selectedWave == null || _serializedWaveObject == null) return;
+
+        var routes = _selectedLevelData.MapRoutes;
+        if (routes == null) return;
+
+        // Get the route index from the selected wave
+        SerializedProperty routeIndexProp = _serializedWaveObject.FindProperty("routeIndex");
+        if (routeIndexProp == null) return;
+
+        int routeIndex = routeIndexProp.intValue;
+        if (routeIndex < 0 || routeIndex >= routes.Count) return;
+
+        MapRoute route = routes[routeIndex];
+        if (route.pathSegments == null) return;
+
+        Handles.color = Color.yellow;
+
+        foreach (var segment in route.pathSegments)
+        {
+            if (segment.waypoints == null) continue;
+
+            for (int w = 0; w < segment.waypoints.Count; w++)
+            {
+                Transform point = segment.waypoints[w];
+                if (point == null) continue;
+
+                // Draw lines between waypoints
+                if (w < segment.waypoints.Count - 1 && segment.waypoints[w + 1] != null)
+                {
+                    Handles.DrawLine(point.position, segment.waypoints[w + 1].position, 2f);
+                }
+
+                // Draw dot at waypoint position
+                Handles.DrawSolidDisc(point.position, Vector3.up, 0.15f);
+                
+                // Label
+                Handles.Label(point.position + Vector3.up * 0.5f, $"{segment.segmentName}_{w}");
+            }
+        }
+
+        // Draw spawn point if exists
+        if (route.pathSegments.Count > 0 && route.pathSegments[0].spawnPoint != null)
+        {
+            Handles.color = Color.green;
+            Transform spawn = route.pathSegments[0].spawnPoint;
+            Handles.DrawSolidDisc(spawn.position, Vector3.up, 0.3f);
+            Handles.Label(spawn.position + Vector3.up * 0.7f, "SPAWN");
+        }
+    }
+
     // ----------------- TOP BAR -----------------
     private void DrawTopBar()
     {
@@ -250,6 +307,15 @@ public class WaveEditorWindow : EditorWindow
         {
             ChangeSelectedLevel(manualSelection);
             UpdateDropdownIndexFromSelection();
+        }
+
+        if (_selectedLevelData != null)
+        {
+            if (GUILayout.Button("Show Level in Project", GUILayout.Height(20)))
+            {
+                EditorGUIUtility.PingObject(_selectedLevelData);
+                Selection.activeObject = _selectedLevelData;
+            }
         }
         
         EditorGUILayout.Space(5);
@@ -291,17 +357,14 @@ public class WaveEditorWindow : EditorWindow
             CreateNewRoute();
         }
 
-        if (GUILayout.Button("Auto-Create Route from Waypoints", GUILayout.Height(30)))
-        {
-            PopulateRouteFromHierarchy();
-        }
-
         EditorGUILayout.Space();
 
         _sidebarScrollPosition = EditorGUILayout.BeginScrollView(_sidebarScrollPosition);
 
         if (_mapRoutesProperty != null)
         {
+            int deleteIndex = -1;
+            
             for (int i = 0; i < _mapRoutesProperty.arraySize; i++)
             {
                 SerializedProperty routeProp = _mapRoutesProperty.GetArrayElementAtIndex(i);
@@ -324,13 +387,17 @@ public class WaveEditorWindow : EditorWindow
                 GUI.backgroundColor = new Color(1f, 0.5f, 0.5f);
                 if (GUILayout.Button("X", GUILayout.Width(25)))
                 {
-                    _mapRoutesProperty.DeleteArrayElementAtIndex(i);
-                    _mapRoutesProperty.serializedObject.ApplyModifiedProperties();
-                    if (_selectedRouteIndex >= i) _selectedRouteIndex = -1;
+                    deleteIndex = i;
                 }
                 GUI.backgroundColor = Color.white;
 
                 EditorGUILayout.EndHorizontal();
+            }
+            
+            // Handle deletion outside the loop to avoid layout issues
+            if (deleteIndex >= 0)
+            {
+                DeleteRoute(deleteIndex);
             }
         }
 
@@ -492,22 +559,6 @@ public class WaveEditorWindow : EditorWindow
 
     private void CreateNewRoute()
     {
-        if (_mapRoutesProperty == null) return;
-
-        int index = _mapRoutesProperty.arraySize;
-        _mapRoutesProperty.InsertArrayElementAtIndex(index);
-        SerializedProperty newRoute = _mapRoutesProperty.GetArrayElementAtIndex(index);
-        
-        newRoute.FindPropertyRelative("routeName").stringValue = "New Route";
-        newRoute.FindPropertyRelative("pathSegments").ClearArray();
-        newRoute.FindPropertyRelative("spawnPoint").objectReferenceValue = null;
-        newRoute.FindPropertyRelative("baseTarget").objectReferenceValue = null;
-        
-        _selectedRouteIndex = index;
-    }
-
-    private void PopulateRouteFromHierarchy()
-    {
         if (_selectedLevelData == null) return;
 
         string assetPath = AssetDatabase.GetAssetPath(_selectedLevelData);
@@ -515,19 +566,6 @@ public class WaveEditorWindow : EditorWindow
 
         try
         {
-            Transform waypointsContainer = prefabRoot.transform.Find("Waypoints");
-            if (waypointsContainer == null)
-            {
-                Debug.LogError("No 'Waypoints' object found in Level Prefab root!");
-                return;
-            }
-
-            if (waypointsContainer.childCount == 0)
-            {
-                Debug.LogWarning("Waypoints container is empty!");
-                return;
-            }
-
             LevelData dataOnPrefab = prefabRoot.GetComponent<LevelData>();
             if (dataOnPrefab == null)
             {
@@ -536,35 +574,61 @@ public class WaveEditorWindow : EditorWindow
             }
 
             MapRoute newRoute = new MapRoute();
-            newRoute.routeName = "Auto_Route_" + (dataOnPrefab.MapRoutes.Count + 1);
+            newRoute.routeName = "New Route";
             newRoute.pathSegments = new List<PathSegment>();
-
-            PathSegment newSeg = new PathSegment();
-            newSeg.segmentName = "Main_Path";
-            newSeg.waypoints = new List<Transform>();
-
-            foreach (Transform child in waypointsContainer)
-            {
-                newSeg.waypoints.Add(child);
-            }
-
-            newRoute.pathSegments.Add(newSeg);
+            
             dataOnPrefab.MapRoutes.Add(newRoute);
 
             PrefabUtility.SaveAsPrefabAsset(prefabRoot, assetPath);
-            Debug.Log($"Auto-created route '{newRoute.routeName}' with {newSeg.waypoints.Count} points.");
+            
+            _selectedRouteIndex = dataOnPrefab.MapRoutes.Count - 1;
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"Error populating route: {e.Message}");
+            Debug.LogError($"Error creating route: {e.Message}");
         }
         finally
         {
             PrefabUtility.UnloadPrefabContents(prefabRoot);
         }
 
-        ChangeSelectedLevel(AssetDatabase.LoadAssetAtPath<LevelData>(assetPath));
-        Repaint();
+        ReloadSelectedLevel();
+    }
+
+    private void DeleteRoute(int index)
+    {
+        if (_selectedLevelData == null) return;
+
+        string assetPath = AssetDatabase.GetAssetPath(_selectedLevelData);
+        GameObject prefabRoot = PrefabUtility.LoadPrefabContents(assetPath);
+
+        try
+        {
+            LevelData dataOnPrefab = prefabRoot.GetComponent<LevelData>();
+            if (dataOnPrefab == null || dataOnPrefab.MapRoutes == null)
+            {
+                Debug.LogError("LevelData or MapRoutes missing on Prefab!");
+                return;
+            }
+
+            if (index >= 0 && index < dataOnPrefab.MapRoutes.Count)
+            {
+                dataOnPrefab.MapRoutes.RemoveAt(index);
+                PrefabUtility.SaveAsPrefabAsset(prefabRoot, assetPath);
+                
+                if (_selectedRouteIndex >= index) _selectedRouteIndex = -1;
+            }
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Error deleting route: {e.Message}");
+        }
+        finally
+        {
+            PrefabUtility.UnloadPrefabContents(prefabRoot);
+        }
+
+        ReloadSelectedLevel();
     }
 
     // ==========================================================================================
@@ -614,6 +678,8 @@ public class WaveEditorWindow : EditorWindow
 
         if (_availableSegmentsProperty != null)
         {
+            int deleteIndex = -1;
+            
             for (int i = 0; i < _availableSegmentsProperty.arraySize; i++)
             {
                 SerializedProperty segProp = _availableSegmentsProperty.GetArrayElementAtIndex(i);
@@ -636,13 +702,17 @@ public class WaveEditorWindow : EditorWindow
                 GUI.backgroundColor = new Color(1f, 0.5f, 0.5f);
                 if (GUILayout.Button("X", GUILayout.Width(25)))
                 {
-                    _availableSegmentsProperty.DeleteArrayElementAtIndex(i);
-                    _availableSegmentsProperty.serializedObject.ApplyModifiedProperties();
-                    if (_selectedSegmentIndex >= i) _selectedSegmentIndex = -1;
+                    deleteIndex = i;
                 }
                 GUI.backgroundColor = Color.white;
 
                 EditorGUILayout.EndHorizontal();
+            }
+            
+            // Handle deletion outside the loop
+            if (deleteIndex >= 0)
+            {
+                DeleteSegmentFromPool(deleteIndex);
             }
         }
 
@@ -758,17 +828,90 @@ public class WaveEditorWindow : EditorWindow
 
     private void CreateNewSegmentInPool()
     {
-        if (_availableSegmentsProperty == null) return;
+        if (_selectedLevelData == null) return;
 
-        int index = _availableSegmentsProperty.arraySize;
-        _availableSegmentsProperty.InsertArrayElementAtIndex(index);
-        SerializedProperty newSeg = _availableSegmentsProperty.GetArrayElementAtIndex(index);
-        
-        newSeg.FindPropertyRelative("segmentName").stringValue = "New_Segment_" + index;
-        newSeg.FindPropertyRelative("waypoints").ClearArray();
-        newSeg.FindPropertyRelative("spawnPoint").objectReferenceValue = null;
-        
-        _selectedSegmentIndex = index;
+        string assetPath = AssetDatabase.GetAssetPath(_selectedLevelData);
+        GameObject prefabRoot = PrefabUtility.LoadPrefabContents(assetPath);
+
+        try
+        {
+            LevelData dataOnPrefab = prefabRoot.GetComponent<LevelData>();
+            if (dataOnPrefab == null)
+            {
+                Debug.LogError("LevelData component missing on Prefab Root!");
+                return;
+            }
+
+            // Use SerializedObject to access the backing field
+            SerializedObject tempSO = new SerializedObject(dataOnPrefab);
+            SerializedProperty segmentsProp = tempSO.FindProperty("availableSegments");
+            
+            int index = segmentsProp.arraySize;
+            segmentsProp.InsertArrayElementAtIndex(index);
+            
+            SerializedProperty newSeg = segmentsProp.GetArrayElementAtIndex(index);
+            newSeg.FindPropertyRelative("segmentName").stringValue = "New_Segment_" + index;
+            newSeg.FindPropertyRelative("waypoints").ClearArray();
+            newSeg.FindPropertyRelative("spawnPoint").objectReferenceValue = null;
+            
+            tempSO.ApplyModifiedPropertiesWithoutUndo();
+
+            PrefabUtility.SaveAsPrefabAsset(prefabRoot, assetPath);
+            
+            _selectedSegmentIndex = index;
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Error creating segment: {e.Message}");
+        }
+        finally
+        {
+            PrefabUtility.UnloadPrefabContents(prefabRoot);
+        }
+
+        ReloadSelectedLevel();
+    }
+
+    private void DeleteSegmentFromPool(int index)
+    {
+        if (_selectedLevelData == null) return;
+
+        string assetPath = AssetDatabase.GetAssetPath(_selectedLevelData);
+        GameObject prefabRoot = PrefabUtility.LoadPrefabContents(assetPath);
+
+        try
+        {
+            LevelData dataOnPrefab = prefabRoot.GetComponent<LevelData>();
+            if (dataOnPrefab == null)
+            {
+                Debug.LogError("LevelData missing on Prefab!");
+                return;
+            }
+
+            // Use SerializedObject to access the backing field
+            SerializedObject tempSO = new SerializedObject(dataOnPrefab);
+            SerializedProperty segmentsProp = tempSO.FindProperty("availableSegments");
+
+            if (index >= 0 && index < segmentsProp.arraySize)
+            {
+                segmentsProp.DeleteArrayElementAtIndex(index);
+                tempSO.ApplyModifiedPropertiesWithoutUndo();
+                
+                PrefabUtility.SaveAsPrefabAsset(prefabRoot, assetPath);
+                
+                if (_selectedSegmentIndex >= index) _selectedSegmentIndex = -1;
+            }
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Error deleting segment: {e.Message}");
+        }
+        finally
+        {
+            PrefabUtility.UnloadPrefabContents(prefabRoot);
+        }
+
+        ReloadSelectedLevel();
     }
 
     private void AddSegmentFromPoolToRoute(int routeIndex, int poolIndex)
@@ -829,8 +972,7 @@ public class WaveEditorWindow : EditorWindow
             PrefabUtility.UnloadPrefabContents(prefabRoot);
         }
 
-        ChangeSelectedLevel(AssetDatabase.LoadAssetAtPath<LevelData>(assetPath));
-        Repaint();
+        ReloadSelectedLevel();
     }
 
     // ==========================================================================================
@@ -902,6 +1044,12 @@ public class WaveEditorWindow : EditorWindow
             if (EditorGUI.EndChangeCheck() && !string.IsNullOrWhiteSpace(newName) && newName != _selectedWave.name)
             {
                 RenameWaveAsset(_selectedWave, newName);
+            }
+            
+            if (GUILayout.Button("Show in Project", GUILayout.Width(110)))
+            {
+                EditorGUIUtility.PingObject(_selectedWave);
+                Selection.activeObject = _selectedWave;
             }
             EditorGUILayout.EndHorizontal();
             
@@ -1004,31 +1152,59 @@ public class WaveEditorWindow : EditorWindow
 
     private void ChangeSelectedLevel(LevelData newLevel)
     {
-        if (newLevel != _selectedLevelData)
-        {
-            _selectedLevelData = newLevel;
-            _selectedWave = null;
-            _selectedWaveIndex = -1;
-            _serializedWaveObject = null;
-            _selectedRouteIndex = -1;
-            _selectedSegmentIndex = -1;
+        _selectedLevelData = newLevel;
+        _selectedWave = null;
+        _selectedWaveIndex = -1;
+        _serializedWaveObject = null;
+        _selectedRouteIndex = -1;
+        _selectedSegmentIndex = -1;
 
-            if (_selectedLevelData != null)
-            {
-                _serializedLevelObject = new SerializedObject(_selectedLevelData);
-                _wavesListProperty = _serializedLevelObject.FindProperty("waves");
-                _mapRoutesProperty = _serializedLevelObject.FindProperty("mapRoutes");
-                _availableSegmentsProperty = _serializedLevelObject.FindProperty("availableSegments");
-                CalculateLevelTotals(); 
-            }
-            else
-            {
-                _serializedLevelObject = null;
-                _wavesListProperty = null;
-                _mapRoutesProperty = null;
-                _availableSegmentsProperty = null;
-            }
+        if (_selectedLevelData != null)
+        {
+            _serializedLevelObject = new SerializedObject(_selectedLevelData);
+            _wavesListProperty = _serializedLevelObject.FindProperty("waves");
+            _mapRoutesProperty = _serializedLevelObject.FindProperty("mapRoutes");
+            _availableSegmentsProperty = _serializedLevelObject.FindProperty("availableSegments");
+            CalculateLevelTotals(); 
         }
+        else
+        {
+            _serializedLevelObject = null;
+            _wavesListProperty = null;
+            _mapRoutesProperty = null;
+            _availableSegmentsProperty = null;
+        }
+    }
+
+    private void ReloadSelectedLevel()
+    {
+        if (_selectedLevelData == null) return;
+        
+        string assetPath = AssetDatabase.GetAssetPath(_selectedLevelData);
+        
+        // Store current selections
+        int routeIdx = _selectedRouteIndex;
+        int segmentIdx = _selectedSegmentIndex;
+        
+        // Force reimport to ensure fresh data
+        AssetDatabase.ImportAsset(assetPath);
+        
+        // Reload
+        LevelData reloaded = AssetDatabase.LoadAssetAtPath<LevelData>(assetPath);
+        _selectedLevelData = null; // Force ChangeSelectedLevel to fully reinitialize
+        ChangeSelectedLevel(reloaded);
+        
+        // Restore selections if still valid
+        if (_mapRoutesProperty != null && routeIdx >= 0 && routeIdx < _mapRoutesProperty.arraySize)
+        {
+            _selectedRouteIndex = routeIdx;
+        }
+        if (_availableSegmentsProperty != null && segmentIdx >= 0 && segmentIdx < _availableSegmentsProperty.arraySize)
+        {
+            _selectedSegmentIndex = segmentIdx;
+        }
+        
+        Repaint();
     }
 
     private void UpdateDropdownIndexFromSelection()
