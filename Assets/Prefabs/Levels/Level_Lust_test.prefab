@@ -112383,6 +112383,39 @@ MonoBehaviour:
     - {fileID: 2593055018141589291}
     - {fileID: 7600130270940990747}
     - {fileID: 3880637482372241752}
+  - segmentName: Bot to Lower Right Mid
+    spawnPoint: {fileID: 0}
+    waypoints:
+    - {fileID: 5285928655011155091}
+    - {fileID: 7316833020499164856}
+    - {fileID: 649062843980883125}
+    - {fileID: 7662534202984057681}
+  - segmentName: Lower Left to Base w Spawn
+    spawnPoint: {fileID: 7233155462857883644}
+    waypoints:
+    - {fileID: 4316656650726652755}
+    - {fileID: 2610676582104757430}
+    - {fileID: 2315957434689061170}
+    - {fileID: 3115183755127021589}
+    - {fileID: 881807704988128588}
+    - {fileID: 6172517037540796054}
+    - {fileID: 4310708909308898882}
+    - {fileID: 798073308243303158}
+    - {fileID: 2941512858787835020}
+    - {fileID: 7527097393684843845}
+    - {fileID: 2834763463014123248}
+    - {fileID: 5620752647629921977}
+    - {fileID: 1347518159286329013}
+    - {fileID: 6775942709318925913}
+  - segmentName: Upper Left w Spawn
+    spawnPoint: {fileID: 6518356782289381994}
+    waypoints:
+    - {fileID: 7209369023948456584}
+    - {fileID: 986413058338592519}
+    - {fileID: 6499238957081552377}
+    - {fileID: 5362251335811768662}
+    - {fileID: 6275170331781484088}
+    - {fileID: 8610219700047753630}
 --- !u!1 &2680136658917525297
 GameObject:
   m_ObjectHideFlags: 0

@@ -804,119 +804,114 @@ public class WaveEditorWindow : EditorWindow
     }
 
     private void DrawDualListSegmentInspector()
+{
+    SerializedProperty segProp = _availableSegmentsProperty.GetArrayElementAtIndex(_selectedSegmentIndex);
+    SerializedProperty nameProp = segProp.FindPropertyRelative("segmentName");
+    SerializedProperty spawnProp = segProp.FindPropertyRelative("spawnPoint");
+    SerializedProperty pointsProp = segProp.FindPropertyRelative("waypoints");
+
+    // 1. Header (fixed height, outside scroll)
+    EditorGUILayout.BeginVertical("helpBox");
+    EditorGUILayout.LabelField("Segment Settings", EditorStyles.boldLabel);
+    EditorGUILayout.PropertyField(nameProp);
+    DrawSpawnPointSelector(spawnProp);
+    EditorGUILayout.EndVertical();
+
+    EditorGUILayout.Space(5);
+
+    // 2. Dual List UI - Calculate available height
+    float availableHeight = position.height - 180f; // Reserve space for header and top bar
+    availableHeight = Mathf.Max(availableHeight, 200f); // Minimum height
+
+    EditorGUILayout.BeginHorizontal(GUILayout.Height(availableHeight));
+
+    // --- LEFT COLUMN: Available Points in Scene ---
+    EditorGUILayout.BeginVertical("box", GUILayout.Width(300));
+    EditorGUILayout.LabelField("Available in Scene", EditorStyles.boldLabel);
+    
+    Transform waypointsRoot = _selectedLevelData.transform.Find("Waypoints");
+    if (waypointsRoot != null)
     {
-        SerializedProperty segProp = _availableSegmentsProperty.GetArrayElementAtIndex(_selectedSegmentIndex);
-        SerializedProperty nameProp = segProp.FindPropertyRelative("segmentName");
-        SerializedProperty spawnProp = segProp.FindPropertyRelative("spawnPoint");
-        SerializedProperty pointsProp = segProp.FindPropertyRelative("waypoints");
-
-        // 1. Header
-        EditorGUILayout.BeginVertical("helpBox");
-        EditorGUILayout.LabelField("Segment Settings", EditorStyles.boldLabel);
-        EditorGUILayout.PropertyField(nameProp);
-        DrawSpawnPointSelector(spawnProp); // Reuse existing helper
-        EditorGUILayout.EndVertical();
-
-        EditorGUILayout.Space(5);
-
-        // 2. Dual List UI
-        EditorGUILayout.BeginHorizontal(GUILayout.ExpandHeight(true)); // Main split
-
-        // --- LEFT COLUMN: Available Points in Scene (under Waypoints) ---
-        // Use a min width but allow expansion, or fixed width?
-        // User "too wide": Let's try flexible but with a max or fixed reasonable width.
-        EditorGUILayout.BeginVertical("box", GUILayout.Width(300), GUILayout.ExpandHeight(true));
-        EditorGUILayout.LabelField("Available in Scene", EditorStyles.boldLabel);
+        _segmentAvailableScroll = EditorGUILayout.BeginScrollView(_segmentAvailableScroll);
         
-        Transform waypointsRoot = _selectedLevelData.transform.Find("Waypoints");
-        if (waypointsRoot != null)
+        foreach (Transform child in waypointsRoot)
         {
-            _segmentAvailableScroll = EditorGUILayout.BeginScrollView(_segmentAvailableScroll, GUILayout.ExpandHeight(true));
-            
-            // Scan recursive? Or just children? User said "Waypoints -> points"
-            foreach (Transform child in waypointsRoot)
+            bool alreadyAdded = false;
+            for(int i=0; i<pointsProp.arraySize; i++)
             {
-                // Check if already in list?
-                bool alreadyAdded = false;
-                for(int i=0; i<pointsProp.arraySize; i++)
+                SerializedProperty p = pointsProp.GetArrayElementAtIndex(i);
+                if (p.objectReferenceValue == child)
                 {
-                    SerializedProperty p = pointsProp.GetArrayElementAtIndex(i);
-                    if (p.objectReferenceValue == child)
-                    {
-                        alreadyAdded = true; 
-                        break;
-                    }
+                    alreadyAdded = true; 
+                    break;
                 }
-
-                EditorGUILayout.BeginHorizontal();
-                GUILayout.Label(child.name, GUILayout.MinWidth(50));
-                
-                GUI.enabled = !alreadyAdded;
-                if (GUILayout.Button("Add >", GUILayout.Width(50)))
-                {
-                    pointsProp.InsertArrayElementAtIndex(pointsProp.arraySize);
-                    pointsProp.GetArrayElementAtIndex(pointsProp.arraySize - 1).objectReferenceValue = child;
-                    pointsProp.serializedObject.ApplyModifiedProperties();
-                }
-                GUI.enabled = true;
-                EditorGUILayout.EndHorizontal();
             }
-            EditorGUILayout.EndScrollView();
-        }
-        else
-        {
-            EditorGUILayout.HelpBox("No 'Waypoints' GameObject found in Prefab.", MessageType.Warning);
-        }
-        EditorGUILayout.EndVertical();
-
-        // --- RIGHT COLUMN: Selected Points ---
-        EditorGUILayout.BeginVertical("box", GUILayout.ExpandHeight(true));
-        EditorGUILayout.LabelField("Selected Waypoints", EditorStyles.boldLabel);
-        
-        _segmentSelectedScroll = EditorGUILayout.BeginScrollView(_segmentSelectedScroll, GUILayout.ExpandHeight(true));
-        
-        // Simple list with Remove buttons
-        for (int i = 0; i < pointsProp.arraySize; i++)
-        {
-            SerializedProperty pt = pointsProp.GetArrayElementAtIndex(i);
-            Transform t = (Transform)pt.objectReferenceValue;
-            string label = t != null ? t.name : "(Null)";
 
             EditorGUILayout.BeginHorizontal();
-            GUILayout.Label($"{i}. {label}", GUILayout.ExpandWidth(true));
+            GUILayout.Label(child.name, GUILayout.MinWidth(50));
             
-            if (GUILayout.Button("Up", GUILayout.Width(30)) && i > 0)
+            GUI.enabled = !alreadyAdded;
+            if (GUILayout.Button("Add >", GUILayout.Width(50)))
             {
-                pointsProp.MoveArrayElement(i, i - 1);
+                pointsProp.InsertArrayElementAtIndex(pointsProp.arraySize);
+                pointsProp.GetArrayElementAtIndex(pointsProp.arraySize - 1).objectReferenceValue = child;
+                pointsProp.serializedObject.ApplyModifiedProperties();
             }
-            if (GUILayout.Button("Dn", GUILayout.Width(30)) && i < pointsProp.arraySize - 1)
-            {
-                pointsProp.MoveArrayElement(i, i + 1);
-            }
-            
-            GUI.backgroundColor = new Color(1f, 0.6f, 0.6f);
-            if (GUILayout.Button("X", GUILayout.Width(25)))
-            {
-                pointsProp.DeleteArrayElementAtIndex(i);
-            }
-            GUI.backgroundColor = Color.white;
-
+            GUI.enabled = true;
             EditorGUILayout.EndHorizontal();
         }
-        
         EditorGUILayout.EndScrollView();
+    }
+    else
+    {
+        EditorGUILayout.HelpBox("No 'Waypoints' GameObject found in Prefab.", MessageType.Warning);
+    }
+    EditorGUILayout.EndVertical();
+
+    // --- RIGHT COLUMN: Selected Points ---
+    EditorGUILayout.BeginVertical("box");
+    EditorGUILayout.LabelField("Selected Waypoints", EditorStyles.boldLabel);
+    
+    _segmentSelectedScroll = EditorGUILayout.BeginScrollView(_segmentSelectedScroll);
+    
+    for (int i = 0; i < pointsProp.arraySize; i++)
+    {
+        SerializedProperty pt = pointsProp.GetArrayElementAtIndex(i);
+        Transform t = (Transform)pt.objectReferenceValue;
+        string label = t != null ? t.name : "(Null)";
+
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Label($"{i}. {label}", GUILayout.ExpandWidth(true));
         
-        // Bottom Margin
-        GUILayout.Space(20); 
-        EditorGUILayout.EndVertical();
+        if (GUILayout.Button("Up", GUILayout.Width(30)) && i > 0)
+        {
+            pointsProp.MoveArrayElement(i, i - 1);
+        }
+        if (GUILayout.Button("Dn", GUILayout.Width(30)) && i < pointsProp.arraySize - 1)
+        {
+            pointsProp.MoveArrayElement(i, i + 1);
+        }
+        
+        GUI.backgroundColor = new Color(1f, 0.6f, 0.6f);
+        if (GUILayout.Button("X", GUILayout.Width(25)))
+        {
+            pointsProp.DeleteArrayElementAtIndex(i);
+        }
+        GUI.backgroundColor = Color.white;
 
         EditorGUILayout.EndHorizontal();
-        
-        if (GUI.changed)
-        {
-            pointsProp.serializedObject.ApplyModifiedProperties();
-        }
     }
+    
+    EditorGUILayout.EndScrollView();
+    EditorGUILayout.EndVertical();
+
+    EditorGUILayout.EndHorizontal();
+    
+    if (GUI.changed)
+    {
+        pointsProp.serializedObject.ApplyModifiedProperties();
+    }
+}
 
     private void CreateNewSegmentInPool()
     {
@@ -1116,12 +1111,6 @@ public class WaveEditorWindow : EditorWindow
         }
         EditorGUILayout.EndScrollView();
         EditorGUILayout.EndVertical();
-        
-        Rect r = GUILayoutUtility.GetLastRect();
-        if (Event.current.type == EventType.Repaint)
-        {
-             EditorGUI.DrawRect(new Rect(r.xMax - 1, r.y, 1, r.height), new Color(0.12f, 0.12f, 0.12f));
-        }
     }
 
     private void DrawWaveInspector()
@@ -1287,8 +1276,8 @@ public class WaveEditorWindow : EditorWindow
 
     private void ResizeHandle()
     {
-        Rect resizeRect = GUILayoutUtility.GetRect(5f, position.height, GUILayout.ExpandHeight(true));
-        
+        Rect resizeRect = GUILayoutUtility.GetRect(5f, 0f, GUILayout.Width(5f), GUILayout.ExpandHeight(true));
+    
         if (Event.current.type == EventType.Repaint)
         {
             Color splitterColor = EditorGUIUtility.isProSkin 
@@ -1296,7 +1285,7 @@ public class WaveEditorWindow : EditorWindow
                 : new Color(0.6f, 0.6f, 0.6f);
             EditorGUI.DrawRect(new Rect(resizeRect.x + 2, resizeRect.y, 1, resizeRect.height), splitterColor);
         }
-        
+    
         EditorGUIUtility.AddCursorRect(resizeRect, MouseCursor.ResizeHorizontal);
 
         Event e = Event.current;
@@ -1305,7 +1294,7 @@ public class WaveEditorWindow : EditorWindow
             _isResizing = true;
             e.Use();
         }
-        
+    
         if (_isResizing)
         {
             _sidebarWidth += e.delta.x;
