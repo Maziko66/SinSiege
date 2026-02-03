@@ -112323,6 +112323,135 @@ MonoBehaviour:
       - {fileID: 2968536454115872940}
       - {fileID: 6921971539151087546}
       - {fileID: 1095392201646475453}
+  - routeName: Top Right to Base 2
+    spawnPoint: {fileID: 0}
+    pathSegments:
+    - segmentName: Top Mid w Spawn
+      spawnPoint: {fileID: 5358900838420171132}
+      waypoints:
+      - {fileID: 6176061574690803917}
+      - {fileID: 5731296532014650425}
+      - {fileID: 8710421171641584293}
+    - segmentName: Upper Mid to Right
+      spawnPoint: {fileID: 0}
+      waypoints:
+      - {fileID: 2716367242428785778}
+      - {fileID: 7753461866058216854}
+      - {fileID: 4240268095833179919}
+      - {fileID: 8756839338714039409}
+    - segmentName: Upper Right to Base
+      spawnPoint: {fileID: 0}
+      waypoints:
+      - {fileID: 3462018459307759648}
+      - {fileID: 1030598331064042692}
+      - {fileID: 7017093453936509397}
+  - routeName: Upper Right to Base
+    spawnPoint: {fileID: 0}
+    pathSegments:
+    - segmentName: Upper Right w Spawn
+      spawnPoint: {fileID: 1330292369184032828}
+      waypoints:
+      - {fileID: 8700704274814584532}
+      - {fileID: 9017591339012715994}
+      - {fileID: 5700687833162917281}
+      - {fileID: 1885997964725512044}
+    - segmentName: Upper Right to Base
+      spawnPoint: {fileID: 0}
+      waypoints:
+      - {fileID: 3462018459307759648}
+      - {fileID: 1030598331064042692}
+      - {fileID: 7017093453936509397}
+  - routeName: Lower Right to Base
+    spawnPoint: {fileID: 0}
+    pathSegments:
+    - segmentName: Lower Right w Spawn
+      spawnPoint: {fileID: 5127583927195626662}
+      waypoints:
+      - {fileID: 3843474659252094951}
+      - {fileID: 8731163904293273845}
+      - {fileID: 9175903465596548312}
+      - {fileID: 1706128830279991751}
+      - {fileID: 3519996485274834185}
+      - {fileID: 705180417796655891}
+      - {fileID: 6362326599314936206}
+      - {fileID: 2587518874360377970}
+      - {fileID: 8297878917754382995}
+      - {fileID: 8334993731488209687}
+      - {fileID: 514641890729965320}
+      - {fileID: 5565117140936080565}
+      - {fileID: 7662534202984057681}
+    - segmentName: Lower Right End to Base
+      spawnPoint: {fileID: 0}
+      waypoints:
+      - {fileID: 8103390194454273508}
+      - {fileID: 6144967916499300991}
+      - {fileID: 7017093453936509397}
+  - routeName: Bottom to Base
+    spawnPoint: {fileID: 0}
+    pathSegments:
+    - segmentName: Bot w Spawn
+      spawnPoint: {fileID: 9179461180617467302}
+      waypoints:
+      - {fileID: 5883768952289273920}
+      - {fileID: 1491924670505569093}
+      - {fileID: 4176567763217029548}
+      - {fileID: 3775389588541744170}
+      - {fileID: 2593055018141589291}
+      - {fileID: 7600130270940990747}
+      - {fileID: 3880637482372241752}
+    - segmentName: Bot to Lower Right Mid
+      spawnPoint: {fileID: 0}
+      waypoints:
+      - {fileID: 5285928655011155091}
+      - {fileID: 7316833020499164856}
+      - {fileID: 649062843980883125}
+      - {fileID: 7662534202984057681}
+    - segmentName: Lower Right End to Base
+      spawnPoint: {fileID: 0}
+      waypoints:
+      - {fileID: 8103390194454273508}
+      - {fileID: 6144967916499300991}
+      - {fileID: 7017093453936509397}
+  - routeName: Lower Left
+    spawnPoint: {fileID: 0}
+    pathSegments:
+    - segmentName: Lower Left to Base w Spawn
+      spawnPoint: {fileID: 7233155462857883644}
+      waypoints:
+      - {fileID: 4316656650726652755}
+      - {fileID: 2610676582104757430}
+      - {fileID: 2315957434689061170}
+      - {fileID: 3115183755127021589}
+      - {fileID: 881807704988128588}
+      - {fileID: 6172517037540796054}
+      - {fileID: 4310708909308898882}
+      - {fileID: 798073308243303158}
+      - {fileID: 2941512858787835020}
+      - {fileID: 7527097393684843845}
+      - {fileID: 2834763463014123248}
+      - {fileID: 5620752647629921977}
+      - {fileID: 1347518159286329013}
+      - {fileID: 6775942709318925913}
+  - routeName: Upper Left to Base
+    spawnPoint: {fileID: 0}
+    pathSegments:
+    - segmentName: Upper Left w Spawn
+      spawnPoint: {fileID: 6518356782289381994}
+      waypoints:
+      - {fileID: 7209369023948456584}
+      - {fileID: 986413058338592519}
+      - {fileID: 6499238957081552377}
+      - {fileID: 5362251335811768662}
+      - {fileID: 6275170331781484088}
+      - {fileID: 8610219700047753630}
+    - segmentName: TL Mid to Base
+      spawnPoint: {fileID: 0}
+      waypoints:
+      - {fileID: 947063954419338527}
+      - {fileID: 5100693621379306019}
+      - {fileID: 6945187957426600331}
+      - {fileID: 2968536454115872940}
+      - {fileID: 6921971539151087546}
   waveGroups:
   - waveSet:
     - {fileID: 11400000, guid: 103a92ec3577f9e48aa8ff4e91368b74, type: 2}
