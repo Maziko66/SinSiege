@@ -14,6 +14,9 @@ public class WaveSpawnData
     [Tooltip("The enemy prefab to spawn")]
     public Enemy enemyPrefab;
 
+    [Tooltip("Override spawn interval after this enemy (-1 uses wave default)")]
+    public float spawnIntervalOverride = -1f;
+
     [Tooltip("How to modify this enemy's stats")]
     public SpawnModMode modificationMode = SpawnModMode.NoModification;
 
@@ -34,32 +37,14 @@ public class WaveSpawnData
 
 
 [CreateAssetMenu(fileName = "Wave")]
-// public class WaveSO : ScriptableObject
-// {
-//     [Header("Tower Defense Waves")]
-//     public Vector3 spawnPoint;
-//     public int routeIndex;
-//     public float spawnInterval = -1;
-//     public float waveCooldown;
-//     public List<Enemy> enemyList;
-//     public List<Enemy> enemyListHard;
-//     
-//     
-//     [Header("Horde")]
-//     public bool hasHorde;
-//     public List<Enemy> hordeList;
-//     public List<Enemy> hordeListHard;
-//     public float hordeInterval;
-//     
-//     [Header("General")]
-//     public int totalGoldValue;
-// }
-
 public class WaveSO : ScriptableObject
 {
     [Header("Tower Defense Waves")]
     public int routeIndex;
     public float waveCooldown;
+    
+    [Tooltip("Default spawn interval between enemies")]
+    public float defaultSpawnInterval = 1.0f;
     
     public List<WaveSpawnData> enemySpawns; 
     
@@ -71,6 +56,15 @@ public class WaveSO : ScriptableObject
     [Header("General (Calculated)")]
     public int totalGoldValue;
     public float totalExpValue;
+    
+    /// <summary>
+    /// Gets the spawn interval for a specific enemy.
+    /// Returns the enemy's override if >= 0, otherwise returns the wave's default.
+    /// </summary>
+    public float GetSpawnInterval(WaveSpawnData data)
+    {
+        return data.spawnIntervalOverride >= 0 ? data.spawnIntervalOverride : defaultSpawnInterval;
+    }
     
     public void CalculateTotalStats()
     {
@@ -93,12 +87,9 @@ public class WaveSO : ScriptableObject
         {
             if (data.enemyPrefab == null) continue;
 
-            // Get Base Values
-            // Ensure your Enemy script has public int coinValue and public float GetExp()
             int currentGold = data.enemyPrefab.coinValue; 
             float currentExp = data.enemyPrefab.GetExp(); 
 
-            // Apply Modifications
             if (data.modificationMode == SpawnModMode.Multiplier)
             {
                 currentGold = Mathf.RoundToInt(currentGold * data.goldMultiplier);
@@ -115,5 +106,3 @@ public class WaveSO : ScriptableObject
         }
     }
 }
-
-

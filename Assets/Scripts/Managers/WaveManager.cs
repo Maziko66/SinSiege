@@ -3,6 +3,21 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Tracks the state of a single WaveSO spawner within a group
+/// </summary>
+[System.Serializable]
+public class WaveSpawnerState
+{
+    public WaveSO wave;
+    public List<WaveSpawnData> remainingSpawns = new List<WaveSpawnData>();
+    public float spawnCooldown;
+    public int routeIndex;
+    public bool isWaitingForSameRoute; // True if waiting for another spawner on same route
+    
+    public bool IsComplete => remainingSpawns.Count == 0;
+}
+
 public class WaveManager : MonoBehaviour
 {
     private UpgradeManager _upgradeManager;
@@ -24,29 +39,22 @@ public class WaveManager : MonoBehaviour
     
     [Header("Pathing")]
     [SerializeField] private Base headquarters;
-    // We cache the calculated paths (List of Vector2s) here for performance
     private List<List<Vector2>> _cachedPaths = new List<List<Vector2>>();
 
-    public List<WaveSO> waves = new List<WaveSO>();
+    [Header("Wave Groups")]
+    [SerializeField] private int currentWaveGroupIndex = 0;
+    [SerializeField] private List<WaveSpawnerState> activeSpawners = new List<WaveSpawnerState>();
     
-    [SerializeField] private List<Enemy> enemyList = new List<Enemy>(); // Debug/View only
     [SerializeField] private List<Enemy> enemyAliveList = new List<Enemy>();
     
-    [SerializeField] private List<WaveSpawnData> currentWaveConfigList = new List<WaveSpawnData>();
+    // Horde config combined from all active waves
     [SerializeField] private List<WaveSpawnData> currentHordeConfigList = new List<WaveSpawnData>();
     
-    [Header("Spawner Variables")]
-    [SerializeField] private float spawnInterval = 1.0f;
-    [SerializeField] private float spawnCooldown = 0.0f;
-    [SerializeField] private int wavesListIndex = 0;
-    
     [Header("Current Wave")]
-    [SerializeField] private WaveSO currentWave;
     [SerializeField] private float currentWaveTimer;
     [SerializeField] private bool waveActive;
 
     [Header("Horde")]
-    [SerializeField] private List<Enemy> hordeList = new List<Enemy>();
     [SerializeField] private List<Enemy> hordeAliveList = new List<Enemy>();
     private bool _spawnHorde;
     private float _hordeInterval;
@@ -54,13 +62,12 @@ public class WaveManager : MonoBehaviour
 
     public void Init()
     {
-        // Safety check if singleton exists, otherwise try GetComponent or find
         if (LevelInitializer.Instance != null)
             _upgradeManager = LevelInitializer.Instance.UpgradeManager;
         
         _cooldown = GetComponent<Cooldown>();
 
-        // Pre-Calculate all paths from LevelData when the level starts
+        // Pre-Calculate all paths from LevelData
         if (levelData != null)
         {
             _cachedPaths.Clear();
@@ -73,40 +80,37 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
-        // Ensure Init is called if not called externally
         if (_cachedPaths.Count == 0) Init();
 
         currentWaveTimer = 30;
         buttonStartWave.onClick.AddListener(() => SetWaveTimer(0));
-        
-        spawnCooldown *= spawnInterval;
     }
 
     private void Update()
     {
         WaveTimer();
         
-        if (currentWaveConfigList.Count > 0 && waveActive)
+        if (waveActive)
         {
-            spawnCooldown -= Time.deltaTime;
-            SpawnFromList();
+            UpdateSpawners();
+            
             if (_upgradeManager != null) _upgradeManager.hasUpgraded = false;
         }
         
         SpawnHorde();
         
-        // Game Loop / Next Wave Logic
-        if (currentWaveConfigList.Count == 0 && enemyAliveList.Count <= 0 && hordeAliveList.Count <= 0 && waveActive)
+        // Wave complete check
+        bool allSpawningComplete = activeSpawners.Count == 0;
+        if (allSpawningComplete && enemyAliveList.Count <= 0 && hordeAliveList.Count <= 0 && waveActive)
         {
             enemyAliveList.Clear();
             waveActive = false;
-            wavesListIndex++;
             
             if (MusicManager.Instance != null) MusicManager.Instance.SetCombatToFalse();
             
-            spawnCooldown = 0;
             Debug.Log("Wave Complete");
             waveNumber++;
+            currentWaveGroupIndex++;
             
             if (_upgradeManager != null && waveNumber % 5 == 0 && !_upgradeManager.hasUpgraded)
             {
@@ -115,80 +119,168 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    private void GetEnemyList()
+    private void StartWaveGroup()
     {
-        currentWaveConfigList.Clear();
+        activeSpawners.Clear();
         currentHordeConfigList.Clear();
-    
-        if (waves.Count < wavesListIndex + 1)
+        _spawnHorde = false;
+        _hordeInterval = float.MaxValue;
+        
+        if (levelData.WaveGroups == null || currentWaveGroupIndex >= levelData.WaveGroups.Count)
         {
-            Debug.Log("No more waves defined.");
+            Debug.Log("No more wave groups defined.");
+            return;
+        }
+        
+        WaveGroup group = levelData.WaveGroups[currentWaveGroupIndex];
+        
+        if (group.waveSet == null || group.waveSet.Count == 0)
+        {
+            Debug.Log("Wave group is empty.");
+            return;
+        }
+        
+        // Create spawner states for each WaveSO in the group
+        // Order matters - same route waves will spawn left-to-right
+        foreach (var wave in group.waveSet)
+        {
+            if (wave == null) continue;
+            
+            WaveSpawnerState spawner = new WaveSpawnerState
+            {
+                wave = wave,
+                remainingSpawns = new List<WaveSpawnData>(wave.enemySpawns),
+                spawnCooldown = 0f,
+                routeIndex = wave.routeIndex,
+                isWaitingForSameRoute = false
+            };
+            
+            activeSpawners.Add(spawner);
+            
+            // Combine horde configs
+            if (wave.hasHorde && wave.hordeSpawns != null)
+            {
+                currentHordeConfigList.AddRange(wave.hordeSpawns);
+                _spawnHorde = true;
+                _hordeInterval = Mathf.Min(_hordeInterval, wave.hordeInterval);
+            }
+        }
+        
+        // Set wave timer from the group
+        SetWaveTimer(group.GetWaveCooldown());
+    }
+
+    private void UpdateSpawners()
+    {
+        // Build a set of routes that are currently "in use" by a spawner that's actively spawning
+        // Earlier spawners (lower index) have priority on their route
+        HashSet<int> routesInUse = new HashSet<int>();
+        
+        // First pass: determine which routes are blocked
+        for (int i = 0; i < activeSpawners.Count; i++)
+        {
+            var spawner = activeSpawners[i];
+            if (spawner.IsComplete) continue;
+            
+            // Check if an earlier spawner is using this route
+            bool blockedByEarlier = false;
+            for (int j = 0; j < i; j++)
+            {
+                if (!activeSpawners[j].IsComplete && activeSpawners[j].routeIndex == spawner.routeIndex)
+                {
+                    blockedByEarlier = true;
+                    break;
+                }
+            }
+            
+            spawner.isWaitingForSameRoute = blockedByEarlier;
+            
+            if (!blockedByEarlier)
+            {
+                routesInUse.Add(spawner.routeIndex);
+            }
+        }
+        
+        // Second pass: update spawners that aren't blocked
+        for (int i = activeSpawners.Count - 1; i >= 0; i--)
+        {
+            var spawner = activeSpawners[i];
+            
+            if (spawner.IsComplete)
+            {
+                activeSpawners.RemoveAt(i);
+                continue;
+            }
+            
+            // Skip if waiting for earlier same-route spawner
+            if (spawner.isWaitingForSameRoute) continue;
+            
+            spawner.spawnCooldown -= Time.deltaTime;
+            
+            if (spawner.spawnCooldown <= 0f)
+            {
+                SpawnFromState(spawner);
+            }
+        }
+    }
+
+    private void SpawnFromState(WaveSpawnerState spawner)
+    {
+        if (spawner.remainingSpawns.Count == 0) return;
+        
+        WaveSpawnData data = spawner.remainingSpawns[0];
+
+        if (data.enemyPrefab == null) 
+        {
+            spawner.remainingSpawns.RemoveAt(0);
             return;
         }
 
-        currentWave = waves[wavesListIndex];
-    
-        // Copy the configs
-        currentWaveConfigList = new List<WaveSpawnData>(currentWave.enemySpawns);
-        currentHordeConfigList = new List<WaveSpawnData>(currentWave.hordeSpawns);
+        // Determine Path & Start Position
+        List<Vector2> path = null;
+        Vector3 startPos = Vector3.zero;
+        int routeIndex = spawner.routeIndex;
 
-        SetWaveTimer(currentWave.waveCooldown);
-        _hordeInterval = currentWave.hordeInterval;
-        _spawnHorde = currentWave.hasHorde;
-    }
-
-    private void SpawnFromList()
-    {
-        if (spawnCooldown <= 0.0f && currentWaveConfigList.Count > 0)
+        if (routeIndex >= 0 && routeIndex < _cachedPaths.Count)
         {
-            // 1. Get the Data Config
-            WaveSpawnData data = currentWaveConfigList[0];
+            path = _cachedPaths[routeIndex];
+            if (path != null && path.Count > 0) startPos = path[0];
+        }
+        else
+        {
+            Debug.LogWarning($"Wave requested Route {routeIndex} but only {_cachedPaths.Count} routes exist.");
+        }
 
-            if (data.enemyPrefab == null) 
-            {
-                currentWaveConfigList.RemoveAt(0);
-                return;
-            }
-
-            // 2. Determine Path & Start Position
-            List<Vector2> path = null;
-            Vector3 startPos = Vector3.zero;
-            int routeIndex = currentWave.routeIndex;
-
-            if (routeIndex >= 0 && routeIndex < _cachedPaths.Count)
-            {
-                path = _cachedPaths[routeIndex];
-                if(path != null && path.Count > 0) startPos = path[0];
-            }
-            else
-            {
-                Debug.LogWarning($"Wave requested Route {routeIndex} but only {_cachedPaths.Count} routes exist.");
-            }
-
-            // 3. Instantiate
-            GameObject instObj = Instantiate(data.enemyPrefab.gameObject, enemyParent.transform);
-            instObj.transform.position = startPos;
+        // Instantiate
+        GameObject instObj = Instantiate(data.enemyPrefab.gameObject, enemyParent.transform);
+        instObj.transform.position = startPos;
+    
+        Enemy enemy = instObj.GetComponent<Enemy>();
+        enemy.followPlayer = false;
         
-            Enemy enemy = instObj.GetComponent<Enemy>();
-            enemy.followPlayer = false;
-            
-            // 4. Set the Path (New Method)
-            enemy.SetPath(path);
-            enemy.SetWaveManager(this);
+        enemy.SetPath(path);
+        enemy.SetWaveManager(this);
 
-            // 5. Apply Stats
-            ApplyConfigToEnemy(enemy, data);
+        ApplyConfigToEnemy(enemy, data);
 
-            // 6. Cleanup
-            currentWaveConfigList.RemoveAt(0);
-            enemyAliveList.Add(enemy); 
-            spawnCooldown = spawnInterval;
+        // Remove from list and set next cooldown
+        spawner.remainingSpawns.RemoveAt(0);
+        enemyAliveList.Add(enemy);
+        
+        // Set cooldown for next spawn
+        if (spawner.remainingSpawns.Count > 0)
+        {
+            spawner.spawnCooldown = spawner.wave.GetSpawnInterval(spawner.remainingSpawns[0]);
+        }
+        else
+        {
+            spawner.spawnCooldown = spawner.wave.defaultSpawnInterval;
         }
     }
 
     private void WaveTimer()
     {
-        if (waveActive) {return;}
+        if (waveActive) return;
         
         currentWaveTimer -= Time.deltaTime;
         textWaveTimer.SetText(_strWaveTimer + (int)currentWaveTimer);
@@ -245,7 +337,7 @@ public class WaveManager : MonoBehaviour
     {
         float x = 0f;
         float y = 0f;
-        int edge = Random.Range(0, 4); // 0=top, 1=bottom, 2=left, 3=right
+        int edge = Random.Range(0, 4);
 
         switch (edge)
         {
@@ -262,7 +354,7 @@ public class WaveManager : MonoBehaviour
         if (state)
         {
             waveActive = true;
-            GetEnemyList();
+            StartWaveGroup();
             if (MusicManager.Instance != null) MusicManager.Instance.SetCombatToTrue();
         }
         else
@@ -289,16 +381,14 @@ public class WaveManager : MonoBehaviour
 
     public void GetWavesAndRoutesFromLevelData()
     {
-        // We only load waves here now, routes are processed in Init()
-        waves = new List<WaveSO>(levelData.Waves);
-        Init(); // Re-cache paths
+        Init();
     }
 
     public void ResetWavesAndRoutes()
     {
         _cachedPaths.Clear();
-        if (waves != null) waves.Clear(); 
-        else waves = new List<WaveSO>();
+        activeSpawners.Clear();
+        currentWaveGroupIndex = 0;
     }
 
     private void ApplyConfigToEnemy(Enemy enemy, WaveSpawnData data)

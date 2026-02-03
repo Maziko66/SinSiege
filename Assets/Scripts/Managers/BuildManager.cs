@@ -9,6 +9,8 @@ public class BuildManager : MonoBehaviour
     private Player _player;
     private GameManager _gameManager;
     
+    private Camera _mainCamera;
+    
     [Header("UI")]
     [SerializeField] private UITowerBuilderCombat uiTowerBuilderCombat;
     [SerializeField] private UITowerManagerCombat uiTowerManagerCombat;
@@ -80,6 +82,7 @@ public class BuildManager : MonoBehaviour
     private int _mergeArrayIndex = 0;
     private string[] _mergeArrayNames = new string[2];
     private TowerZone _mergeTowerZone;
+    
 
     public void Init()
     {
@@ -96,6 +99,8 @@ public class BuildManager : MonoBehaviour
 
     private void Start()
     {
+        _mainCamera = Camera.main;
+        
         SetStateBuildMenuCrosshair(false);
         AddTowerZonesToTowerZones();
         
@@ -127,37 +132,8 @@ public class BuildManager : MonoBehaviour
 
     private void Update()
     {
-        // if (_gameManager.onBuildMenu)
-        // {
-        //     Collider2D mouseOverlapCollider = Physics2D.OverlapPoint(_gameManager.mousePosition);
-        //     //Debug.Log("Collider: " + (mouseOverlapCollider != null ? mouseOverlapCollider.name : "None"));
-        //
-        //     if (mouseOverlapCollider != null)
-        //     {
-        //         if (mouseOverlapCollider.CompareTag("Tower Zone") || mouseOverlapCollider.CompareTag("Tower Zone Extended"))
-        //         {
-        //             TowerZone towerZone = mouseOverlapCollider.GetComponent<TowerZone>();
-        //             _lastTouchedTowerZone = towerZone.gameObject;
-        //             //Vector3 instantiatePosition = _cam.WorldToScreenPoint(mouseOverlapCollider.transform.position);
-        //             if(towerZone.isEmpty)
-        //             {
-        //                 DrawUITowerBuilderCombat(true);
-        //                 Debug.Log("On Tower Zone Empty");
-        //             }
-        //             else
-        //             {
-        //                 DrawUITowerManagerCombat();
-        //                 Debug.Log("On Tower Zone Full");
-        //             }
-        //         }
-        //         //Debug.Log("Mouse is over: " + mouseOverlapCollider.gameObject.name);
-        //     }
-        //     else if (_lastTouchedTowerZone != null)
-        //     {
-        //         Destroy(_lastTouchedTowerZone.gameObject);
-        //     }
-        // }
         SetTowerZoneExpSliderPosition();
+        
     }
 
     #region UI DRAW
@@ -178,9 +154,12 @@ public class BuildManager : MonoBehaviour
 
     private void SetTowerZoneExpSliderPosition()
     {
+        
         if(_player.lastTouchedTowerZone == null) {return;}
         GameObject zone = _player.lastTouchedTowerZone;
-        Vector3 screenPosition = Camera.main.WorldToScreenPoint(zone.transform.position + sliderTowerZoneExpOffset);
+        //Vector3 screenPosition = Camera.main.WorldToScreenPoint(zone.transform.position + sliderTowerZoneExpOffset);
+        
+        Vector3 screenPosition = _mainCamera.WorldToScreenPoint(zone.transform.position + sliderTowerZoneExpOffset);
 
         TowerZone towerZone = zone.GetComponent<TowerZone>();
         towerZone.SetSliderText();
@@ -196,7 +175,9 @@ public class BuildManager : MonoBehaviour
         {
             //rectTransform.localPosition = Camera.main.WorldToScreenPoint(_lastTouchedTowerZone.transform.position);
             Vector3 worldPosition = _player.lastTouchedTowerZone.transform.position;
-            Vector3 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
+            //Vector3 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
+            
+            Vector3 screenPosition = _mainCamera.WorldToScreenPoint(worldPosition);
         
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 _canvas.GetComponent<RectTransform>(),
@@ -232,7 +213,9 @@ public class BuildManager : MonoBehaviour
         if (calledFromBuildMenu)
         {
             Vector3 worldPosition = zone.transform.position;
-            Vector3 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
+            //Vector3 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
+            
+            Vector3 screenPosition = _mainCamera.WorldToScreenPoint(worldPosition);
         
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 _canvas.GetComponent<RectTransform>(),
@@ -257,9 +240,9 @@ public class BuildManager : MonoBehaviour
     
     public void DestroyUITowerManagerCombat()
     {
-        if (uiTowerBuilderCombat == null)
+        if (uiTowerManagerCombat  == null)
         {
-            Debug.Log("uiTowerBuilderCombat is null.");
+            Debug.LogWarning("uiTowerBuilderCombat is null.");
             return;
         }
         uiTowerManagerCombat.RemoveUpgradeButtonListener();

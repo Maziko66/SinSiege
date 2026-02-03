@@ -15,10 +15,10 @@ public class BuildMenuActivator : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject.tag);
+        //Debug.Log(collision.gameObject.tag);
         if(collision.gameObject.CompareTag("Tower Zone"))
         {
-            Debug.Log("checker touched tower zone");
+            //Debug.Log("checker touched tower zone");
             // TowerZone towerZone = collision.GetComponent<TowerZone>();
             // lastTouchedTowerZone = towerZone.gameObject;
             // //Vector3 instantiatePosition = _cam.WorldToScreenPoint(collision.transform.position);
@@ -46,7 +46,7 @@ public class BuildMenuActivator : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Tower Zone"))
         {
-            Debug.Log("checker left tower zone");
+            //Debug.Log("checker left tower zone");
             // TowerZone towerZone = collision.GetComponent<TowerZone>();
             // if(towerZone.isEmpty)
             // {

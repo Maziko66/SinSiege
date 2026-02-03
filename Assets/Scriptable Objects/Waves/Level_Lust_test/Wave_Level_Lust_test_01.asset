@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 657a8bef4d751d446b178b7a2cc77067, type: 3}
-  m_Name: Wave_Level_Lust_test_1
+  m_Name: Wave_Level_Lust_test_01
   m_EditorClassIdentifier: Assembly-CSharp::WaveSO
   routeIndex: 0
   waveCooldown: 30
+  defaultSpawnInterval: 1
   enemySpawns:
   - enemyPrefab: {fileID: 4664836877217421058, guid: fb4e957c0fe31744a82f6c967ecdcc1f, type: 3}
+    spawnIntervalOverride: -1
     modificationMode: 0
     hpMultiplier: 0
     speedMultiplier: 0
@@ -28,6 +30,7 @@ MonoBehaviour:
     customGold: 0
     customExp: 0
   - enemyPrefab: {fileID: 4664836877217421058, guid: fb4e957c0fe31744a82f6c967ecdcc1f, type: 3}
+    spawnIntervalOverride: -1
     modificationMode: 0
     hpMultiplier: 0
     speedMultiplier: 0
@@ -40,6 +43,7 @@ MonoBehaviour:
     customGold: 0
     customExp: 0
   - enemyPrefab: {fileID: 4664836877217421058, guid: fb4e957c0fe31744a82f6c967ecdcc1f, type: 3}
+    spawnIntervalOverride: -1
     modificationMode: 0
     hpMultiplier: 0
     speedMultiplier: 0
@@ -52,6 +56,7 @@ MonoBehaviour:
     customGold: 0
     customExp: 0
   - enemyPrefab: {fileID: 4664836877217421058, guid: fb4e957c0fe31744a82f6c967ecdcc1f, type: 3}
+    spawnIntervalOverride: -1
     modificationMode: 0
     hpMultiplier: 0
     speedMultiplier: 0
@@ -64,6 +69,7 @@ MonoBehaviour:
     customGold: 0
     customExp: 0
   - enemyPrefab: {fileID: 4664836877217421058, guid: fb4e957c0fe31744a82f6c967ecdcc1f, type: 3}
+    spawnIntervalOverride: -1
     modificationMode: 0
     hpMultiplier: 0
     speedMultiplier: 0
@@ -76,6 +82,7 @@ MonoBehaviour:
     customGold: 0
     customExp: 0
   - enemyPrefab: {fileID: 4664836877217421058, guid: fb4e957c0fe31744a82f6c967ecdcc1f, type: 3}
+    spawnIntervalOverride: -1
     modificationMode: 0
     hpMultiplier: 0
     speedMultiplier: 0

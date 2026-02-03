@@ -306,7 +306,7 @@ public class Player : MonoBehaviour
         Debug.Log("On Pause");
         isPaused = !isPaused;
         Time.timeScale = isPaused ? 0 : 1;
-        Debug.Log(Time.timeScale);
+        //Debug.Log(Time.timeScale);
     }
 
     private void OnBuild()

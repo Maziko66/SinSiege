@@ -7,7 +7,7 @@ using UnityEngine;
 public class PathSegment
 {
     public string segmentName;
-    public Transform spawnPoint; // New: Optional spawn point
+    public Transform spawnPoint; // Optional spawn point
     public List<Transform> waypoints; // Drag empty GameObjects here to define curves
 }
 
@@ -17,7 +17,6 @@ public class MapRoute
     public string routeName; 
     public Transform spawnPoint;   // Where the enemy appears
     public List<PathSegment> pathSegments; // Connect multiple segments together
-    // public Transform baseTarget; // REMOVED: Auto-found at runtime
     
     // Helper to calculate the full path
     public List<Vector2> GetCalculatedPath()
@@ -39,9 +38,6 @@ public class MapRoute
         }
 
         // 3. Add Base (Auto-find)
-        // Note: In editor time this might fail if the scene isn't loaded or Base is part of the prefab hierarchy but not instantiated?
-        // But user said "find the base when awake under children of the level prefab"
-        // If this runs at runtime, FindFirstObjectByType is fine.
         Base foundBase = Object.FindFirstObjectByType<Base>();
         
         if (foundBase != null)
@@ -50,9 +46,6 @@ public class MapRoute
         }
         else
         {
-            // Fallback: If LevelData is on the root, maybe checking children?
-            // But LevelData usually resides on the specific level object.
-            // We'll leave the warning for safety.
             Debug.LogWarning($"[MapRoute] Route '{routeName}' could not auto-find 'Base' in the scene.");
         }
 
@@ -67,12 +60,30 @@ public class LevelData : MonoBehaviour
     public int levelIndex;
     
     [Header("Modular Routes")]
-    // This replaces your old 'routes' list
     [SerializeField] private List<MapRoute> mapRoutes = new List<MapRoute>();
     public List<MapRoute> MapRoutes => mapRoutes;
 
-    [SerializeField] private List<WaveSO> waves = new List<WaveSO>();
-    public List<WaveSO> Waves => waves;
+    [Header("Wave Groups")]
+    [Tooltip("Each WaveGroup contains multiple WaveSOs that spawn simultaneously")]
+    [SerializeField] private List<WaveGroup> waveGroups = new List<WaveGroup>();
+    public List<WaveGroup> WaveGroups => waveGroups;
+    
+    // Legacy support - returns all waves flattened (for compatibility)
+    public List<WaveSO> Waves
+    {
+        get
+        {
+            List<WaveSO> allWaves = new List<WaveSO>();
+            foreach (var group in waveGroups)
+            {
+                if (group.waveSet != null)
+                {
+                    allWaves.AddRange(group.waveSet);
+                }
+            }
+            return allWaves;
+        }
+    }
     
     [SerializeField] private List<Transform> spawnPoints = new List<Transform>();
     public List<Transform> SpawnPoints => spawnPoints;

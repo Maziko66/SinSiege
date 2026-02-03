@@ -26,19 +26,7 @@ public class UITowerManagerCombat : MonoBehaviour
         buttonDestroy.onClick.AddListener(() => _buildManager.TowerDestroy());
         buttonMerge.onClick.AddListener(() => _buildManager.AddToMerge(_attachedTower));
     }
-
-    private void OnEnable()
-    {
-        
-    }
-
-    private void OnDisable()
-    {
-        // buttonUpgrade.onClick.RemoveListener(_attachedTower.UpgradeTower);
-        // _attachedTower = null;
-        // Debug.Log("Disable Attached tower set to: " + _attachedTower.name);
-    }
-
+    
     public void SetAttachedTower(TowerGeneric tower)
     {
         _attachedTower = tower;
@@ -49,7 +37,8 @@ public class UITowerManagerCombat : MonoBehaviour
     {
         if (_attachedTower == null)
         {
-            
+            Debug.LogWarning("Cannot set upgrade listener: attached tower is null.");
+            return;
         }
         buttonUpgrade.onClick.RemoveListener(_attachedTower.UpgradeTower);
         buttonUpgrade.onClick.AddListener(_attachedTower.UpgradeTower);
