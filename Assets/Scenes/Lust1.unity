@@ -3627,6 +3627,7 @@ MonoBehaviour:
   currentHordeConfigList: []
   currentWaveTimer: 0
   waveActive: 0
+  allWavesCompleted: 0
   hordeAliveList: []
 --- !u!114 &833164593
 MonoBehaviour:
@@ -4183,7 +4184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1085530489
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8393,14 +8394,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 238586584878353521, guid: cfa77a7b9a9e489439518c11480fb007, type: 3}
-      propertyPath: mapRoutes.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 238586584878353521, guid: cfa77a7b9a9e489439518c11480fb007, type: 3}
-      propertyPath: waveGroups.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2641836594126610732, guid: cfa77a7b9a9e489439518c11480fb007, type: 3}
       propertyPath: m_Name
       value: Level_Lust_01

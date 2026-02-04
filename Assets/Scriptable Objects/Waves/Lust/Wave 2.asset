@@ -12,11 +12,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 657a8bef4d751d446b178b7a2cc77067, type: 3}
   m_Name: Wave 2
   m_EditorClassIdentifier: 
-  routeIndex: 0
   waveCooldown: 45
-  enemySpawns: []
+  defaultSpawnInterval: 1
+  enemySpawns:
+  - enemyPrefab: {fileID: 4664836877217421058, guid: 984708b9554125d4a852142002138983, type: 3}
+    spawnIntervalOverride: 0
+    modificationMode: 0
+    hpMultiplier: 0
+    speedMultiplier: 0
+    damageMultiplier: 0
+    goldMultiplier: 0
+    expMultiplier: 0
+    customHealth: 0
+    customSpeed: 0
+    customDamage: 0
+    customGold: 0
+    customExp: 0
+  - enemyPrefab: {fileID: 4664836877217421058, guid: 984708b9554125d4a852142002138983, type: 3}
+    spawnIntervalOverride: 0
+    modificationMode: 0
+    hpMultiplier: 0
+    speedMultiplier: 0
+    damageMultiplier: 0
+    goldMultiplier: 0
+    expMultiplier: 0
+    customHealth: 0
+    customSpeed: 0
+    customDamage: 0
+    customGold: 0
+    customExp: 0
+  - enemyPrefab: {fileID: 4664836877217421058, guid: 984708b9554125d4a852142002138983, type: 3}
+    spawnIntervalOverride: 0
+    modificationMode: 0
+    hpMultiplier: 0
+    speedMultiplier: 0
+    damageMultiplier: 0
+    goldMultiplier: 0
+    expMultiplier: 0
+    customHealth: 0
+    customSpeed: 0
+    customDamage: 0
+    customGold: 0
+    customExp: 0
   hasHorde: 0
   hordeSpawns: []
   hordeInterval: 3
-  totalGoldValue: 0
-  totalExpValue: 0
+  totalGoldValue: 36
+  totalExpValue: 3

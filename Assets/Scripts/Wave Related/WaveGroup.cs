@@ -2,25 +2,35 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// A group of WaveSOs that spawn simultaneously.
-/// WaveSOs on the same route will spawn in list order (left to right).
+/// A slot that pairs a WaveSO with a specific route
+/// </summary>
+[System.Serializable]
+public class WaveSlot
+{
+    public WaveSO wave;
+    public int routeIndex;
+}
+
+/// <summary>
+/// A group of WaveSlots that spawn simultaneously.
+/// Same-route waves spawn in list order (left to right).
 /// </summary>
 [System.Serializable]
 public class WaveGroup
 {
-    [Tooltip("All waves in this group spawn together. Same-route waves spawn left-to-right.")]
-    public List<WaveSO> waveSet = new List<WaveSO>();
+    [Tooltip("All wave slots in this group spawn together. Same-route waves spawn left-to-right.")]
+    public List<WaveSlot> waveSlots = new List<WaveSlot>();
     
     /// <summary>
     /// Gets the cooldown timer for this wave group (uses the first wave's cooldown)
     /// </summary>
     public float GetWaveCooldown()
     {
-        if (waveSet == null || waveSet.Count == 0) return 30f;
+        if (waveSlots == null || waveSlots.Count == 0) return 30f;
         
-        foreach (var wave in waveSet)
+        foreach (var slot in waveSlots)
         {
-            if (wave != null) return wave.waveCooldown;
+            if (slot.wave != null) return slot.wave.waveCooldown;
         }
         return 30f;
     }
@@ -31,11 +41,11 @@ public class WaveGroup
     public int GetTotalGold()
     {
         int total = 0;
-        if (waveSet == null) return total;
+        if (waveSlots == null) return total;
         
-        foreach (var wave in waveSet)
+        foreach (var slot in waveSlots)
         {
-            if (wave != null) total += wave.totalGoldValue;
+            if (slot.wave != null) total += slot.wave.totalGoldValue;
         }
         return total;
     }
@@ -46,11 +56,11 @@ public class WaveGroup
     public float GetTotalExp()
     {
         float total = 0f;
-        if (waveSet == null) return total;
+        if (waveSlots == null) return total;
         
-        foreach (var wave in waveSet)
+        foreach (var slot in waveSlots)
         {
-            if (wave != null) total += wave.totalExpValue;
+            if (slot.wave != null) total += slot.wave.totalExpValue;
         }
         return total;
     }

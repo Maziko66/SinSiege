@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Tracks the state of a single WaveSO spawner within a group
+/// Tracks the state of a single WaveSlot spawner within a group
 /// </summary>
 [System.Serializable]
 public class WaveSpawnerState
@@ -13,7 +13,7 @@ public class WaveSpawnerState
     public List<WaveSpawnData> remainingSpawns = new List<WaveSpawnData>();
     public float spawnCooldown;
     public int routeIndex;
-    public bool isWaitingForSameRoute; // True if waiting for another spawner on same route
+    public bool isWaitingForSameRoute;
     
     public bool IsComplete => remainingSpawns.Count == 0;
 }
@@ -47,12 +47,12 @@ public class WaveManager : MonoBehaviour
     
     [SerializeField] private List<Enemy> enemyAliveList = new List<Enemy>();
     
-    // Horde config combined from all active waves
     [SerializeField] private List<WaveSpawnData> currentHordeConfigList = new List<WaveSpawnData>();
     
     [Header("Current Wave")]
     [SerializeField] private float currentWaveTimer;
     [SerializeField] private bool waveActive;
+    [SerializeField] private bool allWavesCompleted;
 
     [Header("Horde")]
     [SerializeField] private List<Enemy> hordeAliveList = new List<Enemy>();
@@ -67,7 +67,6 @@ public class WaveManager : MonoBehaviour
         
         _cooldown = GetComponent<Cooldown>();
 
-        // Pre-Calculate all paths from LevelData
         if (levelData != null)
         {
             _cachedPaths.Clear();
@@ -88,6 +87,8 @@ public class WaveManager : MonoBehaviour
 
     private void Update()
     {
+        if (allWavesCompleted) return;
+        
         WaveTimer();
         
         if (waveActive)
@@ -112,6 +113,14 @@ public class WaveManager : MonoBehaviour
             waveNumber++;
             currentWaveGroupIndex++;
             
+            // Check if all waves are done
+            if (levelData.WaveGroups == null || currentWaveGroupIndex >= levelData.WaveGroups.Count)
+            {
+                allWavesCompleted = true;
+                Debug.Log("Congrats! No waves left.");
+                return;
+            }
+            
             if (_upgradeManager != null && waveNumber % 5 == 0 && !_upgradeManager.hasUpgraded)
             {
                 _upgradeManager.TimeToUpgrade();
@@ -128,52 +137,49 @@ public class WaveManager : MonoBehaviour
         
         if (levelData.WaveGroups == null || currentWaveGroupIndex >= levelData.WaveGroups.Count)
         {
-            Debug.Log("No more wave groups defined.");
+            Debug.Log("Congrats! No waves left.");
+            allWavesCompleted = true;
             return;
         }
         
         WaveGroup group = levelData.WaveGroups[currentWaveGroupIndex];
         
-        if (group.waveSet == null || group.waveSet.Count == 0)
+        if (group.waveSlots == null || group.waveSlots.Count == 0)
         {
             Debug.Log("Wave group is empty.");
             return;
         }
         
-        // Create spawner states for each WaveSO in the group
-        // Order matters - same route waves will spawn left-to-right
-        foreach (var wave in group.waveSet)
+        // Create spawner states for each WaveSlot in the group
+        foreach (var slot in group.waveSlots)
         {
-            if (wave == null) continue;
+            if (slot.wave == null) continue;
             
             WaveSpawnerState spawner = new WaveSpawnerState
             {
-                wave = wave,
-                remainingSpawns = new List<WaveSpawnData>(wave.enemySpawns),
+                wave = slot.wave,
+                remainingSpawns = new List<WaveSpawnData>(slot.wave.enemySpawns),
                 spawnCooldown = 0f,
-                routeIndex = wave.routeIndex,
+                routeIndex = slot.routeIndex,
                 isWaitingForSameRoute = false
             };
             
             activeSpawners.Add(spawner);
             
             // Combine horde configs
-            if (wave.hasHorde && wave.hordeSpawns != null)
+            if (slot.wave.hasHorde && slot.wave.hordeSpawns != null)
             {
-                currentHordeConfigList.AddRange(wave.hordeSpawns);
+                currentHordeConfigList.AddRange(slot.wave.hordeSpawns);
                 _spawnHorde = true;
-                _hordeInterval = Mathf.Min(_hordeInterval, wave.hordeInterval);
+                _hordeInterval = Mathf.Min(_hordeInterval, slot.wave.hordeInterval);
             }
         }
         
-        // Set wave timer from the group
         SetWaveTimer(group.GetWaveCooldown());
     }
 
     private void UpdateSpawners()
     {
-        // Build a set of routes that are currently "in use" by a spawner that's actively spawning
-        // Earlier spawners (lower index) have priority on their route
         HashSet<int> routesInUse = new HashSet<int>();
         
         // First pass: determine which routes are blocked
@@ -182,7 +188,6 @@ public class WaveManager : MonoBehaviour
             var spawner = activeSpawners[i];
             if (spawner.IsComplete) continue;
             
-            // Check if an earlier spawner is using this route
             bool blockedByEarlier = false;
             for (int j = 0; j < i; j++)
             {
@@ -212,7 +217,6 @@ public class WaveManager : MonoBehaviour
                 continue;
             }
             
-            // Skip if waiting for earlier same-route spawner
             if (spawner.isWaitingForSameRoute) continue;
             
             spawner.spawnCooldown -= Time.deltaTime;
@@ -236,7 +240,6 @@ public class WaveManager : MonoBehaviour
             return;
         }
 
-        // Determine Path & Start Position
         List<Vector2> path = null;
         Vector3 startPos = Vector3.zero;
         int routeIndex = spawner.routeIndex;
@@ -251,7 +254,6 @@ public class WaveManager : MonoBehaviour
             Debug.LogWarning($"Wave requested Route {routeIndex} but only {_cachedPaths.Count} routes exist.");
         }
 
-        // Instantiate
         GameObject instObj = Instantiate(data.enemyPrefab.gameObject, enemyParent.transform);
         instObj.transform.position = startPos;
     
@@ -263,11 +265,9 @@ public class WaveManager : MonoBehaviour
 
         ApplyConfigToEnemy(enemy, data);
 
-        // Remove from list and set next cooldown
         spawner.remainingSpawns.RemoveAt(0);
         enemyAliveList.Add(enemy);
         
-        // Set cooldown for next spawn
         if (spawner.remainingSpawns.Count > 0)
         {
             spawner.spawnCooldown = spawner.wave.GetSpawnInterval(spawner.remainingSpawns[0]);
@@ -389,6 +389,7 @@ public class WaveManager : MonoBehaviour
         _cachedPaths.Clear();
         activeSpawners.Clear();
         currentWaveGroupIndex = 0;
+        allWavesCompleted = false;
     }
 
     private void ApplyConfigToEnemy(Enemy enemy, WaveSpawnData data)

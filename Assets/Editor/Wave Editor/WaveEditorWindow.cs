@@ -25,8 +25,8 @@ public class WaveEditorWindow : EditorWindow
     private SerializedObject _serializedWaveObject;
     private int _selectedWaveGroupIndex = -1;
     private int _selectedWaveSlotIndex = -1;
+    private bool _isEditingFromPool = false;
     
-    // Wave Pool with folder grouping
     private Dictionary<string, List<WaveSO>> _wavePoolByFolder = new Dictionary<string, List<WaveSO>>();
     private Dictionary<string, bool> _folderFoldouts = new Dictionary<string, bool>();
     private Vector2 _wavePoolScrollPosition;
@@ -52,6 +52,7 @@ public class WaveEditorWindow : EditorWindow
     private GUIStyle _waveSlotStyle;
     private GUIStyle _selectedWaveSlotStyle;
     private GUIStyle _folderHeaderStyle;
+    private GUIStyle _selectedPoolItemStyle;
 
     [MenuItem("Tools/Wave Editor")]
     public static void ShowWindow() { GetWindow<WaveEditorWindow>("Wave Editor"); }
@@ -111,6 +112,14 @@ public class WaveEditorWindow : EditorWindow
                 fontSize = 11
             };
         }
+        if (_selectedPoolItemStyle == null)
+        {
+            _selectedPoolItemStyle = new GUIStyle(EditorStyles.helpBox)
+            {
+                padding = new RectOffset(2, 2, 2, 2),
+                margin = new RectOffset(0, 0, 1, 1)
+            };
+        }
     }
 
     private void OnGUI()
@@ -135,7 +144,6 @@ public class WaveEditorWindow : EditorWindow
         if (_selectedLevelData == null || !_showSceneHandles) return;
         if (_currentMode == EditorMode.Segments) DrawSegmentModeHandles();
         else if (_currentMode == EditorMode.Routes) DrawRouteModeHandles();
-        else if (_currentMode == EditorMode.Waves) DrawWaveModeHandles();
     }
 
     private void DrawRouteModeHandles()
@@ -192,40 +200,6 @@ public class WaveEditorWindow : EditorWindow
         }
     }
 
-    private void DrawWaveModeHandles()
-    {
-        if (_selectedWave == null || _serializedWaveObject == null) return;
-        var routes = _selectedLevelData.MapRoutes;
-        if (routes == null) return;
-        SerializedProperty routeIndexProp = _serializedWaveObject.FindProperty("routeIndex");
-        if (routeIndexProp == null) return;
-        int routeIndex = routeIndexProp.intValue;
-        if (routeIndex < 0 || routeIndex >= routes.Count) return;
-        MapRoute route = routes[routeIndex];
-        if (route.pathSegments == null) return;
-        Handles.color = Color.yellow;
-        foreach (var segment in route.pathSegments)
-        {
-            if (segment.waypoints == null) continue;
-            for (int w = 0; w < segment.waypoints.Count; w++)
-            {
-                Transform point = segment.waypoints[w];
-                if (point == null) continue;
-                if (w < segment.waypoints.Count - 1 && segment.waypoints[w + 1] != null)
-                    Handles.DrawLine(point.position, segment.waypoints[w + 1].position, 2f);
-                Handles.DrawSolidDisc(point.position, Vector3.up, 0.15f);
-                Handles.Label(point.position + Vector3.up * 0.5f, $"{segment.segmentName}_{w}");
-            }
-        }
-        if (route.pathSegments.Count > 0 && route.pathSegments[0].spawnPoint != null)
-        {
-            Handles.color = Color.green;
-            Transform spawn = route.pathSegments[0].spawnPoint;
-            Handles.DrawSolidDisc(spawn.position, Vector3.up, 0.3f);
-            Handles.Label(spawn.position + Vector3.up * 0.7f, "SPAWN");
-        }
-    }
-
     private void DrawTopBar()
     {
         EditorGUILayout.BeginVertical(EditorStyles.helpBox);
@@ -237,21 +211,231 @@ public class WaveEditorWindow : EditorWindow
             if (_cachedLevels.Count > 0 && _selectedLevelIndex >= 0 && _selectedLevelIndex < _cachedLevels.Count)
                 ChangeSelectedLevel(_cachedLevels[_selectedLevelIndex]);
         if (GUILayout.Button("Refresh", GUILayout.Width(60))) { RefreshLevelList(); RefreshWavePool(); }
-        EditorGUILayout.EndHorizontal();
-
+        
+        DrawSeparator();
+        
         EditorGUI.BeginChangeCheck();
-        LevelData manualSelection = (LevelData)EditorGUILayout.ObjectField("Manual Drag:", _selectedLevelData, typeof(LevelData), true);
+        
+        Rect r = EditorGUILayout.GetControlRect(false, EditorGUIUtility.singleLineHeight);
+        EditorGUI.LabelField(new Rect(r.x, r.y, 120, r.height), "Manual Drag:");
+
+        LevelData manualSelection = (LevelData)EditorGUI.ObjectField(
+            new Rect(r.x + 85, r.y, 200, r.height),
+            _selectedLevelData,
+            typeof(LevelData),
+            true
+        );
+        DrawSeparator();
+        
         if (EditorGUI.EndChangeCheck()) { ChangeSelectedLevel(manualSelection); UpdateDropdownIndexFromSelection(); }
 
         if (_selectedLevelData != null)
-            if (GUILayout.Button("Show Level in Project", GUILayout.Height(20)))
+            if (GUILayout.Button("Show Level in Project", GUILayout.Height(20), GUILayout.ExpandWidth(false)))
             { EditorGUIUtility.PingObject(_selectedLevelData); Selection.activeObject = _selectedLevelData; }
         
-        EditorGUILayout.Space(5);
+        DrawSeparator();
+        
+        //EditorGUILayout.Space(5);
+        
         _currentMode = (EditorMode)GUILayout.Toolbar((int)_currentMode, new string[] { "Wave Editor", "Segment Editor", "Route Editor" }, GUILayout.Height(25));
+        EditorGUILayout.EndHorizontal();
         EditorGUILayout.EndVertical();
         EditorGUILayout.Space(5);
     }
+
+    // ==================== HELPER METHODS ====================
+    
+    private void RefreshLevelList()
+    {
+        _cachedLevels.Clear();
+        string searchPath = "Assets/Prefabs/Levels";
+        if (Directory.Exists(searchPath))
+        {
+            string[] guids = AssetDatabase.FindAssets("t:Prefab", new string[] { searchPath });
+            foreach (string guid in guids)
+            {
+                string path = AssetDatabase.GUIDToAssetPath(guid);
+                LevelData lvl = AssetDatabase.LoadAssetAtPath<LevelData>(path);
+                if (lvl != null) _cachedLevels.Add(lvl);
+            }
+        }
+        _levelNames = _cachedLevels.Count > 0 ? _cachedLevels.Select(l => l.name).ToArray() : new string[] { "No Levels Found" };
+        UpdateDropdownIndexFromSelection();
+    }
+
+    private void RefreshWavePool()
+    {
+        _wavePoolByFolder.Clear();
+        if (_selectedLevelData == null) return;
+        if (!Directory.Exists(BaseWavePath)) return;
+        
+        string[] guids = AssetDatabase.FindAssets("t:WaveSO", new string[] { BaseWavePath });
+        foreach (string guid in guids)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            WaveSO wave = AssetDatabase.LoadAssetAtPath<WaveSO>(path);
+            if (wave == null) continue;
+            
+            string folderPath = Path.GetDirectoryName(path);
+            string folderName = Path.GetFileName(folderPath);
+            if (folderPath == BaseWavePath.Replace("/", "\\") || folderPath == BaseWavePath)
+                folderName = "Shared";
+            
+            if (!_wavePoolByFolder.ContainsKey(folderName))
+                _wavePoolByFolder[folderName] = new List<WaveSO>();
+            _wavePoolByFolder[folderName].Add(wave);
+        }
+        
+        foreach (var folder in _wavePoolByFolder.Keys)
+            if (!_folderFoldouts.ContainsKey(folder))
+                _folderFoldouts[folder] = (_selectedLevelData != null && folder == _selectedLevelData.name);
+    }
+
+    private bool IsWaveAssignedToAnyGroup(WaveSO wave)
+    {
+        if (_selectedLevelData == null || _selectedLevelData.WaveGroups == null) return false;
+        foreach (var group in _selectedLevelData.WaveGroups)
+            if (group.waveSlots != null)
+                foreach (var slot in group.waveSlots)
+                    if (slot.wave == wave) return true;
+        return false;
+    }
+
+    private Color GetRouteColor(int routeIndex)
+    {
+        Color[] routeColors = {
+            new Color(1f, 0.6f, 0.6f), new Color(0.6f, 0.8f, 1f), new Color(0.6f, 1f, 0.6f),
+            new Color(1f, 1f, 0.6f), new Color(1f, 0.6f, 1f), new Color(0.6f, 1f, 1f),
+            new Color(1f, 0.8f, 0.6f), new Color(0.8f, 0.6f, 1f),
+        };
+        return routeIndex < 0 ? Color.gray : routeColors[routeIndex % routeColors.Length];
+    }
+
+    private void ChangeSelectedLevel(LevelData newLevel)
+    {
+        _selectedLevelData = newLevel;
+        _selectedWave = null;
+        _selectedWaveGroupIndex = -1;
+        _selectedWaveSlotIndex = -1;
+        _serializedWaveObject = null;
+        _selectedRouteIndex = -1;
+        _selectedSegmentIndex = -1;
+        _isEditingFromPool = false;
+
+        if (_selectedLevelData != null)
+        {
+            _serializedLevelObject = new SerializedObject(_selectedLevelData);
+            _waveGroupsProperty = _serializedLevelObject.FindProperty("waveGroups");
+            _mapRoutesProperty = _serializedLevelObject.FindProperty("mapRoutes");
+            _availableSegmentsProperty = _serializedLevelObject.FindProperty("availableSegments");
+            CalculateLevelTotals();
+            RefreshWavePool();
+            if (_folderFoldouts.ContainsKey(_selectedLevelData.name))
+                _folderFoldouts[_selectedLevelData.name] = true;
+        }
+        else
+        {
+            _serializedLevelObject = null;
+            _waveGroupsProperty = null;
+            _mapRoutesProperty = null;
+            _availableSegmentsProperty = null;
+            _wavePoolByFolder.Clear();
+        }
+    }
+
+    private void ReloadSelectedLevel()
+    {
+        if (_selectedLevelData == null) return;
+        string assetPath = AssetDatabase.GetAssetPath(_selectedLevelData);
+        int routeIdx = _selectedRouteIndex, segmentIdx = _selectedSegmentIndex;
+        int groupIdx = _selectedWaveGroupIndex, slotIdx = _selectedWaveSlotIndex;
+        bool wasEditingFromPool = _isEditingFromPool;
+        WaveSO prevWave = _selectedWave;
+        
+        AssetDatabase.ImportAsset(assetPath);
+        LevelData reloaded = AssetDatabase.LoadAssetAtPath<LevelData>(assetPath);
+        _selectedLevelData = null;
+        ChangeSelectedLevel(reloaded);
+        
+        if (_mapRoutesProperty != null && routeIdx >= 0 && routeIdx < _mapRoutesProperty.arraySize) _selectedRouteIndex = routeIdx;
+        if (_availableSegmentsProperty != null && segmentIdx >= 0 && segmentIdx < _availableSegmentsProperty.arraySize) _selectedSegmentIndex = segmentIdx;
+        
+        if (wasEditingFromPool && prevWave != null)
+            SelectWaveFromPool(prevWave);
+        else if (_waveGroupsProperty != null && groupIdx >= 0 && groupIdx < _waveGroupsProperty.arraySize)
+        {
+            _selectedWaveGroupIndex = groupIdx;
+            SerializedProperty groupProp = _waveGroupsProperty.GetArrayElementAtIndex(groupIdx);
+            SerializedProperty waveSlotsProperty = groupProp.FindPropertyRelative("waveSlots");
+            if (slotIdx >= 0 && slotIdx < waveSlotsProperty.arraySize)
+            {
+                _selectedWaveSlotIndex = slotIdx;
+                SerializedProperty slotProp = waveSlotsProperty.GetArrayElementAtIndex(slotIdx);
+                WaveSO wave = (WaveSO)slotProp.FindPropertyRelative("wave").objectReferenceValue;
+                if (wave != null) { _selectedWave = wave; _serializedWaveObject = new SerializedObject(wave); }
+            }
+        }
+        Repaint();
+    }
+
+    private void UpdateDropdownIndexFromSelection()
+    {
+        if (_selectedLevelData != null && _cachedLevels.Contains(_selectedLevelData))
+            _selectedLevelIndex = _cachedLevels.IndexOf(_selectedLevelData);
+        else
+        {
+            _selectedLevelIndex = 0;
+            if (_selectedLevelData == null && _cachedLevels.Count > 0) ChangeSelectedLevel(_cachedLevels[0]);
+        }
+    }
+
+    private void CalculateLevelTotals()
+    {
+        _cachedLevelTotalGold = 0;
+        _cachedLevelTotalExp = 0;
+        if (_selectedLevelData == null || _selectedLevelData.WaveGroups == null) return;
+        foreach (WaveGroup group in _selectedLevelData.WaveGroups)
+            if (group.waveSlots != null)
+                foreach (var slot in group.waveSlots)
+                    if (slot.wave != null) { _cachedLevelTotalGold += slot.wave.totalGoldValue; _cachedLevelTotalExp += slot.wave.totalExpValue; }
+    }
+
+    private void ResizeHandle()
+    {
+        Rect resizeRect = GUILayoutUtility.GetRect(5f, 0f, GUILayout.Width(5f), GUILayout.ExpandHeight(true));
+        if (Event.current.type == EventType.Repaint)
+        {
+            Color splitterColor = EditorGUIUtility.isProSkin ? new Color(0.12f, 0.12f, 0.12f) : new Color(0.6f, 0.6f, 0.6f);
+            EditorGUI.DrawRect(new Rect(resizeRect.x + 2, resizeRect.y, 1, resizeRect.height), splitterColor);
+        }
+        EditorGUIUtility.AddCursorRect(resizeRect, MouseCursor.ResizeHorizontal);
+        Event e = Event.current;
+        if (e.type == EventType.MouseDown && resizeRect.Contains(e.mousePosition)) { _isResizing = true; e.Use(); }
+        if (_isResizing) { _sidebarWidth += e.delta.x; _sidebarWidth = Mathf.Clamp(_sidebarWidth, MinSidebarWidth, position.width - 100f); Repaint(); }
+        if (e.type == EventType.MouseUp) _isResizing = false;
+    }
+
+    private void SelectWaveFromPool(WaveSO wave)
+    {
+        _selectedWave = wave;
+        _serializedWaveObject = wave != null ? new SerializedObject(wave) : null;
+        _selectedWaveGroupIndex = -1;
+        _selectedWaveSlotIndex = -1;
+        _isEditingFromPool = true;
+        GUI.FocusControl(null);
+    }
+
+    private void SelectWaveSlot(int groupIndex, int slotIndex, WaveSO wave)
+    {
+        _selectedWaveGroupIndex = groupIndex;
+        _selectedWaveSlotIndex = slotIndex;
+        _selectedWave = wave;
+        _serializedWaveObject = wave != null ? new SerializedObject(wave) : null;
+        _isEditingFromPool = false;
+        GUI.FocusControl(null);
+    }
+
+    // ==================== PATH EDITOR ====================
 
     private void DrawPathEditor()
     {
@@ -313,9 +497,9 @@ public class WaveEditorWindow : EditorWindow
             {
                 SerializedProperty firstSeg = segmentsProp.GetArrayElementAtIndex(0);
                 Transform sp = (Transform)firstSeg.FindPropertyRelative("spawnPoint").objectReferenceValue;
-                if (sp == null) EditorGUILayout.HelpBox("First Segment must have a Spawn Point assigned!", MessageType.Error);
+                if (sp == null) EditorGUILayout.HelpBox("First Segment must have a Spawn Point!", MessageType.Error);
             }
-            else EditorGUILayout.HelpBox("Route is empty. Add a starting segment with a Spawn Point.", MessageType.Info);
+            else EditorGUILayout.HelpBox("Route is empty.", MessageType.Info);
             for (int i = 0; i < segmentsProp.arraySize; i++)
             {
                 SerializedProperty segProp = segmentsProp.GetArrayElementAtIndex(i);
@@ -333,15 +517,13 @@ public class WaveEditorWindow : EditorWindow
                         SerializedProperty savedSeg = _availableSegmentsProperty.GetArrayElementAtIndex(s);
                         string sName = savedSeg.FindPropertyRelative("segmentName").stringValue;
                         Transform sSpawn = (Transform)savedSeg.FindPropertyRelative("spawnPoint").objectReferenceValue;
-                        string menuPath = sName;
-                        if (sSpawn != null) menuPath += " (Has Spawn)";
+                        string menuPath = sName + (sSpawn != null ? " (Has Spawn)" : "");
                         int indexCopy = s; 
-                        menu.AddItem(new GUIContent(menuPath), false, () => { AddSegmentFromPoolToRoute(_selectedRouteIndex, indexCopy); });
+                        menu.AddItem(new GUIContent(menuPath), false, () => AddSegmentFromPoolToRoute(_selectedRouteIndex, indexCopy));
                     }
                     menu.ShowAsContext();
                 }
             }
-            else EditorGUILayout.HelpBox("No Segments available in Pool.", MessageType.Warning);
         }
         else
         {
@@ -358,8 +540,7 @@ public class WaveEditorWindow : EditorWindow
         SerializedProperty nameProp = segmentProp.FindPropertyRelative("segmentName");
         SerializedProperty spawnProp = segmentProp.FindPropertyRelative("spawnPoint");
         bool hasSpawn = spawnProp.objectReferenceValue != null;
-        string label = $"{index + 1}. {nameProp.stringValue}";
-        if (hasSpawn) label += " [Spawn]";
+        string label = $"{index + 1}. {nameProp.stringValue}" + (hasSpawn ? " [Spawn]" : "");
         EditorGUILayout.LabelField(label, EditorStyles.boldLabel, GUILayout.ExpandWidth(true));
         if (GUILayout.Button("Up", GUILayout.Width(25)) && index > 0) listProp.MoveArrayElement(index, index - 1);
         if (GUILayout.Button("Dn", GUILayout.Width(25)) && index < listProp.arraySize - 1) listProp.MoveArrayElement(index, index + 1);
@@ -367,21 +548,6 @@ public class WaveEditorWindow : EditorWindow
         if (GUILayout.Button("X", GUILayout.Width(25))) listProp.DeleteArrayElementAtIndex(index);
         GUI.backgroundColor = Color.white;
         EditorGUILayout.EndHorizontal();
-    }
-
-    private void DrawSpawnPointSelector(SerializedProperty spawnProp)
-    {
-        Transform levelTransform = _selectedLevelData.transform;
-        Transform spawnContainer = levelTransform.Find("Spawn Points");
-        if (spawnContainer == null) { EditorGUILayout.PropertyField(spawnProp); return; }
-        List<string> options = new List<string> { "None" };
-        List<Transform> values = new List<Transform> { null };
-        foreach (Transform child in spawnContainer) { options.Add(child.name); values.Add(child); }
-        Transform currentVal = (Transform)spawnProp.objectReferenceValue;
-        int currentIndex = 0;
-        if (currentVal != null) { int found = values.IndexOf(currentVal); if (found != -1) currentIndex = found; }
-        int newIndex = EditorGUILayout.Popup("Spawn Point", currentIndex, options.ToArray());
-        if (newIndex != currentIndex) spawnProp.objectReferenceValue = values[newIndex];
     }
 
     private void CreateNewRoute()
@@ -392,9 +558,8 @@ public class WaveEditorWindow : EditorWindow
         try
         {
             LevelData dataOnPrefab = prefabRoot.GetComponent<LevelData>();
-            if (dataOnPrefab == null) { Debug.LogError("LevelData missing!"); return; }
-            MapRoute newRoute = new MapRoute { routeName = "New Route", pathSegments = new List<PathSegment>() };
-            dataOnPrefab.MapRoutes.Add(newRoute);
+            if (dataOnPrefab == null) return;
+            dataOnPrefab.MapRoutes.Add(new MapRoute { routeName = "New Route", pathSegments = new List<PathSegment>() });
             PrefabUtility.SaveAsPrefabAsset(prefabRoot, assetPath);
             _selectedRouteIndex = dataOnPrefab.MapRoutes.Count - 1;
         }
@@ -421,6 +586,32 @@ public class WaveEditorWindow : EditorWindow
         finally { PrefabUtility.UnloadPrefabContents(prefabRoot); }
         ReloadSelectedLevel();
     }
+
+    private void AddSegmentFromPoolToRoute(int routeIndex, int poolIndex)
+    {
+        if (_selectedLevelData == null) return;
+        string assetPath = AssetDatabase.GetAssetPath(_selectedLevelData);
+        GameObject prefabRoot = PrefabUtility.LoadPrefabContents(assetPath);
+        try
+        {
+            LevelData dataOnPrefab = prefabRoot.GetComponent<LevelData>();
+            if (dataOnPrefab == null || dataOnPrefab.AvailableSegments == null || dataOnPrefab.MapRoutes == null) return;
+            if (poolIndex < 0 || poolIndex >= dataOnPrefab.AvailableSegments.Count) return;
+            if (routeIndex < 0 || routeIndex >= dataOnPrefab.MapRoutes.Count) return;
+            PathSegment srcSeg = dataOnPrefab.AvailableSegments[poolIndex];
+            dataOnPrefab.MapRoutes[routeIndex].pathSegments.Add(new PathSegment
+            {
+                segmentName = srcSeg.segmentName,
+                spawnPoint = srcSeg.spawnPoint,
+                waypoints = new List<Transform>(srcSeg.waypoints ?? new List<Transform>())
+            });
+            PrefabUtility.SaveAsPrefabAsset(prefabRoot, assetPath);
+        }
+        finally { PrefabUtility.UnloadPrefabContents(prefabRoot); }
+        ReloadSelectedLevel();
+    }
+
+    // ==================== SEGMENT EDITOR ====================
 
     private void DrawSegmentEditor()
     {
@@ -483,6 +674,7 @@ public class WaveEditorWindow : EditorWindow
         EditorGUILayout.Space(5);
         float availableHeight = Mathf.Max(position.height - 180f, 200f);
         EditorGUILayout.BeginHorizontal(GUILayout.Height(availableHeight));
+        
         EditorGUILayout.BeginVertical("box", GUILayout.Width(300));
         EditorGUILayout.LabelField("Available in Scene", EditorStyles.boldLabel);
         Transform waypointsRoot = _selectedLevelData.transform.Find("Waypoints");
@@ -508,6 +700,7 @@ public class WaveEditorWindow : EditorWindow
             EditorGUILayout.EndScrollView();
         }
         EditorGUILayout.EndVertical();
+        
         EditorGUILayout.BeginVertical("box");
         EditorGUILayout.LabelField("Selected Waypoints", EditorStyles.boldLabel);
         _segmentSelectedScroll = EditorGUILayout.BeginScrollView(_segmentSelectedScroll);
@@ -515,9 +708,8 @@ public class WaveEditorWindow : EditorWindow
         {
             SerializedProperty pt = pointsProp.GetArrayElementAtIndex(i);
             Transform t = (Transform)pt.objectReferenceValue;
-            string label = t != null ? t.name : "(Null)";
             EditorGUILayout.BeginHorizontal();
-            GUILayout.Label($"{i}. {label}", GUILayout.ExpandWidth(true));
+            GUILayout.Label($"{i}. {(t != null ? t.name : "(Null)")}", GUILayout.ExpandWidth(true));
             if (GUILayout.Button("Up", GUILayout.Width(30)) && i > 0) pointsProp.MoveArrayElement(i, i - 1);
             if (GUILayout.Button("Dn", GUILayout.Width(30)) && i < pointsProp.arraySize - 1) pointsProp.MoveArrayElement(i, i + 1);
             GUI.backgroundColor = new Color(1f, 0.6f, 0.6f);
@@ -528,6 +720,21 @@ public class WaveEditorWindow : EditorWindow
         EditorGUILayout.EndScrollView();
         EditorGUILayout.EndVertical();
         EditorGUILayout.EndHorizontal();
+    }
+
+    private void DrawSpawnPointSelector(SerializedProperty spawnProp)
+    {
+        Transform levelTransform = _selectedLevelData.transform;
+        Transform spawnContainer = levelTransform.Find("Spawn Points");
+        if (spawnContainer == null) { EditorGUILayout.PropertyField(spawnProp); return; }
+        List<string> options = new List<string> { "None" };
+        List<Transform> values = new List<Transform> { null };
+        foreach (Transform child in spawnContainer) { options.Add(child.name); values.Add(child); }
+        Transform currentVal = (Transform)spawnProp.objectReferenceValue;
+        int currentIndex = 0;
+        if (currentVal != null) { int found = values.IndexOf(currentVal); if (found != -1) currentIndex = found; }
+        int newIndex = EditorGUILayout.Popup("Spawn Point", currentIndex, options.ToArray());
+        if (newIndex != currentIndex) spawnProp.objectReferenceValue = values[newIndex];
     }
 
     private void CreateNewSegmentInPool()
@@ -578,176 +785,109 @@ public class WaveEditorWindow : EditorWindow
         ReloadSelectedLevel();
     }
 
-    private void AddSegmentFromPoolToRoute(int routeIndex, int poolIndex)
-    {
-        if (_selectedLevelData == null) return;
-        string assetPath = AssetDatabase.GetAssetPath(_selectedLevelData);
-        GameObject prefabRoot = PrefabUtility.LoadPrefabContents(assetPath);
-        try
-        {
-            LevelData dataOnPrefab = prefabRoot.GetComponent<LevelData>();
-            if (dataOnPrefab == null || dataOnPrefab.AvailableSegments == null || dataOnPrefab.MapRoutes == null) return;
-            if (poolIndex < 0 || poolIndex >= dataOnPrefab.AvailableSegments.Count) return;
-            if (routeIndex < 0 || routeIndex >= dataOnPrefab.MapRoutes.Count) return;
-            PathSegment srcSeg = dataOnPrefab.AvailableSegments[poolIndex];
-            MapRoute route = dataOnPrefab.MapRoutes[routeIndex];
-            PathSegment newSeg = new PathSegment
-            {
-                segmentName = srcSeg.segmentName,
-                spawnPoint = srcSeg.spawnPoint,
-                waypoints = new List<Transform>(srcSeg.waypoints ?? new List<Transform>())
-            };
-            route.pathSegments.Add(newSeg);
-            PrefabUtility.SaveAsPrefabAsset(prefabRoot, assetPath);
-        }
-        finally { PrefabUtility.UnloadPrefabContents(prefabRoot); }
-        ReloadSelectedLevel();
-    }
-
-    // ==========================================================================================
-    //                                      WAVE EDITOR LOGIC
-    // ==========================================================================================
+    // ==================== WAVE EDITOR ====================
 
     private void DrawWaveEditor()
     {
         EditorGUILayout.BeginHorizontal();
-        
-        // Left panel - Wave Pool with folder grouping
         EditorGUILayout.BeginVertical("box", GUILayout.Width(300), GUILayout.ExpandHeight(true));
         DrawWavePoolPanel();
         EditorGUILayout.EndVertical();
-        
-        // Middle panel - Wave Groups
         EditorGUILayout.BeginVertical(GUILayout.Width(_sidebarWidth), GUILayout.ExpandHeight(true));
         DrawWaveSidebar();
         EditorGUILayout.EndVertical();
-        
         ResizeHandle();
-        
-        // Right panel - Wave Inspector
         DrawWaveInspector();
-        
         EditorGUILayout.EndHorizontal();
     }
 
     private void DrawWavePoolPanel()
     {
         EditorGUILayout.LabelField("Available Waves", EditorStyles.boldLabel);
-        
         if (GUILayout.Button("+ Create New Wave", GUILayout.Height(25))) CreateNewWaveAsset();
         if (GUILayout.Button("Refresh Pool", GUILayout.Height(20))) RefreshWavePool();
         
-        // Expand/Collapse All buttons
         EditorGUILayout.BeginHorizontal();
         if (GUILayout.Button("Expand All", EditorStyles.miniButtonLeft))
-        {
-            var keys = _folderFoldouts.Keys.ToList();
-            foreach (var key in keys) _folderFoldouts[key] = true;
-        }
+        { var keys = _folderFoldouts.Keys.ToList(); foreach (var key in keys) _folderFoldouts[key] = true; }
         if (GUILayout.Button("Collapse All", EditorStyles.miniButtonRight))
-        {
-            var keys = _folderFoldouts.Keys.ToList();
-            foreach (var key in keys) _folderFoldouts[key] = false;
-        }
+        { var keys = _folderFoldouts.Keys.ToList(); foreach (var key in keys) _folderFoldouts[key] = false; }
         EditorGUILayout.EndHorizontal();
         
         EditorGUILayout.Space(5);
         _wavePoolScrollPosition = EditorGUILayout.BeginScrollView(_wavePoolScrollPosition);
         
         if (_wavePoolByFolder.Count == 0)
-            EditorGUILayout.HelpBox("No waves found.\nCreate new or check path.", MessageType.Info);
+            EditorGUILayout.HelpBox("No waves found.", MessageType.Info);
         else
         {
-            // Sort folders - put level-specific folder first, then others alphabetically
             var sortedFolders = _wavePoolByFolder.Keys.OrderBy(f => 
-            {
-                if (_selectedLevelData != null && f == _selectedLevelData.name) return "0" + f;
-                return "1" + f;
-            }).ToList();
+                (_selectedLevelData != null && f == _selectedLevelData.name) ? "0" + f : "1" + f).ToList();
             
             foreach (var folderName in sortedFolders)
             {
                 var wavesInFolder = _wavePoolByFolder[folderName];
                 if (wavesInFolder.Count == 0) continue;
                 
-                // Ensure foldout state exists
                 if (!_folderFoldouts.ContainsKey(folderName))
                     _folderFoldouts[folderName] = (_selectedLevelData != null && folderName == _selectedLevelData.name);
                 
-                // Count assigned waves in this folder
                 int assignedCount = wavesInFolder.Count(w => IsWaveAssignedToAnyGroup(w));
-                
-                // Draw folder header
-                EditorGUILayout.BeginHorizontal();
-                
-                // Folder icon and foldout
                 bool isLevelFolder = (_selectedLevelData != null && folderName == _selectedLevelData.name);
+                
+                EditorGUILayout.BeginHorizontal();
                 GUI.backgroundColor = isLevelFolder ? new Color(0.8f, 1f, 0.8f) : Color.white;
-                
                 _folderFoldouts[folderName] = EditorGUILayout.Foldout(_folderFoldouts[folderName], "", true, _folderHeaderStyle);
-                
-                // Folder name with count
-                string folderLabel = $"📁 {folderName} ({assignedCount}/{wavesInFolder.Count})";
-                EditorGUILayout.LabelField(folderLabel, EditorStyles.boldLabel);
-                
+                EditorGUILayout.LabelField($"📁 {folderName} ({assignedCount}/{wavesInFolder.Count})", EditorStyles.boldLabel);
                 GUI.backgroundColor = Color.white;
                 EditorGUILayout.EndHorizontal();
                 
-                // Draw waves if expanded
                 if (_folderFoldouts[folderName])
                 {
                     EditorGUI.indentLevel++;
                     foreach (var wave in wavesInFolder.OrderBy(w => w.name))
-                    {
-                        if (wave == null) continue;
-                        DrawWavePoolItem(wave);
-                    }
+                        if (wave != null) DrawWavePoolItem(wave);
                     EditorGUI.indentLevel--;
                 }
-                
                 EditorGUILayout.Space(2);
             }
         }
         
         EditorGUILayout.EndScrollView();
         EditorGUILayout.Space(5);
-        EditorGUILayout.HelpBox("Select empty slot, click '>' to assign.", MessageType.None);
+        EditorGUILayout.HelpBox("Click wave to edit. Select slot + '>' to assign.", MessageType.None);
     }
 
     private void DrawWavePoolItem(WaveSO wave)
     {
         bool isAssigned = IsWaveAssignedToAnyGroup(wave);
+        bool isSelected = (_selectedWave == wave && _isEditingFromPool);
         
-        EditorGUILayout.BeginHorizontal();
+        if (isSelected) GUI.backgroundColor = new Color(0.6f, 0.8f, 1f);
+        else if (isAssigned) GUI.backgroundColor = new Color(0.7f, 0.7f, 0.7f);
         
-        // Indent space
+        EditorGUILayout.BeginHorizontal(isSelected ? _selectedPoolItemStyle : GUIStyle.none);
         GUILayout.Space(15);
         
         string label = wave.name;
-        if (label.Length > 30) label = label.Substring(0, 27) + "...";
+        if (label.Length > 25) label = label.Substring(0, 22) + "...";
         
-        if (isAssigned)
-        {
-            GUI.backgroundColor = new Color(0.7f, 0.7f, 0.7f);
-            GUILayout.Label($"✓ {label}", GUILayout.ExpandWidth(true));
-        }
-        else
-        {
-            GUILayout.Label(label, GUILayout.ExpandWidth(true));
-        }
+        if (GUILayout.Button(isAssigned ? $"✓ {label}" : label, EditorStyles.label, GUILayout.ExpandWidth(true)))
+            SelectWaveFromPool(wave);
         
-        // Route badge
-        GUI.backgroundColor = GetRouteColor(wave.routeIndex);
-        GUILayout.Label($"R{wave.routeIndex}", EditorStyles.miniButton, GUILayout.Width(25));
         GUI.backgroundColor = Color.white;
         
-        // Add button - only enabled if an empty slot is selected
-        GUI.enabled = (_selectedWaveGroupIndex >= 0 && _selectedWaveSlotIndex >= 0 && _selectedWave == null);
+        bool canAssign = (_selectedWaveGroupIndex >= 0 && _selectedWaveSlotIndex >= 0 && !_isEditingFromPool);
+        GUI.enabled = canAssign;
         GUI.backgroundColor = new Color(0.7f, 1f, 0.7f);
         if (GUILayout.Button(">", GUILayout.Width(22)))
             AssignWaveToSlot(_selectedWaveGroupIndex, _selectedWaveSlotIndex, wave);
         GUI.backgroundColor = Color.white;
         GUI.enabled = true;
+        
+        GUI.backgroundColor = new Color(1f, 0.6f, 0.6f);
+        if (GUILayout.Button("X", GUILayout.Width(20))) DeleteWaveAsset(wave);
+        GUI.backgroundColor = Color.white;
         
         EditorGUILayout.EndHorizontal();
     }
@@ -772,7 +912,7 @@ public class WaveEditorWindow : EditorWindow
             for (int g = 0; g < _waveGroupsProperty.arraySize; g++)
             {
                 SerializedProperty groupProp = _waveGroupsProperty.GetArrayElementAtIndex(g);
-                SerializedProperty waveSetProp = groupProp.FindPropertyRelative("waveSet");
+                SerializedProperty waveSlotsProperty = groupProp.FindPropertyRelative("waveSlots");
                 
                 EditorGUILayout.BeginVertical(_waveGroupBoxStyle);
                 EditorGUILayout.BeginHorizontal();
@@ -782,9 +922,10 @@ public class WaveEditorWindow : EditorWindow
                 EditorGUILayout.LabelField($"Wave {g + 1}", EditorStyles.boldLabel, GUILayout.Width(60));
                 
                 int groupGold = 0; float groupExp = 0f;
-                for (int w = 0; w < waveSetProp.arraySize; w++)
+                for (int w = 0; w < waveSlotsProperty.arraySize; w++)
                 {
-                    WaveSO wave = (WaveSO)waveSetProp.GetArrayElementAtIndex(w).objectReferenceValue;
+                    SerializedProperty slotProp = waveSlotsProperty.GetArrayElementAtIndex(w);
+                    WaveSO wave = (WaveSO)slotProp.FindPropertyRelative("wave").objectReferenceValue;
                     if (wave != null) { groupGold += wave.totalGoldValue; groupExp += wave.totalExpValue; }
                 }
                 
@@ -812,30 +953,61 @@ public class WaveEditorWindow : EditorWindow
                 EditorGUILayout.BeginHorizontal();
                 int deleteSlotIndex = -1, deleteSlotGroupIndex = -1;
                 
-                for (int w = 0; w < waveSetProp.arraySize; w++)
+                for (int w = 0; w < waveSlotsProperty.arraySize; w++)
                 {
-                    SerializedProperty waveProp = waveSetProp.GetArrayElementAtIndex(w);
+                    SerializedProperty slotProp = waveSlotsProperty.GetArrayElementAtIndex(w);
+                    SerializedProperty waveProp = slotProp.FindPropertyRelative("wave");
+                    SerializedProperty routeProp = slotProp.FindPropertyRelative("routeIndex");
+                    
                     WaveSO waveRef = (WaveSO)waveProp.objectReferenceValue;
-                    bool isSelected = (g == _selectedWaveGroupIndex && w == _selectedWaveSlotIndex);
+                    int routeIdx = routeProp.intValue;
+                    
+                    bool isSelected = (g == _selectedWaveGroupIndex && w == _selectedWaveSlotIndex && !_isEditingFromPool);
                     GUIStyle slotStyle = isSelected ? _selectedWaveSlotStyle : _waveSlotStyle;
                     
-                    string slotLabel = waveRef != null ? $"R{waveRef.routeIndex}: {waveRef.name}" : "(Empty)";
-                    if (slotLabel.Length > 15) slotLabel = slotLabel.Substring(0, 12) + "...";
+                    string slotLabel = waveRef != null ? waveRef.name : "(Empty)";
+                    if (slotLabel.Length > 12) slotLabel = slotLabel.Substring(0, 9) + "...";
                     
-                    EditorGUILayout.BeginVertical(GUILayout.Width(100));
-                    GUI.backgroundColor = waveRef != null ? GetRouteColor(waveRef.routeIndex) : new Color(0.9f, 0.9f, 0.9f);
-                    if (GUILayout.Button(slotLabel, slotStyle, GUILayout.Width(95))) SelectWaveSlot(g, w, waveRef);
+                    EditorGUILayout.BeginVertical(GUILayout.Width(110));
+                    
+                    GUI.backgroundColor = GetRouteColor(routeIdx);
+                    List<string> routeOptions = new List<string>();
+                    var routes = _selectedLevelData.MapRoutes;
+                    if (routes != null) 
+                    {
+                        for (int r = 0; r < routes.Count; r++) 
+                        {
+                            string routeName = routes[r].routeName;
+                            if (string.IsNullOrEmpty(routeName)) routeName = $"Route {r}";
+                            routeOptions.Add($"{r}: {routeName}");
+                        }
+                    }
+                    if (routeOptions.Count > 0)
+                    {
+                        int newRoute = EditorGUILayout.Popup(routeIdx, routeOptions.ToArray(), GUILayout.Width(105));
+                        if (newRoute != routeIdx) routeProp.intValue = newRoute;
+                    }
+                    else
+                    {
+                        EditorGUILayout.LabelField("No Routes", GUILayout.Width(105));
+                    }
+                    GUI.backgroundColor = Color.white;
+                    
+                    GUI.backgroundColor = waveRef != null ? GetRouteColor(routeIdx) : new Color(0.9f, 0.9f, 0.9f);
+                    if (GUILayout.Button(slotLabel, slotStyle, GUILayout.Width(105))) 
+                        SelectWaveSlot(g, w, waveRef);
                     GUI.backgroundColor = Color.white;
                     
                     GUI.backgroundColor = new Color(1f, 0.6f, 0.6f);
-                    if (GUILayout.Button("×", GUILayout.Width(95), GUILayout.Height(16)))
+                    if (GUILayout.Button("×", GUILayout.Width(105), GUILayout.Height(16)))
                     { deleteSlotIndex = w; deleteSlotGroupIndex = g; }
                     GUI.backgroundColor = Color.white;
+                    
                     EditorGUILayout.EndVertical();
                 }
                 
                 GUI.backgroundColor = new Color(0.7f, 1f, 0.7f);
-                if (GUILayout.Button("+", GUILayout.Width(25), GUILayout.Height(38))) AddWaveSlotToGroup(g);
+                if (GUILayout.Button("+", GUILayout.Width(25), GUILayout.Height(58))) AddWaveSlotToGroup(g);
                 GUI.backgroundColor = Color.white;
                 EditorGUILayout.EndHorizontal();
                 
@@ -857,10 +1029,11 @@ public class WaveEditorWindow : EditorWindow
         if (_selectedWave != null && _serializedWaveObject != null)
         {
             _serializedWaveObject.Update();
+            
             EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField("Editing:", GUILayout.Width(50));
+            EditorGUILayout.LabelField(_isEditingFromPool ? "Editing (pool):" : "Editing:", GUILayout.Width(_isEditingFromPool ? 90 : 50));
             EditorGUI.BeginChangeCheck();
-            string newName = EditorGUILayout.DelayedTextField(_selectedWave.name, EditorStyles.boldLabel);
+            string newName = EditorGUILayout.DelayedTextField(_selectedWave.name, EditorStyles.textField);
             if (EditorGUI.EndChangeCheck() && !string.IsNullOrWhiteSpace(newName) && newName != _selectedWave.name)
                 RenameWaveAsset(_selectedWave, newName);
             if (GUILayout.Button("Show in Project", GUILayout.Width(110)))
@@ -868,8 +1041,8 @@ public class WaveEditorWindow : EditorWindow
             EditorGUILayout.EndHorizontal();
             
             EditorGUILayout.BeginHorizontal("helpBox");
-            EditorGUILayout.LabelField($"Wave Gold: {_selectedWave.totalGoldValue}", EditorStyles.boldLabel);
-            EditorGUILayout.LabelField($"Wave Exp: {_selectedWave.totalExpValue}", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField($"Gold: {_selectedWave.totalGoldValue}", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField($"Exp: {_selectedWave.totalExpValue}", EditorStyles.boldLabel);
             EditorGUILayout.EndHorizontal();
             EditorGUILayout.Space();
 
@@ -880,37 +1053,24 @@ public class WaveEditorWindow : EditorWindow
             {
                 enterChildren = false;
                 if (iterator.name == "m_Script" || iterator.name == "totalGoldValue" || iterator.name == "totalExpValue") continue;
-                if (iterator.name == "routeIndex")
-                {
-                    List<string> routeNames = new List<string>();
-                    var routes = _selectedLevelData.MapRoutes;
-                    if (routes != null) for (int r = 0; r < routes.Count; r++) routeNames.Add($"{r}: {routes[r].routeName}");
-                    if (routeNames.Count > 0)
-                    {
-                        int current = iterator.intValue;
-                        int selected = EditorGUILayout.Popup("Route", current, routeNames.ToArray());
-                        if (selected != current) iterator.intValue = selected;
-                    }
-                    else { EditorGUILayout.HelpBox("No Routes defined!", MessageType.Warning); iterator.intValue = -1; }
-                }
-                else EditorGUILayout.PropertyField(iterator, true);
+                EditorGUILayout.PropertyField(iterator, true);
             }
             _serializedWaveObject.ApplyModifiedProperties();
             if (EditorGUI.EndChangeCheck())
             { _selectedWave.CalculateTotalStats(); EditorUtility.SetDirty(_selectedWave); CalculateLevelTotals(); }
         }
-        else if (_selectedWaveGroupIndex >= 0 && _selectedWaveSlotIndex >= 0)
+        else if (_selectedWaveGroupIndex >= 0 && _selectedWaveSlotIndex >= 0 && !_isEditingFromPool)
         {
             EditorGUILayout.LabelField("Empty Wave Slot", EditorStyles.boldLabel);
             EditorGUILayout.Space();
-            EditorGUILayout.HelpBox("Select from 'Available Waves' and click '>' or drag below.", MessageType.Info);
+            EditorGUILayout.HelpBox("Select a wave from pool and click '>' to assign.", MessageType.Info);
             EditorGUILayout.Space();
             EditorGUI.BeginChangeCheck();
             WaveSO assignedWave = (WaveSO)EditorGUILayout.ObjectField("Drag Wave Here", null, typeof(WaveSO), false);
             if (EditorGUI.EndChangeCheck() && assignedWave != null)
                 AssignWaveToSlot(_selectedWaveGroupIndex, _selectedWaveSlotIndex, assignedWave);
             EditorGUILayout.Space();
-            if (GUILayout.Button("Create New Wave", GUILayout.Height(30)))
+            if (GUILayout.Button("Create New Wave & Assign", GUILayout.Height(30)))
                 CreateNewWaveForSlot(_selectedWaveGroupIndex, _selectedWaveSlotIndex);
         }
         else
@@ -924,198 +1084,7 @@ public class WaveEditorWindow : EditorWindow
         EditorGUILayout.EndVertical();
     }
 
-    // ==========================================================================================
-    //                                      HELPERS
-    // ==========================================================================================
-
-    private void RefreshLevelList()
-    {
-        _cachedLevels.Clear();
-        string searchPath = "Assets/Prefabs/Levels";
-        if (Directory.Exists(searchPath))
-        {
-            string[] guids = AssetDatabase.FindAssets("t:Prefab", new string[] { searchPath });
-            foreach (string guid in guids)
-            {
-                string path = AssetDatabase.GUIDToAssetPath(guid);
-                LevelData lvl = AssetDatabase.LoadAssetAtPath<LevelData>(path);
-                if (lvl != null) _cachedLevels.Add(lvl);
-            }
-        }
-        _levelNames = _cachedLevels.Count > 0 ? _cachedLevels.Select(l => l.name).ToArray() : new string[] { "No Levels Found" };
-        UpdateDropdownIndexFromSelection();
-    }
-
-    private void RefreshWavePool()
-    {
-        _wavePoolByFolder.Clear();
-        if (_selectedLevelData == null) return;
-        
-        // Search all subfolders under BaseWavePath
-        if (!Directory.Exists(BaseWavePath)) return;
-        
-        // Get all WaveSO assets
-        string[] guids = AssetDatabase.FindAssets("t:WaveSO", new string[] { BaseWavePath });
-        
-        foreach (string guid in guids)
-        {
-            string path = AssetDatabase.GUIDToAssetPath(guid);
-            WaveSO wave = AssetDatabase.LoadAssetAtPath<WaveSO>(path);
-            if (wave == null) continue;
-            
-            // Extract folder name from path
-            string folderPath = Path.GetDirectoryName(path);
-            string folderName = Path.GetFileName(folderPath);
-            
-            // If it's directly in BaseWavePath, use "Shared" as folder name
-            if (folderPath == BaseWavePath.Replace("/", "\\") || folderPath == BaseWavePath)
-                folderName = "Shared";
-            
-            if (!_wavePoolByFolder.ContainsKey(folderName))
-                _wavePoolByFolder[folderName] = new List<WaveSO>();
-            
-            _wavePoolByFolder[folderName].Add(wave);
-        }
-        
-        // Initialize foldout states for new folders
-        foreach (var folder in _wavePoolByFolder.Keys)
-        {
-            if (!_folderFoldouts.ContainsKey(folder))
-            {
-                // Auto-expand the current level's folder
-                _folderFoldouts[folder] = (_selectedLevelData != null && folder == _selectedLevelData.name);
-            }
-        }
-    }
-
-    private bool IsWaveAssignedToAnyGroup(WaveSO wave)
-    {
-        if (_selectedLevelData == null || _selectedLevelData.WaveGroups == null) return false;
-        foreach (var group in _selectedLevelData.WaveGroups)
-            if (group.waveSet != null)
-                foreach (var w in group.waveSet)
-                    if (w == wave) return true;
-        return false;
-    }
-
-    private Color GetRouteColor(int routeIndex)
-    {
-        Color[] routeColors = {
-            new Color(1f, 0.6f, 0.6f), new Color(0.6f, 0.8f, 1f), new Color(0.6f, 1f, 0.6f),
-            new Color(1f, 1f, 0.6f), new Color(1f, 0.6f, 1f), new Color(0.6f, 1f, 1f),
-            new Color(1f, 0.8f, 0.6f), new Color(0.8f, 0.6f, 1f),
-        };
-        return routeIndex < 0 ? Color.gray : routeColors[routeIndex % routeColors.Length];
-    }
-
-    private void ChangeSelectedLevel(LevelData newLevel)
-    {
-        _selectedLevelData = newLevel;
-        _selectedWave = null;
-        _selectedWaveGroupIndex = -1;
-        _selectedWaveSlotIndex = -1;
-        _serializedWaveObject = null;
-        _selectedRouteIndex = -1;
-        _selectedSegmentIndex = -1;
-
-        if (_selectedLevelData != null)
-        {
-            _serializedLevelObject = new SerializedObject(_selectedLevelData);
-            _waveGroupsProperty = _serializedLevelObject.FindProperty("waveGroups");
-            _mapRoutesProperty = _serializedLevelObject.FindProperty("mapRoutes");
-            _availableSegmentsProperty = _serializedLevelObject.FindProperty("availableSegments");
-            CalculateLevelTotals();
-            RefreshWavePool();
-            
-            // Auto-expand the level's folder
-            if (_folderFoldouts.ContainsKey(_selectedLevelData.name))
-                _folderFoldouts[_selectedLevelData.name] = true;
-        }
-        else
-        {
-            _serializedLevelObject = null;
-            _waveGroupsProperty = null;
-            _mapRoutesProperty = null;
-            _availableSegmentsProperty = null;
-            _wavePoolByFolder.Clear();
-        }
-    }
-
-    private void ReloadSelectedLevel()
-    {
-        if (_selectedLevelData == null) return;
-        string assetPath = AssetDatabase.GetAssetPath(_selectedLevelData);
-        int routeIdx = _selectedRouteIndex, segmentIdx = _selectedSegmentIndex;
-        int groupIdx = _selectedWaveGroupIndex, slotIdx = _selectedWaveSlotIndex;
-        
-        AssetDatabase.ImportAsset(assetPath);
-        LevelData reloaded = AssetDatabase.LoadAssetAtPath<LevelData>(assetPath);
-        _selectedLevelData = null;
-        ChangeSelectedLevel(reloaded);
-        
-        if (_mapRoutesProperty != null && routeIdx >= 0 && routeIdx < _mapRoutesProperty.arraySize) _selectedRouteIndex = routeIdx;
-        if (_availableSegmentsProperty != null && segmentIdx >= 0 && segmentIdx < _availableSegmentsProperty.arraySize) _selectedSegmentIndex = segmentIdx;
-        if (_waveGroupsProperty != null && groupIdx >= 0 && groupIdx < _waveGroupsProperty.arraySize)
-        {
-            _selectedWaveGroupIndex = groupIdx;
-            SerializedProperty groupProp = _waveGroupsProperty.GetArrayElementAtIndex(groupIdx);
-            SerializedProperty waveSetProp = groupProp.FindPropertyRelative("waveSet");
-            if (slotIdx >= 0 && slotIdx < waveSetProp.arraySize)
-            {
-                _selectedWaveSlotIndex = slotIdx;
-                WaveSO wave = (WaveSO)waveSetProp.GetArrayElementAtIndex(slotIdx).objectReferenceValue;
-                if (wave != null) { _selectedWave = wave; _serializedWaveObject = new SerializedObject(wave); }
-            }
-        }
-        Repaint();
-    }
-
-    private void UpdateDropdownIndexFromSelection()
-    {
-        if (_selectedLevelData != null && _cachedLevels.Contains(_selectedLevelData))
-            _selectedLevelIndex = _cachedLevels.IndexOf(_selectedLevelData);
-        else
-        {
-            _selectedLevelIndex = 0;
-            if (_selectedLevelData == null && _cachedLevels.Count > 0) ChangeSelectedLevel(_cachedLevels[0]);
-        }
-    }
-
-    private void CalculateLevelTotals()
-    {
-        _cachedLevelTotalGold = 0;
-        _cachedLevelTotalExp = 0;
-        if (_selectedLevelData == null || _selectedLevelData.WaveGroups == null) return;
-        foreach (WaveGroup group in _selectedLevelData.WaveGroups)
-            if (group.waveSet != null)
-                foreach (WaveSO wave in group.waveSet)
-                    if (wave != null) { _cachedLevelTotalGold += wave.totalGoldValue; _cachedLevelTotalExp += wave.totalExpValue; }
-    }
-
-    private void ResizeHandle()
-    {
-        Rect resizeRect = GUILayoutUtility.GetRect(5f, 0f, GUILayout.Width(5f), GUILayout.ExpandHeight(true));
-        if (Event.current.type == EventType.Repaint)
-        {
-            Color splitterColor = EditorGUIUtility.isProSkin ? new Color(0.12f, 0.12f, 0.12f) : new Color(0.6f, 0.6f, 0.6f);
-            EditorGUI.DrawRect(new Rect(resizeRect.x + 2, resizeRect.y, 1, resizeRect.height), splitterColor);
-        }
-        EditorGUIUtility.AddCursorRect(resizeRect, MouseCursor.ResizeHorizontal);
-        Event e = Event.current;
-        if (e.type == EventType.MouseDown && resizeRect.Contains(e.mousePosition)) { _isResizing = true; e.Use(); }
-        if (_isResizing) { _sidebarWidth += e.delta.x; _sidebarWidth = Mathf.Clamp(_sidebarWidth, MinSidebarWidth, position.width - 100f); Repaint(); }
-        if (e.type == EventType.MouseUp) _isResizing = false;
-    }
-
-    private void SelectWaveSlot(int groupIndex, int slotIndex, WaveSO wave)
-    {
-        _selectedWaveGroupIndex = groupIndex;
-        _selectedWaveSlotIndex = slotIndex;
-        _selectedWave = wave;
-        _serializedWaveObject = wave != null ? new SerializedObject(wave) : null;
-        GUI.FocusControl(null);
-        SceneView.RepaintAll();
-    }
+    // ==================== WAVE GROUP METHODS ====================
 
     private void AddNewWaveGroup()
     {
@@ -1123,7 +1092,7 @@ public class WaveEditorWindow : EditorWindow
         int index = _waveGroupsProperty.arraySize;
         _waveGroupsProperty.InsertArrayElementAtIndex(index);
         SerializedProperty newGroup = _waveGroupsProperty.GetArrayElementAtIndex(index);
-        newGroup.FindPropertyRelative("waveSet").ClearArray();
+        newGroup.FindPropertyRelative("waveSlots").ClearArray();
         _serializedLevelObject.ApplyModifiedProperties();
     }
 
@@ -1142,10 +1111,12 @@ public class WaveEditorWindow : EditorWindow
     {
         if (_waveGroupsProperty == null) return;
         SerializedProperty groupProp = _waveGroupsProperty.GetArrayElementAtIndex(groupIndex);
-        SerializedProperty waveSetProp = groupProp.FindPropertyRelative("waveSet");
-        int index = waveSetProp.arraySize;
-        waveSetProp.InsertArrayElementAtIndex(index);
-        waveSetProp.GetArrayElementAtIndex(index).objectReferenceValue = null;
+        SerializedProperty waveSlotsProperty = groupProp.FindPropertyRelative("waveSlots");
+        int index = waveSlotsProperty.arraySize;
+        waveSlotsProperty.InsertArrayElementAtIndex(index);
+        SerializedProperty newSlot = waveSlotsProperty.GetArrayElementAtIndex(index);
+        newSlot.FindPropertyRelative("wave").objectReferenceValue = null;
+        newSlot.FindPropertyRelative("routeIndex").intValue = 0;
         _serializedLevelObject.ApplyModifiedProperties();
         SelectWaveSlot(groupIndex, index, null);
     }
@@ -1154,26 +1125,8 @@ public class WaveEditorWindow : EditorWindow
     {
         if (_waveGroupsProperty == null) return;
         SerializedProperty groupProp = _waveGroupsProperty.GetArrayElementAtIndex(groupIndex);
-        SerializedProperty waveSetProp = groupProp.FindPropertyRelative("waveSet");
-        WaveSO wave = (WaveSO)waveSetProp.GetArrayElementAtIndex(slotIndex).objectReferenceValue;
-        
-        if (wave != null)
-        {
-            int choice = EditorUtility.DisplayDialogComplex("Delete Wave Slot", $"What to do with {wave.name}?", "Remove from Slot", "Cancel", "Delete Asset");
-            if (choice == 1) return;
-            if (choice == 2)
-            {
-                bool areYouSure = EditorUtility.DisplayDialog("Are you sure?", $"Deleting: {wave.name}?", "Yes", "No");
-                if (areYouSure)
-                {
-                    AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(wave)); RefreshWavePool();
-                }
-                
-            }
-        }
-        
-        waveSetProp.GetArrayElementAtIndex(slotIndex).objectReferenceValue = null;
-        waveSetProp.DeleteArrayElementAtIndex(slotIndex);
+        SerializedProperty waveSlotsProperty = groupProp.FindPropertyRelative("waveSlots");
+        waveSlotsProperty.DeleteArrayElementAtIndex(slotIndex);
         _serializedLevelObject.ApplyModifiedProperties();
         
         if (_selectedWaveGroupIndex == groupIndex && _selectedWaveSlotIndex == slotIndex)
@@ -1186,11 +1139,24 @@ public class WaveEditorWindow : EditorWindow
     {
         if (_waveGroupsProperty == null) return;
         SerializedProperty groupProp = _waveGroupsProperty.GetArrayElementAtIndex(groupIndex);
-        SerializedProperty waveSetProp = groupProp.FindPropertyRelative("waveSet");
-        waveSetProp.GetArrayElementAtIndex(slotIndex).objectReferenceValue = wave;
+        SerializedProperty waveSlotsProperty = groupProp.FindPropertyRelative("waveSlots");
+        SerializedProperty slotProp = waveSlotsProperty.GetArrayElementAtIndex(slotIndex);
+        slotProp.FindPropertyRelative("wave").objectReferenceValue = wave;
         _serializedLevelObject.ApplyModifiedProperties();
         SelectWaveSlot(groupIndex, slotIndex, wave);
         CalculateLevelTotals();
+    }
+
+    private void DeleteWaveAsset(WaveSO wave)
+    {
+        if (wave == null) return;
+        bool isAssigned = IsWaveAssignedToAnyGroup(wave);
+        string message = $"Delete '{wave.name}'?" + (isAssigned ? "\n\nWARNING: This wave is assigned!" : "");
+        if (!EditorUtility.DisplayDialog("Delete Wave", message, "Delete", "Cancel")) return;
+        
+        if (_selectedWave == wave) { _selectedWave = null; _serializedWaveObject = null; _isEditingFromPool = false; }
+        AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(wave));
+        RefreshWavePool();
     }
 
     private void CreateNewWaveAsset()
@@ -1200,42 +1166,18 @@ public class WaveEditorWindow : EditorWindow
         string folderPath = $"{BaseWavePath}/{levelName}";
         if (!Directory.Exists(folderPath)) { Directory.CreateDirectory(folderPath); AssetDatabase.Refresh(); }
         
-        // WaveSO newWave = CreateInstance<WaveSO>();
-        // string waveName = $"Wave_{levelName.Replace(" ", "_")}_{System.DateTime.Now.Ticks % 10000}";
-        // string fullPath = AssetDatabase.GenerateUniqueAssetPath($"{folderPath}/{waveName}.asset");
-        // AssetDatabase.CreateAsset(newWave, fullPath);
-        // AssetDatabase.SaveAssets();
-        // RefreshWavePool();
-        // EditorGUIUtility.PingObject(newWave);
-        
-        // --- NEW NAMING LOGIC START ---
-    
-        // 1. Define the naming pattern (e.g. "Wave_Level_One_")
         string cleanLevelName = levelName.Replace(" ", "_");
         string baseFileName = $"Wave_{cleanLevelName}_";
-    
-        // 2. Start checking from 1 and increment until we find a free spot
-        int index = 1;
-        string fullPath = $"{folderPath}/{baseFileName}{index}.asset";
+        int index = 0;
+        string fullPath = $"{folderPath}/{baseFileName}{index:D3}.asset";
+        while (AssetDatabase.LoadAssetAtPath<WaveSO>(fullPath) != null) { index++; fullPath = $"{folderPath}/{baseFileName}{index:D3}.asset"; }
 
-        // Check if the asset already exists at this path
-        while (AssetDatabase.LoadAssetAtPath<WaveSO>(fullPath) != null)
-        {
-            index++;
-            fullPath = $"{folderPath}/{baseFileName}{index}.asset";
-        }
-        // --- NEW NAMING LOGIC END ---
-
-        // Create and Save
         WaveSO newWave = CreateInstance<WaveSO>();
-    
-        // Assign the name to the internal object name as well (optional but good practice)
-        newWave.name = $"{baseFileName}{index}"; 
-
+        newWave.name = $"{baseFileName}{index:D3}"; 
         AssetDatabase.CreateAsset(newWave, fullPath);
         AssetDatabase.SaveAssets();
-    
         RefreshWavePool();
+        SelectWaveFromPool(newWave);
         EditorGUIUtility.PingObject(newWave);
     }
 
@@ -1246,9 +1188,14 @@ public class WaveEditorWindow : EditorWindow
         string folderPath = $"{BaseWavePath}/{levelName}";
         if (!Directory.Exists(folderPath)) { Directory.CreateDirectory(folderPath); AssetDatabase.Refresh(); }
         
+        string cleanLevelName = levelName.Replace(" ", "_");
+        string baseFileName = $"Wave_{cleanLevelName}_";
+        int index = 0;
+        string fullPath = $"{folderPath}/{baseFileName}{index:D3}.asset";
+        while (AssetDatabase.LoadAssetAtPath<WaveSO>(fullPath) != null) { index++; fullPath = $"{folderPath}/{baseFileName}{index:D3}.asset"; }
+
         WaveSO newWave = CreateInstance<WaveSO>();
-        string waveName = $"Wave_{levelName.Replace(" ", "_")}_G{groupIndex + 1}_S{slotIndex + 1}";
-        string fullPath = AssetDatabase.GenerateUniqueAssetPath($"{folderPath}/{waveName}.asset");
+        newWave.name = $"{baseFileName}{index:D3}";
         AssetDatabase.CreateAsset(newWave, fullPath);
         AssetDatabase.SaveAssets();
         RefreshWavePool();
@@ -1265,6 +1212,25 @@ public class WaveEditorWindow : EditorWindow
         string error = AssetDatabase.RenameAsset(oldPath, sanitizedName);
         if (string.IsNullOrEmpty(error))
         { AssetDatabase.SaveAssets(); _serializedWaveObject = new SerializedObject(_selectedWave); RefreshWavePool(); Repaint(); }
-        else Debug.LogError($"Failed to rename: {error}");
+        else Debug.LogError($"Rename failed: {error}");
+    }
+    
+    void DrawSeparator(float height = 1f)
+    {
+        Rect r = GUILayoutUtility.GetRect(
+            5f,
+            0f,
+            GUILayout.Width(5f),
+            GUILayout.ExpandHeight(true)
+        );
+
+        Color c = EditorGUIUtility.isProSkin
+            ? new Color(0.12f, 0.12f, 0.12f)
+            : new Color(0.6f, 0.6f, 0.6f);
+
+        EditorGUI.DrawRect(
+            new Rect(r.x + 2, r.y, 1, r.height),
+            c
+        );
     }
 }

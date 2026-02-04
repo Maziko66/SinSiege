@@ -39,8 +39,7 @@ public class WaveSpawnData
 [CreateAssetMenu(fileName = "Wave")]
 public class WaveSO : ScriptableObject
 {
-    [Header("Tower Defense Waves")]
-    public int routeIndex;
+    [Header("Wave Settings")]
     public float waveCooldown;
     
     [Tooltip("Default spawn interval between enemies")]

@@ -112453,14 +112453,13 @@ MonoBehaviour:
       - {fileID: 2968536454115872940}
       - {fileID: 6921971539151087546}
   waveGroups:
-  - waveSet:
-    - {fileID: 11400000, guid: 103a92ec3577f9e48aa8ff4e91368b74, type: 2}
-  - waveSet:
-    - {fileID: 11400000, guid: ee0869fe835494d46aa8c6390700173f, type: 2}
-  - waveSet:
-    - {fileID: 11400000, guid: 103a92ec3577f9e48aa8ff4e91368b74, type: 2}
-    - {fileID: 11400000, guid: 103a92ec3577f9e48aa8ff4e91368b74, type: 2}
-    - {fileID: 11400000, guid: 4f58ebc8b40e6794e8c080be0167fe61, type: 2}
+  - waveSlots:
+    - wave: {fileID: 11400000, guid: 103a92ec3577f9e48aa8ff4e91368b74, type: 2}
+      routeIndex: 0
+    - wave: {fileID: 11400000, guid: 103a92ec3577f9e48aa8ff4e91368b74, type: 2}
+      routeIndex: 1
+  - waveSlots: []
+  - waveSlots: []
   spawnPoints: []
   availableSegments:
   - segmentName: Top Left w Spawn
