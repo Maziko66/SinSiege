@@ -28,6 +28,28 @@ public static class MasterDictionary
         Jester,
         Scientist
     }
+
+    public enum Towers
+    {
+        Priest,
+        Cross,
+        Chapel,
+        Angel,
+        Bishop,
+        Archangel,
+        Prophet,
+        Virtue,
+        Church,
+        Archbishop,
+        Demigod,
+        Basilica,
+        Cherub,
+        GardenOfEden,
+        Cardinal,
+        Cathedral,
+        FallenAngel,
+        Seraph
+    }
     
     public enum UpgradeRarity
     {

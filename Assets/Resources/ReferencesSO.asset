@@ -50,7 +50,7 @@ MonoBehaviour:
   - name: towerDemigod
     prefab: {fileID: 6816113020035637059, guid: ef02d95f6370bf84dbafd714cbbcb959, type: 3}
   - name: towerBasilica
-    prefab: {fileID: 0}
+    prefab: {fileID: 8371521331112301713, guid: d1f0cd0944a340a45a73b7a67db7e379, type: 3}
   - name: towerCherub
     prefab: {fileID: 6816113020035637059, guid: 3e0bd7246117da44ea82b71b5ecbbe8a, type: 3}
   - name: towerGardenOfEden

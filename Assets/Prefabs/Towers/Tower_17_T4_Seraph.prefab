@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3464117249453483604}
   - component: {fileID: 8154091879056971046}
   m_Layer: 7
-  m_Name: Tower_13_T4_Cardinal
+  m_Name: Tower_17_T4_Seraph
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,6 +38,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4046721547241623055
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -56,6 +57,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -77,9 +80,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 3bb0e0080b0b3f24ca8bb58175edf426, type: 3}
   m_Color: {r: 1, g: 0, b: 0.08880377, a: 1}
   m_FlipX: 0
@@ -89,7 +94,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1942448605766754239
 MonoBehaviour:
@@ -103,29 +107,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e405100b7a7b15041879fa91add29d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationInit: 
-  towerName: Bishop
+  animationInit: animTowerSeraphInit
+  towerName: towerSeraph
   towerSprite: {fileID: 21300000, guid: 44f185970781c564a923fe542ccdf543, type: 3}
   attachedZone: {fileID: 0}
+  tier: 4
+  id: 17
   bulletsFired: 0
   bulletsHit: 0
   level: 0
   towerCost: 100
   upgradeCosts: 64000000c80000002c010000
-  attackRangeDefault: 12
-  attackIntervalDefault: 1
-  attackDamageDefault: 1
-  targetTagDefault: 0
+  attackRangeDefault: 0
+  attackIntervalDefault: 0
+  attackDamageDefault: 0
+  targetTagDefault: 1
   attackRange: 12
   attackInterval: 1
   attackDamage: 1
   targetTag: 1
   bullet: {fileID: 6250924970665204767, guid: 0e971f85226472b4fb7e5d90135e6b05, type: 3}
-  bulletSpeed: 12
-  bulletCount: 1
+  bulletSpeed: 0
+  bulletCount: 0
   spreadAngle: 0
-  bulletHealth: 1
+  bulletHealth: 0
   fireMode: 0
+  bulletIsSpinning: 0
+  isAOEBullet: 0
   rankBonusDamage:
   - 0
   - 0.1
@@ -264,6 +272,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3379152615202539997
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -282,6 +291,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -303,9 +314,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.745283, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -315,5 +328,4 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0

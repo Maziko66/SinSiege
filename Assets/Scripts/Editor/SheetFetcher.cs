@@ -17,10 +17,12 @@ public class SheetFetcher : EditorWindow
     // --- PREFS KEYS ---
     private const string PREF_UPGRADE_URL_KEY = "SheetFetcher_UpgradeURL";
     private const string PREF_CHAR_URL_KEY = "SheetFetcher_CharURL";
+    private const string PREF_TOWER_URL_KEY = "SheetFetcher_TowerURL";
 
     // --- VARIABLES ---
     private string upgradeUrl = "";
     private string characterUrl = "";
+    private string towerUrl = "";
 
     [MenuItem("Tools/Sheet Fetcher/Open Menu", priority = 0)]
     public static void ShowWindow()
@@ -42,10 +44,18 @@ public class SheetFetcher : EditorWindow
         if (ValidateUrl(savedURL)) SyncCharactersLogic(savedURL, false);
     }
 
+    [MenuItem("Tools/Sheet Fetcher/Sync Towers", priority = 3)]
+    public static void SyncTowersDirectly()
+    {
+        string savedURL = EditorPrefs.GetString(PREF_TOWER_URL_KEY, "");
+        if (ValidateUrl(savedURL)) SyncTowersLogic(savedURL, false);
+    }
+
     private void OnEnable()
     {
         upgradeUrl = EditorPrefs.GetString(PREF_UPGRADE_URL_KEY, "");
         characterUrl = EditorPrefs.GetString(PREF_CHAR_URL_KEY, "");
+        towerUrl = EditorPrefs.GetString(PREF_TOWER_URL_KEY, "");
     }
 
     private void OnGUI()
@@ -54,7 +64,7 @@ public class SheetFetcher : EditorWindow
         GUILayout.Space(10);
 
         // --- UPGRADES SECTION ---
-        DrawSection("Upgrades Database", ref upgradeUrl, PREF_UPGRADE_URL_KEY, 
+        DrawSection("Upgrades Database", ref upgradeUrl, PREF_UPGRADE_URL_KEY,
             () => SyncUpgradesLogic(upgradeUrl, false),
             () => SyncUpgradesLogic(upgradeUrl, true));
 
@@ -66,6 +76,15 @@ public class SheetFetcher : EditorWindow
         DrawSection("Characters Database", ref characterUrl, PREF_CHAR_URL_KEY,
             () => SyncCharactersLogic(characterUrl, false),
             () => SyncCharactersLogic(characterUrl, true));
+
+        GUILayout.Space(15);
+        DrawUILine(Color.gray);
+        GUILayout.Space(15);
+
+        // --- TOWERS SECTION ---
+        DrawSection("Towers Database", ref towerUrl, PREF_TOWER_URL_KEY,
+            () => SyncTowersLogic(towerUrl, false),
+            () => SyncTowersLogic(towerUrl, true));
     }
 
     // Helper to draw UI sections to keep OnGUI clean
@@ -92,12 +111,9 @@ public class SheetFetcher : EditorWindow
     {
         FetchAndProcess(rawUrl, debugMode, CHARACTERS_PATH, (cells, processedFiles, newCount, updatedCount) =>
         {
-            // Expected: id | keyName | keyFullName | keyDesc | damage | attackSpeed | movementSpeed
             if (cells.Length < 7) return false;
 
             string idStr = cells[0];
-            
-            // 1. Parse Enum ID
             MasterDictionary.Characters charEnum;
             try
             {
@@ -109,11 +125,9 @@ public class SheetFetcher : EditorWindow
                 return false;
             }
 
-            // 2. Filename Logic
             string fileName = $"Character_{idStr}";
             processedFiles.Add(fileName);
 
-            // 3. Create/Load Asset
             string assetPath = $"{CHARACTERS_PATH}/{fileName}.asset";
             CharacterData asset = AssetDatabase.LoadAssetAtPath<CharacterData>(assetPath);
             bool isNew = false;
@@ -125,11 +139,8 @@ public class SheetFetcher : EditorWindow
                 isNew = true;
             }
 
-            // 4. Update Properties
             SerializedObject so = new SerializedObject(asset);
-            
-            // Note: Ensure your CharacterData fields match these names exactly (case-sensitive)
-            SetProp(so, "id", (int)charEnum); // Handling Enum as Int
+            SetProp(so, "id", (int)charEnum);
             SetProp(so, "characterName", cells[1]);
             SetProp(so, "fullName", cells[2]);
             SetProp(so, "desc", cells[3]);
@@ -157,22 +168,17 @@ public class SheetFetcher : EditorWindow
     {
         FetchAndProcess(rawUrl, debugMode, UPGRADES_PATH, (cells, processedFiles, newCount, updatedCount) =>
         {
-            // Expected: ID | Name | Desc | Level | Type | Value | IsMult | ...
             if (cells.Length < 7) return false;
 
             int id = ParseIntSafe(cells[0]);
             string name = cells[1];
-            
-            // Filename Logic
             string cleanName = name.Replace("upgradeName", "").Replace("Name", "").Replace(" ", "").Trim();
             string fileName = $"{cleanName}_{id}";
             fileName = Regex.Replace(fileName, "[^a-zA-Z0-9_]", "");
-            
             if (string.IsNullOrEmpty(fileName)) return false;
 
             processedFiles.Add(fileName);
 
-            // Create/Load Asset
             string assetPath = $"{UPGRADES_PATH}/{fileName}.asset";
             UpgradeData asset = AssetDatabase.LoadAssetAtPath<UpgradeData>(assetPath);
             bool isNew = false;
@@ -184,18 +190,15 @@ public class SheetFetcher : EditorWindow
                 isNew = true;
             }
 
-            // Parse Data
             int level = ParseIntSafe(cells[3]);
             string typeStr = cells[4];
             UpgradeType typeEnum = UpgradeType.Custom;
             try { typeEnum = (UpgradeType)Enum.Parse(typeof(UpgradeType), typeStr, true); } catch { }
-            
             float val = ParseFloatSafe(cells[5]);
             bool isMulti = cells[6].ToUpper() == "TRUE" || cells[6] == "1";
             float secVal = (cells.Length > 8) ? ParseFloatSafe(cells[8]) : 0f;
             float terVal = (cells.Length > 9) ? ParseFloatSafe(cells[9]) : 0f;
 
-            // Update Properties
             SerializedObject so = new SerializedObject(asset);
             SetProp(so, "upgradeID", id);
             SetProp(so, "upgradeName", name);
@@ -221,16 +224,115 @@ public class SheetFetcher : EditorWindow
     }
 
     // =================================================================================================
+    // LOGIC: TOWERS (FIXED COLUMN MAPPING)
+    // =================================================================================================
+    private static void SyncTowersLogic(string rawUrl, bool debugMode)
+    {
+        ReferencesSO refs = Refs.R;
+        if (refs == null)
+        {
+            string[] guids = AssetDatabase.FindAssets("t:ReferencesSO");
+            if (guids.Length > 0)
+                refs = AssetDatabase.LoadAssetAtPath<ReferencesSO>(AssetDatabase.GUIDToAssetPath(guids[0]));
+        }
+
+        if (refs == null || refs.TowerReferences == null)
+        {
+            Debug.LogError("Could not find 'ReferencesSO'.");
+            return;
+        }
+
+        int listSize = refs.TowerReferences.Length;
+
+        // MAPPING BASED ON SCREENSHOT:
+        // Col A [0] = Name
+        // Col B [1] = ID
+        // Col C [2] = Animation
+        // Col D [3] = Tier
+        // Col E [4] = mergeContent (SKIP)
+        // Col F [5] = targetTag
+        // Col G [6] = Range
+        // Col H [7] = Interval
+        // Col I [8] = Damage
+        // Col J [9] = Bullet Speed
+        // Col K [10] = Bullet Count
+        // Col L [11] = Spread
+        // Col M [12] = Bullet Health
+        // Col N [13] = Is Spinning
+        // Col O [14] = Is AOE
+
+        FetchAndProcess(rawUrl, debugMode, "Assets", (cells, processedFiles, newCount, updatedCount) =>
+        {
+            if (cells.Length < 10) return false;
+
+            // 1. Get ID from Col B (index 1)
+            int sheetID = ParseIntSafe(cells[1]);
+
+            if (sheetID < 0 || sheetID >= listSize)
+            {
+                Debug.LogWarning($"Skipping Row: ID {sheetID} is out of bounds (List Size: {listSize}).");
+                return false;
+            }
+
+            TowerReference reference = refs.TowerReferences[sheetID];
+            if (reference == null || reference.prefab == null) return false;
+
+            GameObject towerPrefab = reference.prefab;
+            TowerGeneric towerScript = towerPrefab.GetComponent<TowerGeneric>();
+
+            if (towerScript == null) return false;
+
+            SerializedObject so = new SerializedObject(towerScript);
+
+            // 2. Map Properties
+            SetProp(so, "id", sheetID);
+            SetProp(so, "towerName", cells[0]);        // Name is Col 0
+            SetProp(so, "animationInit", cells[2]);    // Anim is Col 2
+            SetProp(so, "tier", ParseIntSafe(cells[3])); // Tier is Col 3
+            
+            // Skip cells[4] (MergeContent)
+
+            // Tag is Col 5
+            string tagStr = cells[5];
+            if (string.IsNullOrEmpty(tagStr)) tagStr = "Enemy";
+            FireMethods.TargetTag tagEnum = FireMethods.TargetTag.Enemy;
+            try { tagEnum = (FireMethods.TargetTag)Enum.Parse(typeof(FireMethods.TargetTag), tagStr, true); } catch { }
+            SetProp(so, "targetTagDefault", (int)tagEnum);
+
+            SetProp(so, "attackRangeDefault", ParseFloatSafe(cells[6]));
+            SetProp(so, "attackIntervalDefault", ParseFloatSafe(cells[7]));
+            SetProp(so, "attackDamageDefault", ParseFloatSafe(cells[8]));
+
+            SetProp(so, "bulletSpeed", ParseFloatSafe(cells[9]));
+            SetProp(so, "bulletCount", ParseIntSafe(cells[10]));
+            SetProp(so, "spreadAngle", ParseFloatSafe(cells[11]));
+            SetProp(so, "bulletHealth", ParseIntSafe(cells[12]));
+
+            bool spin = (cells.Length > 13) && (cells[13].ToUpper() == "TRUE" || cells[13] == "1");
+            SetProp(so, "bulletIsSpinning", spin);
+
+            bool isAOE = (cells.Length > 14) && (cells[14].ToUpper() == "TRUE" || cells[14] == "1");
+            SetProp(so, "isAOEBullet", isAOE);
+
+            if (so.ApplyModifiedProperties())
+            {
+                updatedCount.Value++;
+                EditorUtility.SetDirty(towerPrefab);
+                Debug.Log($"<color=green>Updated:</color> [{sheetID}] {towerPrefab.name}");
+            }
+            
+            return true;
+        }, skipDeletePhase: true); 
+    }
+
+    // =================================================================================================
     // CORE PROCESSING ENGINE
     // =================================================================================================
-    
-    // Using a RefInt class because ref/out cannot be used inside lambda expressions easily
     private class RefInt { public int Value; }
 
-    private static void FetchAndProcess(string rawUrl, bool debugMode, string savePath, 
-        Func<string[], HashSet<string>, RefInt, RefInt, bool> rowProcessor)
+    private static void FetchAndProcess(string rawUrl, bool debugMode, string savePath,
+        Func<string[], HashSet<string>, RefInt, RefInt, bool> rowProcessor, bool skipDeletePhase = false)
     {
-        // 1. URL FIX
         string csvUrl = rawUrl;
         if (rawUrl.Contains("/edit"))
         {
@@ -241,14 +343,13 @@ public class SheetFetcher : EditorWindow
         string csvData = DownloadCSV(csvUrl);
         if (string.IsNullOrEmpty(csvData)) return;
 
-        // 2. SEPARATOR DETECTION
         char separator = ',';
         string[] lines = csvData.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
         if (lines.Length > 0 && lines[0].Contains(";") && !lines[0].Contains(",")) separator = ';';
 
         if (debugMode) Debug.Log($"<color=yellow>Detected Separator:</color> '{separator}'");
 
-        if (!Directory.Exists(savePath))
+        if (!skipDeletePhase && !Directory.Exists(savePath))
         {
             Directory.CreateDirectory(savePath);
             AssetDatabase.Refresh();
@@ -260,7 +361,7 @@ public class SheetFetcher : EditorWindow
         RefInt updatedCount = new RefInt();
         int deletedCount = 0;
 
-        int startRow = debugMode ? 0 : 1; // Skip header unless debugging
+        int startRow = debugMode ? 0 : 1; 
 
         for (int i = startRow; i < lines.Length; i++)
         {
@@ -272,11 +373,10 @@ public class SheetFetcher : EditorWindow
                 if (debugMode)
                 {
                     Debug.Log($"Row {i}: {string.Join(" | ", cells)}");
-                    if (i > 5) break; 
+                    if (i > 5) break;
                     continue;
                 }
 
-                // Call the specific processor logic
                 rowProcessor(cells, processedFiles, newCount, updatedCount);
             }
             catch (Exception ex)
@@ -285,8 +385,7 @@ public class SheetFetcher : EditorWindow
             }
         }
 
-        // 3. CLEANUP (DELETE OLD FILES)
-        if (!debugMode)
+        if (!debugMode && !skipDeletePhase)
         {
             string[] allAssetPaths = Directory.GetFiles(savePath, "*.asset");
             foreach (string filePath in allAssetPaths)
@@ -295,7 +394,6 @@ public class SheetFetcher : EditorWindow
                 if (!processedFiles.Contains(fileNameWithoutExt))
                 {
                     string unityPath = filePath.Replace("\\", "/");
-                    // Assuming types match the folder structure
                     if (AssetDatabase.LoadMainAssetAtPath(unityPath) != null)
                     {
                         AssetDatabase.DeleteAsset(unityPath);
@@ -303,10 +401,13 @@ public class SheetFetcher : EditorWindow
                     }
                 }
             }
+        }
 
+        if (!debugMode)
+        {
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
-            Debug.Log($"<color=green>Sync Complete!</color> Path: {savePath}\nCreated: {newCount.Value}, Updated: {updatedCount.Value}, <color=orange>Deleted: {deletedCount}</color>");
+            Debug.Log($"<color=green>Sync Complete!</color> Updated: {updatedCount.Value}");
         }
     }
 
@@ -317,9 +418,13 @@ public class SheetFetcher : EditorWindow
     private static void SetProp(SerializedObject so, string propName, object value)
     {
         SerializedProperty prop = so.FindProperty(propName);
-        if (prop == null) return; // Property might not exist or name changed
+        if (prop == null) return; 
 
-        if (value is int i) prop.intValue = i;
+        if (value is int i)
+        {
+            if (prop.propertyType == SerializedPropertyType.Enum) prop.enumValueIndex = i;
+            else prop.intValue = i;
+        }
         else if (value is float f) prop.floatValue = f;
         else if (value is string s) prop.stringValue = s;
         else if (value is bool b) prop.boolValue = b;
@@ -329,7 +434,7 @@ public class SheetFetcher : EditorWindow
     {
         if (string.IsNullOrEmpty(url))
         {
-            Debug.LogError("URL is empty. Please open the menu and paste your Google Sheet link.");
+            Debug.LogError("URL is empty.");
             return false;
         }
         return true;

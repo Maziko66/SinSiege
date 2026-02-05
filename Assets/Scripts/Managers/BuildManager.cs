@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using static MasterDictionary.Towers;
 
 public class BuildManager : MonoBehaviour
 {
@@ -71,6 +72,8 @@ public class BuildManager : MonoBehaviour
     public TowerGeneric TowerCathedral => towerCathedral;
     public TowerGeneric TowerFallenAngel => towerFallenAngel;
     public TowerGeneric TowerSeraphim => towerSeraphim;
+
+    public TowerReference[] TowerRefs;
     
     private RectTransform _uiTowerBuilderCombatRectTransform;
     private RectTransform _uiTowerManagerCombatRectTransform;
@@ -83,6 +86,7 @@ public class BuildManager : MonoBehaviour
     private string[] _mergeArrayNames = new string[2];
     private TowerZone _mergeTowerZone;
     
+    
 
     public void Init()
     {
@@ -94,7 +98,14 @@ public class BuildManager : MonoBehaviour
 
     private void Awake()
     {
-        
+        if (Refs.R != null)
+        {
+            TowerRefs = Refs.R.TowerReferences;
+        }
+        else
+        {
+            Debug.LogError("Refs.R is null! Make sure your Singleton is working.");
+        }
     }
 
     private void Start()
@@ -109,22 +120,54 @@ public class BuildManager : MonoBehaviour
         
         uiTowerBuilderCombat.gameObject.SetActive(false);
         uiTowerManagerCombat.gameObject.SetActive(false);
+
+        for (int i = 0; i < TowerRefs.Length; i++)
+        {
+            _towerKvp.Add(TowerRefs[i].name, TowerRefs[i].prefab.GetComponent<TowerGeneric>());
+        }
         
-        _towerKvp.Add(TowerPriest.towerName, TowerPriest);
-        _towerKvp.Add(TowerCross.towerName, TowerCross);
-        _towerKvp.Add(TowerAngel.towerName, TowerAngel);
-        _towerKvp.Add(TowerChapel.towerName, TowerChapel);
+        // foreach (var (key, tower) in _towerKvp)
+        // {
+        //     Debug.Log($"Key: {key} | Tower: {tower}");
+        // }
         
-        _towerKvp.Add(TowerBishop.towerName, TowerBishop);
+        // _towerKvp.Add(TowerPriest.towerName, TowerPriest);
+        // _towerKvp.Add(TowerCross.towerName, TowerCross);
+        // _towerKvp.Add(TowerAngel.towerName, TowerAngel);
+        // _towerKvp.Add(TowerChapel.towerName, TowerChapel);
+        //
+        // _towerKvp.Add(TowerBishop.towerName, TowerBishop);
         
         
-        //Tier II Merges
-        _possibleTowerMergesByName.Add(TowerBishop.towerName, (TowerPriest.towerName, TowerCross.towerName));
-        //possibleTowerMergesByName.Add(towerArchangel, (towerCross, towerAngel));
-        //possibleTowerMergesByName.Add(towerProphet, (towerPriest, towerAngel));
-        //possibleTowerMergesByName.Add(towerVirtue, (towerAngel, towerAngel));
-        //possibleTowerMergesByName.Add(towerChurch, (towerChapel, towerPriest));
-        //Tier III Merges
+        // Tier II Merges
+        // _possibleTowerMergesByName.Add(TowerBishop.towerName, (TowerPriest.towerName, TowerCross.towerName));
+        // _possibleTowerMergesByName.Add(TowerArchangel.towerName, (TowerCross.towerName, TowerAngel.towerName));
+        // _possibleTowerMergesByName.Add(TowerProphet.towerName, (towerPriest.towerName, TowerAngel.towerName));
+        // _possibleTowerMergesByName.Add(TowerVirtue.towerName, (TowerAngel.towerName, TowerAngel.towerName));
+        // _possibleTowerMergesByName.Add(TowerChurch.towerName, (towerChapel.towerName, TowerPriest.towerName));
+        //
+        // _possibleTowerMergesByName.Add(TowerRefs[(int)Bishop].name,
+        //                               (TowerRefs[(int)Priest].name, TowerRefs[(int)Archangel].name));
+        
+        // Tier II Merges
+        AddMergeRecipe(Bishop, Priest, Cross);
+        AddMergeRecipe(Archangel, Cross, Angel);
+        AddMergeRecipe(Prophet, Priest, Angel);
+        AddMergeRecipe(Virtue, Angel, Angel);
+        AddMergeRecipe(Church,Chapel, Priest);
+        
+        // Tier III Merges
+        AddMergeRecipe(Archbishop, Priest, Archangel);
+        AddMergeRecipe(Demigod, Virtue, Prophet);
+        AddMergeRecipe(Basilica, Church, Bishop);
+        AddMergeRecipe(Cherub, Archangel, Virtue);
+        AddMergeRecipe(GardenOfEden, Church, Cross);
+        
+        // Tier IV Merges
+        AddMergeRecipe(Cardinal, Archbishop, Bishop);
+        AddMergeRecipe(Cathedral, Basilica, Cardinal);
+        AddMergeRecipe(FallenAngel, GardenOfEden, Cherub);
+        AddMergeRecipe(Seraph, Cherub, Demigod);
         
         TowerZoneExpSliderActive(false);
     }
@@ -479,5 +522,11 @@ public class BuildManager : MonoBehaviour
     {
         buildMenuCrosshair.SetActive(onBuildMenu);
         buildMenuChecker.SetActive(onBuildMenu);
+    }
+
+    private void AddMergeRecipe(MasterDictionary.Towers upperTier, MasterDictionary.Towers lowerTier1, MasterDictionary.Towers lowerTier2)
+    {
+        _possibleTowerMergesByName.Add(TowerRefs[(int)upperTier].name,
+                                      (TowerRefs[(int)lowerTier1].name, TowerRefs[(int)lowerTier2].name));
     }
 }

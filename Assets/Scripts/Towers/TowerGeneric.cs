@@ -15,6 +15,7 @@ public class TowerGeneric : MonoBehaviour
     public Sprite towerSprite;
     public TowerZone attachedZone;
     public int tier;
+    public int id;
     
     [Header("Tower Values")]
     public int bulletsFired;
