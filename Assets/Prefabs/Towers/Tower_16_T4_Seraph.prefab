@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3464117249453483604}
   - component: {fileID: 8154091879056971046}
   m_Layer: 7
-  m_Name: TowerBishop
+  m_Name: Tower_16_T4_Seraph
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

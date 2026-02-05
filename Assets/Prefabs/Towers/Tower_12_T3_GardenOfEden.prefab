@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 2792807623671680668}
   - component: {fileID: -6407572423726418226}
   m_Layer: 7
-  m_Name: TowerChapel
+  m_Name: Tower_12_T3_GardenOfEden
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -26,3 +26,40 @@ MonoBehaviour:
     rgba: 4278454461
   - serializedVersion: 2
     rgba: 4279703644
+  <TowerReferences>k__BackingField:
+  - name: towerPriest
+    prefab: {fileID: 6816113020035637059, guid: 698f40780ef49b04ebb8c8bc4cea04cb, type: 3}
+  - name: towerCross
+    prefab: {fileID: 6816113020035637059, guid: 5ff6633369e37b343b1db272270a8b43, type: 3}
+  - name: towerChapel
+    prefab: {fileID: 8371521331112301713, guid: cc6db8a6fd9ceb24ea6abed6be1a5cd1, type: 3}
+  - name: towerAngel
+    prefab: {fileID: 6816113020035637059, guid: 6dfd007ce11bc0b41b93a954da44f6ab, type: 3}
+  - name: towerBishop
+    prefab: {fileID: 6816113020035637059, guid: fca81c493c0ff0049932eb5216e75512, type: 3}
+  - name: towerArchangel
+    prefab: {fileID: 6816113020035637059, guid: ac3eb7138536a6b44826b1d7999b5c91, type: 3}
+  - name: towerProphet
+    prefab: {fileID: 6816113020035637059, guid: 5953411f6bdee4144b2cedad78f67b21, type: 3}
+  - name: towerVirtue
+    prefab: {fileID: 6816113020035637059, guid: 5e66371f38e87834c8b8f604f89e5193, type: 3}
+  - name: towerChurch
+    prefab: {fileID: 8371521331112301713, guid: 847eea63801490848b6a3eee5781a5db, type: 3}
+  - name: towerArchbishop
+    prefab: {fileID: 6816113020035637059, guid: 022fe095151c601419f5419544680dd1, type: 3}
+  - name: towerDemigod
+    prefab: {fileID: 6816113020035637059, guid: ef02d95f6370bf84dbafd714cbbcb959, type: 3}
+  - name: towerBasilica
+    prefab: {fileID: 0}
+  - name: towerCherub
+    prefab: {fileID: 6816113020035637059, guid: 3e0bd7246117da44ea82b71b5ecbbe8a, type: 3}
+  - name: towerGardenOfEden
+    prefab: {fileID: 8371521331112301713, guid: 9883756fab149ec48b28a90cc1c389b4, type: 3}
+  - name: towerCardinal
+    prefab: {fileID: 6816113020035637059, guid: 53657315ad06c86498e97e56f8148918, type: 3}
+  - name: towerCathedral
+    prefab: {fileID: 8371521331112301713, guid: 3fa56c8699a056e49b2f6e18a7c30fde, type: 3}
+  - name: towerFallenAngel
+    prefab: {fileID: 6816113020035637059, guid: a660485632163e34ca44f0f59d554396, type: 3}
+  - name: towerSeraph
+    prefab: {fileID: 6816113020035637059, guid: ebe6fc559553e4440b2f03e3c310d450, type: 3}
