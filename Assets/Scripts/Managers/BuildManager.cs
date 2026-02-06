@@ -459,16 +459,26 @@ public class BuildManager : MonoBehaviour
 
         (string, string) towerNameTuple = (_mergeArrayNames[0], _mergeArrayNames[1]);
         string towerNameMerged = FindTowerByNameTuple(towerNameTuple);
-        if (_towerKvp.TryGetValue(towerNameMerged, out TowerGeneric towerMerged))
+        
+        if (!string.IsNullOrEmpty(towerNameMerged)) 
         {
-            CreateTower(towerMerged, true);
-            //DrawUITowerManagerCombat();
-            Debug.Log(towerNameMerged);
-            ClearMerge();
+            if (_towerKvp.TryGetValue(towerNameMerged, out TowerGeneric towerMerged))
+            {
+                CreateTower(towerMerged, true);
+
+                Debug.Log($"Merged Tower Created: {towerNameMerged}");
+                ClearMerge();
+            }
+            else
+            {
+                // The name exists, but it's not in the dictionary
+                Debug.LogError($"Tower name '{towerNameMerged}' returned by tuple search, but not found in _towerKvp dictionary.");
+            }
         }
         else
         {
-            Debug.Log("Tower Not Found");
+            Debug.Log("Invalid Merge Combination: FindTowerByNameTuple returned null.");
+            // ClearMerge();
         }
     }
     

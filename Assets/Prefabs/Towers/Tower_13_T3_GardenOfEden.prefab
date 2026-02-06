@@ -398,7 +398,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1813968716, guid: 3dc2f69f6433ac841954bf52fab31dd2, type: 3}
+  m_Sprite: {fileID: 3526839667574446908, guid: 923dd72c66849d94cb72209f12203a23, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationInit: animTowerGardenOfEdenInit
   towerName: towerGardenOfEden
-  towerSprite: {fileID: 21300000, guid: 1131510fd5296994da9e49236e54d53d, type: 3}
+  towerSprite: {fileID: 3526839667574446908, guid: 923dd72c66849d94cb72209f12203a23, type: 3}
   attachedZone: {fileID: 0}
   tier: 3
   id: 13
@@ -542,8 +542,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.567, y: 0.361}
-    oldSize: {x: 6, y: 8}
+    pivot: {x: 0.5, y: 0.33}
+    oldSize: {x: 3.1875, y: 5.5}
     newSize: {x: 2, y: 2.625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

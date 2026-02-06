@@ -85,8 +85,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 3bb0e0080b0b3f24ca8bb58175edf426, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.08880377, a: 1}
+  m_Sprite: {fileID: 4791447666343842850, guid: a061d6eda3c539947aab998d18515d5a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationInit: animTowerBishopInit
   towerName: towerBishop
-  towerSprite: {fileID: 21300000, guid: 44f185970781c564a923fe542ccdf543, type: 3}
+  towerSprite: {fileID: 4791447666343842850, guid: a061d6eda3c539947aab998d18515d5a, type: 3}
   attachedZone: {fileID: 0}
   tier: 2
   id: 4
@@ -229,8 +229,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.101123594}
-    oldSize: {x: 2.625, y: 5.5625}
+    pivot: {x: 0.5, y: 0.12}
+    oldSize: {x: 2.75, y: 5.6875}
     newSize: {x: 3, y: 3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
