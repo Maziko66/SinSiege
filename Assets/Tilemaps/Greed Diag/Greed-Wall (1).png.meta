@@ -1,0 +1,537 @@
+fileFormatVersion: 2
+guid: 866f958cc35d8004d95245ea71f3b755
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4981975388162294163
+    second: Greed-Wall (1)_0
+  - first:
+      213: -2114407352297239733
+    second: Greed-Wall (1)_1
+  - first:
+      213: 4844696395121186287
+    second: Greed-Wall (1)_2
+  - first:
+      213: 3601392717624664301
+    second: Greed-Wall (1)_3
+  - first:
+      213: -6418611079115198058
+    second: Greed-Wall (1)_4
+  - first:
+      213: 1202097117337454330
+    second: Greed-Wall (1)_5
+  - first:
+      213: 4864617650330772869
+    second: Greed-Wall (1)_6
+  - first:
+      213: -405540293957257789
+    second: Greed-Wall (1)_7
+  - first:
+      213: 4483167498033600526
+    second: Greed-Wall (1)_8
+  - first:
+      213: 3128503752522545614
+    second: Greed-Wall (1)_9
+  - first:
+      213: 7885081756401150720
+    second: Greed-Wall (1)_10
+  - first:
+      213: -4263710766013044958
+    second: Greed-Wall (1)_11
+  - first:
+      213: -3800467902634723412
+    second: Greed-Wall (1)_12
+  - first:
+      213: 3977445976416619739
+    second: Greed-Wall (1)_13
+  - first:
+      213: -2854834700745502445
+    second: Greed-Wall (1)_14
+  - first:
+      213: 4600830748644785401
+    second: Greed-Wall (1)_15
+  - first:
+      213: -6170219049844351125
+    second: Greed-Wall (1)_16
+  - first:
+      213: -3910670183719943189
+    second: Greed-Wall (1)_17
+  - first:
+      213: 3300210400260319653
+    second: Greed-Wall (1)_18
+  - first:
+      213: 1072845560196620461
+    second: Greed-Wall (1)_19
+  - first:
+      213: 3579471924997853520
+    second: Greed-Wall (1)_20
+  - first:
+      213: 6250626974228406368
+    second: Greed-Wall (1)_21
+  - first:
+      213: 5922490062532979212
+    second: Greed-Wall (1)_22
+  - first:
+      213: -6643839533991621919
+    second: Greed-Wall (1)_23
+  - first:
+      213: -5896551987501465886
+    second: Greed-Wall (1)_24
+  - first:
+      213: -6398692602605814856
+    second: Greed-Wall (1)_25
+  - first:
+      213: -4563000144118845121
+    second: Greed-Wall (1)_26
+  - first:
+      213: 2728003669953263901
+    second: Greed-Wall (1)_27
+  - first:
+      213: 937190303685766932
+    second: Greed-Wall (1)_28
+  - first:
+      213: 5008031208404910371
+    second: Greed-Wall (1)_29
+  - first:
+      213: 451654701555413788
+    second: Greed-Wall (1)_30
+  - first:
+      213: -7886905953064707245
+    second: Greed-Wall (1)_31
+  - first:
+      213: 2737124369823931627
+    second: Greed-Wall (1)_32
+  - first:
+      213: 4910514143033514207
+    second: Greed-Wall (1)_33
+  - first:
+      213: -5546689218847265163
+    second: Greed-Wall (1)_34
+  - first:
+      213: 7559931793196003410
+    second: Greed-Wall (1)_35
+  - first:
+      213: -9103921477005966726
+    second: Greed-Wall (1)_36
+  - first:
+      213: -823827973583720455
+    second: Greed-Wall (1)_37
+  - first:
+      213: 2434464480337735307
+    second: Greed-Wall (1)_38
+  - first:
+      213: -2744209291809084855
+    second: Greed-Wall (1)_39
+  - first:
+      213: -1786465692515970581
+    second: Greed-Wall (1)_40
+  - first:
+      213: 3709079880470643866
+    second: Greed-Wall (1)_41
+  - first:
+      213: -6949049695312965411
+    second: Greed-Wall (1)_42
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Greed-Wall (1)_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6ef8d4b7c77cdab0800000000000000
+      internalID: -4981975388162294163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greed-Wall (1)_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32081c2875f023a47a21a7f54e3e3fcc
+      internalID: -2114407352297239733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greed-Wall (1)_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e51517109365504a97f6388c9329c92
+      internalID: 4844696395121186287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greed-Wall (1)_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bb7e3eb4b6b7d948bffbac9ad64c992
+      internalID: 3601392717624664301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greed-Wall (1)_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a756a0517281cc049954c44af89864ee
+      internalID: -6418611079115198058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greed-Wall (1)_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46b370b6692926943b4328a4210d71d4
+      internalID: 1202097117337454330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greed-Wall (1)_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc3615f1e68620f478e0b9eff0e2a72e
+      internalID: 4864617650330772869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greed-Wall (1)_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a384ccee52b1e6a4f8b18772916ecd84
+      internalID: -405540293957257789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greed-Wall (1)_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 002f6a83fa3a7c14e9b36d7a74f81398
+      internalID: 4483167498033600526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greed-Wall (1)_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 258c403bd76f78246a23bc401f93bd48
+      internalID: 3128503752522545614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greed-Wall (1)_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90a1e018e0614fe4dbfd352ce3c6b228
+      internalID: 7885081756401150720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Greed-Wall (1)_11
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dc41fe5ac49c9b4d9136df391ac4631
+      internalID: -4263710766013044958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 67dda07f24596b54888636ac9ecfb6f9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Greed-Wall (1)_0: -4981975388162294163
+      Greed-Wall (1)_1: -2114407352297239733
+      Greed-Wall (1)_10: 7885081756401150720
+      Greed-Wall (1)_11: -4263710766013044958
+      Greed-Wall (1)_2: 4844696395121186287
+      Greed-Wall (1)_3: 3601392717624664301
+      Greed-Wall (1)_4: -6418611079115198058
+      Greed-Wall (1)_5: 1202097117337454330
+      Greed-Wall (1)_6: 4864617650330772869
+      Greed-Wall (1)_7: -405540293957257789
+      Greed-Wall (1)_8: 4483167498033600526
+      Greed-Wall (1)_9: 3128503752522545614
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
