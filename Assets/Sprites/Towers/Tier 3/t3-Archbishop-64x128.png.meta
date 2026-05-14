@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: b8d9c157912c0fa40b053e731c70385f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1282833751254394346
+    second: t3-Archbishop-64x128_0
+  - first:
+      213: -808759254544984071
+    second: t3-Archbishop-64x128_1
+  - first:
+      213: -6045236688033251576
+    second: t3-Archbishop-64x128_2
+  - first:
+      213: -3678289073485621791
+    second: t3-Archbishop-64x128_3
+  - first:
+      213: -442780499972937896
+    second: t3-Archbishop-64x128_4
+  - first:
+      213: -5760464718555202531
+    second: t3-Archbishop-64x128_5
+  - first:
+      213: -2979604079750037678
+    second: t3-Archbishop-64x128_6
+  - first:
+      213: -1559090362398290564
+    second: t3-Archbishop-64x128_7
+  - first:
+      213: -1134101127072513806
+    second: t3-Archbishop-64x128_8
+  - first:
+      213: 1534347607612095151
+    second: t3-Archbishop-64x128_9
+  - first:
+      213: 4262646687914844637
+    second: t3-Archbishop-64x128_10
+  - first:
+      213: -4545582524684255119
+    second: t3-Archbishop-64x128_11
+  - first:
+      213: 4704809687448213944
+    second: t3-Archbishop-64x128_12
+  - first:
+      213: 5373427700824301820
+    second: t3-Archbishop-64x128_13
+  - first:
+      213: -3489245076695709234
+    second: t3-Archbishop-64x128_14
+  - first:
+      213: 6135301818032425640
+    second: t3-Archbishop-64x128_15
+  - first:
+      213: 7716450384651208855
+    second: t3-Archbishop-64x128_16
+  - first:
+      213: -5702285352656576515
+    second: t3-Archbishop-64x128_17
+  - first:
+      213: -8833629951860025467
+    second: t3-Archbishop-64x128_18
+  - first:
+      213: 5694902511819105450
+    second: t3-Archbishop-64x128_19
+  - first:
+      213: 6041231406674720758
+    second: t3-Archbishop-64x128_20
+  - first:
+      213: 2209643341716743322
+    second: t3-Archbishop-64x128_21
+  - first:
+      213: 1385690951213257641
+    second: t3-Archbishop-64x128_22
+  - first:
+      213: -3354047307056193032
+    second: t3-Archbishop-64x128_23
+  - first:
+      213: 6179156198327980916
+    second: t3-Archbishop-64x128_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 844
+        width: 212
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61a999eff75723ee0800000000000000
+      internalID: -1282833751254394346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_1
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 742
+        width: 67
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f759043eb5b6c4f0800000000000000
+      internalID: -808759254544984071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_2
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 746
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80f7e92e2410b1ca0800000000000000
+      internalID: -6045236688033251576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_3
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 743
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e550b9739714fcc0800000000000000
+      internalID: -3678289073485621791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_4
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 614
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 857a4a13b7dead9f0800000000000000
+      internalID: -442780499972937896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_5
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 605
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1cb855dbd7be00b0800000000000000
+      internalID: -5760464718555202531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_6
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 599
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25fb13740e156a6d0800000000000000
+      internalID: -2979604079750037678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_7
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 593
+        width: 29
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7dc388639ffc5ae0800000000000000
+      internalID: -1559090362398290564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_8
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 462
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f0097d980dd240f0800000000000000
+      internalID: -1134101127072513806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_9
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 457
+        width: 38
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faa70b115091b4510800000000000000
+      internalID: 1534347607612095151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_10
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 451
+        width: 10
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd1e8240496f72b30800000000000000
+      internalID: 4262646687914844637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_11
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 450
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 170c8fef6c8dae0c0800000000000000
+      internalID: -4545582524684255119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_12
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 440
+        width: 44
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b9da2ccb77da4140800000000000000
+      internalID: 4704809687448213944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_13
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 433
+        width: 44
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf060e53600429a40800000000000000
+      internalID: 5373427700824301820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_14
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 296
+        width: 44
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec9854de616b39fc0800000000000000
+      internalID: -3489245076695709234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_15
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 283
+        width: 44
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8aa81ad4f78f42550800000000000000
+      internalID: 6135301818032425640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_16
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 271
+        width: 44
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 798cf08cdb6561b60800000000000000
+      internalID: 7716450384651208855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_17
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 271
+        width: 44
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dffddfa0fa96dd0b0800000000000000
+      internalID: -5702285352656576515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_18
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 143
+        width: 44
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 587d1228c54a86580800000000000000
+      internalID: -8833629951860025467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_19
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 143
+        width: 44
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa4257f59ab580f40800000000000000
+      internalID: 5694902511819105450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_20
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 143
+        width: 44
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f7b7c0e4f3c6d350800000000000000
+      internalID: 6041231406674720758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_21
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 143
+        width: 44
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a94655f79ea3aae10800000000000000
+      internalID: 2209643341716743322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_22
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 15
+        width: 44
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a31a831496fa3310800000000000000
+      internalID: 1385690951213257641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_23
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 15
+        width: 44
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f16f07aeb70471d0800000000000000
+      internalID: -3354047307056193032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Archbishop-64x128_24
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 15
+        width: 44
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4731ef4e2d5c0c550800000000000000
+      internalID: 6179156198327980916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      t3-Archbishop-64x128_0: -1282833751254394346
+      t3-Archbishop-64x128_1: -808759254544984071
+      t3-Archbishop-64x128_10: 4262646687914844637
+      t3-Archbishop-64x128_11: -4545582524684255119
+      t3-Archbishop-64x128_12: 4704809687448213944
+      t3-Archbishop-64x128_13: 5373427700824301820
+      t3-Archbishop-64x128_14: -3489245076695709234
+      t3-Archbishop-64x128_15: 6135301818032425640
+      t3-Archbishop-64x128_16: 7716450384651208855
+      t3-Archbishop-64x128_17: -5702285352656576515
+      t3-Archbishop-64x128_18: -8833629951860025467
+      t3-Archbishop-64x128_19: 5694902511819105450
+      t3-Archbishop-64x128_2: -6045236688033251576
+      t3-Archbishop-64x128_20: 6041231406674720758
+      t3-Archbishop-64x128_21: 2209643341716743322
+      t3-Archbishop-64x128_22: 1385690951213257641
+      t3-Archbishop-64x128_23: -3354047307056193032
+      t3-Archbishop-64x128_24: 6179156198327980916
+      t3-Archbishop-64x128_3: -3678289073485621791
+      t3-Archbishop-64x128_4: -442780499972937896
+      t3-Archbishop-64x128_5: -5760464718555202531
+      t3-Archbishop-64x128_6: -2979604079750037678
+      t3-Archbishop-64x128_7: -1559090362398290564
+      t3-Archbishop-64x128_8: -1134101127072513806
+      t3-Archbishop-64x128_9: 1534347607612095151
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

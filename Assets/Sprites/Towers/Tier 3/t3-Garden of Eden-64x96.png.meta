@@ -1,0 +1,1287 @@
+fileFormatVersion: 2
+guid: c7db3c32b0ac6a24eaab73f1e52830ef
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6494424752417398289
+    second: t3-Garden of Eden-64x96_0
+  - first:
+      213: 3742512603056555930
+    second: t3-Garden of Eden-64x96_1
+  - first:
+      213: 1471076396485448006
+    second: t3-Garden of Eden-64x96_2
+  - first:
+      213: -6658126172717896998
+    second: t3-Garden of Eden-64x96_3
+  - first:
+      213: 8724837395488546183
+    second: t3-Garden of Eden-64x96_4
+  - first:
+      213: 2096434070355632829
+    second: t3-Garden of Eden-64x96_5
+  - first:
+      213: -3247082156778183204
+    second: t3-Garden of Eden-64x96_6
+  - first:
+      213: 4212487510090152382
+    second: t3-Garden of Eden-64x96_7
+  - first:
+      213: 6118793341276599513
+    second: t3-Garden of Eden-64x96_8
+  - first:
+      213: 7841295122992107157
+    second: t3-Garden of Eden-64x96_9
+  - first:
+      213: -4555964203990621908
+    second: t3-Garden of Eden-64x96_10
+  - first:
+      213: -8176062082614852333
+    second: t3-Garden of Eden-64x96_11
+  - first:
+      213: 2039008283836670370
+    second: t3-Garden of Eden-64x96_12
+  - first:
+      213: -3058092397817510578
+    second: t3-Garden of Eden-64x96_13
+  - first:
+      213: -8881072424574382559
+    second: t3-Garden of Eden-64x96_14
+  - first:
+      213: 910139580923272407
+    second: t3-Garden of Eden-64x96_15
+  - first:
+      213: -2823595445595116581
+    second: t3-Garden of Eden-64x96_16
+  - first:
+      213: 8644478562176931807
+    second: t3-Garden of Eden-64x96_17
+  - first:
+      213: 2094770739717975926
+    second: t3-Garden of Eden-64x96_18
+  - first:
+      213: 1822517658475111767
+    second: t3-Garden of Eden-64x96_19
+  - first:
+      213: 8300112119383433370
+    second: t3-Garden of Eden-64x96_20
+  - first:
+      213: -5309557374377099500
+    second: t3-Garden of Eden-64x96_21
+  - first:
+      213: 8046676507313527676
+    second: t3-Garden of Eden-64x96_22
+  - first:
+      213: -1237339018929822308
+    second: t3-Garden of Eden-64x96_23
+  - first:
+      213: -5028622263603100424
+    second: t3-Garden of Eden-64x96_24
+  - first:
+      213: 9185203067955154886
+    second: t3-Garden of Eden-64x96_25
+  - first:
+      213: 8257119980274151064
+    second: t3-Garden of Eden-64x96_26
+  - first:
+      213: -6196674283128870253
+    second: t3-Garden of Eden-64x96_27
+  - first:
+      213: -8596204763049610396
+    second: t3-Garden of Eden-64x96_28
+  - first:
+      213: -1600537612152248233
+    second: t3-Garden of Eden-64x96_29
+  - first:
+      213: 2106952661922710553
+    second: t3-Garden of Eden-64x96_30
+  - first:
+      213: 8878960463178220968
+    second: t3-Garden of Eden-64x96_31
+  - first:
+      213: -4320719879064885072
+    second: t3-Garden of Eden-64x96_32
+  - first:
+      213: 2184300009042210775
+    second: t3-Garden of Eden-64x96_33
+  - first:
+      213: 7943029456602763053
+    second: t3-Garden of Eden-64x96_34
+  - first:
+      213: 6157922902198487729
+    second: t3-Garden of Eden-64x96_35
+  - first:
+      213: 6951771636934709040
+    second: t3-Garden of Eden-64x96_36
+  - first:
+      213: 2857050499316909634
+    second: t3-Garden of Eden-64x96_37
+  - first:
+      213: 4046893308301412471
+    second: t3-Garden of Eden-64x96_38
+  - first:
+      213: -3425814733134528833
+    second: t3-Garden of Eden-64x96_39
+  - first:
+      213: -6515358108705385257
+    second: t3-Garden of Eden-64x96_40
+  - first:
+      213: -2956426664265242188
+    second: t3-Garden of Eden-64x96_41
+  - first:
+      213: 8515548196864970495
+    second: t3-Garden of Eden-64x96_42
+  - first:
+      213: 5665023148942131889
+    second: t3-Garden of Eden-64x96_43
+  - first:
+      213: 5112389609048732687
+    second: t3-Garden of Eden-64x96_44
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 822
+        width: 16
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe128abb81b2fd5a0800000000000000
+      internalID: -6494424752417398289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_1
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 790
+        width: 26
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a97cb90426310f330800000000000000
+      internalID: 3742512603056555930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_2
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 822
+        width: 15
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6411af140305a6410800000000000000
+      internalID: 1471076396485448006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_3
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 816
+        width: 23
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ada2b6da5859993a0800000000000000
+      internalID: -6658126172717896998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 774
+        width: 39
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78d93219269d41970800000000000000
+      internalID: 8724837395488546183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_5
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 781
+        width: 17
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db2e29afda7081d10800000000000000
+      internalID: 2096434070355632829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_6
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 718
+        width: 18
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd52ab07bfb00f2d0800000000000000
+      internalID: -3247082156778183204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_7
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 675
+        width: 39
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb971bb5213c57a30800000000000000
+      internalID: 4212487510090152382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_8
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 690
+        width: 14
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d431d800225ae450800000000000000
+      internalID: 6118793341276599513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_9
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 721
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59e82f09e50e1dc60800000000000000
+      internalID: 7841295122992107157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_10
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 675
+        width: 33
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c216ebbe1b6f5c0c0800000000000000
+      internalID: -4555964203990621908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_11
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 685
+        width: 31
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3158330cadac88e80800000000000000
+      internalID: -8176062082614852333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_12
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 681
+        width: 34
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a1e9242b330c4c10800000000000000
+      internalID: 2039008283836670370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_13
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 704
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e45c3c9aa297f85d0800000000000000
+      internalID: -3058092397817510578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_14
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 675
+        width: 24
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12e0abc0fa710c480800000000000000
+      internalID: -8881072424574382559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_15
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 677
+        width: 14
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dc54f0702771ac00800000000000000
+      internalID: 910139580923272407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_16
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 584
+        width: 35
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdb64ebf6e290d8d0800000000000000
+      internalID: -2823595445595116581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_17
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 582
+        width: 34
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd7190fa37b57f770800000000000000
+      internalID: 8644478562176931807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_18
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 580
+        width: 35
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67fa5c2a3ee121d10800000000000000
+      internalID: 2094770739717975926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_19
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 580
+        width: 34
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 755294e7722ea4910800000000000000
+      internalID: 1822517658475111767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_20
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 532
+        width: 13
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a90a3c72ffbef2370800000000000000
+      internalID: 8300112119383433370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_21
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 483
+        width: 22
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41f72b103b9a056b0800000000000000
+      internalID: -5309557374377099500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_22
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 535
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7b57e876a98baf60800000000000000
+      internalID: 8046676507313527676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_23
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 483
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9525fdc7b614dee0800000000000000
+      internalID: -1237339018929822308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_24
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 483
+        width: 24
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f4015ca1beb63ab0800000000000000
+      internalID: -5028622263603100424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_25
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 483
+        width: 24
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cf8b476685687f70800000000000000
+      internalID: 9185203067955154886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_26
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 387
+        width: 20
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89e650cbfde279270800000000000000
+      internalID: 8257119980274151064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_27
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 389
+        width: 15
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39a2e45229df00aa0800000000000000
+      internalID: -6196674283128870253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_28
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 390
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46338e9005524b880800000000000000
+      internalID: -8596204763049610396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_29
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 392
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7586302958fb9c9e0800000000000000
+      internalID: -1600537612152248233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_30
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 339
+        width: 28
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 914877c68466d3d10800000000000000
+      internalID: 2106952661922710553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_31
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 297
+        width: 40
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a5c97e9f77683b70800000000000000
+      internalID: 8878960463178220968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_32
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 291
+        width: 50
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b86e528928b904c0800000000000000
+      internalID: -4320719879064885072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_33
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 195
+        width: 51
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dfe7d90941305e10800000000000000
+      internalID: 2184300009042210775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_34
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 195
+        width: 51
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2f8541f43f4b3e60800000000000000
+      internalID: 7943029456602763053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_35
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 195
+        width: 51
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ba88c3e046557550800000000000000
+      internalID: 6157922902198487729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_36
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 195
+        width: 51
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03f0123c877a97060800000000000000
+      internalID: 6951771636934709040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_37
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 99
+        width: 51
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2460325ba4846a720800000000000000
+      internalID: 2857050499316909634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_38
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 99
+        width: 51
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7780635c504792830800000000000000
+      internalID: 4046893308301412471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_39
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 99
+        width: 51
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbe7735a6af0570d0800000000000000
+      internalID: -3425814733134528833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_40
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 99
+        width: 51
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d4972ae15cc495a0800000000000000
+      internalID: -6515358108705385257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_41
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 3
+        width: 51
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b92af7dc99a8f6d0800000000000000
+      internalID: -2956426664265242188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_42
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 3
+        width: 51
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffecaddb7fd4d2670800000000000000
+      internalID: 8515548196864970495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_43
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 3
+        width: 51
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b28f051a843e9e40800000000000000
+      internalID: 5665023148942131889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Garden of Eden-64x96_44
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 3
+        width: 51
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f047fb8434bd2f640800000000000000
+      internalID: 5112389609048732687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      t3-Garden of Eden-64x96_0: -6494424752417398289
+      t3-Garden of Eden-64x96_1: 3742512603056555930
+      t3-Garden of Eden-64x96_10: -4555964203990621908
+      t3-Garden of Eden-64x96_11: -8176062082614852333
+      t3-Garden of Eden-64x96_12: 2039008283836670370
+      t3-Garden of Eden-64x96_13: -3058092397817510578
+      t3-Garden of Eden-64x96_14: -8881072424574382559
+      t3-Garden of Eden-64x96_15: 910139580923272407
+      t3-Garden of Eden-64x96_16: -2823595445595116581
+      t3-Garden of Eden-64x96_17: 8644478562176931807
+      t3-Garden of Eden-64x96_18: 2094770739717975926
+      t3-Garden of Eden-64x96_19: 1822517658475111767
+      t3-Garden of Eden-64x96_2: 1471076396485448006
+      t3-Garden of Eden-64x96_20: 8300112119383433370
+      t3-Garden of Eden-64x96_21: -5309557374377099500
+      t3-Garden of Eden-64x96_22: 8046676507313527676
+      t3-Garden of Eden-64x96_23: -1237339018929822308
+      t3-Garden of Eden-64x96_24: -5028622263603100424
+      t3-Garden of Eden-64x96_25: 9185203067955154886
+      t3-Garden of Eden-64x96_26: 8257119980274151064
+      t3-Garden of Eden-64x96_27: -6196674283128870253
+      t3-Garden of Eden-64x96_28: -8596204763049610396
+      t3-Garden of Eden-64x96_29: -1600537612152248233
+      t3-Garden of Eden-64x96_3: -6658126172717896998
+      t3-Garden of Eden-64x96_30: 2106952661922710553
+      t3-Garden of Eden-64x96_31: 8878960463178220968
+      t3-Garden of Eden-64x96_32: -4320719879064885072
+      t3-Garden of Eden-64x96_33: 2184300009042210775
+      t3-Garden of Eden-64x96_34: 7943029456602763053
+      t3-Garden of Eden-64x96_35: 6157922902198487729
+      t3-Garden of Eden-64x96_36: 6951771636934709040
+      t3-Garden of Eden-64x96_37: 2857050499316909634
+      t3-Garden of Eden-64x96_38: 4046893308301412471
+      t3-Garden of Eden-64x96_39: -3425814733134528833
+      t3-Garden of Eden-64x96_4: 8724837395488546183
+      t3-Garden of Eden-64x96_40: -6515358108705385257
+      t3-Garden of Eden-64x96_41: -2956426664265242188
+      t3-Garden of Eden-64x96_42: 8515548196864970495
+      t3-Garden of Eden-64x96_43: 5665023148942131889
+      t3-Garden of Eden-64x96_44: 5112389609048732687
+      t3-Garden of Eden-64x96_5: 2096434070355632829
+      t3-Garden of Eden-64x96_6: -3247082156778183204
+      t3-Garden of Eden-64x96_7: 4212487510090152382
+      t3-Garden of Eden-64x96_8: 6118793341276599513
+      t3-Garden of Eden-64x96_9: 7841295122992107157
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

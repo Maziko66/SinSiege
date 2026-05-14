@@ -1,0 +1,1261 @@
+fileFormatVersion: 2
+guid: 4b6f5d94cc9f35e4fa862a38dfad9010
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8891874358939883270
+    second: t2-Archangel-64x128_0
+  - first:
+      213: -6770380506482117079
+    second: t2-Archangel-64x128_1
+  - first:
+      213: 950627337431505407
+    second: t2-Archangel-64x128_2
+  - first:
+      213: 7937601070678881807
+    second: t2-Archangel-64x128_3
+  - first:
+      213: 2514197973847361359
+    second: t2-Archangel-64x128_4
+  - first:
+      213: -5529189726982843868
+    second: t2-Archangel-64x128_5
+  - first:
+      213: 4360014160519408872
+    second: t2-Archangel-64x128_6
+  - first:
+      213: -4550937872239221871
+    second: t2-Archangel-64x128_7
+  - first:
+      213: 8528474650288649680
+    second: t2-Archangel-64x128_8
+  - first:
+      213: 8615385239992619964
+    second: t2-Archangel-64x128_9
+  - first:
+      213: 2569992914552369258
+    second: t2-Archangel-64x128_10
+  - first:
+      213: -2026553097035499510
+    second: t2-Archangel-64x128_11
+  - first:
+      213: 1421676465905935245
+    second: t2-Archangel-64x128_12
+  - first:
+      213: -2576833611802590391
+    second: t2-Archangel-64x128_13
+  - first:
+      213: 2190030895057893597
+    second: t2-Archangel-64x128_14
+  - first:
+      213: -2900195592359634824
+    second: t2-Archangel-64x128_15
+  - first:
+      213: -6979438594835626705
+    second: t2-Archangel-64x128_16
+  - first:
+      213: -2094981129046715069
+    second: t2-Archangel-64x128_17
+  - first:
+      213: 7228707771781455552
+    second: t2-Archangel-64x128_18
+  - first:
+      213: -18541698535025807
+    second: t2-Archangel-64x128_19
+  - first:
+      213: -8492804416969415863
+    second: t2-Archangel-64x128_20
+  - first:
+      213: 6177857645741065667
+    second: t2-Archangel-64x128_21
+  - first:
+      213: -4212965524318145449
+    second: t2-Archangel-64x128_22
+  - first:
+      213: 4205724022433793254
+    second: t2-Archangel-64x128_23
+  - first:
+      213: -5808008257238132231
+    second: t2-Archangel-64x128_24
+  - first:
+      213: -9081853292059117691
+    second: t2-Archangel-64x128_25
+  - first:
+      213: 8244359655979977701
+    second: t2-Archangel-64x128_26
+  - first:
+      213: -4546263518516228717
+    second: t2-Archangel-64x128_27
+  - first:
+      213: -388248489929245541
+    second: t2-Archangel-64x128_28
+  - first:
+      213: 3365121141386131068
+    second: t2-Archangel-64x128_29
+  - first:
+      213: -4799505265211347722
+    second: t2-Archangel-64x128_30
+  - first:
+      213: -6560910852544428335
+    second: t2-Archangel-64x128_31
+  - first:
+      213: 7948708373790073959
+    second: t2-Archangel-64x128_32
+  - first:
+      213: 2571611235789908402
+    second: t2-Archangel-64x128_33
+  - first:
+      213: -5532584570238666535
+    second: t2-Archangel-64x128_34
+  - first:
+      213: 8085551614156719546
+    second: t2-Archangel-64x128_35
+  - first:
+      213: 5836267799409072565
+    second: t2-Archangel-64x128_36
+  - first:
+      213: -2305883081701038255
+    second: t2-Archangel-64x128_37
+  - first:
+      213: -3441843969985948958
+    second: t2-Archangel-64x128_38
+  - first:
+      213: 2915199308527607163
+    second: t2-Archangel-64x128_39
+  - first:
+      213: 8146422466339296246
+    second: t2-Archangel-64x128_40
+  - first:
+      213: 1954965415713345357
+    second: t2-Archangel-64x128_41
+  - first:
+      213: 8287706340936281290
+    second: t2-Archangel-64x128_42
+  - first:
+      213: -4358992139360567898
+    second: t2-Archangel-64x128_43
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 539
+        width: 121
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af8ebf7b167b99480800000000000000
+      internalID: -8891874358939883270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_1
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 605
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92677e4ecc6ca02a0800000000000000
+      internalID: -6770380506482117079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_2
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 611
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff95169d68e413d00800000000000000
+      internalID: 950627337431505407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_3
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 611
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f06339a5e16082e60800000000000000
+      internalID: 7937601070678881807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_4
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 605
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f47cd268cb934e220800000000000000
+      internalID: 2514197973847361359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_5
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 571
+        width: 21
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 422d27bfc3f5443b0800000000000000
+      internalID: -5529189726982843868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_6
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 611
+        width: 17
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ecae6557c1e18c30800000000000000
+      internalID: 4360014160519408872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_7
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 533
+        width: 22
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1932f4afd12d7d0c0800000000000000
+      internalID: -4550937872239221871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_8
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 599
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d5f066328a3b5670800000000000000
+      internalID: 8528474650288649680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_9
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 599
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb357e0ca3fff8770800000000000000
+      internalID: 8615385239992619964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_10
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 592
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a603a2b70f27aa320800000000000000
+      internalID: 2569992914552369258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_11
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 592
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a083bb402bc30e3e0800000000000000
+      internalID: -2026553097035499510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_12
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 583
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d832bdf963fcab310800000000000000
+      internalID: 1421676465905935245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_13
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 583
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94348339b7f3d3cd0800000000000000
+      internalID: -2576833611802590391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_14
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 574
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd87e0bee7d846e10800000000000000
+      internalID: 2190030895057893597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_15
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 574
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8781042897f60c7d0800000000000000
+      internalID: -2900195592359634824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_16
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 565
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f25cb2f939d042f90800000000000000
+      internalID: -6979438594835626705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_17
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 565
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 345160843c12de2e0800000000000000
+      internalID: -2094981129046715069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_18
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 527
+        width: 24
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ce932a4b67815460800000000000000
+      internalID: 7228707771781455552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_19
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 555
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17399456c602ebff0800000000000000
+      internalID: -18541698535025807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_20
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 549
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9436bab216f732a80800000000000000
+      internalID: -8492804416969415863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_21
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 555
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c5c35f0cc82cb550800000000000000
+      internalID: 6177857645741065667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_22
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 549
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 754bc084d2a8885c0800000000000000
+      internalID: -4212965524318145449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_23
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 530
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e44e7c27bbbd5a30800000000000000
+      internalID: 4205724022433793254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_24
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 529
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f919ce134fc56fa0800000000000000
+      internalID: -5808008257238132231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_25
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 529
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 587ba907c86c6f180800000000000000
+      internalID: -9081853292059117691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_26
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 528
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eb8f373d69d96270800000000000000
+      internalID: 8244359655979977701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_27
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 528
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39dc583ca6d68e0c0800000000000000
+      internalID: -4546263518516228717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_28
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 526
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9c7f213e0aac9af0800000000000000
+      internalID: -388248489929245541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_29
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 533
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c763a7259df43be20800000000000000
+      internalID: 3365121141386131068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_30
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 526
+        width: 19
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fce571e36bb46db0800000000000000
+      internalID: -4799505265211347722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_31
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 398
+        width: 57
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d6851f3756f2f4a0800000000000000
+      internalID: -6560910852544428335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_32
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 398
+        width: 57
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7642ee2e62c7f4e60800000000000000
+      internalID: 7948708373790073959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_33
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 398
+        width: 57
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b929a14bc230b320800000000000000
+      internalID: 2571611235789908402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_34
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 398
+        width: 57
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d8fd1175af4833b0800000000000000
+      internalID: -5532584570238666535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_35
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 270
+        width: 57
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab5c5ee9a56a53070800000000000000
+      internalID: 8085551614156719546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_36
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 270
+        width: 57
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b914d544a69ef050800000000000000
+      internalID: 5836267799409072565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_37
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 270
+        width: 57
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15760a5ed8bdfffd0800000000000000
+      internalID: -2305883081701038255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_38
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 270
+        width: 57
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e2daac152d1c30d0800000000000000
+      internalID: -3441843969985948958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_39
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 142
+        width: 57
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7d9042635ed47820800000000000000
+      internalID: 2915199308527607163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_40
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 142
+        width: 57
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f35a605218ed0170800000000000000
+      internalID: 8146422466339296246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_41
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 142
+        width: 57
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4f84cf00be612b10800000000000000
+      internalID: 1954965415713345357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_42
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 142
+        width: 57
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acc6246c109d30370800000000000000
+      internalID: 8287706340936281290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Archangel-64x128_43
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 14
+        width: 57
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ad71b28ebfb183c0800000000000000
+      internalID: -4358992139360567898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      t2-Archangel-64x128_0: -8891874358939883270
+      t2-Archangel-64x128_1: -6770380506482117079
+      t2-Archangel-64x128_10: 2569992914552369258
+      t2-Archangel-64x128_11: -2026553097035499510
+      t2-Archangel-64x128_12: 1421676465905935245
+      t2-Archangel-64x128_13: -2576833611802590391
+      t2-Archangel-64x128_14: 2190030895057893597
+      t2-Archangel-64x128_15: -2900195592359634824
+      t2-Archangel-64x128_16: -6979438594835626705
+      t2-Archangel-64x128_17: -2094981129046715069
+      t2-Archangel-64x128_18: 7228707771781455552
+      t2-Archangel-64x128_19: -18541698535025807
+      t2-Archangel-64x128_2: 950627337431505407
+      t2-Archangel-64x128_20: -8492804416969415863
+      t2-Archangel-64x128_21: 6177857645741065667
+      t2-Archangel-64x128_22: -4212965524318145449
+      t2-Archangel-64x128_23: 4205724022433793254
+      t2-Archangel-64x128_24: -5808008257238132231
+      t2-Archangel-64x128_25: -9081853292059117691
+      t2-Archangel-64x128_26: 8244359655979977701
+      t2-Archangel-64x128_27: -4546263518516228717
+      t2-Archangel-64x128_28: -388248489929245541
+      t2-Archangel-64x128_29: 3365121141386131068
+      t2-Archangel-64x128_3: 7937601070678881807
+      t2-Archangel-64x128_30: -4799505265211347722
+      t2-Archangel-64x128_31: -6560910852544428335
+      t2-Archangel-64x128_32: 7948708373790073959
+      t2-Archangel-64x128_33: 2571611235789908402
+      t2-Archangel-64x128_34: -5532584570238666535
+      t2-Archangel-64x128_35: 8085551614156719546
+      t2-Archangel-64x128_36: 5836267799409072565
+      t2-Archangel-64x128_37: -2305883081701038255
+      t2-Archangel-64x128_38: -3441843969985948958
+      t2-Archangel-64x128_39: 2915199308527607163
+      t2-Archangel-64x128_4: 2514197973847361359
+      t2-Archangel-64x128_40: 8146422466339296246
+      t2-Archangel-64x128_41: 1954965415713345357
+      t2-Archangel-64x128_42: 8287706340936281290
+      t2-Archangel-64x128_43: -4358992139360567898
+      t2-Archangel-64x128_5: -5529189726982843868
+      t2-Archangel-64x128_6: 4360014160519408872
+      t2-Archangel-64x128_7: -4550937872239221871
+      t2-Archangel-64x128_8: 8528474650288649680
+      t2-Archangel-64x128_9: 8615385239992619964
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

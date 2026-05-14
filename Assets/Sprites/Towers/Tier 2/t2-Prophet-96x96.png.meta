@@ -1,0 +1,897 @@
+fileFormatVersion: 2
+guid: f702a0ce8442c4c4a9f217fd3b017352
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4637053565102673761
+    second: t2-Prophet-96x96_0
+  - first:
+      213: 2564580687718459064
+    second: t2-Prophet-96x96_1
+  - first:
+      213: -100146347290638590
+    second: t2-Prophet-96x96_2
+  - first:
+      213: 2678107334779747896
+    second: t2-Prophet-96x96_3
+  - first:
+      213: -6983054147474045540
+    second: t2-Prophet-96x96_4
+  - first:
+      213: 5625277769214429977
+    second: t2-Prophet-96x96_5
+  - first:
+      213: -7001762129336996312
+    second: t2-Prophet-96x96_6
+  - first:
+      213: 1131884286939572247
+    second: t2-Prophet-96x96_7
+  - first:
+      213: -4836771743057300428
+    second: t2-Prophet-96x96_8
+  - first:
+      213: 6267697309954196338
+    second: t2-Prophet-96x96_9
+  - first:
+      213: 7499953943443936507
+    second: t2-Prophet-96x96_10
+  - first:
+      213: 7641185323248760441
+    second: t2-Prophet-96x96_11
+  - first:
+      213: -6868681233696735884
+    second: t2-Prophet-96x96_12
+  - first:
+      213: -7730464666176587072
+    second: t2-Prophet-96x96_13
+  - first:
+      213: -3444445590580348967
+    second: t2-Prophet-96x96_14
+  - first:
+      213: 4762217020353954092
+    second: t2-Prophet-96x96_15
+  - first:
+      213: -2929415829293912650
+    second: t2-Prophet-96x96_16
+  - first:
+      213: 6288799895140955619
+    second: t2-Prophet-96x96_17
+  - first:
+      213: -6328619144718725601
+    second: t2-Prophet-96x96_18
+  - first:
+      213: -6927819007431346309
+    second: t2-Prophet-96x96_19
+  - first:
+      213: -4095161348184258830
+    second: t2-Prophet-96x96_20
+  - first:
+      213: -258429428793743099
+    second: t2-Prophet-96x96_21
+  - first:
+      213: -8042938440843820946
+    second: t2-Prophet-96x96_22
+  - first:
+      213: 736709163021691330
+    second: t2-Prophet-96x96_23
+  - first:
+      213: 8061982616673327285
+    second: t2-Prophet-96x96_24
+  - first:
+      213: -2864017516506797357
+    second: t2-Prophet-96x96_25
+  - first:
+      213: -1738615077148641147
+    second: t2-Prophet-96x96_26
+  - first:
+      213: 4379873146062688742
+    second: t2-Prophet-96x96_27
+  - first:
+      213: 634756907623355255
+    second: t2-Prophet-96x96_28
+  - first:
+      213: 5667376807492429864
+    second: t2-Prophet-96x96_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 390
+        width: 50
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f90b897c950e5afb0800000000000000
+      internalID: -4637053565102673761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_1
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 390
+        width: 310
+        height: 553
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b629493c88379320800000000000000
+      internalID: 2564580687718459064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 398
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20740308d653c9ef0800000000000000
+      internalID: -100146347290638590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_3
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 390
+        width: 67
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83e3ae78e6c8a2520800000000000000
+      internalID: 2678107334779747896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_4
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 390
+        width: 70
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c95cd7c2045371f90800000000000000
+      internalID: -6983054147474045540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 294
+        width: 70
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91b8decb350011e40800000000000000
+      internalID: 5625277769214429977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_6
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 294
+        width: 70
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82ee517b07eb4de90800000000000000
+      internalID: -7001762129336996312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_7
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 294
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71821e113c245bf00800000000000000
+      internalID: 1131884286939572247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_8
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 294
+        width: 70
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4343c6bd9b550ecb0800000000000000
+      internalID: -4836771743057300428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_9
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 198
+        width: 70
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 273cd77ee755bf650800000000000000
+      internalID: 6267697309954196338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_10
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 198
+        width: 70
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf414c60060351860800000000000000
+      internalID: 7499953943443936507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_11
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 263
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 976bb271191fa0a60800000000000000
+      internalID: 7641185323248760441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_12
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 198
+        width: 70
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47d3d1e4fca8da0a0800000000000000
+      internalID: -6868681233696735884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_13
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 263
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0caf5d7085fd7b490800000000000000
+      internalID: -7730464666176587072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_14
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 198
+        width: 70
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d73c4d1cfed230d0800000000000000
+      internalID: -3444445590580348967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_15
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 263
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c214481162bc61240800000000000000
+      internalID: 4762217020353954092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_16
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 102
+        width: 70
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bda78fe2df9857d0800000000000000
+      internalID: -2929415829293912650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_17
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 167
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e5f3656f2e464750800000000000000
+      internalID: 6288799895140955619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_18
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 102
+        width: 70
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1ecd481b6a3c28a0800000000000000
+      internalID: -6328619144718725601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_19
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 167
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b77fad161517bdf90800000000000000
+      internalID: -6927819007431346309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_20
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 102
+        width: 70
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f6419f63701b27c0800000000000000
+      internalID: -4095161348184258830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_21
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 167
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 509ed31cdcfd96cf0800000000000000
+      internalID: -258429428793743099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_22
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 102
+        width: 70
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e608b23f91eb16090800000000000000
+      internalID: -8042938440843820946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_23
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 167
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c9eeac9411593a00800000000000000
+      internalID: 736709163021691330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_24
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 6
+        width: 70
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b81034c97ae1ef60800000000000000
+      internalID: 8061982616673327285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_25
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 71
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3daad123e37f048d0800000000000000
+      internalID: -2864017516506797357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_26
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 6
+        width: 70
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 588ba658cc23fd7e0800000000000000
+      internalID: -1738615077148641147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_27
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 71
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e1d658bb6f68cc30800000000000000
+      internalID: 4379873146062688742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_28
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 6
+        width: 70
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7739d9d5b0c1fc800800000000000000
+      internalID: 634756907623355255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Prophet-96x96_29
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 71
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 828afdaed2196ae40800000000000000
+      internalID: 5667376807492429864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      t2-Prophet-96x96_0: -4637053565102673761
+      t2-Prophet-96x96_1: 2564580687718459064
+      t2-Prophet-96x96_10: 7499953943443936507
+      t2-Prophet-96x96_11: 7641185323248760441
+      t2-Prophet-96x96_12: -6868681233696735884
+      t2-Prophet-96x96_13: -7730464666176587072
+      t2-Prophet-96x96_14: -3444445590580348967
+      t2-Prophet-96x96_15: 4762217020353954092
+      t2-Prophet-96x96_16: -2929415829293912650
+      t2-Prophet-96x96_17: 6288799895140955619
+      t2-Prophet-96x96_18: -6328619144718725601
+      t2-Prophet-96x96_19: -6927819007431346309
+      t2-Prophet-96x96_2: -100146347290638590
+      t2-Prophet-96x96_20: -4095161348184258830
+      t2-Prophet-96x96_21: -258429428793743099
+      t2-Prophet-96x96_22: -8042938440843820946
+      t2-Prophet-96x96_23: 736709163021691330
+      t2-Prophet-96x96_24: 8061982616673327285
+      t2-Prophet-96x96_25: -2864017516506797357
+      t2-Prophet-96x96_26: -1738615077148641147
+      t2-Prophet-96x96_27: 4379873146062688742
+      t2-Prophet-96x96_28: 634756907623355255
+      t2-Prophet-96x96_29: 5667376807492429864
+      t2-Prophet-96x96_3: 2678107334779747896
+      t2-Prophet-96x96_4: -6983054147474045540
+      t2-Prophet-96x96_5: 5625277769214429977
+      t2-Prophet-96x96_6: -7001762129336996312
+      t2-Prophet-96x96_7: 1131884286939572247
+      t2-Prophet-96x96_8: -4836771743057300428
+      t2-Prophet-96x96_9: 6267697309954196338
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

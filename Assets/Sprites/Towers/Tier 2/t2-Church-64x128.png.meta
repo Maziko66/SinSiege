@@ -1,0 +1,611 @@
+fileFormatVersion: 2
+guid: da10bbf5277fd9d45b708bf3f4e45b8e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3230109415641089740
+    second: t2-Church-64x128_0
+  - first:
+      213: 8002057451682986002
+    second: t2-Church-64x128_1
+  - first:
+      213: -1008063614489381683
+    second: t2-Church-64x128_2
+  - first:
+      213: -151502460380301862
+    second: t2-Church-64x128_3
+  - first:
+      213: -804226716822454999
+    second: t2-Church-64x128_4
+  - first:
+      213: 6269844502618493244
+    second: t2-Church-64x128_5
+  - first:
+      213: -1382534397566529708
+    second: t2-Church-64x128_6
+  - first:
+      213: -1159706579480188889
+    second: t2-Church-64x128_7
+  - first:
+      213: 3467104634733996293
+    second: t2-Church-64x128_8
+  - first:
+      213: -6810945317600634216
+    second: t2-Church-64x128_9
+  - first:
+      213: -627307723490806257
+    second: t2-Church-64x128_10
+  - first:
+      213: -2371500564091204999
+    second: t2-Church-64x128_11
+  - first:
+      213: -8739746817602940288
+    second: t2-Church-64x128_12
+  - first:
+      213: -8735610531941376418
+    second: t2-Church-64x128_13
+  - first:
+      213: -7445195955230842799
+    second: t2-Church-64x128_14
+  - first:
+      213: 2752765815068027560
+    second: t2-Church-64x128_15
+  - first:
+      213: 58982549852480431
+    second: t2-Church-64x128_16
+  - first:
+      213: 266098267435725555
+    second: t2-Church-64x128_17
+  - first:
+      213: -2451121287328723533
+    second: t2-Church-64x128_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: t2-Church-64x128_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 688
+        width: 203
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 439711fa9985c23d0800000000000000
+      internalID: -3230109415641089740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Church-64x128_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 573
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 218f4d70bd40d0f60800000000000000
+      internalID: 8002057451682986002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Church-64x128_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 571
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc43d5bcb73a202f0800000000000000
+      internalID: -1008063614489381683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Church-64x128_3
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 571
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad53f62a051c5edf0800000000000000
+      internalID: -151502460380301862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Church-64x128_4
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 563
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92d3be0ef00d6d4f0800000000000000
+      internalID: -804226716822454999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Church-64x128_5
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 426
+        width: 35
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c31d2872b56f20750800000000000000
+      internalID: 6269844502618493244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Church-64x128_6
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 420
+        width: 45
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45fc9475a4040dce0800000000000000
+      internalID: -1382534397566529708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Church-64x128_7
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 401
+        width: 45
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7286666a205e7efe0800000000000000
+      internalID: -1159706579480188889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Church-64x128_8
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 395
+        width: 49
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5092e68bb41ad1030800000000000000
+      internalID: 3467104634733996293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Church-64x128_9
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 267
+        width: 51
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89addcfc159aa71a0800000000000000
+      internalID: -6810945317600634216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Church-64x128_10
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 267
+        width: 51
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f06b878f2fa5b47f0800000000000000
+      internalID: -627307723490806257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Church-64x128_11
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 267
+        width: 51
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97a84bc3dccb61fd0800000000000000
+      internalID: -2371500564091204999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Church-64x128_12
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 267
+        width: 51
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0821de5139e26b680800000000000000
+      internalID: -8739746817602940288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Church-64x128_13
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 139
+        width: 51
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5e19732180e4c680800000000000000
+      internalID: -8735610531941376418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Church-64x128_14
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 139
+        width: 51
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1506a4d99b95da890800000000000000
+      internalID: -7445195955230842799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Church-64x128_15
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 139
+        width: 51
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8aae7fc8ce9c33620800000000000000
+      internalID: 2752765815068027560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Church-64x128_16
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 139
+        width: 51
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa367eb015c81d000800000000000000
+      internalID: 58982549852480431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Church-64x128_17
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 11
+        width: 51
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f27ad1e6fe51b300800000000000000
+      internalID: 266098267435725555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Church-64x128_18
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 11
+        width: 51
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bd8f5ffc2edbfdd0800000000000000
+      internalID: -2451121287328723533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      t2-Church-64x128_0: -3230109415641089740
+      t2-Church-64x128_1: 8002057451682986002
+      t2-Church-64x128_10: -627307723490806257
+      t2-Church-64x128_11: -2371500564091204999
+      t2-Church-64x128_12: -8739746817602940288
+      t2-Church-64x128_13: -8735610531941376418
+      t2-Church-64x128_14: -7445195955230842799
+      t2-Church-64x128_15: 2752765815068027560
+      t2-Church-64x128_16: 58982549852480431
+      t2-Church-64x128_17: 266098267435725555
+      t2-Church-64x128_18: -2451121287328723533
+      t2-Church-64x128_2: -1008063614489381683
+      t2-Church-64x128_3: -151502460380301862
+      t2-Church-64x128_4: -804226716822454999
+      t2-Church-64x128_5: 6269844502618493244
+      t2-Church-64x128_6: -1382534397566529708
+      t2-Church-64x128_7: -1159706579480188889
+      t2-Church-64x128_8: 3467104634733996293
+      t2-Church-64x128_9: -6810945317600634216
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

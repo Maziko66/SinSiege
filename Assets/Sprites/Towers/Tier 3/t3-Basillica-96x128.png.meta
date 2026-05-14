@@ -1,0 +1,1157 @@
+fileFormatVersion: 2
+guid: de54c96ee1ae98941b2b1d669e293994
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6767011351789037353
+    second: t3-Basillica-96x128_0
+  - first:
+      213: 5876012118095353278
+    second: t3-Basillica-96x128_1
+  - first:
+      213: 8420323267442277845
+    second: t3-Basillica-96x128_2
+  - first:
+      213: 611962378424949180
+    second: t3-Basillica-96x128_3
+  - first:
+      213: 2658963288308910215
+    second: t3-Basillica-96x128_4
+  - first:
+      213: 8963497956030032953
+    second: t3-Basillica-96x128_5
+  - first:
+      213: 3726471652959494413
+    second: t3-Basillica-96x128_6
+  - first:
+      213: 7420662181795577957
+    second: t3-Basillica-96x128_7
+  - first:
+      213: -8220689276080652865
+    second: t3-Basillica-96x128_8
+  - first:
+      213: 1183998377441463034
+    second: t3-Basillica-96x128_9
+  - first:
+      213: -316042279882101418
+    second: t3-Basillica-96x128_10
+  - first:
+      213: -922572665716163585
+    second: t3-Basillica-96x128_11
+  - first:
+      213: 2971546669244594470
+    second: t3-Basillica-96x128_12
+  - first:
+      213: 3071334394749074897
+    second: t3-Basillica-96x128_13
+  - first:
+      213: 3698528512384867122
+    second: t3-Basillica-96x128_14
+  - first:
+      213: -574741776145531851
+    second: t3-Basillica-96x128_15
+  - first:
+      213: -2412662815301056573
+    second: t3-Basillica-96x128_16
+  - first:
+      213: 485341758268182061
+    second: t3-Basillica-96x128_17
+  - first:
+      213: -2483284663445239276
+    second: t3-Basillica-96x128_18
+  - first:
+      213: 2705257220425375941
+    second: t3-Basillica-96x128_19
+  - first:
+      213: -327369506226107905
+    second: t3-Basillica-96x128_20
+  - first:
+      213: 8359418046238505269
+    second: t3-Basillica-96x128_21
+  - first:
+      213: -1399090481440898927
+    second: t3-Basillica-96x128_22
+  - first:
+      213: 1492021038855537952
+    second: t3-Basillica-96x128_23
+  - first:
+      213: 6986474320966961478
+    second: t3-Basillica-96x128_24
+  - first:
+      213: -4874301331245916215
+    second: t3-Basillica-96x128_25
+  - first:
+      213: 6551794969212758455
+    second: t3-Basillica-96x128_26
+  - first:
+      213: -2592789341913682230
+    second: t3-Basillica-96x128_27
+  - first:
+      213: 535597524615214816
+    second: t3-Basillica-96x128_28
+  - first:
+      213: -5795641783021490429
+    second: t3-Basillica-96x128_29
+  - first:
+      213: -7014520876967939825
+    second: t3-Basillica-96x128_30
+  - first:
+      213: 363270497875339944
+    second: t3-Basillica-96x128_31
+  - first:
+      213: 8566502562591142301
+    second: t3-Basillica-96x128_32
+  - first:
+      213: 8015117444131218990
+    second: t3-Basillica-96x128_33
+  - first:
+      213: -1816729186001523693
+    second: t3-Basillica-96x128_34
+  - first:
+      213: 5975356723140663622
+    second: t3-Basillica-96x128_35
+  - first:
+      213: -1863403105730724610
+    second: t3-Basillica-96x128_36
+  - first:
+      213: -4316890962488255193
+    second: t3-Basillica-96x128_37
+  - first:
+      213: 4408751224672722404
+    second: t3-Basillica-96x128_38
+  - first:
+      213: -5025334932935976382
+    second: t3-Basillica-96x128_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 1199
+        width: 10
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d81499570fb612a0800000000000000
+      internalID: -6767011351789037353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_1
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 1187
+        width: 15
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb5d6f293e9cb8150800000000000000
+      internalID: 5876012118095353278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_2
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 1185
+        width: 17
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dd7ad1266ffad470800000000000000
+      internalID: 8420323267442277845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_3
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 1175
+        width: 26
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb91ce57a802e7800800000000000000
+      internalID: 611962378424949180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_4
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 1037
+        width: 32
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 788057ed50986e420800000000000000
+      internalID: 2658963288308910215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_5
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 1108
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93c2c1e76edb46c70800000000000000
+      internalID: 8963497956030032953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_6
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 1038
+        width: 22
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d01a634893617b330800000000000000
+      internalID: 3726471652959494413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_7
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 1095
+        width: 9
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 560c91020fc7bf660800000000000000
+      internalID: 7420662181795577957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_8
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 1035
+        width: 27
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbd795298ae3aed80800000000000000
+      internalID: -8220689276080652865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_9
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 1040
+        width: 13
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afa890e40486e6010800000000000000
+      internalID: 1183998377441463034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_10
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 919
+        width: 10
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65d6f9d88313d9bf0800000000000000
+      internalID: -316042279882101418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_11
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 847
+        width: 23
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffbb08c6c0d5233f0800000000000000
+      internalID: -922572665716163585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_12
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 924
+        width: 11
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 629b1d5a3fd0d3920800000000000000
+      internalID: 2971546669244594470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_13
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 779
+        width: 28
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dd35710c529f9a20800000000000000
+      internalID: 3071334394749074897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_14
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 857
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23b9a5c1610d35330800000000000000
+      internalID: 3698528512384867122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_15
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 786
+        width: 17
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53cb443566b1608f0800000000000000
+      internalID: -574741776145531851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_16
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 781
+        width: 26
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c7cf2bc3ff748ed0800000000000000
+      internalID: -2412662815301056573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_17
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 780
+        width: 21
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2e0d38f1c74cb600800000000000000
+      internalID: 485341758268182061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_18
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 723
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41acb2f61c9998dd0800000000000000
+      internalID: -2483284663445239276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_19
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 700
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c0e381eb110b8520800000000000000
+      internalID: 2705257220425375941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_20
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 715
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff909172b23f47bf0800000000000000
+      internalID: -327369506226107905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_21
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 653
+        width: 21
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53939074c6e920470800000000000000
+      internalID: 8359418046238505269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_22
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 653
+        width: 9
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 190c51dae9e659ce0800000000000000
+      internalID: -1399090481440898927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_23
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 566
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 025c462da39b4b410800000000000000
+      internalID: 1492021038855537952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_24
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 560
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 649cf950161f4f060800000000000000
+      internalID: 6986474320966961478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_25
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 554
+        width: 37
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cf9fdea3c00b5cb0800000000000000
+      internalID: -4874301331245916215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_26
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 549
+        width: 48
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b92e15cfc6acea50800000000000000
+      internalID: 6551794969212758455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_27
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 414
+        width: 62
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acee0d9a4df840cd0800000000000000
+      internalID: -2592789341913682230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_28
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 404
+        width: 68
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e6b4456c13de6700800000000000000
+      internalID: 535597524615214816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_29
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 397
+        width: 68
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30fa795418eb19fa0800000000000000
+      internalID: -5795641783021490429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_30
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 395
+        width: 68
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f01b3ca4d6a67ae90800000000000000
+      internalID: -7014520876967939825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_31
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 267
+        width: 68
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8aa2d37d7989a0500800000000000000
+      internalID: 363270497875339944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_32
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 267
+        width: 68
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d91f7b281b452e670800000000000000
+      internalID: 8566502562591142301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_33
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 267
+        width: 68
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e266a7a79da6b3f60800000000000000
+      internalID: 8015117444131218990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_34
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 267
+        width: 68
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31c6b474e6ea9c6e0800000000000000
+      internalID: -1816729186001523693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_35
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 139
+        width: 68
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6499a09e74bbce250800000000000000
+      internalID: 5975356723140663622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_36
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 139
+        width: 68
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efc7f818fbcd326e0800000000000000
+      internalID: -1863403105730724610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_37
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 139
+        width: 68
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72d1bce9a825714c0800000000000000
+      internalID: -4316890962488255193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_38
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 139
+        width: 68
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ed9fa951e70f2d30800000000000000
+      internalID: 4408751224672722404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Basillica-96x128_39
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 11
+        width: 68
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24a5dfcf08c624ab0800000000000000
+      internalID: -5025334932935976382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      t3-Basillica-96x128_0: -6767011351789037353
+      t3-Basillica-96x128_1: 5876012118095353278
+      t3-Basillica-96x128_10: -316042279882101418
+      t3-Basillica-96x128_11: -922572665716163585
+      t3-Basillica-96x128_12: 2971546669244594470
+      t3-Basillica-96x128_13: 3071334394749074897
+      t3-Basillica-96x128_14: 3698528512384867122
+      t3-Basillica-96x128_15: -574741776145531851
+      t3-Basillica-96x128_16: -2412662815301056573
+      t3-Basillica-96x128_17: 485341758268182061
+      t3-Basillica-96x128_18: -2483284663445239276
+      t3-Basillica-96x128_19: 2705257220425375941
+      t3-Basillica-96x128_2: 8420323267442277845
+      t3-Basillica-96x128_20: -327369506226107905
+      t3-Basillica-96x128_21: 8359418046238505269
+      t3-Basillica-96x128_22: -1399090481440898927
+      t3-Basillica-96x128_23: 1492021038855537952
+      t3-Basillica-96x128_24: 6986474320966961478
+      t3-Basillica-96x128_25: -4874301331245916215
+      t3-Basillica-96x128_26: 6551794969212758455
+      t3-Basillica-96x128_27: -2592789341913682230
+      t3-Basillica-96x128_28: 535597524615214816
+      t3-Basillica-96x128_29: -5795641783021490429
+      t3-Basillica-96x128_3: 611962378424949180
+      t3-Basillica-96x128_30: -7014520876967939825
+      t3-Basillica-96x128_31: 363270497875339944
+      t3-Basillica-96x128_32: 8566502562591142301
+      t3-Basillica-96x128_33: 8015117444131218990
+      t3-Basillica-96x128_34: -1816729186001523693
+      t3-Basillica-96x128_35: 5975356723140663622
+      t3-Basillica-96x128_36: -1863403105730724610
+      t3-Basillica-96x128_37: -4316890962488255193
+      t3-Basillica-96x128_38: 4408751224672722404
+      t3-Basillica-96x128_39: -5025334932935976382
+      t3-Basillica-96x128_4: 2658963288308910215
+      t3-Basillica-96x128_5: 8963497956030032953
+      t3-Basillica-96x128_6: 3726471652959494413
+      t3-Basillica-96x128_7: 7420662181795577957
+      t3-Basillica-96x128_8: -8220689276080652865
+      t3-Basillica-96x128_9: 1183998377441463034
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

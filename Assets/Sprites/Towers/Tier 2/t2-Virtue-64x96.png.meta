@@ -1,0 +1,1651 @@
+fileFormatVersion: 2
+guid: 69b2d013a2bf20e4aa121c6739698da5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7562504908616925230
+    second: t2-Virtue-64x96_0
+  - first:
+      213: -7120376101855018163
+    second: t2-Virtue-64x96_1
+  - first:
+      213: 5377718543218283888
+    second: t2-Virtue-64x96_2
+  - first:
+      213: 4099741793363710777
+    second: t2-Virtue-64x96_3
+  - first:
+      213: -4733065268140983732
+    second: t2-Virtue-64x96_4
+  - first:
+      213: 6397581906043686199
+    second: t2-Virtue-64x96_5
+  - first:
+      213: -8070796118758609628
+    second: t2-Virtue-64x96_6
+  - first:
+      213: 7955696835910421529
+    second: t2-Virtue-64x96_7
+  - first:
+      213: -5690375439353758208
+    second: t2-Virtue-64x96_8
+  - first:
+      213: -5696013724332638995
+    second: t2-Virtue-64x96_9
+  - first:
+      213: -3023363310943324288
+    second: t2-Virtue-64x96_10
+  - first:
+      213: -1339826064678214005
+    second: t2-Virtue-64x96_11
+  - first:
+      213: -7977359504017158420
+    second: t2-Virtue-64x96_12
+  - first:
+      213: -6525344420889183873
+    second: t2-Virtue-64x96_13
+  - first:
+      213: -8993056357497140985
+    second: t2-Virtue-64x96_14
+  - first:
+      213: 2497725751268510773
+    second: t2-Virtue-64x96_15
+  - first:
+      213: 1722997747606720746
+    second: t2-Virtue-64x96_16
+  - first:
+      213: -6017528207307822633
+    second: t2-Virtue-64x96_17
+  - first:
+      213: -1433510915230989088
+    second: t2-Virtue-64x96_18
+  - first:
+      213: 7515270927735378877
+    second: t2-Virtue-64x96_19
+  - first:
+      213: 671460810532036906
+    second: t2-Virtue-64x96_20
+  - first:
+      213: -2722106120975393598
+    second: t2-Virtue-64x96_21
+  - first:
+      213: 5747325076247745559
+    second: t2-Virtue-64x96_22
+  - first:
+      213: 1124663475633580788
+    second: t2-Virtue-64x96_23
+  - first:
+      213: -6593360052780580795
+    second: t2-Virtue-64x96_24
+  - first:
+      213: -2667171207507184735
+    second: t2-Virtue-64x96_25
+  - first:
+      213: -2188600408789522094
+    second: t2-Virtue-64x96_26
+  - first:
+      213: 4446864279510189174
+    second: t2-Virtue-64x96_27
+  - first:
+      213: 7444772261242167993
+    second: t2-Virtue-64x96_28
+  - first:
+      213: 1792578942506324778
+    second: t2-Virtue-64x96_29
+  - first:
+      213: -6309848452156073789
+    second: t2-Virtue-64x96_30
+  - first:
+      213: 242186510332232997
+    second: t2-Virtue-64x96_31
+  - first:
+      213: -5715219572229714535
+    second: t2-Virtue-64x96_32
+  - first:
+      213: -6325727472702215146
+    second: t2-Virtue-64x96_33
+  - first:
+      213: -7533224514812725710
+    second: t2-Virtue-64x96_34
+  - first:
+      213: 683054163445069132
+    second: t2-Virtue-64x96_35
+  - first:
+      213: 4619075849275583117
+    second: t2-Virtue-64x96_36
+  - first:
+      213: -2857787185368962947
+    second: t2-Virtue-64x96_37
+  - first:
+      213: -1900131981077010939
+    second: t2-Virtue-64x96_38
+  - first:
+      213: 5757248540226610738
+    second: t2-Virtue-64x96_39
+  - first:
+      213: -7354795700327393584
+    second: t2-Virtue-64x96_40
+  - first:
+      213: 4054038546967123989
+    second: t2-Virtue-64x96_41
+  - first:
+      213: -4224628999763792485
+    second: t2-Virtue-64x96_42
+  - first:
+      213: 1650842585819506041
+    second: t2-Virtue-64x96_43
+  - first:
+      213: -2841525180814245366
+    second: t2-Virtue-64x96_44
+  - first:
+      213: -3951849858676588323
+    second: t2-Virtue-64x96_45
+  - first:
+      213: -4690686518101726861
+    second: t2-Virtue-64x96_46
+  - first:
+      213: 2878249996271361964
+    second: t2-Virtue-64x96_47
+  - first:
+      213: 5580695364558375867
+    second: t2-Virtue-64x96_48
+  - first:
+      213: -691476479148499779
+    second: t2-Virtue-64x96_49
+  - first:
+      213: -5528037262663529583
+    second: t2-Virtue-64x96_50
+  - first:
+      213: -5507290109166608422
+    second: t2-Virtue-64x96_51
+  - first:
+      213: 9186684886366859757
+    second: t2-Virtue-64x96_52
+  - first:
+      213: 4246405245688577504
+    second: t2-Virtue-64x96_53
+  - first:
+      213: 1244868273886149835
+    second: t2-Virtue-64x96_54
+  - first:
+      213: 4884367241457418574
+    second: t2-Virtue-64x96_55
+  - first:
+      213: -6319129558682728594
+    second: t2-Virtue-64x96_56
+  - first:
+      213: -7934003112622300797
+    second: t2-Virtue-64x96_57
+  - first:
+      213: -4441256125247473479
+    second: t2-Virtue-64x96_58
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_0
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 690
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2df7dbd7ad59c0790800000000000000
+      internalID: -7562504908616925230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_1
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 682
+        width: 36
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4340c529a75f2d90800000000000000
+      internalID: -7120376101855018163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_2
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 690
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0759e8ec58e71aa40800000000000000
+      internalID: 5377718543218283888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_3
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 694
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9335440907535e830800000000000000
+      internalID: 4099741793363710777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_4
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 688
+        width: 27
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4ab7b92736c05eb0800000000000000
+      internalID: -4733065268140983732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_5
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 694
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73d433309d6c8c850800000000000000
+      internalID: 6397581906043686199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_6
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 674
+        width: 37
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42daaced0b5ceff80800000000000000
+      internalID: -8070796118758609628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_7
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 678
+        width: 37
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91cc3250f10586e60800000000000000
+      internalID: 7955696835910421529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_8
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 614
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00e36b2dfa9b701b0800000000000000
+      internalID: -5690375439353758208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_9
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 613
+        width: 55
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dec376d42b1b3f0b0800000000000000
+      internalID: -5696013724332638995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_10
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 623
+        width: 57
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0873640561bda06d0800000000000000
+      internalID: -3023363310943324288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_11
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 605
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b86ab0afa4bf76de0800000000000000
+      internalID: -1339826064678214005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_12
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 599
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cee88750cc9ba4190800000000000000
+      internalID: -7977359504017158420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_13
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 604
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f79b2db62d15175a0800000000000000
+      internalID: -6525344420889183873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_14
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 608
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 709805ed3ee323380800000000000000
+      internalID: -8993056357497140985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_15
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 607
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53c84b65654b9a220800000000000000
+      internalID: 2497725751268510773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_16
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 611
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae095e6925159e710800000000000000
+      internalID: 1722997747606720746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_17
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 544
+        width: 46
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d926894af17d7ca0800000000000000
+      internalID: -6017528207307822633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_18
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 558
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e4030cea652b1ce0800000000000000
+      internalID: -1433510915230989088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_19
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 555
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db3dc76571b9b4860800000000000000
+      internalID: 7515270927735378877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_20
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 536
+        width: 50
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a21ab54bc02815900800000000000000
+      internalID: 671460810532036906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_21
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 455
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cc5852c7e2293ad0800000000000000
+      internalID: -2722106120975393598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_22
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 461
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 714117ac4b992cf40800000000000000
+      internalID: 5747325076247745559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_23
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 453
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4faeefce87b9b9f00800000000000000
+      internalID: 1124663475633580788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_24
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 455
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54043c117fdaf74a0800000000000000
+      internalID: -6593360052780580795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_25
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 445
+        width: 49
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a372650bed4cfad0800000000000000
+      internalID: -2667171207507184735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_26
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 461
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25963de168780a1e0800000000000000
+      internalID: -2188600408789522094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_27
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 434
+        width: 57
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6740490708f66bd30800000000000000
+      internalID: 4446864279510189174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_28
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 461
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b265017de4215760800000000000000
+      internalID: 7444772261242167993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_29
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 423
+        width: 57
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a235febfc0580e810800000000000000
+      internalID: 1792578942506324778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_30
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 461
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c850b6834aee68a0800000000000000
+      internalID: -6309848452156073789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_31
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 317
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5258eb5195b6c5300800000000000000
+      internalID: 242186510332232997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_32
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 365
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99d43ef54167fa0b0800000000000000
+      internalID: -5715219572229714535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_33
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 307
+        width: 57
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61ca7a3f0608638a0800000000000000
+      internalID: -6325727472702215146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_34
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 365
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 236b25d673c947790800000000000000
+      internalID: -7533224514812725710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_35
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 301
+        width: 57
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c45be768422ba7900800000000000000
+      internalID: 683054163445069132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_36
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 365
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8a28a213014a1040800000000000000
+      internalID: 4619075849275583117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_37
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 293
+        width: 57
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d786b6432b91758d0800000000000000
+      internalID: -2857787185368962947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_38
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 365
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 506ab81d70061a5e0800000000000000
+      internalID: -1900131981077010939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_39
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 194
+        width: 57
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 236e7db4b0bd5ef40800000000000000
+      internalID: 5757248540226610738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_40
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 269
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d65a6627448ee990800000000000000
+      internalID: -7354795700327393584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_41
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 194
+        width: 57
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51857b94496d24830800000000000000
+      internalID: 4054038546967123989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_42
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 269
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9de349ce4a1f55c0800000000000000
+      internalID: -4224628999763792485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_43
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 194
+        width: 57
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 975ebd3d598f8e610800000000000000
+      internalID: 1650842585819506041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_44
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 269
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a024d3137efd098d0800000000000000
+      internalID: -2841525180814245366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_45
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 194
+        width: 57
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd087e7cd753829c0800000000000000
+      internalID: -3951849858676588323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_46
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 269
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37925dfc67557eeb0800000000000000
+      internalID: -4690686518101726861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_47
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 98
+        width: 57
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caf168a3f1991f720800000000000000
+      internalID: 2878249996271361964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_48
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 173
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbbcb24cddc927d40800000000000000
+      internalID: 5580695364558375867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_49
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 98
+        width: 57
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbcd0d94ec16766f0800000000000000
+      internalID: -691476479148499779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_50
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 173
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19b41ddf5677843b0800000000000000
+      internalID: -5528037262663529583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_51
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 98
+        width: 57
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adf1a1813dc2293b0800000000000000
+      internalID: -5507290109166608422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_52
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 173
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de1b8532b39ad7f70800000000000000
+      internalID: 9186684886366859757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_53
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 98
+        width: 57
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ed7f9192134eea30800000000000000
+      internalID: 4246405245688577504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_54
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 173
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcc33297919a64110800000000000000
+      internalID: 1244868273886149835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_55
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 2
+        width: 57
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e41cf9ba022c8c340800000000000000
+      internalID: 4884367241457418574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_56
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 77
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e678b058521fd48a0800000000000000
+      internalID: -6319129558682728594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_57
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 2
+        width: 57
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 381ed498432c4e190800000000000000
+      internalID: -7934003112622300797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Virtue-64x96_58
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 77
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b8b81ab51d7d52c0800000000000000
+      internalID: -4441256125247473479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      t2-Virtue-64x96_0: -7562504908616925230
+      t2-Virtue-64x96_1: -7120376101855018163
+      t2-Virtue-64x96_10: -3023363310943324288
+      t2-Virtue-64x96_11: -1339826064678214005
+      t2-Virtue-64x96_12: -7977359504017158420
+      t2-Virtue-64x96_13: -6525344420889183873
+      t2-Virtue-64x96_14: -8993056357497140985
+      t2-Virtue-64x96_15: 2497725751268510773
+      t2-Virtue-64x96_16: 1722997747606720746
+      t2-Virtue-64x96_17: -6017528207307822633
+      t2-Virtue-64x96_18: -1433510915230989088
+      t2-Virtue-64x96_19: 7515270927735378877
+      t2-Virtue-64x96_2: 5377718543218283888
+      t2-Virtue-64x96_20: 671460810532036906
+      t2-Virtue-64x96_21: -2722106120975393598
+      t2-Virtue-64x96_22: 5747325076247745559
+      t2-Virtue-64x96_23: 1124663475633580788
+      t2-Virtue-64x96_24: -6593360052780580795
+      t2-Virtue-64x96_25: -2667171207507184735
+      t2-Virtue-64x96_26: -2188600408789522094
+      t2-Virtue-64x96_27: 4446864279510189174
+      t2-Virtue-64x96_28: 7444772261242167993
+      t2-Virtue-64x96_29: 1792578942506324778
+      t2-Virtue-64x96_3: 4099741793363710777
+      t2-Virtue-64x96_30: -6309848452156073789
+      t2-Virtue-64x96_31: 242186510332232997
+      t2-Virtue-64x96_32: -5715219572229714535
+      t2-Virtue-64x96_33: -6325727472702215146
+      t2-Virtue-64x96_34: -7533224514812725710
+      t2-Virtue-64x96_35: 683054163445069132
+      t2-Virtue-64x96_36: 4619075849275583117
+      t2-Virtue-64x96_37: -2857787185368962947
+      t2-Virtue-64x96_38: -1900131981077010939
+      t2-Virtue-64x96_39: 5757248540226610738
+      t2-Virtue-64x96_4: -4733065268140983732
+      t2-Virtue-64x96_40: -7354795700327393584
+      t2-Virtue-64x96_41: 4054038546967123989
+      t2-Virtue-64x96_42: -4224628999763792485
+      t2-Virtue-64x96_43: 1650842585819506041
+      t2-Virtue-64x96_44: -2841525180814245366
+      t2-Virtue-64x96_45: -3951849858676588323
+      t2-Virtue-64x96_46: -4690686518101726861
+      t2-Virtue-64x96_47: 2878249996271361964
+      t2-Virtue-64x96_48: 5580695364558375867
+      t2-Virtue-64x96_49: -691476479148499779
+      t2-Virtue-64x96_5: 6397581906043686199
+      t2-Virtue-64x96_50: -5528037262663529583
+      t2-Virtue-64x96_51: -5507290109166608422
+      t2-Virtue-64x96_52: 9186684886366859757
+      t2-Virtue-64x96_53: 4246405245688577504
+      t2-Virtue-64x96_54: 1244868273886149835
+      t2-Virtue-64x96_55: 4884367241457418574
+      t2-Virtue-64x96_56: -6319129558682728594
+      t2-Virtue-64x96_57: -7934003112622300797
+      t2-Virtue-64x96_58: -4441256125247473479
+      t2-Virtue-64x96_6: -8070796118758609628
+      t2-Virtue-64x96_7: 7955696835910421529
+      t2-Virtue-64x96_8: -5690375439353758208
+      t2-Virtue-64x96_9: -5696013724332638995
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,611 @@
+fileFormatVersion: 2
+guid: 58d485b05421d5d47be8ca521682b578
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3021551494046375343
+    second: t2-Bishop-64x96_0
+  - first:
+      213: -5370516196888042279
+    second: t2-Bishop-64x96_1
+  - first:
+      213: 6222097304028469272
+    second: t2-Bishop-64x96_2
+  - first:
+      213: -4770186700184672589
+    second: t2-Bishop-64x96_3
+  - first:
+      213: -1691940768122516186
+    second: t2-Bishop-64x96_4
+  - first:
+      213: 1021728824826032230
+    second: t2-Bishop-64x96_5
+  - first:
+      213: -7415093698568129169
+    second: t2-Bishop-64x96_6
+  - first:
+      213: 1915523843827532678
+    second: t2-Bishop-64x96_7
+  - first:
+      213: 1413560599433856224
+    second: t2-Bishop-64x96_8
+  - first:
+      213: -2760562989858557486
+    second: t2-Bishop-64x96_9
+  - first:
+      213: -4451909284146606376
+    second: t2-Bishop-64x96_10
+  - first:
+      213: 290373505677241873
+    second: t2-Bishop-64x96_11
+  - first:
+      213: -8632751261435560633
+    second: t2-Bishop-64x96_12
+  - first:
+      213: -7125608164601450489
+    second: t2-Bishop-64x96_13
+  - first:
+      213: 3703171070963473106
+    second: t2-Bishop-64x96_14
+  - first:
+      213: -381032018039618848
+    second: t2-Bishop-64x96_15
+  - first:
+      213: -7901363893868796691
+    second: t2-Bishop-64x96_16
+  - first:
+      213: 4328123021742253488
+    second: t2-Bishop-64x96_17
+  - first:
+      213: 2400099379366559522
+    second: t2-Bishop-64x96_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: t2-Bishop-64x96_0
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 524
+        width: 195
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fad5f213315bee920800000000000000
+      internalID: 3021551494046375343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Bishop-64x96_1
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 532
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d4a10029f71875b0800000000000000
+      internalID: -5370516196888042279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Bishop-64x96_2
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 435
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 818588c2884595650800000000000000
+      internalID: 6222097304028469272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Bishop-64x96_3
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 434
+        width: 132
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b6233f3874eccdb0800000000000000
+      internalID: -4770186700184672589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Bishop-64x96_4
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 338
+        width: 70
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62d4e0fe5d40588e0800000000000000
+      internalID: -1691940768122516186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Bishop-64x96_5
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 337
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 660788ce3f8ed2e00800000000000000
+      internalID: 1021728824826032230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Bishop-64x96_6
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 333
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f65fb98619b481990800000000000000
+      internalID: -7415093698568129169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Bishop-64x96_7
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 232
+        width: 25
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 683812e79ce459a10800000000000000
+      internalID: 1915523843827532678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Bishop-64x96_8
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 217
+        width: 36
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e44eb530e9fd9310800000000000000
+      internalID: 1413560599433856224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Bishop-64x96_9
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 202
+        width: 46
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d1f369369280b9d0800000000000000
+      internalID: -2760562989858557486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Bishop-64x96_10
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 197
+        width: 46
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8de8d22e714a732c0800000000000000
+      internalID: -4451909284146606376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Bishop-64x96_11
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 101
+        width: 46
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11ea31a3a2d970400800000000000000
+      internalID: 290373505677241873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Bishop-64x96_12
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 101
+        width: 46
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74df3db477e423880800000000000000
+      internalID: -8632751261435560633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Bishop-64x96_13
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 101
+        width: 46
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 700be4c9021cc1d90800000000000000
+      internalID: -7125608164601450489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Bishop-64x96_14
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 101
+        width: 46
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dad743087e446330800000000000000
+      internalID: 3703171070963473106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Bishop-64x96_15
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 5
+        width: 46
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e2c2bcf56d46baf0800000000000000
+      internalID: -381032018039618848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Bishop-64x96_16
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 5
+        width: 46
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de46ad8d667b85290800000000000000
+      internalID: -7901363893868796691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Bishop-64x96_17
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 5
+        width: 46
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b52327f4f4901c30800000000000000
+      internalID: 4328123021742253488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-Bishop-64x96_18
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 5
+        width: 46
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22f77c45badde4120800000000000000
+      internalID: 2400099379366559522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      t2-Bishop-64x96_0: 3021551494046375343
+      t2-Bishop-64x96_1: -5370516196888042279
+      t2-Bishop-64x96_10: -4451909284146606376
+      t2-Bishop-64x96_11: 290373505677241873
+      t2-Bishop-64x96_12: -8632751261435560633
+      t2-Bishop-64x96_13: -7125608164601450489
+      t2-Bishop-64x96_14: 3703171070963473106
+      t2-Bishop-64x96_15: -381032018039618848
+      t2-Bishop-64x96_16: -7901363893868796691
+      t2-Bishop-64x96_17: 4328123021742253488
+      t2-Bishop-64x96_18: 2400099379366559522
+      t2-Bishop-64x96_2: 6222097304028469272
+      t2-Bishop-64x96_3: -4770186700184672589
+      t2-Bishop-64x96_4: -1691940768122516186
+      t2-Bishop-64x96_5: 1021728824826032230
+      t2-Bishop-64x96_6: -7415093698568129169
+      t2-Bishop-64x96_7: 1915523843827532678
+      t2-Bishop-64x96_8: 1413560599433856224
+      t2-Bishop-64x96_9: -2760562989858557486
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

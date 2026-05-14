@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: a76897df9507ba94f93765c99b1b0900
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 223518346038417714
+    second: t3-Cherubim-96x128_0
+  - first:
+      213: -1868344879029024518
+    second: t3-Cherubim-96x128_1
+  - first:
+      213: 4277823701995923616
+    second: t3-Cherubim-96x128_2
+  - first:
+      213: -3185572009619919487
+    second: t3-Cherubim-96x128_3
+  - first:
+      213: 8847879806466018375
+    second: t3-Cherubim-96x128_4
+  - first:
+      213: 6453050830231418408
+    second: t3-Cherubim-96x128_5
+  - first:
+      213: 3824869973758296391
+    second: t3-Cherubim-96x128_6
+  - first:
+      213: -2221625005801106405
+    second: t3-Cherubim-96x128_7
+  - first:
+      213: 5084199924860755843
+    second: t3-Cherubim-96x128_8
+  - first:
+      213: -3658481716734935263
+    second: t3-Cherubim-96x128_9
+  - first:
+      213: -878283107449779463
+    second: t3-Cherubim-96x128_10
+  - first:
+      213: 4961866569861488862
+    second: t3-Cherubim-96x128_11
+  - first:
+      213: 8368832539985153659
+    second: t3-Cherubim-96x128_12
+  - first:
+      213: 8295892593953699675
+    second: t3-Cherubim-96x128_13
+  - first:
+      213: 6025172851530006239
+    second: t3-Cherubim-96x128_14
+  - first:
+      213: 2205070013890550962
+    second: t3-Cherubim-96x128_15
+  - first:
+      213: -7690165534071577115
+    second: t3-Cherubim-96x128_16
+  - first:
+      213: 5154439221108940960
+    second: t3-Cherubim-96x128_17
+  - first:
+      213: -8693721439444692887
+    second: t3-Cherubim-96x128_18
+  - first:
+      213: -2148035589737680931
+    second: t3-Cherubim-96x128_19
+  - first:
+      213: -3789704472080120055
+    second: t3-Cherubim-96x128_20
+  - first:
+      213: 5336394149667195532
+    second: t3-Cherubim-96x128_21
+  - first:
+      213: 2030906480034944591
+    second: t3-Cherubim-96x128_22
+  - first:
+      213: -1135282861439417696
+    second: t3-Cherubim-96x128_23
+  - first:
+      213: 6523482589062400828
+    second: t3-Cherubim-96x128_24
+  - first:
+      213: 1342356668438805842
+    second: t3-Cherubim-96x128_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_0
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 960
+        width: 313
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 239176060c81a1300800000000000000
+      internalID: 223518346038417714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_1
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 962
+        width: 21
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af80e8f3b3e4216e0800000000000000
+      internalID: -1868344879029024518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_2
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 961
+        width: 25
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a8a639fdf1ed5b30800000000000000
+      internalID: 4277823701995923616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_3
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 831
+        width: 33
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18d6d2892239ac3d0800000000000000
+      internalID: -3185572009619919487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_4
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 831
+        width: 33
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74c42cf4ecbf9ca70800000000000000
+      internalID: 8847879806466018375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_5
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 829
+        width: 33
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 826bb755a87dd8950800000000000000
+      internalID: 6453050830231418408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_6
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 833
+        width: 31
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 741cbe1e9faa41530800000000000000
+      internalID: 3824869973758296391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_7
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 703
+        width: 319
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b149911f3d33b21e0800000000000000
+      internalID: -2221625005801106405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_8
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 573
+        width: 49
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38f9468f4e4be8640800000000000000
+      internalID: 5084199924860755843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_9
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 571
+        width: 65
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12fb0c813467a3dc0800000000000000
+      internalID: -3658481716734935263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_10
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 567
+        width: 85
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9faca38ca26bfc3f0800000000000000
+      internalID: -878283107449779463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_11
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 561
+        width: 87
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed0ea7f2b571cd440800000000000000
+      internalID: 4961866569861488862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_12
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 424
+        width: 93
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7e8b8aead0142470800000000000000
+      internalID: 8368832539985153659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_13
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 417
+        width: 93
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5777655c5ee02370800000000000000
+      internalID: 8295892593953699675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_14
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 411
+        width: 93
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdef5c529c6bd9350800000000000000
+      internalID: 6025172851530006239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_15
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 404
+        width: 93
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bcdfc2ae7bf99e10800000000000000
+      internalID: 2205070013890550962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_16
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 276
+        width: 93
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e526b5e03b074590800000000000000
+      internalID: -7690165534071577115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_17
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 276
+        width: 93
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a02a86892f388740800000000000000
+      internalID: 5154439221108940960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_18
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 276
+        width: 93
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96093b18962b95780800000000000000
+      internalID: -8693721439444692887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_19
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 276
+        width: 93
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddfe9cc0305a032e0800000000000000
+      internalID: -2148035589737680931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_20
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 148
+        width: 93
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90784f18cd3486bc0800000000000000
+      internalID: -3789704472080120055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_21
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 148
+        width: 93
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8ac268a43eae0a40800000000000000
+      internalID: 5336394149667195532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_22
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 148
+        width: 93
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f469582feaa3f2c10800000000000000
+      internalID: 2030906480034944591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_23
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 148
+        width: 93
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a28054a04aae30f0800000000000000
+      internalID: -1135282861439417696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_24
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 20
+        width: 93
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3b82831ad0188a50800000000000000
+      internalID: 6523482589062400828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-Cherubim-96x128_25
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 20
+        width: 93
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25dfb20274201a210800000000000000
+      internalID: 1342356668438805842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      t3-Cherubim-96x128_0: 223518346038417714
+      t3-Cherubim-96x128_1: -1868344879029024518
+      t3-Cherubim-96x128_10: -878283107449779463
+      t3-Cherubim-96x128_11: 4961866569861488862
+      t3-Cherubim-96x128_12: 8368832539985153659
+      t3-Cherubim-96x128_13: 8295892593953699675
+      t3-Cherubim-96x128_14: 6025172851530006239
+      t3-Cherubim-96x128_15: 2205070013890550962
+      t3-Cherubim-96x128_16: -7690165534071577115
+      t3-Cherubim-96x128_17: 5154439221108940960
+      t3-Cherubim-96x128_18: -8693721439444692887
+      t3-Cherubim-96x128_19: -2148035589737680931
+      t3-Cherubim-96x128_2: 4277823701995923616
+      t3-Cherubim-96x128_20: -3789704472080120055
+      t3-Cherubim-96x128_21: 5336394149667195532
+      t3-Cherubim-96x128_22: 2030906480034944591
+      t3-Cherubim-96x128_23: -1135282861439417696
+      t3-Cherubim-96x128_24: 6523482589062400828
+      t3-Cherubim-96x128_25: 1342356668438805842
+      t3-Cherubim-96x128_3: -3185572009619919487
+      t3-Cherubim-96x128_4: 8847879806466018375
+      t3-Cherubim-96x128_5: 6453050830231418408
+      t3-Cherubim-96x128_6: 3824869973758296391
+      t3-Cherubim-96x128_7: -2221625005801106405
+      t3-Cherubim-96x128_8: 5084199924860755843
+      t3-Cherubim-96x128_9: -3658481716734935263
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
