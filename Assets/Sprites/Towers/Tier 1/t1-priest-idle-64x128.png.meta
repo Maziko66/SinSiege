@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: 9e291d9b0b5002d4088e3f0a3ad37506
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5248796864109491368
+    second: t1-priest-idle-64x128_0
+  - first:
+      213: -4502024424520809184
+    second: t1-priest-idle-64x128_1
+  - first:
+      213: 2944404646031322942
+    second: t1-priest-idle-64x128_2
+  - first:
+      213: -6718515030314760809
+    second: t1-priest-idle-64x128_3
+  - first:
+      213: -4954646571439952714
+    second: t1-priest-idle-64x128_4
+  - first:
+      213: 4352651599695809140
+    second: t1-priest-idle-64x128_5
+  - first:
+      213: 1028765421025052066
+    second: t1-priest-idle-64x128_6
+  - first:
+      213: -2998464710555528204
+    second: t1-priest-idle-64x128_7
+  - first:
+      213: 3489080067676127627
+    second: t1-priest-idle-64x128_8
+  - first:
+      213: 4981201859649865062
+    second: t1-priest-idle-64x128_9
+  - first:
+      213: 897260699904083280
+    second: t1-priest-idle-64x128_10
+  - first:
+      213: 267867611077641929
+    second: t1-priest-idle-64x128_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: t1-priest-idle-64x128_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 16
+        width: 46
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85bc198bf078827b0800000000000000
+      internalID: -5248796864109491368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-priest-idle-64x128_1
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 16
+        width: 46
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0250e4e73a89581c0800000000000000
+      internalID: -4502024424520809184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-priest-idle-64x128_2
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 16
+        width: 46
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3fe4b9ec60acd820800000000000000
+      internalID: 2944404646031322942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-priest-idle-64x128_3
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 16
+        width: 46
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79547f71d2a03c2a0800000000000000
+      internalID: -6718515030314760809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-priest-idle-64x128_4
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 16
+        width: 46
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bce6b1b13f8d3bb0800000000000000
+      internalID: -4954646571439952714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-priest-idle-64x128_5
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 16
+        width: 46
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47a87ee8199b76c30800000000000000
+      internalID: 4352651599695809140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-priest-idle-64x128_6
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 16
+        width: 46
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a5476523b8e64e00800000000000000
+      internalID: 1028765421025052066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-priest-idle-64x128_7
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 16
+        width: 46
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f31bc77b305366d0800000000000000
+      internalID: -2998464710555528204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-priest-idle-64x128_8
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 16
+        width: 46
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b814bbae5d3bb6030800000000000000
+      internalID: 3489080067676127627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-priest-idle-64x128_9
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 16
+        width: 46
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66502f623b8c02540800000000000000
+      internalID: 4981201859649865062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-priest-idle-64x128_10
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 16
+        width: 46
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05583b84ad5b37c00800000000000000
+      internalID: 897260699904083280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-priest-idle-64x128_11
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 16
+        width: 46
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c68d1d4c28a7b300800000000000000
+      internalID: 267867611077641929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      t1-priest-idle-64x128_0: -5248796864109491368
+      t1-priest-idle-64x128_1: -4502024424520809184
+      t1-priest-idle-64x128_10: 897260699904083280
+      t1-priest-idle-64x128_11: 267867611077641929
+      t1-priest-idle-64x128_2: 2944404646031322942
+      t1-priest-idle-64x128_3: -6718515030314760809
+      t1-priest-idle-64x128_4: -4954646571439952714
+      t1-priest-idle-64x128_5: 4352651599695809140
+      t1-priest-idle-64x128_6: 1028765421025052066
+      t1-priest-idle-64x128_7: -2998464710555528204
+      t1-priest-idle-64x128_8: 3489080067676127627
+      t1-priest-idle-64x128_9: 4981201859649865062
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

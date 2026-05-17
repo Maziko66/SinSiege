@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: efc3c4f2a2effcc45b85c075c53dac19
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2325900803983700375
+    second: t2-prophet-idle-96x96t_0
+  - first:
+      213: -3885107590781286586
+    second: t2-prophet-idle-96x96t_1
+  - first:
+      213: -5993541770897089213
+    second: t2-prophet-idle-96x96t_2
+  - first:
+      213: 1255657002486458476
+    second: t2-prophet-idle-96x96t_3
+  - first:
+      213: -4185333545664466976
+    second: t2-prophet-idle-96x96t_4
+  - first:
+      213: 1152265333224678883
+    second: t2-prophet-idle-96x96t_5
+  - first:
+      213: -1747435513986594126
+    second: t2-prophet-idle-96x96t_6
+  - first:
+      213: -7383823141555222752
+    second: t2-prophet-idle-96x96t_7
+  - first:
+      213: -1886740326903066543
+    second: t2-prophet-idle-96x96t_8
+  - first:
+      213: 5403134790920184525
+    second: t2-prophet-idle-96x96t_9
+  - first:
+      213: -7622872633125625752
+    second: t2-prophet-idle-96x96t_10
+  - first:
+      213: 9034536887676759909
+    second: t2-prophet-idle-96x96t_11
+  - first:
+      213: -5244845227429954677
+    second: t2-prophet-idle-96x96t_12
+  - first:
+      213: 3692676266543331015
+    second: t2-prophet-idle-96x96t_13
+  - first:
+      213: -8352624084190346604
+    second: t2-prophet-idle-96x96t_14
+  - first:
+      213: 1279643068681690135
+    second: t2-prophet-idle-96x96t_15
+  - first:
+      213: 1274153405162519553
+    second: t2-prophet-idle-96x96t_16
+  - first:
+      213: -2635139487474882967
+    second: t2-prophet-idle-96x96t_17
+  - first:
+      213: 2072684268662361274
+    second: t2-prophet-idle-96x96t_18
+  - first:
+      213: -6557295108101893744
+    second: t2-prophet-idle-96x96t_19
+  - first:
+      213: -5121478112609520143
+    second: t2-prophet-idle-96x96t_20
+  - first:
+      213: -1224935846791243345
+    second: t2-prophet-idle-96x96t_21
+  - first:
+      213: -1390214884638049977
+    second: t2-prophet-idle-96x96t_22
+  - first:
+      213: -6718604217556106347
+    second: t2-prophet-idle-96x96t_23
+  - first:
+      213: 8174474856152928973
+    second: t2-prophet-idle-96x96t_24
+  - first:
+      213: -2013488330130814539
+    second: t2-prophet-idle-96x96t_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 6
+        width: 70
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7917e344572474020800000000000000
+      internalID: 2325900803983700375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 71
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 647ce49fa33551ac0800000000000000
+      internalID: -3885107590781286586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_2
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 5
+        width: 71
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34d9637b389a2dca0800000000000000
+      internalID: -5993541770897089213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_3
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 72
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c68efe8146dfc6110800000000000000
+      internalID: 1255657002486458476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_4
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 4
+        width: 73
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0efa428a055bae5c0800000000000000
+      internalID: -4185333545664466976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_5
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 73
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e5aad1373badff00800000000000000
+      internalID: 1152265333224678883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_6
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 3
+        width: 75
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ba4de888acdfb7e0800000000000000
+      internalID: -1747435513986594126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_7
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 73
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 027ca4359f3678990800000000000000
+      internalID: -7383823141555222752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_8
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1
+        width: 78
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 150d9874ba3f0d5e0800000000000000
+      internalID: -1886740326903066543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_9
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 74
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc22a5e177acbfa40800000000000000
+      internalID: 5403134790920184525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_10
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 0
+        width: 75
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86020865abd163690800000000000000
+      internalID: -7622872633125625752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_11
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 74
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56fe22cae6f116d70800000000000000
+      internalID: 9034536887676759909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_12
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 0
+        width: 70
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8b7225dd019637b0800000000000000
+      internalID: -5244845227429954677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_13
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 74
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c6b4d1ff750f3330800000000000000
+      internalID: 3692676266543331015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_14
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 0
+        width: 72
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 492467746a4851c80800000000000000
+      internalID: -8352624084190346604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_15
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 74
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71c1014579432c110800000000000000
+      internalID: 1279643068681690135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_16
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 8
+        width: 68
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10cf01075c3bea110800000000000000
+      internalID: 1274153405162519553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_17
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 74
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9666473099a1e6bd0800000000000000
+      internalID: -2635139487474882967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_18
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 8
+        width: 68
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abc092d5c57a3cc10800000000000000
+      internalID: 2072684268662361274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_19
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 73
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0911e2a57decff4a0800000000000000
+      internalID: -6557295108101893744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_20
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 8
+        width: 68
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f5b8f49acadce8b0800000000000000
+      internalID: -5121478112609520143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_21
+      rect:
+        serializedVersion: 2
+        x: 977
+        y: 72
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa99d5b5657200fe0800000000000000
+      internalID: -1224935846791243345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_22
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 8
+        width: 69
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74930b79de6f4bce0800000000000000
+      internalID: -1390214884638049977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_23
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 72
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59380229f09b2c2a0800000000000000
+      internalID: -6718604217556106347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_24
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 5
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc29b5a4291917170800000000000000
+      internalID: 8174474856152928973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t2-prophet-idle-96x96t_25
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 4
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b9882b1807ae04e0800000000000000
+      internalID: -2013488330130814539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      t2-prophet-idle-96x96t_0: 2325900803983700375
+      t2-prophet-idle-96x96t_1: -3885107590781286586
+      t2-prophet-idle-96x96t_10: -7622872633125625752
+      t2-prophet-idle-96x96t_11: 9034536887676759909
+      t2-prophet-idle-96x96t_12: -5244845227429954677
+      t2-prophet-idle-96x96t_13: 3692676266543331015
+      t2-prophet-idle-96x96t_14: -8352624084190346604
+      t2-prophet-idle-96x96t_15: 1279643068681690135
+      t2-prophet-idle-96x96t_16: 1274153405162519553
+      t2-prophet-idle-96x96t_17: -2635139487474882967
+      t2-prophet-idle-96x96t_18: 2072684268662361274
+      t2-prophet-idle-96x96t_19: -6557295108101893744
+      t2-prophet-idle-96x96t_2: -5993541770897089213
+      t2-prophet-idle-96x96t_20: -5121478112609520143
+      t2-prophet-idle-96x96t_21: -1224935846791243345
+      t2-prophet-idle-96x96t_22: -1390214884638049977
+      t2-prophet-idle-96x96t_23: -6718604217556106347
+      t2-prophet-idle-96x96t_24: 8174474856152928973
+      t2-prophet-idle-96x96t_25: -2013488330130814539
+      t2-prophet-idle-96x96t_3: 1255657002486458476
+      t2-prophet-idle-96x96t_4: -4185333545664466976
+      t2-prophet-idle-96x96t_5: 1152265333224678883
+      t2-prophet-idle-96x96t_6: -1747435513986594126
+      t2-prophet-idle-96x96t_7: -7383823141555222752
+      t2-prophet-idle-96x96t_8: -1886740326903066543
+      t2-prophet-idle-96x96t_9: 5403134790920184525
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

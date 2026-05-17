@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: eba7a8be3aa7fe14ea635099f8fc0083
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9219949861954015772
+    second: t1-angel-idle-64x64_0
+  - first:
+      213: 2448987061592286608
+    second: t1-angel-idle-64x64_1
+  - first:
+      213: 6380794426637382454
+    second: t1-angel-idle-64x64_2
+  - first:
+      213: -4280469069056531462
+    second: t1-angel-idle-64x64_3
+  - first:
+      213: 895887410414114051
+    second: t1-angel-idle-64x64_4
+  - first:
+      213: 4231813296220363283
+    second: t1-angel-idle-64x64_5
+  - first:
+      213: 141066956012969680
+    second: t1-angel-idle-64x64_6
+  - first:
+      213: -9166820582936049007
+    second: t1-angel-idle-64x64_7
+  - first:
+      213: -5280085798698252370
+    second: t1-angel-idle-64x64_8
+  - first:
+      213: 2679160736670766562
+    second: t1-angel-idle-64x64_9
+  - first:
+      213: 8757910919838838068
+    second: t1-angel-idle-64x64_10
+  - first:
+      213: 8315196861696120512
+    second: t1-angel-idle-64x64_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: t1-angel-idle-64x64_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 6
+        width: 49
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c125ea0dc87d3ff70800000000000000
+      internalID: 9219949861954015772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-angel-idle-64x64_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 7
+        width: 49
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0956cb9d1cc8cf120800000000000000
+      internalID: 2448987061592286608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-angel-idle-64x64_2
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 7
+        width: 49
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 633738069b22d8850800000000000000
+      internalID: 6380794426637382454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-angel-idle-64x64_3
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 8
+        width: 49
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af3a6d28f08b894c0800000000000000
+      internalID: -4280469069056531462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-angel-idle-64x64_4
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 9
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3055a786ad4de6c00800000000000000
+      internalID: 895887410414114051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-angel-idle-64x64_5
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 9
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31a5df495cb6aba30800000000000000
+      internalID: 4231813296220363283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-angel-idle-64x64_6
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 9
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ded2ba26ab25f100800000000000000
+      internalID: 141066956012969680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-angel-idle-64x64_7
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 8
+        width: 49
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19a8b5a6f39e8c080800000000000000
+      internalID: -9166820582936049007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-angel-idle-64x64_8
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 8
+        width: 49
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea78101f0fd59b6b0800000000000000
+      internalID: -5280085798698252370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-angel-idle-64x64_9
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 7
+        width: 49
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e55f65ce7a4e2520800000000000000
+      internalID: 2679160736670766562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-angel-idle-64x64_10
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 7
+        width: 49
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43d228784995a8970800000000000000
+      internalID: 8757910919838838068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t1-angel-idle-64x64_11
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 6
+        width: 49
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c617da6d73856370800000000000000
+      internalID: 8315196861696120512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      t1-angel-idle-64x64_0: 9219949861954015772
+      t1-angel-idle-64x64_1: 2448987061592286608
+      t1-angel-idle-64x64_10: 8757910919838838068
+      t1-angel-idle-64x64_11: 8315196861696120512
+      t1-angel-idle-64x64_2: 6380794426637382454
+      t1-angel-idle-64x64_3: -4280469069056531462
+      t1-angel-idle-64x64_4: 895887410414114051
+      t1-angel-idle-64x64_5: 4231813296220363283
+      t1-angel-idle-64x64_6: 141066956012969680
+      t1-angel-idle-64x64_7: -9166820582936049007
+      t1-angel-idle-64x64_8: -5280085798698252370
+      t1-angel-idle-64x64_9: 2679160736670766562
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

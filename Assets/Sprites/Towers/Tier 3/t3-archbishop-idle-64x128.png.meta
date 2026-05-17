@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: 716ba26803d2aa445bdd61aa977b8508
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5203886876263124762
+    second: t3-archbishop-idle-64x128_0
+  - first:
+      213: 2587008792665613600
+    second: t3-archbishop-idle-64x128_1
+  - first:
+      213: 4003416287998669174
+    second: t3-archbishop-idle-64x128_2
+  - first:
+      213: -7957682331897938709
+    second: t3-archbishop-idle-64x128_3
+  - first:
+      213: -8231724706560415778
+    second: t3-archbishop-idle-64x128_4
+  - first:
+      213: 7300676272687164681
+    second: t3-archbishop-idle-64x128_5
+  - first:
+      213: 7118310052419893477
+    second: t3-archbishop-idle-64x128_6
+  - first:
+      213: 6579892428854162590
+    second: t3-archbishop-idle-64x128_7
+  - first:
+      213: 8792738725412223515
+    second: t3-archbishop-idle-64x128_8
+  - first:
+      213: 622600721469460955
+    second: t3-archbishop-idle-64x128_9
+  - first:
+      213: -385930947750105531
+    second: t3-archbishop-idle-64x128_10
+  - first:
+      213: 8095465648185511894
+    second: t3-archbishop-idle-64x128_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: t3-archbishop-idle-64x128_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 15
+        width: 44
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1f0bf6ea8be73840800000000000000
+      internalID: 5203886876263124762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-archbishop-idle-64x128_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 15
+        width: 44
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02565a55ac6e6e320800000000000000
+      internalID: 2587008792665613600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-archbishop-idle-64x128_2
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 15
+        width: 44
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6717c2627edfe8730800000000000000
+      internalID: 4003416287998669174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-archbishop-idle-64x128_3
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 15
+        width: 44
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bec32dba412a09190800000000000000
+      internalID: -7957682331897938709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-archbishop-idle-64x128_4
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 15
+        width: 44
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed7e8a03ef903cd80800000000000000
+      internalID: -8231724706560415778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-archbishop-idle-64x128_5
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 15
+        width: 44
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90d24ada366315560800000000000000
+      internalID: 7300676272687164681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-archbishop-idle-64x128_6
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 15
+        width: 44
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e8749b374159c260800000000000000
+      internalID: 7118310052419893477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-archbishop-idle-64x128_7
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 15
+        width: 44
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9472226d49705b50800000000000000
+      internalID: 6579892428854162590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-archbishop-idle-64x128_8
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 15
+        width: 44
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1a340be845160a70800000000000000
+      internalID: 8792738725412223515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-archbishop-idle-64x128_9
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 15
+        width: 44
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd1d618be0ce3a800800000000000000
+      internalID: 622600721469460955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-archbishop-idle-64x128_10
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 15
+        width: 44
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54e668709d5e4aaf0800000000000000
+      internalID: -385930947750105531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t3-archbishop-idle-64x128_11
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 15
+        width: 44
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6df897b8d1fd85070800000000000000
+      internalID: 8095465648185511894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      t3-archbishop-idle-64x128_0: 5203886876263124762
+      t3-archbishop-idle-64x128_1: 2587008792665613600
+      t3-archbishop-idle-64x128_10: -385930947750105531
+      t3-archbishop-idle-64x128_11: 8095465648185511894
+      t3-archbishop-idle-64x128_2: 4003416287998669174
+      t3-archbishop-idle-64x128_3: -7957682331897938709
+      t3-archbishop-idle-64x128_4: -8231724706560415778
+      t3-archbishop-idle-64x128_5: 7300676272687164681
+      t3-archbishop-idle-64x128_6: 7118310052419893477
+      t3-archbishop-idle-64x128_7: 6579892428854162590
+      t3-archbishop-idle-64x128_8: 8792738725412223515
+      t3-archbishop-idle-64x128_9: 622600721469460955
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
