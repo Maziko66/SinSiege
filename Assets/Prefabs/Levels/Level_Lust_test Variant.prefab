@@ -266285,10 +266285,66 @@ MonoBehaviour:
       - {fileID: 3761374276813378462}
       - {fileID: 7387559133417008084}
       - {fileID: 1696585935197764323}
+  - routeName: R2
+    spawnPoint: {fileID: 0}
+    pathSegments:
+    - segmentName: New_Segment_11
+      spawnPoint: {fileID: 471778404080685127}
+      waypoints:
+      - {fileID: 203322646965553026}
+      - {fileID: 3232876923017969281}
+      - {fileID: 1696585935197764323}
+  - routeName: R4
+    spawnPoint: {fileID: 0}
+    pathSegments:
+    - segmentName: L2
+      spawnPoint: {fileID: 4287617842585122211}
+      waypoints:
+      - {fileID: 4300675053128214693}
+      - {fileID: 1830558602476079606}
+      - {fileID: 484206452312995949}
+  - routeName: R5
+    spawnPoint: {fileID: 0}
+    pathSegments:
+    - segmentName: L3
+      spawnPoint: {fileID: 863110529739306397}
+      waypoints:
+      - {fileID: 2001663346727327491}
+      - {fileID: 484206452312995949}
+  - routeName: R6
+    spawnPoint: {fileID: 0}
+    pathSegments:
+    - segmentName: New_Segment_6
+      spawnPoint: {fileID: 3724841178400357533}
+      waypoints:
+      - {fileID: 1649262475142773954}
+      - {fileID: 5031465443494165902}
+      - {fileID: 484206452312995949}
+  - routeName: R7
+    spawnPoint: {fileID: 0}
+    pathSegments:
+    - segmentName: New_Segment_10
+      spawnPoint: {fileID: 2932934674645526215}
+      waypoints:
+      - {fileID: 3350891530748325432}
+      - {fileID: 728450423431088920}
+      - {fileID: 4753005939005592612}
+  - routeName: R9
+    spawnPoint: {fileID: 0}
+    pathSegments:
+    - segmentName: New_Segment_9
+      spawnPoint: {fileID: 2932934674645526215}
+      waypoints:
+      - {fileID: 3350891530748325432}
+      - {fileID: 728450423431088920}
+      - {fileID: 3220346105024110768}
+      - {fileID: 7341122699783178647}
+      - {fileID: 3232876923017969281}
+      - {fileID: 4753005939005592612}
   waveGroups:
   - waveSlots:
     - wave: {fileID: 11400000, guid: 103a92ec3577f9e48aa8ff4e91368b74, type: 2}
-      routeIndex: 0
+      routeIndex: 1
   spawnPoints: []
   availableSegments:
   - segmentName: Up Left 1
