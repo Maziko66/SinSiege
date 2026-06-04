@@ -235,14 +235,34 @@ public class EnemyCreatorWindow : EditorWindow
 
             if (_defaultSprite != null)
             {
-                SpriteRenderer sr = instance.GetComponent<SpriteRenderer>() ?? instance.GetComponentInChildren<SpriteRenderer>();
-                if (sr != null) sr.sprite = _defaultSprite;
+                SpriteRenderer sr = FindMainSpriteRenderer(instance);
+                if (sr != null)
+                {
+                    // Write through a SerializedObject so the override is recorded
+                    // reliably on the variant, then flush it.
+                    var srSo = new SerializedObject(sr);
+                    srSo.FindProperty("m_Sprite").objectReferenceValue = _defaultSprite;
+                    srSo.ApplyModifiedPropertiesWithoutUndo();
+                    EditorUtility.SetDirty(sr);
+                }
+                else
+                {
+                    Debug.LogWarning("Enemy Creator: no SpriteRenderer found on the base prefab — default sprite not applied.");
+                }
             }
 
             if (controller != null)
             {
                 Animator anim = instance.GetComponent<Animator>() ?? instance.GetComponentInChildren<Animator>();
-                if (anim != null) anim.runtimeAnimatorController = controller;
+                if (anim != null)
+                {
+                    // Same reason as the sprite: write through SerializedObject so the
+                    // controller change is recorded as a prefab override before saving.
+                    var aSo = new SerializedObject(anim);
+                    aSo.FindProperty("m_Controller").objectReferenceValue = controller;
+                    aSo.ApplyModifiedPropertiesWithoutUndo();
+                    EditorUtility.SetDirty(anim);
+                }
             }
 
             string prefabPath = AssetDatabase.GenerateUniqueAssetPath($"{_prefabFolder}/{name}.prefab");
@@ -288,10 +308,28 @@ public class EnemyCreatorWindow : EditorWindow
     private string GetSpriteRendererPath()
     {
         Animator anim = _basePrefab.GetComponentInChildren<Animator>();
-        SpriteRenderer sr = _basePrefab.GetComponent<SpriteRenderer>() ?? _basePrefab.GetComponentInChildren<SpriteRenderer>();
+        SpriteRenderer sr = FindMainSpriteRenderer(_basePrefab);
         if (sr == null) return "";
         Transform root = anim != null ? anim.transform : _basePrefab.transform;
         return AnimationUtility.CalculateTransformPath(sr.transform, root);
+    }
+
+    /// <summary>
+    /// The enemy's main SpriteRenderer. Prefers the one on the Animator's GameObject
+    /// (what the clip binds to), then the root, then the first in children — so a
+    /// secondary renderer like a glow/light child is never picked by accident.
+    /// </summary>
+    private static SpriteRenderer FindMainSpriteRenderer(GameObject go)
+    {
+        Animator anim = go.GetComponentInChildren<Animator>();
+        if (anim != null)
+        {
+            SpriteRenderer onAnim = anim.GetComponent<SpriteRenderer>();
+            if (onAnim != null) return onAnim;
+        }
+        SpriteRenderer onRoot = go.GetComponent<SpriteRenderer>();
+        if (onRoot != null) return onRoot;
+        return go.GetComponentInChildren<SpriteRenderer>();
     }
 
     // ============================================================ Helpers
