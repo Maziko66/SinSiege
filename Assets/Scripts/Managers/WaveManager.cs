@@ -158,24 +158,43 @@ public class WaveManager : MonoBehaviour
             WaveSpawnerState spawner = new WaveSpawnerState
             {
                 wave = slot.wave,
-                remainingSpawns = new List<WaveSpawnData>(slot.wave.enemySpawns),
+                remainingSpawns = ExpandByCount(slot.wave.enemySpawns),
                 spawnCooldown = 0f,
                 routeIndex = slot.routeIndex,
                 isWaitingForSameRoute = false
             };
-            
+
             activeSpawners.Add(spawner);
-            
-            // Combine horde configs
+
+            // Combine horde configs (count expands weighting in the random pool)
             if (slot.wave.hasHorde && slot.wave.hordeSpawns != null)
             {
-                currentHordeConfigList.AddRange(slot.wave.hordeSpawns);
+                currentHordeConfigList.AddRange(ExpandByCount(slot.wave.hordeSpawns));
                 _spawnHorde = true;
                 _hordeInterval = Mathf.Min(_hordeInterval, slot.wave.hordeInterval);
             }
         }
         
         SetWaveTimer(group.GetWaveCooldown());
+    }
+
+    /// <summary>
+    /// Flattens a spawn list so each entry appears 'count' times. The same
+    /// WaveSpawnData reference is repeated (it's read-only during spawning),
+    /// which keeps per-spawn config and intervals intact.
+    /// </summary>
+    private static List<WaveSpawnData> ExpandByCount(List<WaveSpawnData> source)
+    {
+        var result = new List<WaveSpawnData>();
+        if (source == null) return result;
+
+        foreach (WaveSpawnData entry in source)
+        {
+            if (entry == null) continue;
+            int n = Mathf.Max(1, entry.count);
+            for (int i = 0; i < n; i++) result.Add(entry);
+        }
+        return result;
     }
 
     private void UpdateSpawners()

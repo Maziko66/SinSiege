@@ -117,181 +117,194 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: demon1-1-64x64_0
+      name: demon-1-1-64x64_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 13
-        width: 23
-        height: 33
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8e2a3bef63bebb2c0800000000000000
-      internalID: -4414676388272692504
+      spriteID: 554f14dc067532a419c1f5a4a223d466
+      internalID: 10076630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon1-1-64x64_1
+      name: demon-1-1-64x64_1
       rect:
         serializedVersion: 2
-        x: 84
-        y: 12
-        width: 23
-        height: 35
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e3e9eddedd168fbc0800000000000000
-      internalID: -3749139083979481538
+      spriteID: 8e7b707929f31654c8bc13e6f666c0ee
+      internalID: 704727017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon1-1-64x64_2
+      name: demon-1-1-64x64_2
       rect:
         serializedVersion: 2
-        x: 148
-        y: 11
-        width: 23
-        height: 36
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6319738ca7d0ef930800000000000000
-      internalID: 4178792325242655030
+      spriteID: b355122e5d615744dab0d39ec2070923
+      internalID: 492704111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon1-1-64x64_3
+      name: demon-1-1-64x64_3
       rect:
         serializedVersion: 2
-        x: 212
-        y: 10
-        width: 23
-        height: 35
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a3b501ec84976ac80800000000000000
-      internalID: -8311822708663887046
+      spriteID: 522d9b279aa4b384c9b53e42744f1a16
+      internalID: 1876235107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon1-1-64x64_4
+      name: demon-1-1-64x64_4
       rect:
         serializedVersion: 2
-        x: 276
-        y: 10
-        width: 23
-        height: 34
+        x: 256
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7757858b64779e670800000000000000
-      internalID: 8568510911673300343
+      spriteID: 6f218858a76eae04f9e4463e0c0c3975
+      internalID: 206013167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon1-1-64x64_5
+      name: demon-1-1-64x64_5
       rect:
         serializedVersion: 2
-        x: 340
-        y: 8
-        width: 23
-        height: 37
+        x: 320
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8156618174dc3a2e0800000000000000
-      internalID: -2115621694703508200
+      spriteID: ec005cb2c6d7bbb409e4fbd6b9cd6cc7
+      internalID: -337161151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon1-1-64x64_6
+      name: demon-1-1-64x64_6
       rect:
         serializedVersion: 2
-        x: 404
-        y: 8
-        width: 23
-        height: 38
+        x: 384
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: dd20ee94b81bad2d0800000000000000
-      internalID: -3253092569022856483
+      spriteID: 4e1593be50872ce4c9a3223694357175
+      internalID: 2125446020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon1-1-64x64_7
+      name: demon-1-1-64x64_7
       rect:
         serializedVersion: 2
-        x: 468
-        y: 10
-        width: 23
-        height: 34
+        x: 448
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: df313f2badf44aa40800000000000000
-      internalID: 5378511655710954493
+      spriteID: 0e23e4e9ae3c3e041a95168ddb2d8fdb
+      internalID: -1608013958
       vertices: []
       indices: 
       edges: []
@@ -300,7 +313,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 35b77b53f73a3324ca996ab0d275bbdb
     internalID: 0
     vertices: []
     indices: 
@@ -308,16 +321,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceOnImport
+        value: False
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      demon1-1-64x64_0: -4414676388272692504
-      demon1-1-64x64_1: -3749139083979481538
-      demon1-1-64x64_2: 4178792325242655030
-      demon1-1-64x64_3: -8311822708663887046
-      demon1-1-64x64_4: 8568510911673300343
-      demon1-1-64x64_5: -2115621694703508200
-      demon1-1-64x64_6: -3253092569022856483
-      demon1-1-64x64_7: 5378511655710954493
+      demon-1-1-64x64_0: 10076630
+      demon-1-1-64x64_1: 704727017
+      demon-1-1-64x64_2: 492704111
+      demon-1-1-64x64_3: 1876235107
+      demon-1-1-64x64_4: 206013167
+      demon-1-1-64x64_5: -337161151
+      demon-1-1-64x64_6: 2125446020
+      demon-1-1-64x64_7: -1608013958
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

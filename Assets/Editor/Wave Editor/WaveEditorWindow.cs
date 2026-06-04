@@ -28,8 +28,12 @@ public class WaveEditorWindow : EditorWindow
     private enum EditorMode { Waves, Segments, Routes }
     private EditorMode _mode = EditorMode.Waves;
 
+    private enum DetailTab { Editor, Library }
+    private DetailTab _detailTab = DetailTab.Editor;
+
     private const string LevelFolder = "Assets/Prefabs/Levels";
     private const string BaseWavePath = "Assets/Scriptable Objects/Waves";
+    private const string EnemyPrefabFolder = "Assets/Prefabs/Enemies";
     private const float MinSidebarWidth = 250f;
 
     // ---- Level prefab discovery ----
@@ -58,6 +62,7 @@ public class WaveEditorWindow : EditorWindow
     // ---- Wave pool ----
     private Dictionary<string, List<WaveSO>> _wavePool = new Dictionary<string, List<WaveSO>>();
     private Dictionary<string, bool> _folderFoldouts = new Dictionary<string, bool>();
+    private string _librarySearch = "";
 
     // ---- Cached totals ----
     private int _totalGold;
@@ -426,16 +431,14 @@ public class WaveEditorWindow : EditorWindow
     {
         EditorGUILayout.BeginHorizontal();
 
-        EditorGUILayout.BeginVertical("box", GUILayout.Width(290), GUILayout.ExpandHeight(true));
-        DrawWavePool();
-        EditorGUILayout.EndVertical();
-
+        // Left: the wave timeline (groups and their spawner slots).
         EditorGUILayout.BeginVertical("box", GUILayout.Width(_sidebarWidth), GUILayout.ExpandHeight(true));
         DrawWaveGroups();
         EditorGUILayout.EndVertical();
 
         DrawResizeHandle();
 
+        // Right: context panel — Wave Editor or the wave Library.
         EditorGUILayout.BeginVertical("box", GUILayout.ExpandHeight(true));
         DrawWaveInspector();
         EditorGUILayout.EndVertical();
@@ -445,18 +448,33 @@ public class WaveEditorWindow : EditorWindow
 
     private void DrawWavePool()
     {
-        EditorGUILayout.LabelField("Available Waves", EditorStyles.boldLabel);
-        if (GUILayout.Button("+ Create New Wave", GUILayout.Height(24))) CreateWaveAsset(-1, -1);
-        if (GUILayout.Button("Refresh Pool", GUILayout.Height(18))) RefreshWavePool();
-
         EditorGUILayout.BeginHorizontal();
-        if (GUILayout.Button("Expand All", EditorStyles.miniButtonLeft))
-            foreach (var k in _folderFoldouts.Keys.ToList()) _folderFoldouts[k] = true;
-        if (GUILayout.Button("Collapse All", EditorStyles.miniButtonRight))
-            foreach (var k in _folderFoldouts.Keys.ToList()) _folderFoldouts[k] = false;
+        GUI.backgroundColor = new Color(0.7f, 1f, 0.7f);
+        if (GUILayout.Button("＋ Create New Wave", GUILayout.Height(24))) CreateWaveAsset(-1, -1);
+        GUI.backgroundColor = Color.white;
+        if (GUILayout.Button("Refresh", GUILayout.Height(24), GUILayout.Width(64))) RefreshWavePool();
         EditorGUILayout.EndHorizontal();
 
-        EditorGUILayout.Space(4);
+        // Search
+        EditorGUILayout.BeginHorizontal();
+        _librarySearch = EditorGUILayout.TextField(_librarySearch, EditorStyles.toolbarSearchField);
+        if (GUILayout.Button("✕", EditorStyles.miniButton, GUILayout.Width(22)))
+        {
+            _librarySearch = "";
+            GUI.FocusControl(null);
+        }
+        EditorGUILayout.EndHorizontal();
+
+        bool slotSelected = _selWaveGroup >= 0 && _selWaveSlot >= 0 && !_editingFromPool;
+        EditorGUILayout.HelpBox(slotSelected
+            ? $"Click 'Assign' to put a wave in the selected slot (Wave {_selWaveGroup + 1}, spawner {_selWaveSlot + 1}). Click a name to edit."
+            : "Click a wave's name to edit it. Select a spawner in the timeline to enable 'Assign' (or just drag a wave onto a slot).",
+            MessageType.None);
+
+        bool searching = !string.IsNullOrWhiteSpace(_librarySearch);
+        string needle = _librarySearch.ToLowerInvariant();
+
+        EditorGUILayout.Space(2);
         _poolScroll = EditorGUILayout.BeginScrollView(_poolScroll);
 
         if (_wavePool.Count == 0)
@@ -472,25 +490,29 @@ public class WaveEditorWindow : EditorWindow
 
             foreach (string folder in folders)
             {
-                List<WaveSO> waves = _wavePool[folder];
+                List<WaveSO> waves = _wavePool[folder]
+                    .Where(w => w != null && (!searching || w.name.ToLowerInvariant().Contains(needle)))
+                    .OrderBy(w => w.name)
+                    .ToList();
                 if (waves.Count == 0) continue;
                 if (!_folderFoldouts.ContainsKey(folder)) _folderFoldouts[folder] = folder == levelName;
 
+                bool expanded = searching || _folderFoldouts[folder];
                 int assigned = waves.Count(IsWaveAssigned);
                 bool isLevelFolder = folder == levelName;
 
                 EditorGUILayout.BeginHorizontal();
                 GUI.backgroundColor = isLevelFolder ? new Color(0.8f, 1f, 0.8f) : Color.white;
-                _folderFoldouts[folder] = EditorGUILayout.Foldout(_folderFoldouts[folder], "", true, _folderHeader);
-                EditorGUILayout.LabelField($"📁 {folder} ({assigned}/{waves.Count})", EditorStyles.boldLabel);
+                if (!searching)
+                    _folderFoldouts[folder] = EditorGUILayout.Foldout(_folderFoldouts[folder], "", true, _folderHeader);
+                EditorGUILayout.LabelField($"{folder}  ({assigned}/{waves.Count})", EditorStyles.boldLabel);
                 GUI.backgroundColor = Color.white;
                 EditorGUILayout.EndHorizontal();
 
-                if (_folderFoldouts[folder])
+                if (expanded)
                 {
                     EditorGUI.indentLevel++;
-                    foreach (WaveSO wave in waves.OrderBy(w => w.name))
-                        if (wave != null) DrawWavePoolItem(wave);
+                    foreach (WaveSO wave in waves) DrawWavePoolItem(wave);
                     EditorGUI.indentLevel--;
                 }
                 EditorGUILayout.Space(2);
@@ -498,36 +520,35 @@ public class WaveEditorWindow : EditorWindow
         }
 
         EditorGUILayout.EndScrollView();
-        EditorGUILayout.HelpBox("Click a wave to edit it. Select an empty slot, then '>' to assign.", MessageType.None);
     }
 
     private void DrawWavePoolItem(WaveSO wave)
     {
         bool isAssigned = IsWaveAssigned(wave);
         bool isSelected = _selectedWave == wave && _editingFromPool;
+        bool canAssign = _selWaveGroup >= 0 && _selWaveSlot >= 0 && !_editingFromPool;
 
         if (isSelected) GUI.backgroundColor = new Color(0.6f, 0.8f, 1f);
-        else if (isAssigned) GUI.backgroundColor = new Color(0.72f, 0.72f, 0.72f);
 
         EditorGUILayout.BeginHorizontal(isSelected ? _poolItemSelected : GUIStyle.none);
-        GUILayout.Space(15);
+        GUILayout.Space(12);
 
-        string label = wave.name.Length > 25 ? wave.name.Substring(0, 22) + "..." : wave.name;
-        if (GUILayout.Button(isAssigned ? $"✓ {label}" : label, EditorStyles.label, GUILayout.ExpandWidth(true)))
+        string tick = isAssigned ? "✓ " : "";
+        string label = wave.name.Length > 26 ? wave.name.Substring(0, 23) + "..." : wave.name;
+        if (GUILayout.Button(tick + label, EditorStyles.label, GUILayout.ExpandWidth(true)))
             SelectWaveFromPool(wave);
         GUI.backgroundColor = Color.white;
 
-        bool canAssign = _selWaveGroup >= 0 && _selWaveSlot >= 0 && !_editingFromPool;
         using (new EditorGUI.DisabledScope(!canAssign))
         {
             GUI.backgroundColor = new Color(0.7f, 1f, 0.7f);
-            if (GUILayout.Button(">", GUILayout.Width(22)))
+            if (GUILayout.Button("Assign", GUILayout.Width(54)))
                 AssignWaveToSlot(_selWaveGroup, _selWaveSlot, wave);
             GUI.backgroundColor = Color.white;
         }
 
         GUI.backgroundColor = new Color(1f, 0.6f, 0.6f);
-        if (GUILayout.Button("X", GUILayout.Width(20))) DeleteWaveAsset(wave);
+        if (GUILayout.Button("✕", GUILayout.Width(22))) DeleteWaveAsset(wave);
         GUI.backgroundColor = Color.white;
 
         EditorGUILayout.EndHorizontal();
@@ -536,14 +557,14 @@ public class WaveEditorWindow : EditorWindow
     private void DrawWaveGroups()
     {
         EditorGUILayout.BeginHorizontal("helpBox");
-        EditorGUILayout.LabelField($"Total Gold: {_totalGold}", EditorStyles.boldLabel);
-        EditorGUILayout.LabelField($"Total Exp: {_totalExp:F1}", EditorStyles.boldLabel);
+        EditorGUILayout.LabelField($"Total Gold {_totalGold}", EditorStyles.boldLabel);
+        EditorGUILayout.LabelField($"Total Exp {_totalExp:F0}", EditorStyles.boldLabel);
+        int waveCount = _waveGroupsProp?.arraySize ?? 0;
+        EditorGUILayout.LabelField($"{waveCount} wave{(waveCount == 1 ? "" : "s")}",
+            EditorStyles.miniLabel, GUILayout.Width(64));
         EditorGUILayout.EndHorizontal();
 
-        EditorGUILayout.LabelField("Wave Groups", EditorStyles.boldLabel);
-        if (GUILayout.Button("+ Add Wave Group", GUILayout.Height(24))) AddWaveGroup();
-
-        EditorGUILayout.Space(4);
+        EditorGUILayout.Space(2);
         _sidebarScroll = EditorGUILayout.BeginScrollView(_sidebarScroll);
 
         if (_waveGroupsProp != null)
@@ -551,6 +572,11 @@ public class WaveEditorWindow : EditorWindow
             for (int g = 0; g < _waveGroupsProp.arraySize; g++)
                 DrawWaveGroup(g);
         }
+
+        EditorGUILayout.Space(4);
+        GUI.backgroundColor = new Color(0.7f, 1f, 0.7f);
+        if (GUILayout.Button("＋ Add Wave", GUILayout.Height(26))) AddWaveGroup();
+        GUI.backgroundColor = Color.white;
 
         EditorGUILayout.EndScrollView();
     }
@@ -564,16 +590,16 @@ public class WaveEditorWindow : EditorWindow
 
         // Header row
         EditorGUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField($"Wave {g + 1}", EditorStyles.boldLabel, GUILayout.Width(60));
+        EditorGUILayout.LabelField($"Wave {g + 1}", EditorStyles.boldLabel, GUILayout.Width(58));
 
         int gold = 0; float exp = 0f;
         for (int w = 0; w < slotsProp.arraySize; w++)
         {
-            var wave = (WaveSO)slotsProp.GetArrayElementAtIndex(w).FindPropertyRelative("wave").objectReferenceValue;
-            if (wave != null) { gold += wave.totalGoldValue; exp += wave.totalExpValue; }
+            var wv = (WaveSO)slotsProp.GetArrayElementAtIndex(w).FindPropertyRelative("wave").objectReferenceValue;
+            if (wv != null) { gold += wv.totalGoldValue; exp += wv.totalExpValue; }
         }
         GUILayout.FlexibleSpace();
-        EditorGUILayout.LabelField($"G:{gold} E:{exp:F0}", GUILayout.Width(90));
+        EditorGUILayout.LabelField($"G {gold}  E {exp:F0}", EditorStyles.miniLabel, GUILayout.Width(86));
 
         using (new EditorGUI.DisabledScope(g == 0))
             if (GUILayout.Button("↑", GUILayout.Width(22))) { MoveWaveGroup(g, g - 1); return; }
@@ -581,27 +607,21 @@ public class WaveEditorWindow : EditorWindow
             if (GUILayout.Button("↓", GUILayout.Width(22))) { MoveWaveGroup(g, g + 1); return; }
 
         GUI.backgroundColor = new Color(1f, 0.5f, 0.5f);
-        if (GUILayout.Button("X", GUILayout.Width(22))) { DeleteWaveGroup(g); return; }
+        if (GUILayout.Button("✕", GUILayout.Width(22))) { DeleteWaveGroup(g); return; }
         GUI.backgroundColor = Color.white;
         EditorGUILayout.EndHorizontal();
 
-        // Slots row (horizontal scroll so many slots never overflow off-screen)
-        var slotScroll = EditorGUILayout.BeginScrollView(
-            GetGroupScroll(g), false, false,
-            GUI.skin.horizontalScrollbar, GUIStyle.none, GUIStyle.none,
-            GUILayout.Height(72));
-        SetGroupScroll(g, slotScroll);
+        if (slotsProp.arraySize == 0)
+            EditorGUILayout.LabelField("No spawners yet — add one below.", EditorStyles.miniLabel);
 
-        EditorGUILayout.BeginHorizontal();
+        // Spawner slots, stacked full-width (no more cramped horizontal scroll).
         for (int w = 0; w < slotsProp.arraySize; w++)
-            if (DrawWaveSlot(g, w, slotsProp)) { return; } // structural change happened
+            if (DrawWaveSlot(g, w, slotsProp)) return; // structural change happened
 
-        GUI.backgroundColor = new Color(0.7f, 1f, 0.7f);
-        if (GUILayout.Button("+", GUILayout.Width(26), GUILayout.Height(58))) { AddWaveSlot(g); return; }
+        GUI.backgroundColor = new Color(0.85f, 0.95f, 1f);
+        if (GUILayout.Button("＋ Add spawner", EditorStyles.miniButton)) { AddWaveSlot(g); return; }
         GUI.backgroundColor = Color.white;
-        EditorGUILayout.EndHorizontal();
 
-        EditorGUILayout.EndScrollView();
         EditorGUILayout.EndVertical();
     }
 
@@ -616,18 +636,15 @@ public class WaveEditorWindow : EditorWindow
         int routeIdx = routeProp.intValue;
         bool selected = g == _selWaveGroup && w == _selWaveSlot && !_editingFromPool;
 
-        EditorGUILayout.BeginVertical(GUILayout.Width(110));
+        EditorGUILayout.BeginHorizontal(selected ? _poolItemSelected : GUIStyle.none);
 
-        // Route dropdown
+        // Route dropdown (colour-coded)
         GUI.backgroundColor = RouteColor(routeIdx);
         var routeOptions = BuildRouteOptions();
         if (routeOptions.Length > 0)
         {
             int clampedRoute = Mathf.Clamp(routeIdx, 0, routeOptions.Length - 1);
-            int newRoute = EditorGUILayout.Popup(clampedRoute, routeOptions, GUILayout.Width(105));
-            // Compare against the clamped value so merely *displaying* an
-            // out-of-range index doesn't silently rewrite it; only a real
-            // user selection commits a change.
+            int newRoute = EditorGUILayout.Popup(clampedRoute, routeOptions, GUILayout.Width(116));
             if (newRoute != clampedRoute)
             {
                 routeProp.intValue = newRoute;
@@ -635,28 +652,52 @@ public class WaveEditorWindow : EditorWindow
                 MarkLevelDirty();
             }
         }
-        else
+        else EditorGUILayout.LabelField("No Routes", GUILayout.Width(116));
+        GUI.backgroundColor = Color.white;
+
+        // Wave name — click to edit (filled) or jump to Library (empty).
+        string label = wave != null ? wave.name : "drag a wave here · or pick in Library";
+        if (wave != null && label.Length > 24) label = label.Substring(0, 21) + "...";
+        GUI.backgroundColor = wave != null ? RouteColor(routeIdx) : new Color(0.92f, 0.92f, 0.92f);
+        if (GUILayout.Button(label, selected ? _slotSelected : _slot, GUILayout.ExpandWidth(true)))
         {
-            EditorGUILayout.LabelField("No Routes", GUILayout.Width(105));
+            SelectWaveSlot(g, w, wave);
+            _detailTab = wave != null ? DetailTab.Editor : DetailTab.Library;
         }
         GUI.backgroundColor = Color.white;
 
-        // Wave button
-        string label = wave != null ? wave.name : "(Empty)";
-        if (label.Length > 12) label = label.Substring(0, 9) + "...";
-        GUI.backgroundColor = wave != null ? RouteColor(routeIdx) : new Color(0.9f, 0.9f, 0.9f);
-        if (GUILayout.Button(label, selected ? _slotSelected : _slot, GUILayout.Width(105)))
-            SelectWaveSlot(g, w, wave);
-        GUI.backgroundColor = Color.white;
-
-        // Remove slot
         GUI.backgroundColor = new Color(1f, 0.6f, 0.6f);
-        bool remove = GUILayout.Button("× remove", GUILayout.Width(105), GUILayout.Height(16));
+        bool remove = GUILayout.Button("✕", GUILayout.Width(22), GUILayout.Height(22));
         GUI.backgroundColor = Color.white;
 
-        EditorGUILayout.EndVertical();
+        EditorGUILayout.EndHorizontal();
+
+        Rect rowRect = GUILayoutUtility.GetLastRect();
+        if (HandleSlotDragAndDrop(rowRect, g, w)) return true;
 
         if (remove) { DeleteWaveSlot(g, w); return true; }
+        return false;
+    }
+
+    /// <summary>Accepts a WaveSO dragged from the Project window (or Library) onto a slot row.</summary>
+    private bool HandleSlotDragAndDrop(Rect rect, int g, int w)
+    {
+        Event e = Event.current;
+        if (!rect.Contains(e.mousePosition)) return false;
+        if (e.type != EventType.DragUpdated && e.type != EventType.DragPerform) return false;
+
+        WaveSO dropped = DragAndDrop.objectReferences.OfType<WaveSO>().FirstOrDefault();
+        DragAndDrop.visualMode = dropped != null ? DragAndDropVisualMode.Copy : DragAndDropVisualMode.Rejected;
+
+        if (e.type == EventType.DragPerform && dropped != null)
+        {
+            DragAndDrop.AcceptDrag();
+            AssignWaveToSlot(g, w, dropped);
+            e.Use();
+            GUIUtility.ExitGUI();
+            return true;
+        }
+        e.Use();
         return false;
     }
 
@@ -675,6 +716,17 @@ public class WaveEditorWindow : EditorWindow
 
     private void DrawWaveInspector()
     {
+        // Tab toolbar: edit the current wave, or browse the library.
+        _detailTab = (DetailTab)GUILayout.Toolbar((int)_detailTab,
+            new[] { "Wave Editor", "Library" }, GUILayout.Height(22));
+        EditorGUILayout.Space(2);
+
+        if (_detailTab == DetailTab.Library)
+        {
+            DrawWavePool();
+            return;
+        }
+
         _inspectorScroll = EditorGUILayout.BeginScrollView(_inspectorScroll);
 
         if (_selectedWave != null && _selectedWaveSO != null && _selectedWaveSO.targetObject != null)
@@ -683,22 +735,26 @@ public class WaveEditorWindow : EditorWindow
         }
         else if (_selWaveGroup >= 0 && _selWaveSlot >= 0 && !_editingFromPool)
         {
-            EditorGUILayout.LabelField("Empty Wave Slot", EditorStyles.boldLabel);
-            EditorGUILayout.HelpBox("Select a wave from the pool and click '>' to assign, or:", MessageType.Info);
+            EditorGUILayout.LabelField($"Wave {_selWaveGroup + 1} · spawner {_selWaveSlot + 1}", EditorStyles.boldLabel);
+            EditorGUILayout.HelpBox(
+                "This spawner is empty.\n\n" +
+                "• Drag a WaveSO from the Project window onto the slot, or\n" +
+                "• open the Library to pick an existing wave, or\n" +
+                "• create a fresh wave below.",
+                MessageType.Info);
 
-            EditorGUI.BeginChangeCheck();
-            var assigned = (WaveSO)EditorGUILayout.ObjectField("Drag Wave Here", null, typeof(WaveSO), false);
-            if (EditorGUI.EndChangeCheck() && assigned != null)
-                AssignWaveToSlot(_selWaveGroup, _selWaveSlot, assigned);
-
-            EditorGUILayout.Space();
-            if (GUILayout.Button("Create New Wave & Assign", GUILayout.Height(30)))
+            EditorGUILayout.Space(4);
+            if (GUILayout.Button("Open Library", GUILayout.Height(24))) _detailTab = DetailTab.Library;
+            GUI.backgroundColor = new Color(0.7f, 1f, 0.7f);
+            if (GUILayout.Button("Create New Wave & Assign", GUILayout.Height(28)))
                 CreateWaveAsset(_selWaveGroup, _selWaveSlot);
+            GUI.backgroundColor = Color.white;
         }
         else
         {
             GUILayout.FlexibleSpace();
-            EditorGUILayout.LabelField("Select a wave to edit.", _centeredGrey, GUILayout.ExpandWidth(true));
+            EditorGUILayout.LabelField("Select a spawner or a library wave to edit.",
+                _centeredGrey, GUILayout.ExpandWidth(true));
             GUILayout.FlexibleSpace();
         }
 
@@ -709,43 +765,388 @@ public class WaveEditorWindow : EditorWindow
     {
         _selectedWaveSO.Update();
 
+        // ---- Header: context + name + ping ----
         EditorGUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField(_editingFromPool ? "Editing (pool):" : "Editing:",
-            GUILayout.Width(_editingFromPool ? 90 : 55));
-        EditorGUI.BeginChangeCheck();
-        string newName = EditorGUILayout.DelayedTextField(_selectedWave.name, EditorStyles.textField);
-        if (EditorGUI.EndChangeCheck() && !string.IsNullOrWhiteSpace(newName) && newName != _selectedWave.name)
-            RenameWaveAsset(_selectedWave, newName);
-        if (GUILayout.Button("Ping", GUILayout.Width(50)))
+        EditorGUILayout.LabelField(
+            _editingFromPool ? "Library wave" : $"Wave {_selWaveGroup + 1} · spawner {_selWaveSlot + 1}",
+            EditorStyles.miniBoldLabel);
+        GUILayout.FlexibleSpace();
+        if (GUILayout.Button("Ping", EditorStyles.miniButton, GUILayout.Width(46)))
         {
             EditorGUIUtility.PingObject(_selectedWave);
             Selection.activeObject = _selectedWave;
         }
         EditorGUILayout.EndHorizontal();
 
-        EditorGUILayout.BeginHorizontal("helpBox");
-        EditorGUILayout.LabelField($"Gold: {_selectedWave.totalGoldValue}", EditorStyles.boldLabel);
-        EditorGUILayout.LabelField($"Exp: {_selectedWave.totalExpValue:F1}", EditorStyles.boldLabel);
-        EditorGUILayout.EndHorizontal();
-        EditorGUILayout.Space();
-
         EditorGUI.BeginChangeCheck();
-        SerializedProperty it = _selectedWaveSO.GetIterator();
-        bool enter = true;
-        while (it.NextVisible(enter))
+        string newName = EditorGUILayout.DelayedTextField(_selectedWave.name);
+        if (EditorGUI.EndChangeCheck() && !string.IsNullOrWhiteSpace(newName) && newName != _selectedWave.name)
         {
-            enter = false;
-            if (it.name == "m_Script" || it.name == "totalGoldValue" || it.name == "totalExpValue") continue;
-            EditorGUILayout.PropertyField(it, true);
+            RenameWaveAsset(_selectedWave, newName);
+            GUIUtility.ExitGUI();
         }
-        _selectedWaveSO.ApplyModifiedProperties();
+
+        EditorGUILayout.BeginHorizontal("helpBox");
+        EditorGUILayout.LabelField($"Gold {_selectedWave.totalGoldValue}", EditorStyles.boldLabel);
+        EditorGUILayout.LabelField($"Exp {_selectedWave.totalExpValue:F1}", EditorStyles.boldLabel);
+        EditorGUILayout.EndHorizontal();
+
+        // ---- Editable body ----
+        EditorGUI.BeginChangeCheck();
+
+        SectionHeader("Timing");
+        EditorGUILayout.PropertyField(_selectedWaveSO.FindProperty("waveCooldown"),
+            new GUIContent("Pre-Wave Cooldown (s)", "Countdown before this wave's group starts."));
+        EditorGUILayout.PropertyField(_selectedWaveSO.FindProperty("defaultSpawnInterval"),
+            new GUIContent("Default Spawn Interval (s)", "Gap between spawns when an entry doesn't override it."));
+
+        SectionHeader("Enemy Spawns");
+        DrawSpawnList(_selectedWaveSO.FindProperty("enemySpawns"), "enemy");
+
+        SectionHeader("Horde");
+        SerializedProperty hasHorde = _selectedWaveSO.FindProperty("hasHorde");
+        EditorGUILayout.PropertyField(hasHorde, new GUIContent("Has Horde"));
+        if (hasHorde.boolValue)
+        {
+            EditorGUILayout.PropertyField(_selectedWaveSO.FindProperty("hordeInterval"),
+                new GUIContent("Horde Interval (s)"));
+            DrawSpawnList(_selectedWaveSO.FindProperty("hordeSpawns"), "horde enemy");
+        }
 
         if (EditorGUI.EndChangeCheck())
         {
+            _selectedWaveSO.ApplyModifiedProperties();
             _selectedWave.CalculateTotalStats();
             EditorUtility.SetDirty(_selectedWave);
             RecalcTotals();
         }
+        else
+        {
+            _selectedWaveSO.ApplyModifiedProperties();
+        }
+    }
+
+    private void SectionHeader(string title)
+    {
+        EditorGUILayout.Space(6);
+        EditorGUILayout.LabelField(title, EditorStyles.boldLabel);
+        Rect r = GUILayoutUtility.GetLastRect();
+        EditorGUI.DrawRect(new Rect(r.x, r.yMax + 1, r.width, 1),
+            EditorGUIUtility.isProSkin ? new Color(1, 1, 1, 0.12f) : new Color(0, 0, 0, 0.15f));
+        EditorGUILayout.Space(2);
+    }
+
+    private void DrawSpawnList(SerializedProperty list, string noun)
+    {
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.LabelField($"{list.arraySize} {noun}{(list.arraySize == 1 ? "" : "s")}", EditorStyles.miniLabel);
+        GUILayout.FlexibleSpace();
+        GUI.backgroundColor = new Color(0.7f, 1f, 0.7f);
+        if (GUILayout.Button("＋ Add", EditorStyles.miniButton, GUILayout.Width(60)))
+        {
+            int i = list.arraySize;
+            list.InsertArrayElementAtIndex(i);
+            SerializedProperty ne = list.GetArrayElementAtIndex(i);
+            ne.FindPropertyRelative("enemyPrefab").objectReferenceValue = null;
+            ne.FindPropertyRelative("count").intValue = 1;
+            ne.FindPropertyRelative("spawnIntervalOverride").floatValue = -1f;
+            ne.FindPropertyRelative("modificationMode").enumValueIndex = 0;
+            ne.FindPropertyRelative("hpMultiplier").floatValue = 1f;
+            ne.FindPropertyRelative("speedMultiplier").floatValue = 1f;
+            ne.FindPropertyRelative("damageMultiplier").floatValue = 1f;
+            ne.FindPropertyRelative("goldMultiplier").floatValue = 1f;
+            ne.FindPropertyRelative("expMultiplier").floatValue = 1f;
+            CommitWaveChange();
+        }
+        GUI.backgroundColor = Color.white;
+        EditorGUILayout.EndHorizontal();
+
+        if (list.arraySize == 0)
+        {
+            EditorGUILayout.HelpBox($"No {noun} entries yet.", MessageType.None);
+            return;
+        }
+
+        for (int i = 0; i < list.arraySize; i++)
+            if (DrawSpawnEntry(list, i)) return; // structural change → frame restarted
+    }
+
+    /// <returns>true if the list changed structurally (caller must stop drawing).</returns>
+    private bool DrawSpawnEntry(SerializedProperty list, int i)
+    {
+        SerializedProperty elem = list.GetArrayElementAtIndex(i);
+        SerializedProperty enemy = elem.FindPropertyRelative("enemyPrefab");
+        SerializedProperty countP = elem.FindPropertyRelative("count");
+        SerializedProperty interval = elem.FindPropertyRelative("spawnIntervalOverride");
+        SerializedProperty mode = elem.FindPropertyRelative("modificationMode");
+
+        Enemy enemyObj = enemy.objectReferenceValue as Enemy;
+
+        EditorGUILayout.BeginHorizontal(_groupBox);
+
+        // Left: clickable enemy sprite (opens the grid picker)
+        Rect spriteRect = GUILayoutUtility.GetRect(48, 48, GUILayout.Width(48), GUILayout.Height(48));
+        DrawEnemySpritePreview(spriteRect, enemyObj);
+        EditorGUIUtility.AddCursorRect(spriteRect, MouseCursor.Link);
+        if (GUI.Button(spriteRect, new GUIContent("", "Click to choose enemy"), GUIStyle.none))
+            OpenEnemyPicker(spriteRect, enemy.propertyPath);
+
+        EditorGUILayout.BeginVertical();
+
+        // Row 1: index, enemy picker, reorder, delete
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.LabelField($"#{i + 1}", GUILayout.Width(26));
+        GUIContent pickContent = new GUIContent(enemyObj != null ? enemyObj.name : "Choose enemy…");
+        Rect pickRect = GUILayoutUtility.GetRect(pickContent, EditorStyles.popup, GUILayout.ExpandWidth(true));
+        if (GUI.Button(pickRect, pickContent, EditorStyles.popup))
+            OpenEnemyPicker(pickRect, enemy.propertyPath);
+        using (new EditorGUI.DisabledScope(i == 0))
+            if (GUILayout.Button("↑", GUILayout.Width(22))) { list.MoveArrayElement(i, i - 1); CommitWaveChange(); return true; }
+        using (new EditorGUI.DisabledScope(i >= list.arraySize - 1))
+            if (GUILayout.Button("↓", GUILayout.Width(22))) { list.MoveArrayElement(i, i + 1); CommitWaveChange(); return true; }
+        GUI.backgroundColor = new Color(1f, 0.6f, 0.6f);
+        if (GUILayout.Button("✕", GUILayout.Width(22))) { list.DeleteArrayElementAtIndex(i); CommitWaveChange(); return true; }
+        GUI.backgroundColor = Color.white;
+        EditorGUILayout.EndHorizontal();
+
+        // Row 2: count
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.LabelField("Count", GUILayout.Width(58));
+        countP.intValue = Mathf.Max(1, EditorGUILayout.IntField(Mathf.Max(1, countP.intValue), GUILayout.Width(70)));
+        GUILayout.Label("× this enemy", EditorStyles.miniLabel);
+        EditorGUILayout.EndHorizontal();
+
+        // Row 3: spawn interval (default vs override)
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.LabelField("Interval", GUILayout.Width(58));
+        bool custom = interval.floatValue >= 0f;
+        bool newCustom = EditorGUILayout.ToggleLeft("Override", custom, GUILayout.Width(76));
+        if (newCustom != custom)
+            interval.floatValue = newCustom
+                ? Mathf.Max(0f, _selectedWaveSO.FindProperty("defaultSpawnInterval").floatValue)
+                : -1f;
+        if (newCustom)
+            interval.floatValue = Mathf.Max(0f, EditorGUILayout.FloatField(interval.floatValue, GUILayout.Width(70)));
+        else
+            EditorGUILayout.LabelField("(wave default)", EditorStyles.miniLabel);
+        EditorGUILayout.EndHorizontal();
+
+        // Row 4: stat modification — only show the fields that apply
+        EditorGUILayout.PropertyField(mode, new GUIContent("Stat Mode"));
+        var modeVal = (SpawnModMode)mode.enumValueIndex;
+        if (modeVal == SpawnModMode.Multiplier)
+        {
+            EditorGUI.indentLevel++;
+            DrawStatField(elem, "hpMultiplier", "HP ×");
+            DrawStatField(elem, "speedMultiplier", "Speed ×");
+            DrawStatField(elem, "damageMultiplier", "Damage ×");
+            DrawStatField(elem, "goldMultiplier", "Gold ×");
+            DrawStatField(elem, "expMultiplier", "Exp ×");
+            EditorGUI.indentLevel--;
+        }
+        else if (modeVal == SpawnModMode.CustomValue)
+        {
+            EditorGUI.indentLevel++;
+            DrawStatField(elem, "customHealth", "Health");
+            DrawStatField(elem, "customSpeed", "Speed");
+            DrawStatField(elem, "customDamage", "Damage");
+            DrawStatField(elem, "customGold", "Gold");
+            DrawStatField(elem, "customExp", "Exp");
+            EditorGUI.indentLevel--;
+        }
+
+        EditorGUILayout.EndVertical();    // inner content column
+        EditorGUILayout.EndHorizontal();  // outer _groupBox (sprite + content)
+        return false;
+    }
+
+    private void DrawStatField(SerializedProperty elem, string prop, string label)
+    {
+        EditorGUILayout.PropertyField(elem.FindPropertyRelative(prop), new GUIContent(label));
+    }
+
+    /// <summary>Draws the enemy prefab's SpriteRenderer sprite inside the given rect.</summary>
+    private void DrawEnemySpritePreview(Rect rect, Enemy enemy)
+    {
+        EditorGUI.DrawRect(rect, EditorGUIUtility.isProSkin
+            ? new Color(0f, 0f, 0f, 0.20f) : new Color(0f, 0f, 0f, 0.08f));
+
+        Sprite sprite = GetEnemySprite(enemy);
+        if (sprite != null && sprite.texture != null) DrawSprite(rect, sprite);
+        else GUI.Label(rect, "∅", _centeredGrey);
+    }
+
+    /// <summary>Returns the prefab's sprite (own SpriteRenderer, else first in children).</summary>
+    private static Sprite GetEnemySprite(Enemy enemy)
+    {
+        if (enemy == null) return null;
+        SpriteRenderer sr = enemy.GetComponent<SpriteRenderer>();
+        if (sr == null) sr = enemy.GetComponentInChildren<SpriteRenderer>();
+        return sr != null ? sr.sprite : null;
+    }
+
+    /// <summary>Draws a (possibly atlassed) sprite into a rect, preserving aspect ratio.</summary>
+    private static void DrawSprite(Rect rect, Sprite sprite)
+    {
+        if (sprite == null || sprite.texture == null) return;
+        Texture tex = sprite.texture;
+        Rect sr = sprite.rect;
+        Rect uv = new Rect(sr.x / tex.width, sr.y / tex.height, sr.width / tex.width, sr.height / tex.height);
+        float aspect = sr.width / Mathf.Max(1f, sr.height);
+        Rect fit = FitRect(rect, aspect);
+        GUI.DrawTextureWithTexCoords(fit, tex, uv);
+    }
+
+    /// <summary>Centres a rect of the given aspect ratio inside an outer rect.</summary>
+    private static Rect FitRect(Rect outer, float aspect)
+    {
+        float w = outer.width, h = outer.height;
+        if (w / h > aspect) w = h * aspect;
+        else h = w / aspect;
+        return new Rect(outer.x + (outer.width - w) * 0.5f,
+                        outer.y + (outer.height - h) * 0.5f, w, h);
+    }
+
+    /// <summary>Opens the sprite-grid enemy picker and assigns the result to the property at 'path'.</summary>
+    private void OpenEnemyPicker(Rect anchor, string path)
+    {
+        PopupWindow.Show(anchor, new EnemyPickerPopup(picked =>
+        {
+            if (_selectedWaveSO == null || _selectedWaveSO.targetObject == null) return;
+            SerializedProperty prop = _selectedWaveSO.FindProperty(path);
+            if (prop == null) return;
+
+            prop.objectReferenceValue = picked;
+            _selectedWaveSO.ApplyModifiedProperties();
+            if (_selectedWave != null)
+            {
+                _selectedWave.CalculateTotalStats();
+                EditorUtility.SetDirty(_selectedWave);
+            }
+            RecalcTotals();
+            Repaint();
+        }));
+    }
+
+    /// <summary>
+    /// Grid picker popup: shows every prefab with an Enemy component found under
+    /// EnemyPrefabFolder (recursively) as a sprite thumbnail. Click one to assign.
+    /// </summary>
+    private class EnemyPickerPopup : PopupWindowContent
+    {
+        private struct Item { public Enemy enemy; public Sprite sprite; public string name; }
+
+        private static List<Item> _items;
+        private readonly System.Action<Enemy> _onPick;
+        private Vector2 _scroll;
+        private string _search = "";
+        private GUIStyle _cellLabel;
+
+        public EnemyPickerPopup(System.Action<Enemy> onPick)
+        {
+            _onPick = onPick;
+            Rebuild();
+        }
+
+        public override Vector2 GetWindowSize() => new Vector2(380, 420);
+
+        private static void Rebuild()
+        {
+            _items = new List<Item>();
+            if (!Directory.Exists(EnemyPrefabFolder)) return;
+
+            foreach (string guid in AssetDatabase.FindAssets("t:Prefab", new[] { EnemyPrefabFolder }))
+            {
+                string p = AssetDatabase.GUIDToAssetPath(guid);
+                GameObject go = AssetDatabase.LoadAssetAtPath<GameObject>(p);
+                if (go == null) continue;
+                Enemy e = go.GetComponent<Enemy>();
+                if (e == null) continue;
+                _items.Add(new Item { enemy = e, sprite = GetEnemySprite(e), name = go.name });
+            }
+            _items.Sort((a, b) => string.Compare(a.name, b.name, System.StringComparison.OrdinalIgnoreCase));
+        }
+
+        public override void OnGUI(Rect rect)
+        {
+            if (_cellLabel == null)
+                _cellLabel = new GUIStyle(EditorStyles.miniLabel)
+                { alignment = TextAnchor.UpperCenter, wordWrap = true, fontSize = 9 };
+
+            if (Event.current.type == EventType.MouseMove) editorWindow.Repaint();
+
+            EditorGUILayout.Space(4);
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Choose Enemy", EditorStyles.boldLabel);
+            if (GUILayout.Button("Refresh", EditorStyles.miniButton, GUILayout.Width(60))) Rebuild();
+            EditorGUILayout.EndHorizontal();
+
+            _search = EditorGUILayout.TextField(_search, EditorStyles.toolbarSearchField);
+
+            if (_items == null || _items.Count == 0)
+            {
+                EditorGUILayout.HelpBox($"No prefabs with an Enemy component under '{EnemyPrefabFolder}'.", MessageType.Info);
+                return;
+            }
+
+            bool searching = !string.IsNullOrWhiteSpace(_search);
+            string needle = searching ? _search.ToLowerInvariant() : "";
+
+            const float cell = 84f, pad = 4f;
+            int cols = Mathf.Max(1, Mathf.FloorToInt((rect.width - 16f) / cell));
+
+            _scroll = EditorGUILayout.BeginScrollView(_scroll);
+
+            int shown = 0;
+            EditorGUILayout.BeginHorizontal();
+            foreach (Item it in _items)
+            {
+                if (searching && !it.name.ToLowerInvariant().Contains(needle)) continue;
+                if (shown > 0 && shown % cols == 0)
+                {
+                    EditorGUILayout.EndHorizontal();
+                    EditorGUILayout.BeginHorizontal();
+                }
+                DrawCell(it, cell, pad);
+                shown++;
+            }
+            EditorGUILayout.EndHorizontal();
+
+            if (shown == 0) EditorGUILayout.LabelField("No matches.", EditorStyles.miniLabel);
+
+            EditorGUILayout.EndScrollView();
+        }
+
+        private void DrawCell(Item it, float cell, float pad)
+        {
+            Rect r = GUILayoutUtility.GetRect(cell, cell, GUILayout.Width(cell), GUILayout.Height(cell));
+            bool hover = r.Contains(Event.current.mousePosition);
+            EditorGUI.DrawRect(r, hover ? new Color(0.35f, 0.55f, 0.9f, 0.35f) : new Color(0f, 0f, 0f, 0.12f));
+
+            Rect img = new Rect(r.x + pad, r.y + pad, r.width - 2 * pad, r.height - 22 - pad);
+            DrawSprite(img, it.sprite);
+
+            GUI.Label(new Rect(r.x + 1, r.yMax - 20, r.width - 2, 19), it.name, _cellLabel);
+
+            if (GUI.Button(r, new GUIContent("", it.name), GUIStyle.none))
+            {
+                _onPick?.Invoke(it.enemy);
+                editorWindow.Close();
+            }
+        }
+    }
+
+    /// <summary>Commits a structural change to the selected wave asset and restarts the frame.</summary>
+    private void CommitWaveChange()
+    {
+        _selectedWaveSO.ApplyModifiedProperties();
+        if (_selectedWave != null)
+        {
+            _selectedWave.CalculateTotalStats();
+            EditorUtility.SetDirty(_selectedWave);
+        }
+        RecalcTotals();
+        GUIUtility.ExitGUI();
     }
 
     // ---- Wave selection ----
@@ -756,6 +1157,7 @@ public class WaveEditorWindow : EditorWindow
         _selectedWaveSO = wave != null ? new SerializedObject(wave) : null;
         _selWaveGroup = _selWaveSlot = -1;
         _editingFromPool = true;
+        _detailTab = DetailTab.Editor;   // picking a library wave jumps to the editor
         GUI.FocusControl(null);
     }
 
@@ -807,6 +1209,7 @@ public class WaveEditorWindow : EditorWindow
         slot.FindPropertyRelative("routeIndex").intValue = 0;
         _levelSO.ApplyModifiedProperties();
         SelectWaveSlot(g, i, null);
+        _detailTab = DetailTab.Library;   // new spawner is empty — show the picker
         MarkLevelDirty();
         GUIUtility.ExitGUI();
     }
@@ -826,6 +1229,7 @@ public class WaveEditorWindow : EditorWindow
         slots.GetArrayElementAtIndex(w).FindPropertyRelative("wave").objectReferenceValue = wave;
         _levelSO.ApplyModifiedProperties();
         SelectWaveSlot(g, w, wave);
+        _detailTab = DetailTab.Editor;    // show the freshly-assigned wave
         MarkLevelDirty();
         RecalcTotals();
     }
@@ -917,11 +1321,6 @@ public class WaveEditorWindow : EditorWindow
         }
         else Debug.LogError($"Rename failed: {error}");
     }
-
-    // ---- Per-group horizontal scroll storage ----
-    private readonly Dictionary<int, Vector2> _groupScrolls = new Dictionary<int, Vector2>();
-    private Vector2 GetGroupScroll(int g) => _groupScrolls.TryGetValue(g, out var v) ? v : Vector2.zero;
-    private void SetGroupScroll(int g, Vector2 v) => _groupScrolls[g] = v;
 
     // ============================================================
     //  SEGMENT MODE

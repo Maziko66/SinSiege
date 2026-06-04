@@ -131,19 +131,19 @@ TextureImporter:
       name: Mobs-Incubus_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 4
-        width: 25
-        height: 38
+        x: 0
+        y: 0
+        width: 32
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 334ea537a137f81b0800000000000000
+      spriteID: f2f631f1cb78f91469c27cc90b6ad536
       internalID: -5652172449885002701
       vertices: []
       indices: 
@@ -153,19 +153,19 @@ TextureImporter:
       name: Mobs-Incubus_1
       rect:
         serializedVersion: 2
-        x: 37
-        y: 3
-        width: 25
-        height: 40
+        x: 32
+        y: 0
+        width: 32
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b3746ebfecb554860800000000000000
+      spriteID: 12087f233a5873644894a1db8c676747
       internalID: 7513512497885103931
       vertices: []
       indices: 
@@ -175,19 +175,19 @@ TextureImporter:
       name: Mobs-Incubus_2
       rect:
         serializedVersion: 2
-        x: 69
-        y: 3
-        width: 25
-        height: 39
+        x: 64
+        y: 0
+        width: 32
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8306efebd899ddea0800000000000000
+      spriteID: 8854a92e75dde3e449927f9da8bff989
       internalID: -5846347907183255496
       vertices: []
       indices: 
@@ -197,19 +197,19 @@ TextureImporter:
       name: Mobs-Incubus_3
       rect:
         serializedVersion: 2
-        x: 101
-        y: 2
-        width: 25
-        height: 38
+        x: 96
+        y: 0
+        width: 32
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a04125d5e32d8b5c0800000000000000
+      spriteID: e6f3795479c5e87489d13b3949abd529
       internalID: -4199375487227522038
       vertices: []
       indices: 
@@ -219,19 +219,19 @@ TextureImporter:
       name: Mobs-Incubus_4
       rect:
         serializedVersion: 2
-        x: 133
-        y: 3
-        width: 25
-        height: 36
+        x: 128
+        y: 0
+        width: 32
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 73de59ddf5058e550800000000000000
+      spriteID: 85293af82e4d9894891e31dc4947bf7d
       internalID: 6190286060490452279
       vertices: []
       indices: 
@@ -241,19 +241,19 @@ TextureImporter:
       name: Mobs-Incubus_5
       rect:
         serializedVersion: 2
-        x: 165
-        y: 2
-        width: 25
-        height: 39
+        x: 160
+        y: 0
+        width: 32
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ed5ba5064d7d7ed60800000000000000
+      spriteID: f615028649a435345a2ed788ce0c19bc
       internalID: 7919535776903902686
       vertices: []
       indices: 
@@ -263,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8887c9bd1fd336846914c5406ca68b10
     internalID: 0
     vertices: []
     indices: 
@@ -271,7 +271,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":48.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Mobs-Incubus_0: -5652172449885002701
       Mobs-Incubus_1: 7513512497885103931

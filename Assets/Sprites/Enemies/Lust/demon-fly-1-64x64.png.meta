@@ -120,203 +120,194 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: demon-fly-1-64x64-export_0
+      name: demon-fly-1-64x64_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 9
-        width: 40
-        height: 40
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 411f7857b36577300800000000000000
-      internalID: 249763117717254420
+      spriteID: 0b98be52debc9cb43b168801d9c6cd99
+      internalID: 1037448543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon-fly-1-64x64-export_1
+      name: demon-fly-1-64x64_1
       rect:
         serializedVersion: 2
-        x: 74
-        y: 9
-        width: 40
-        height: 38
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6993ff5f384cc0010800000000000000
-      internalID: 1156515275374279062
+      spriteID: 9cc8e89a26abb6e4299bc95e75e71b93
+      internalID: 342695794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon-fly-1-64x64-export_2
+      name: demon-fly-1-64x64_2
       rect:
         serializedVersion: 2
-        x: 136
-        y: 9
-        width: 44
-        height: 27
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b6dfeba3ebdc418a0800000000000000
-      internalID: -6335212558890369685
+      spriteID: 7fd7803b32d45404681b233d4c5e592b
+      internalID: -454187022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon-fly-1-64x64-export_3
+      name: demon-fly-1-64x64_3
       rect:
         serializedVersion: 2
-        x: 202
-        y: 9
-        width: 40
-        height: 38
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3c152a1eafc133eb0800000000000000
-      internalID: -4741414118838087229
+      spriteID: 8d532f184314a77478e5304ff763882c
+      internalID: -1720096288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon-fly-1-64x64-export_4
+      name: demon-fly-1-64x64_4
       rect:
         serializedVersion: 2
-        x: 266
-        y: 9
-        width: 40
-        height: 40
+        x: 256
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 64a23aff1f72245a0800000000000000
-      internalID: -6538619788659054010
+      spriteID: 91a187e85fedb644e9448db426b5c704
+      internalID: -1632868748
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon-fly-1-64x64-export_5
+      name: demon-fly-1-64x64_5
       rect:
         serializedVersion: 2
-        x: 328
-        y: 9
-        width: 44
-        height: 31
+        x: 320
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7fdbcb19a2d4f20c0800000000000000
-      internalID: -4598371849292956169
+      spriteID: 2eb779e73d4943847b06bd59bded3252
+      internalID: -1465776927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon-fly-1-64x64-export_6
+      name: demon-fly-1-64x64_6
       rect:
         serializedVersion: 2
-        x: 392
-        y: 17
-        width: 44
-        height: 24
+        x: 384
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 400ec2d9b0b624610800000000000000
-      internalID: 1603962114923094020
+      spriteID: 5dd9535988526a54d924ec2448d6b9aa
+      internalID: -857285444
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon-fly-1-64x64-export_7
+      name: demon-fly-1-64x64_7
       rect:
         serializedVersion: 2
-        x: 407
-        y: 10
-        width: 12
-        height: 8
+        x: 448
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6e9bfd67c67b73760800000000000000
-      internalID: 7437614986104388070
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: demon-fly-1-64x64-export_8
-      rect:
-        serializedVersion: 2
-        x: 453
-        y: 10
-        width: 50
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a14a6c6ab6fb53440800000000000000
-      internalID: 4915045037425206298
+      spriteID: 44205de4abab87140a40f2b611d337c6
+      internalID: -15182129
       vertices: []
       indices: 
       edges: []
@@ -325,7 +316,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9c5d8d705f3919646bee4ed4ff1d841e
     internalID: 0
     vertices: []
     indices: 
@@ -333,17 +324,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      demon-fly-1-64x64-export_0: 249763117717254420
-      demon-fly-1-64x64-export_1: 1156515275374279062
-      demon-fly-1-64x64-export_2: -6335212558890369685
-      demon-fly-1-64x64-export_3: -4741414118838087229
-      demon-fly-1-64x64-export_4: -6538619788659054010
-      demon-fly-1-64x64-export_5: -4598371849292956169
-      demon-fly-1-64x64-export_6: 1603962114923094020
-      demon-fly-1-64x64-export_7: 7437614986104388070
-      demon-fly-1-64x64-export_8: 4915045037425206298
+      demon-fly-1-64x64_0: 1037448543
+      demon-fly-1-64x64_1: 342695794
+      demon-fly-1-64x64_2: -454187022
+      demon-fly-1-64x64_3: -1720096288
+      demon-fly-1-64x64_4: -1632868748
+      demon-fly-1-64x64_5: -1465776927
+      demon-fly-1-64x64_6: -857285444
+      demon-fly-1-64x64_7: -15182129
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

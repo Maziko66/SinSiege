@@ -14,6 +14,9 @@ public class WaveSpawnData
     [Tooltip("The enemy prefab to spawn")]
     public Enemy enemyPrefab;
 
+    [Tooltip("How many of this enemy to spawn (sequential for waves, weighting for hordes)")]
+    [Min(1)] public int count = 1;
+
     [Tooltip("Override spawn interval after this enemy (-1 uses wave default)")]
     public float spawnIntervalOverride = -1f;
 
@@ -86,8 +89,8 @@ public class WaveSO : ScriptableObject
         {
             if (data.enemyPrefab == null) continue;
 
-            int currentGold = data.enemyPrefab.coinValue; 
-            float currentExp = data.enemyPrefab.GetExp(); 
+            int currentGold = data.enemyPrefab.coinValue;
+            float currentExp = data.enemyPrefab.GetExp();
 
             if (data.modificationMode == SpawnModMode.Multiplier)
             {
@@ -100,8 +103,9 @@ public class WaveSO : ScriptableObject
                 currentExp = data.customExp;
             }
 
-            totalGoldValue += currentGold;
-            totalExpValue += currentExp;
+            int n = Mathf.Max(1, data.count);
+            totalGoldValue += currentGold * n;
+            totalExpValue += currentExp * n;
         }
     }
 }
