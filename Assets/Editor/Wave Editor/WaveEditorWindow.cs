@@ -1360,6 +1360,24 @@ public class WaveEditorWindow : EditorWindow
 
     private void DrawSegmentHandles()
     {
+        // 1. Show EVERY waypoint in the level (children of the "Waypoints" object)
+        //    so all available points are visible while editing segments — not just
+        //    the ones already added to the selected segment.
+        Transform waypointsRoot = _level.transform.Find("Waypoints");
+        if (waypointsRoot != null)
+        {
+            Handles.color = new Color(1f, 1f, 1f, 0.5f);
+            foreach (Transform child in waypointsRoot)
+            {
+                if (child == null) continue;
+                float size = HandleUtility.GetHandleSize(child.position) * 0.06f;
+                Handles.DrawSolidDisc(child.position, Vector3.forward, size);
+                Handles.Label(child.position + Vector3.up * 0.25f, child.name);
+            }
+        }
+
+        // 2. Highlight the selected segment: connect its waypoints in order and
+        //    make them movable.
         var pool = _level.AvailableSegments;
         if (pool == null || _selSegment < 0 || _selSegment >= pool.Count) return;
 
