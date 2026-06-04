@@ -346,7 +346,7 @@ Transform:
   m_GameObject: {fileID: 143418729149359798}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.8999996, y: 44.5, z: 0}
+  m_LocalPosition: {x: 4.8999996, y: 44.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -528,7 +528,7 @@ Transform:
   m_GameObject: {fileID: 530200518162299014}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2999954, y: -45.100002, z: 0}
+  m_LocalPosition: {x: -0.99999535, y: -44.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17649,7 +17649,7 @@ Transform:
   m_GameObject: {fileID: 2099568327958475219}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -44.8, y: -1.4000001, z: 0}
+  m_LocalPosition: {x: -110.1, y: 98.00001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18316,7 +18316,7 @@ Transform:
   m_GameObject: {fileID: 2334759399576285666}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -45.3, y: 39, z: 0}
+  m_LocalPosition: {x: -45, y: 39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18421,7 +18421,6 @@ Transform:
   - {fileID: 3232876923017969281}
   - {fileID: 4891236271506248070}
   - {fileID: 2944904388002110387}
-  - {fileID: 4711545233457401404}
   - {fileID: 1649262475142773954}
   - {fileID: 484206452312995949}
   - {fileID: 2001663346727327491}
@@ -233430,7 +233429,7 @@ Transform:
   m_GameObject: {fileID: 2717062257656885402}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -55, y: 35, z: 0}
+  m_LocalPosition: {x: -55.2, y: 35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -235910,7 +235909,7 @@ Transform:
   m_GameObject: {fileID: 3291286653265527880}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.0999994, y: 38.899998, z: 0}
+  m_LocalPosition: {x: 4.8999996, y: 38.899998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -236001,7 +236000,7 @@ Transform:
   m_GameObject: {fileID: 3364591569691259837}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.3999977, y: 0.099998474, z: 0}
+  m_LocalPosition: {x: -124.59999, y: -0.9000015, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -236396,7 +236395,7 @@ Transform:
   m_GameObject: {fileID: 3770999152834261628}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.379997, y: -26.41, z: 0}
+  m_LocalPosition: {x: -44.979996, y: 99.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -236552,97 +236551,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &3935078020814415674
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4711545233457401404}
-  - component: {fileID: 757290873381550353}
-  m_Layer: 0
-  m_Name: L2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4711545233457401404
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3935078020814415674}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.800003, y: -45.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 140055908824631086}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &757290873381550353
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3935078020814415674}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.69411767}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
 --- !u!1 &4016743490009326074
 GameObject:
   m_ObjectHideFlags: 0
@@ -236669,7 +236577,7 @@ Transform:
   m_GameObject: {fileID: 4016743490009326074}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1999998, y: 38.6, z: 0}
+  m_LocalPosition: {x: -0.8999998, y: 38.899998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -237117,7 +237025,7 @@ Transform:
   m_GameObject: {fileID: 4417193046992721025}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.9, y: 44.8, z: 0}
+  m_LocalPosition: {x: 40.9, y: 45.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -237372,7 +237280,7 @@ Transform:
   m_GameObject: {fileID: 4474265965462038885}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.400002, y: -111.5, z: 0}
+  m_LocalPosition: {x: 27.000002, y: -111.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -237554,7 +237462,7 @@ Transform:
   m_GameObject: {fileID: 4553394098531799805}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -54.4, y: 39, z: 0}
+  m_LocalPosition: {x: -54.7, y: 39.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -251906,7 +251814,7 @@ Transform:
   m_GameObject: {fileID: 4883728391530060265}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 103.7, y: 78.9, z: 0}
+  m_LocalPosition: {x: 103.399994, y: 78.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -252425,7 +252333,7 @@ Transform:
   m_GameObject: {fileID: 5239598403153424777}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8999977, y: 38.4, z: 0}
+  m_LocalPosition: {x: -1.1999977, y: 38.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -252789,7 +252697,7 @@ Transform:
   m_GameObject: {fileID: 5484308974215439460}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -45.6, y: -1.2999992, z: 0}
+  m_LocalPosition: {x: -44.999996, y: -0.99999917, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -253020,7 +252928,7 @@ Transform:
   m_GameObject: {fileID: 5828553295611932894}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -90.600006, y: -1.2000008, z: 0}
+  m_LocalPosition: {x: -91.50001, y: -1.0000007, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -265950,7 +265858,7 @@ Transform:
   m_GameObject: {fileID: 6775588130102928859}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2000003, y: 44, z: 0}
+  m_LocalPosition: {x: -1.1000003, y: 44.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -266344,189 +266252,129 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   levelIndex: 0
   mapRoutes:
-  - routeName: Top Left to Base
+  - routeName: R1
     spawnPoint: {fileID: 0}
     pathSegments:
-    - segmentName: Top Left w Spawn
+    - segmentName: Up Left 1
       spawnPoint: {fileID: 6909092750021405461}
       waypoints:
-      - {fileID: 6342852161599847795}
-      - {fileID: 4693747897603185955}
-      - {fileID: 2175104423471475705}
-      - {fileID: 3350891530748325432}
-    - segmentName: TL Mid to Base
-      spawnPoint: {fileID: 0}
-      waypoints:
-      - {fileID: 4753005939005592612}
-      - {fileID: 728450423431088920}
-      - {fileID: 3220346105024110768}
-      - {fileID: 7341122699783178647}
-      - {fileID: 3232876923017969281}
-  - routeName: Top Right to Base
-    spawnPoint: {fileID: 0}
-    pathSegments:
-    - segmentName: Top Mid w Spawn
-      spawnPoint: {fileID: 471778404080685127}
-      waypoints:
-      - {fileID: 1830558602476079606}
-      - {fileID: 241808765485354242}
-      - {fileID: 3761374276813378462}
-    - segmentName: Upper Mid to Base
-      spawnPoint: {fileID: 0}
-      waypoints:
-      - {fileID: 7387559133417008084}
-      - {fileID: 5780108914473929896}
-      - {fileID: 1696585935197764323}
-      - {fileID: 1804651532221547502}
-      - {fileID: 4840374575898949398}
-      - {fileID: 5610109136449002812}
-      - {fileID: 728450423431088920}
-      - {fileID: 3220346105024110768}
-      - {fileID: 7341122699783178647}
-      - {fileID: 3232876923017969281}
       - {fileID: 4891236271506248070}
-  - routeName: Top Right to Base 2
-    spawnPoint: {fileID: 0}
-    pathSegments:
-    - segmentName: Top Mid w Spawn
-      spawnPoint: {fileID: 471778404080685127}
-      waypoints:
-      - {fileID: 1830558602476079606}
-      - {fileID: 241808765485354242}
-      - {fileID: 3761374276813378462}
-    - segmentName: Upper Mid to Right
-      spawnPoint: {fileID: 0}
-      waypoints:
-      - {fileID: 7593294936200740169}
-      - {fileID: 2831462768355454125}
-      - {fileID: 8505823326930918964}
-      - {fileID: 3842765537944427850}
-    - segmentName: Upper Right to Base
-      spawnPoint: {fileID: 0}
-      waypoints:
-      - {fileID: 8996287066759201051}
-      - {fileID: 4800801635118030335}
-      - {fileID: 3292990387419289838}
-  - routeName: Upper Right to Base
-    spawnPoint: {fileID: 0}
-    pathSegments:
-    - segmentName: Upper Right w Spawn
-      spawnPoint: {fileID: 6819736000703320327}
-      waypoints:
-      - {fileID: 3777860855173357551}
-      - {fileID: 3600170048569748705}
-      - {fileID: 274259429244599450}
-      - {fileID: 6268690955510955607}
-    - segmentName: Upper Right to Base
-      spawnPoint: {fileID: 0}
-      waypoints:
-      - {fileID: 8996287066759201051}
-      - {fileID: 4800801635118030335}
-      - {fileID: 3292990387419289838}
-  - routeName: Lower Right to Base
-    spawnPoint: {fileID: 0}
-    pathSegments:
-    - segmentName: Lower Right w Spawn
-      spawnPoint: {fileID: 863110529739306397}
-      waypoints:
-      - {fileID: 8756255279623053020}
-      - {fileID: 3889394091114420686}
-      - {fileID: 3712636835354488291}
-      - {fileID: 6593225048073017596}
-      - {fileID: 8938306301391522866}
-      - {fileID: 4979848435716395560}
-      - {fileID: 1484272851079022773}
-      - {fileID: 8014721420265499465}
-      - {fileID: 4608670021098288040}
-      - {fileID: 4573806457137103404}
-      - {fileID: 5473795548006018611}
-      - {fileID: 137905781681120654}
-      - {fileID: 2775482206239887978}
-    - segmentName: Lower Right End to Base
-      spawnPoint: {fileID: 0}
-      waypoints:
-      - {fileID: 4370658143662327007}
-      - {fileID: 1843656550097431364}
-      - {fileID: 3292990387419289838}
-  - routeName: Bottom to Base
-    spawnPoint: {fileID: 0}
-    pathSegments:
-    - segmentName: Bot w Spawn
-      spawnPoint: {fileID: 3724841178400357533}
-      waypoints:
-      - {fileID: 2122863032564543867}
-      - {fileID: 6370013517388288638}
-      - {fileID: 8441032536533745815}
-      - {fileID: 8698232973897563409}
-      - {fileID: 8011575888818882064}
-      - {fileID: 2714441496615736352}
-      - {fileID: 8721360474381271139}
-    - segmentName: Bot to Lower Right Mid
-      spawnPoint: {fileID: 0}
-      waypoints:
-      - {fileID: 399078762068727208}
-      - {fileID: 2979175974388541315}
-      - {fileID: 5031465443494165902}
-      - {fileID: 2775482206239887978}
-    - segmentName: Lower Right End to Base
-      spawnPoint: {fileID: 0}
-      waypoints:
-      - {fileID: 4370658143662327007}
-      - {fileID: 1843656550097431364}
-      - {fileID: 3292990387419289838}
-  - routeName: Lower Left
-    spawnPoint: {fileID: 0}
-    pathSegments:
-    - segmentName: Lower Left to Base w Spawn
-      spawnPoint: {fileID: 2932934674645526215}
-      waypoints:
-      - {fileID: 8589890905414984296}
-      - {fileID: 7559371805043273101}
-      - {fileID: 7850155793632253961}
-      - {fileID: 7487778642132744494}
-      - {fileID: 4678812790553103479}
-      - {fileID: 1836232336662314925}
-      - {fileID: 8574856954454357881}
-      - {fileID: 5170668298474210253}
-      - {fileID: 7206021372055074231}
-      - {fileID: 2641127178802517118}
-      - {fileID: 7747790356951556043}
-      - {fileID: 203322646965553026}
-      - {fileID: 6800977214635214734}
-      - {fileID: 1358486062575904610}
-  - routeName: Upper Left to Base
-    spawnPoint: {fileID: 0}
-    pathSegments:
-    - segmentName: Upper Left w Spawn
-      spawnPoint: {fileID: 1632395346227245905}
-      waypoints:
-      - {fileID: 2944904388002110387}
-      - {fileID: 4711545233457401404}
-      - {fileID: 1649262475142773954}
-      - {fileID: 484206452312995949}
-      - {fileID: 2001663346727327491}
-      - {fileID: 4300675053128214693}
-    - segmentName: TL Mid to Base
-      spawnPoint: {fileID: 0}
-      waypoints:
-      - {fileID: 4753005939005592612}
-      - {fileID: 728450423431088920}
-      - {fileID: 3220346105024110768}
+      - {fileID: 6342852161599847795}
       - {fileID: 7341122699783178647}
       - {fileID: 3232876923017969281}
+      - {fileID: 1696585935197764323}
+  - routeName: R3
+    spawnPoint: {fileID: 0}
+    pathSegments:
+    - segmentName: M1
+      spawnPoint: {fileID: 0}
+      waypoints:
+      - {fileID: 241808765485354242}
+      - {fileID: 3761374276813378462}
+      - {fileID: 5780108914473929896}
+      - {fileID: 2175104423471475705}
+  - routeName: R4
+    spawnPoint: {fileID: 0}
+    pathSegments:
+    - segmentName: L1
+      spawnPoint: {fileID: 0}
+      waypoints:
+      - {fileID: 5610109136449002812}
+      - {fileID: 4840374575898949398}
+      - {fileID: 1804651532221547502}
+      - {fileID: 3761374276813378462}
+      - {fileID: 7387559133417008084}
+      - {fileID: 1696585935197764323}
   waveGroups:
   - waveSlots:
     - wave: {fileID: 11400000, guid: 103a92ec3577f9e48aa8ff4e91368b74, type: 2}
       routeIndex: 0
-    - wave: {fileID: 11400000, guid: 103a92ec3577f9e48aa8ff4e91368b74, type: 2}
-      routeIndex: 1
-  - waveSlots: []
-  - waveSlots: []
   spawnPoints: []
   availableSegments:
-  - segmentName: New_Segment_0
-    spawnPoint: {fileID: 0}
-    waypoints: []
+  - segmentName: Up Left 1
+    spawnPoint: {fileID: 6909092750021405461}
+    waypoints:
+    - {fileID: 4891236271506248070}
+    - {fileID: 6342852161599847795}
+    - {fileID: 7341122699783178647}
+    - {fileID: 3232876923017969281}
+    - {fileID: 1696585935197764323}
+  - segmentName: M1
+    spawnPoint: {fileID: 6819736000703320327}
+    waypoints:
+    - {fileID: 241808765485354242}
+    - {fileID: 3761374276813378462}
+    - {fileID: 5780108914473929896}
+    - {fileID: 2175104423471475705}
+  - segmentName: M2
+    spawnPoint: {fileID: 6819736000703320327}
+    waypoints:
+    - {fileID: 241808765485354242}
+    - {fileID: 3761374276813378462}
+    - {fileID: 7387559133417008084}
+    - {fileID: 1696585935197764323}
+  - segmentName: L1
+    spawnPoint: {fileID: 1632395346227245905}
+    waypoints:
+    - {fileID: 5610109136449002812}
+    - {fileID: 4840374575898949398}
+    - {fileID: 1804651532221547502}
+    - {fileID: 3761374276813378462}
+    - {fileID: 7387559133417008084}
+    - {fileID: 1696585935197764323}
+  - segmentName: L2
+    spawnPoint: {fileID: 4287617842585122211}
+    waypoints:
+    - {fileID: 4300675053128214693}
+    - {fileID: 1830558602476079606}
+    - {fileID: 484206452312995949}
+  - segmentName: L3
+    spawnPoint: {fileID: 863110529739306397}
+    waypoints:
+    - {fileID: 2001663346727327491}
+    - {fileID: 484206452312995949}
+  - segmentName: New_Segment_6
+    spawnPoint: {fileID: 3724841178400357533}
+    waypoints:
+    - {fileID: 1649262475142773954}
+    - {fileID: 5031465443494165902}
+    - {fileID: 484206452312995949}
+  - segmentName: New_Segment_7
+    spawnPoint: {fileID: 3724841178400357533}
+    waypoints:
+    - {fileID: 1649262475142773954}
+    - {fileID: 5031465443494165902}
+    - {fileID: 2944904388002110387}
+  - segmentName: New_Segment_8
+    spawnPoint: {fileID: 2932934674645526215}
+    waypoints:
+    - {fileID: 3350891530748325432}
+    - {fileID: 728450423431088920}
+    - {fileID: 3220346105024110768}
+    - {fileID: 7341122699783178647}
+    - {fileID: 3232876923017969281}
+    - {fileID: 1696585935197764323}
+  - segmentName: New_Segment_9
+    spawnPoint: {fileID: 2932934674645526215}
+    waypoints:
+    - {fileID: 3350891530748325432}
+    - {fileID: 728450423431088920}
+    - {fileID: 3220346105024110768}
+    - {fileID: 7341122699783178647}
+    - {fileID: 3232876923017969281}
+    - {fileID: 4753005939005592612}
+  - segmentName: New_Segment_10
+    spawnPoint: {fileID: 2932934674645526215}
+    waypoints:
+    - {fileID: 3350891530748325432}
+    - {fileID: 728450423431088920}
+    - {fileID: 4753005939005592612}
+  - segmentName: New_Segment_11
+    spawnPoint: {fileID: 471778404080685127}
+    waypoints:
+    - {fileID: 203322646965553026}
+    - {fileID: 3232876923017969281}
+    - {fileID: 1696585935197764323}
 --- !u!1 &7542977674532715411
 GameObject:
   m_ObjectHideFlags: 0
@@ -390847,7 +390695,7 @@ Transform:
   m_GameObject: {fileID: 8338627326130602897}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28, y: -43, z: 0}
+  m_LocalPosition: {x: 27.1, y: -44.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -391120,7 +390968,7 @@ Transform:
   m_GameObject: {fileID: 8545572518260554068}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.3, y: -1.3, z: 0}
+  m_LocalPosition: {x: 27.1, y: -0.79999995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

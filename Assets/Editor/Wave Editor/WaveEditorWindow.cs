@@ -1053,7 +1053,7 @@ public class WaveEditorWindow : EditorWindow
             using (new EditorGUI.DisabledScope(i >= pointsProp.arraySize - 1))
                 if (GUILayout.Button("Dn", GUILayout.Width(30))) { pointsProp.MoveArrayElement(i, i + 1); ApplyAndRepaintScene(); return; }
             GUI.backgroundColor = new Color(1f, 0.6f, 0.6f);
-            if (GUILayout.Button("X", GUILayout.Width(25))) { pointsProp.DeleteArrayElementAtIndex(i); ApplyAndRepaintScene(); return; }
+            if (GUILayout.Button("X", GUILayout.Width(25))) { RemoveObjectRefArrayElement(pointsProp, i); ApplyAndRepaintScene(); return; }
             GUI.backgroundColor = Color.white;
             EditorGUILayout.EndHorizontal();
         }
@@ -1360,29 +1360,78 @@ public class WaveEditorWindow : EditorWindow
 
     private void DrawSegmentHandles()
     {
-        // 1. Show EVERY waypoint in the level (children of the "Waypoints" object)
-        //    so all available points are visible while editing segments — not just
-        //    the ones already added to the selected segment.
+        PathSegment seg = (_selSegment >= 0 && _level.AvailableSegments != null &&
+                           _selSegment < _level.AvailableSegments.Count)
+            ? _level.AvailableSegments[_selSegment]
+            : null;
+
+        // 1. Show EVERY waypoint in the level (children of the "Waypoints" object).
+        //    When a segment is selected, each dot is a clickable button: click an
+        //    available (white) one to add it to the segment, click a member (green)
+        //    one to remove it.
         Transform waypointsRoot = _level.transform.Find("Waypoints");
         if (waypointsRoot != null)
         {
-            Handles.color = new Color(1f, 1f, 1f, 0.5f);
             foreach (Transform child in waypointsRoot)
             {
                 if (child == null) continue;
-                float size = HandleUtility.GetHandleSize(child.position) * 0.06f;
-                Handles.DrawSolidDisc(child.position, Vector3.forward, size);
-                Handles.Label(child.position + Vector3.up * 0.25f, child.name);
+
+                int order = (seg?.waypoints != null) ? seg.waypoints.IndexOf(child) : -1;
+                bool inSeg = order >= 0;
+                float size = HandleUtility.GetHandleSize(child.position);
+
+                Handles.color = inSeg ? Color.green : new Color(1f, 1f, 1f, 0.6f);
+
+                if (seg != null)
+                {
+                    // Interactive toggle. The dot sits at the centre; the move
+                    // PositionHandle (drawn below) owns the offset axes, so the
+                    // handle system routes a centre click here and an axis drag there.
+                    if (Handles.Button(child.position, Quaternion.identity,
+                                       size * 0.08f, size * 0.13f, Handles.DotHandleCap))
+                    {
+                        ToggleWaypointInSegment(child);
+                        return; // segment list changed; abort this pass
+                    }
+                }
+                else
+                {
+                    Handles.DotHandleCap(0, child.position, Quaternion.identity,
+                                         size * 0.06f, EventType.Repaint);
+                }
+
+                Handles.Label(child.position + Vector3.up * 0.25f,
+                              inSeg ? $"{child.name} [{order}]" : child.name);
             }
         }
 
-        // 2. Highlight the selected segment: connect its waypoints in order and
-        //    make them movable.
-        var pool = _level.AvailableSegments;
-        if (pool == null || _selSegment < 0 || _selSegment >= pool.Count) return;
+        // 1b. Show spawn points (children of "Spawn Points") in orange. The one
+        //     assigned to the selected segment is highlighted, with a dotted line
+        //     to the segment's first waypoint.
+        Transform spawnRoot = _level.transform.Find("Spawn Points");
+        Transform segSpawn = seg != null ? seg.spawnPoint : null;
+        if (spawnRoot != null)
+        {
+            foreach (Transform sp in spawnRoot)
+            {
+                if (sp == null) continue;
+                bool assigned = sp == segSpawn;
+                float size = HandleUtility.GetHandleSize(sp.position);
+                Handles.color = assigned ? new Color(1f, 0.55f, 0.1f) : new Color(1f, 0.8f, 0.35f, 0.5f);
+                Handles.DotHandleCap(0, sp.position, Quaternion.identity,
+                                     size * (assigned ? 0.09f : 0.06f), EventType.Repaint);
+                Handles.Label(sp.position + Vector3.up * 0.3f,
+                              assigned ? $"★ SPAWN: {sp.name}" : $"(spawn) {sp.name}");
+            }
+        }
+        if (segSpawn != null && seg?.waypoints != null && seg.waypoints.Count > 0 && seg.waypoints[0] != null)
+        {
+            Handles.color = new Color(1f, 0.55f, 0.1f);
+            Handles.DrawDottedLine(segSpawn.position, seg.waypoints[0].position, 4f);
+        }
 
-        PathSegment seg = pool[_selSegment];
-        if (seg.waypoints == null) return;
+        // 2. Connect the selected segment's waypoints in order and make them movable.
+        if (seg?.waypoints == null) return;
 
         Handles.color = Color.cyan;
         for (int w = 0; w < seg.waypoints.Count; w++)
@@ -1400,7 +1449,55 @@ public class WaveEditorWindow : EditorWindow
                 Undo.RecordObject(point, "Move Waypoint");
                 point.position = newPos;
             }
-            Handles.Label(point.position + Vector3.up * 0.5f, $"{seg.segmentName}_{w}");
         }
+    }
+
+    /// <summary>
+    /// Adds the waypoint to the selected segment (appended in click order), or
+    /// removes it if it is already a member. Called from the scene-view dots.
+    /// </summary>
+    private void ToggleWaypointInSegment(Transform waypoint)
+    {
+        if (_selSegment < 0 || _availableSegmentsProp == null ||
+            _selSegment >= _availableSegmentsProp.arraySize) return;
+
+        _levelSO.Update();
+        SerializedProperty wp = _availableSegmentsProp
+            .GetArrayElementAtIndex(_selSegment)
+            .FindPropertyRelative("waypoints");
+
+        int existing = -1;
+        for (int i = 0; i < wp.arraySize; i++)
+            if (wp.GetArrayElementAtIndex(i).objectReferenceValue == waypoint) { existing = i; break; }
+
+        if (existing >= 0)
+        {
+            RemoveObjectRefArrayElement(wp, existing);
+        }
+        else
+        {
+            int idx = wp.arraySize;
+            wp.InsertArrayElementAtIndex(idx);
+            wp.GetArrayElementAtIndex(idx).objectReferenceValue = waypoint;
+        }
+
+        _levelSO.ApplyModifiedProperties();
+        MarkLevelDirty();
+        Repaint();            // refresh the inspector's "Selected Waypoints" list
+        SceneView.RepaintAll();
+    }
+
+    /// <summary>
+    /// Removes one element from a SerializedProperty array of object references.
+    /// DeleteArrayElementAtIndex only nulls a non-null object-reference element on
+    /// the first call, so we null it explicitly first to guarantee a real removal.
+    /// </summary>
+    private static void RemoveObjectRefArrayElement(SerializedProperty arrayProp, int index)
+    {
+        if (index < 0 || index >= arrayProp.arraySize) return;
+        SerializedProperty elem = arrayProp.GetArrayElementAtIndex(index);
+        if (elem.propertyType == SerializedPropertyType.ObjectReference && elem.objectReferenceValue != null)
+            elem.objectReferenceValue = null;
+        arrayProp.DeleteArrayElementAtIndex(index);
     }
 }
